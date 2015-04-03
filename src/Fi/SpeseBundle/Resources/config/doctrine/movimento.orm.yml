@@ -1,0 +1,54 @@
+Fi\SpeseBundle\Entity\movimento:
+    type: entity
+    table: movimento
+    indexes:
+        fk_spesa_tipologia1_idx:
+            columns: [tipologia_id]
+        fk_pagamento_utente1_idx:
+            columns: [utente_id]
+        fk_movimento_tipomovimento1_idx:
+            columns: [tipomovimento_id]
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        tipomovimento_id:
+            type: integer
+        tipologia_id:
+            type: integer
+        utente_id:
+            type: integer
+        importo:
+            type: float
+            precision: 10
+            scale: 2
+        data:
+            type: date
+        nota:
+            type: string
+            length: 4000
+            nullable: true
+    manyToOne:
+        tipologia:
+            targetEntity: tipologia
+            inversedBy: movimentos
+            joinColumn:
+                name: tipologia_id
+                referencedColumnName: id
+                nullable: false
+        utente:
+            targetEntity: utente
+            inversedBy: movimentos
+            joinColumn:
+                name: utente_id
+                referencedColumnName: id
+                nullable: false
+        tipomovimento:
+            targetEntity: tipomovimento
+            inversedBy: movimentos
+            joinColumn:
+                name: tipomovimento_id
+                referencedColumnName: id
+                nullable: false

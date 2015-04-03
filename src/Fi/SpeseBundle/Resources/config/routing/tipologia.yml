@@ -1,0 +1,41 @@
+tipologia_container:
+    pattern:  /
+    defaults: { _controller: "FiSpeseBundle:tipologia:index" }
+
+tipologia_new:
+    pattern:  /new
+    defaults: { _controller: "FiSpeseBundle:tipologia:new" }
+
+tipologia_create:
+    pattern:  /create
+    defaults: { _controller: "FiSpeseBundle:tipologia:create" }
+    requirements: { _method: post }
+
+tipologia_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FiSpeseBundle:tipologia:edit" }
+
+tipologia_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FiSpeseBundle:tipologia:update" }
+    requirements: { _method: post|put }
+
+tipologia_aggiorna:
+    pattern:  /aggiorna
+    defaults: { _controller: "FiSpeseBundle:tipologia:aggiorna" }
+    requirements: { _method: post|put }
+
+tipologia_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FiSpeseBundle:tipologia:delete" }
+    requirements: { _method: post|delete }
+
+tipologia_deletemultiple:
+    pattern:  /delete
+    defaults: { _controller: "FiSpeseBundle:tipologia:delete" }
+    requirements: { _method: post|delete }
+
+tipologia_griglia:
+    pattern:  /griglia
+    defaults: { _controller: "FiSpeseBundle:tipologia:griglia" }
+    requirements: { _method: get }

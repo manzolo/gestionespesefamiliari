@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>movimento</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Tipologia_id</th>
+                <td>{{ entity.tipologiaid }}</td>
+            </tr>
+            <tr>
+                <th>Utente_id</th>
+                <td>{{ entity.utenteid }}</td>
+            </tr>
+            <tr>
+                <th>Importo</th>
+                <td>{{ entity.importo }}</td>
+            </tr>
+            <tr>
+                <th>Data</th>
+                <td>{{ entity.data|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Nota</th>
+                <td>{{ entity.nota }}</td>
+            </tr>
+            <tr>
+                <th>Tipomovimento_id</th>
+                <td>{{ entity.tipomovimentoid }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('movimento') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('movimento_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

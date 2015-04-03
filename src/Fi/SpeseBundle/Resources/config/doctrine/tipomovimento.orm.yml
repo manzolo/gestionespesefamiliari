@@ -1,0 +1,27 @@
+Fi\SpeseBundle\Entity\tipomovimento:
+    type: entity
+    table: tipomovimento
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        tipo:
+            type: string
+            length: 45
+        abbreviazione:
+            type: string
+            length: 1
+            nullable: true
+        segno:
+            type: string
+            length: 45
+    oneToMany:
+        movimentos:
+            targetEntity: movimento
+            mappedBy: tipomovimento
+            joinColumn:
+                name: tipomovimento_id
+                referencedColumnName: id
+                nullable: false

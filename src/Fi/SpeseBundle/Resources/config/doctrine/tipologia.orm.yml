@@ -1,0 +1,33 @@
+Fi\SpeseBundle\Entity\tipologia:
+    type: entity
+    table: tipologia
+    indexes:
+        fk_subcategoria_categoria_idx:
+            columns: [categoria_id]
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        categoria_id:
+            type: integer
+        descrizione:
+            type: string
+            length: 255
+    oneToMany:
+        movimentos:
+            targetEntity: movimento
+            mappedBy: tipologia
+            joinColumn:
+                name: tipologia_id
+                referencedColumnName: id
+                nullable: false
+    manyToOne:
+        categoria:
+            targetEntity: categoria
+            inversedBy: tipologias
+            joinColumn:
+                name: categoria_id
+                referencedColumnName: id
+                nullable: false

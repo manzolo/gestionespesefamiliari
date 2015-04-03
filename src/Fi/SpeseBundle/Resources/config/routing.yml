@@ -1,0 +1,43 @@
+fi_spese_movimento:
+    resource: "@FiSpeseBundle/Resources/config/routing/movimento.yml"
+    prefix:   /movimento
+
+fi_spese_utente:
+    resource: "@FiSpeseBundle/Resources/config/routing/utente.yml"
+    prefix:   /utente
+
+fi_spese_tipomovimento:
+    resource: "@FiSpeseBundle/Resources/config/routing/tipomovimento.yml"
+    prefix:   /tipomovimento
+
+fi_spese_tipologia:
+    resource: "@FiSpeseBundle/Resources/config/routing/tipologia.yml"
+    prefix:   /tipologia
+
+fi_spese_categoria:
+    resource: "@FiSpeseBundle/Resources/config/routing/categoria.yml"
+    prefix:   /categoria
+
+fi_spese_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FiSpeseBundle:Default:index }
+
+FiSpeseBundle_categoria: 
+  resource: "@FiSpeseBundle/Resources/config/routing/categoria.yml"
+  prefix: /categoria
+
+FiSpeseBundle_tipologia: 
+  resource: "@FiSpeseBundle/Resources/config/routing/tipologia.yml"
+  prefix: /tipologia
+
+FiSpeseBundle_tipomovimento: 
+  resource: "@FiSpeseBundle/Resources/config/routing/tipomovimento.yml"
+  prefix: /tipomovimento
+
+FiSpeseBundle_utente: 
+  resource: "@FiSpeseBundle/Resources/config/routing/utente.yml"
+  prefix: /utente
+
+FiSpeseBundle_movimento: 
+  resource: "@FiSpeseBundle/Resources/config/routing/movimento.yml"
+  prefix: /movimento

@@ -1,0 +1,41 @@
+categoria_container:
+    pattern:  /
+    defaults: { _controller: "FiSpeseBundle:categoria:index" }
+
+categoria_new:
+    pattern:  /new
+    defaults: { _controller: "FiSpeseBundle:categoria:new" }
+
+categoria_create:
+    pattern:  /create
+    defaults: { _controller: "FiSpeseBundle:categoria:create" }
+    requirements: { _method: post }
+
+categoria_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "FiSpeseBundle:categoria:edit" }
+
+categoria_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "FiSpeseBundle:categoria:update" }
+    requirements: { _method: post|put }
+
+categoria_aggiorna:
+    pattern:  /aggiorna
+    defaults: { _controller: "FiSpeseBundle:categoria:aggiorna" }
+    requirements: { _method: post|put }
+
+categoria_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "FiSpeseBundle:categoria:delete" }
+    requirements: { _method: post|delete }
+
+categoria_deletemultiple:
+    pattern:  /delete
+    defaults: { _controller: "FiSpeseBundle:categoria:delete" }
+    requirements: { _method: post|delete }
+
+categoria_griglia:
+    pattern:  /griglia
+    defaults: { _controller: "FiSpeseBundle:categoria:griglia" }
+    requirements: { _method: get }

@@ -1,0 +1,32 @@
+Fi\SpeseBundle\Entity\utente:
+    type: entity
+    table: utente
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        nome:
+            type: string
+            length: 255
+        cognome:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        username:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+    oneToMany:
+        movimentos:
+            targetEntity: movimento
+            mappedBy: utente
+            joinColumn:
+                name: utente_id
+                referencedColumnName: id
+                nullable: false
