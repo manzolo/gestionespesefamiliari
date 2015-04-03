@@ -1,0 +1,74 @@
+{
+    "name": "symfony/framework-standard-edition",
+    "license": "MIT",
+    "type": "project",
+    "description": "The \"Symfony Standard Edition\" distribution",
+    "autoload": {
+        "psr-0": {"": "src/"},
+        "classmap": ["vendor/tecnick.com/tcpdf/tcpdf.php"]
+    }, "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "tecnick.com/tcpdf",
+                "version": "master",
+                "source": {
+                    "url": "http://git.code.sf.net/p/tcpdf/code",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
+        }
+    ],
+    "require": {
+        "php": ">=5.4.3",
+        "symfony/symfony": "2.5.*",
+        "doctrine/orm": ">=2.4.0,<2.5-dev",
+        "doctrine/doctrine-bundle": "1.2.*",
+        "doctrine/inflector": "1.0.*",
+        "twig/extensions": "1.2.*",
+        "symfony/assetic-bundle": "2.5.*",
+        "symfony/swiftmailer-bundle": "2.3.*",
+        "symfony/monolog-bundle": "2.6.*",
+        "symfony/yaml": "2.5.*",
+        "sensio/distribution-bundle": "3.0.*",
+        "sensio/framework-extra-bundle": "3.0.*",
+        "sensio/generator-bundle": "2.4.*",
+        "incenteev/composer-parameter-handler": "2.1.*",
+        "tecnick.com/tcpdf": "~6.0",
+        "phpoffice/phpexcel": "~1.8",
+        "phpoffice/phpword": "~0.11",
+        "friendsofsymfony/user-bundle": "2.0.*@dev"
+
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-update-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias": {
+            "dev-master": "2.5-dev"
+        }
+    }
+}

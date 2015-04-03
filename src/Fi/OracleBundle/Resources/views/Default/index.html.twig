@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Query Result</title>
+    </head>
+    <body>
+        <table>
+            <th>OWNER</th>
+            <th>TABLE NAME</th>
+        {% for elemento in risultato %}
+                <tr>
+                    <td>{{ elemento["OWNER"] }}</td>
+                    <td>{{ elemento["TABLE_NAME"] }}</td>
+                </tr>
+        {% endfor %}
+            </table>
+
+        </body>
+    </html>

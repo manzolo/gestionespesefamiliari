@@ -1,0 +1,3 @@
+fi_ldap_homepage:
+    path:     /ldap
+    defaults: { _controller: FiLdapBundle:Default:index }

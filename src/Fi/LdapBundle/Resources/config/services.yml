@@ -1,0 +1,53 @@
+parameters:
+#    fi_ldap.example.class: Fi\LdapBundle\Example
+  fiLdap.class: Fi\LdapBundle\DependencyInjection\fiLdap
+  connessione_ldap:
+    username: CN=LDAP_USER,OU=Utenti,OU=CdFsys,DC=comune,DC=intranet
+    password: LDAP_PASSWORD
+    #username: CN=LDAP_USER,OU=Utenti,OU=CdFsys,DC=comune,DC=intranet
+    #password: LDAP_PASSWORD
+    host: ldap.comune.intranet
+    port: 389
+    basedn: OU=Utenti,OU=CdF,DC=comune,DC=intranet
+    userfilter: (&(objectClass=user))
+    attribute:
+        - "samaccountname"
+        - "mail"
+        - "displayname"
+        - "sn"
+        - "cn"
+        - "givenname"
+        - "name"
+        - "description"
+        - "physicaldeliveryofficename"
+        - "distinguishedname"
+        - "whencreated"
+        - "memberof"
+        - "department"
+        - "company"
+        - "lastlogon"
+        - "thumbnailphoto"
+        - "pwdlastset"
+        - "accountexpires"
+        - "userprincipalname"
+        - "objectcategory"
+    #filterutenti: (&(objectClass=user)(!(cn=u*))(!(cn=*x))(!(cn=U*))(!(cn=T*))(!(cn=t*))(!(cn=c*))(!(cn=C*))(!(cn=i*))(!(cn=I*))(!(cn=a*))(!(cn=A*)))
+    #(&(objectClass=user)(!(&(ou:dn:=Disattivati)(ou:dn:=Utenti)(ou:dn:=CdF)(dc:dn:=comune)(dc:dn:=intranet)))(name=*43325))
+    #(&(objectClass=user)(name=*43325*))
+    #(!(&(distinguishedname=CN=n43325x,OU=Disattivati,OU=Utenti,OU=CdF,DC=comune,DC=intranet)))
+    #(!(ou=Disattivati))    
+    #(OU=Disattivati,OU=Utenti,OU=CdF,DC=comune,DC=intranet)
+    #array("filter"=>"(&(objectClass=user)(&(cn=D59495))(!(cn=u*))(!(cn=*x))(!(cn=U*))(!(cn=T*))(!(cn=t*))(!(cn=c*))(!(cn=C*))(!(cn=i*))(!(cn=I*))(!(cn=a*))(!(cn=A*)))")
+    #array("attribute"=>array("mail","samaccountname","cn"))
+
+services:
+#    fi_ldap.example:
+#        class: %fi_ldap.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    ldap_manager:
+        class:     "%fiLdap.class%"
+        #arguments: [@service_id, "plain_value", %parameter%]
+        arguments: [%connessione_ldap%]
+
+
+

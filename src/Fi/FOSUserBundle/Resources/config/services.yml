@@ -1,0 +1,4 @@
+services:
+#    fi_fos_user.example:
+#        class: Fi\FOSUserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

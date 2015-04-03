@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <link rel="stylesheet" href="{{ asset('bundles/autenticazione/css/autenticazione.css') }}" />
+    </head>
+    <body>
+        <div id="login" class="login">
+            <h1>Clicca su "Accedi" per entrare con il sistema di SSO</h1>
+            <ul>
+                <li><a href="{{ path('fi_autenticazione_accedi',{ 'ridirezione': percorsorichiesto }) }}">Accedi</a>
+                    <!--<?php echo link_to(__('Accedi'), "fi_autenticazione_accedi", array('ridirezione' => $percorsorichiesto)) ?>-->
+                </li>
+            </ul>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="{{ asset('bundles/ficore/css/foslogin.css') }}" /> 
+        <link rel="stylesheet" href="{{ asset('bundles/ficore/css/vendor/jquery-menubar/jquery.ui.all.css') }}" /> 
+        <link rel="stylesheet" href="{{ asset('bundles/ficore/css/vendor/jquery-ui/jquery-ui-1.10.3.custom.css') }}" /> 
+        <link rel="stylesheet" href="{{ asset('bundles/ficore/css/vendor/jqgrid/ui.jqgrid.css') }}" />
+        <link rel="stylesheet" href="{{ asset('bundles/ficore/css/vendor/jqgrid/ui.multiselect.css') }}" />
+
+        <link rel="stylesheet" href="{{ asset('bundles/ficore/css/main.css') }}" /> 
+
+        {% if (solosso==true) %}
+            <script>
+                window.location.href = '{{ path('fi_autenticazione_signin', {'ridirezione': app.session.get('_security.main.target_path')}) }}'
+            </script>
+        {% endif %}
+
+    </head>
+
+    <body>
+        <div class="ui-widget ui-widget-content ui-jqdialog ui-corner-all ui-draggable ui-resizable" id="login">
+
+            <div class="ui-jqdialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">Accesso</div>
+            <div id="corpologin">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': (app.user.username is defined)?app.user.username:"Accesso SSO"}, 'FOSUserBundle') }} |
+                    <a href="{{ path('fos_user_security_logout') }}">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                {% else %}
+                    <!--<a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>-->
+                    <a href="{{ path('fi_autenticazione_signin', {'ridirezione': app.session.get('_security.main.target_path')}) }}">
+                        {{ 'Accedi con SSO' }} 
+                    </a>
+                {% endif %}
+
+
+                {% for type, messages in app.session.flashbag.all() %}
+                    {% for key, message in messages %}
+                        <div class="flash-{{ type }}">
+                            {{ message|trans({}, 'FOSUserBundle') }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+
+                {% block fos_user_content %}
+                {% endblock fos_user_content %}
+
+            </div>
+        </div>    
+    </body>
+</html>
+

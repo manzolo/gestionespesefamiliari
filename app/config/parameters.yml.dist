@@ -1,0 +1,15 @@
+parameters:
+    database_driver: pdo_pgsql
+    database_host: comfipgsql01.comune.intranet
+    database_port: null
+    database_name: fifree2test
+    database_user: fifree2usr
+    database_password: liberafi
+
+    mailer_transport: smtp
+    mailer_host: smtp.comune.intranet
+    mailer_user:       ~
+    mailer_password:   ~
+
+    locale:            it
+    secret:            ThisTokenIsNotSoSecretChangeIt

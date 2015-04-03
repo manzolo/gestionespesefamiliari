@@ -1,0 +1,15 @@
+imports:
+    - { resource: config_dev.yml }
+
+framework:
+    profiler: { only_exceptions: false }
+    
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver: pdo_pgsql
+        host: localhost
+        port: null
+        dbname: fifree2
+        user: postgres
+        password: postgres

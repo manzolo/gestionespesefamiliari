@@ -1,0 +1,36 @@
+fi_ldap:
+    resource: "@FiLdapBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fi_personale:
+    resource: "@FiPersonaleBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fi_network:
+    resource: "@FiNetworkBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fi_oracle:
+    resource: "@FiOracleBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fi_pannello_amministrazione:
+    resource: "@FiPannelloAmministrazioneBundle/Resources/config/routing.yml"
+    prefix:   /
+
+autenticazione:
+    resource: "@AutenticazioneBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fi_core:
+    resource: "@FiCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+#HOMEPAGE ROUTE
+homepage:
+    prefix:   /
+    path:      /
+    defaults: { _controller: FiCoreBundle:ffprincipale:index }
+    requirements:
+      _method:  GET
+

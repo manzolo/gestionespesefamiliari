@@ -1,0 +1,3 @@
+fi_sipo_homepage:
+    path:     /provasipo/{codicefiscale}
+    defaults: { _controller: FiSipoBundle:Default:index }

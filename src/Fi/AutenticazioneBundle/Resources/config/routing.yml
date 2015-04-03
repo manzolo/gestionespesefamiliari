@@ -1,0 +1,25 @@
+#autenticazione_homepage:
+#    pattern:  /hello/{name}
+#    defaults: { _controller: AutenticazioneBundle:Default:index }
+
+fi_autenticazione_signin:
+    pattern:  /autenticazione/signin
+    defaults: { _controller: AutenticazioneBundle:Autenticazione:signin }
+  
+
+fi_autenticazione_signout:
+  pattern:   /autenticazione/signout
+  defaults: { _controller: AutenticazioneBundle:Autenticazione:signout }
+
+fi_autenticazione_accedi:
+  pattern:   /autenticazione/sso
+  defaults: { _controller: AutenticazioneBundle:Autenticazione:sso }
+
+fi_autenticazione_ok:
+  pattern:   /autenticazione/ok
+  defaults: { _controller: AutenticazioneBundle:Autenticazione:ok }
+
+#fi_autenticazione_change:
+#  url:   /autenticazione/change
+#  param: { module: fiAutenticazione, action: change }
+

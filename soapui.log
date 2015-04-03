@@ -1,0 +1,76 @@
+2013-07-11 15:15:12,898 INFO  [DefaultSoapUICore] initialized soapui-settings from [/opt/soapui/soapui-settings.xml]
+2013-07-11 15:15:15,621 INFO  [SoapUI] Used java version: 1.7.0_07
+2013-07-11 15:15:18,328 INFO  [b] XULRunner is already extracted to /root/.JxBrowser/xulrunner-linux-version-1.9.2.1/xulrunner-linux
+2013-07-11 15:16:07,235 INFO  [SchemaUtils] Added default schema from file:/opt/soapui/bin/soapui-4.5.0.jar!/com/eviware/soapui/resources/xsds/xop.xsd with targetNamespace http://www.w3.org/2004/08/xop/include
+2013-07-11 15:16:07,428 INFO  [SchemaUtils] Added default schema from file:/opt/soapui/bin/soapui-4.5.0.jar!/com/eviware/soapui/resources/xsds/XMLSchema.xsd with targetNamespace http://www.w3.org/2001/XMLSchema
+2013-07-11 15:16:07,429 INFO  [SchemaUtils] Added default schema from file:/opt/soapui/bin/soapui-4.5.0.jar!/com/eviware/soapui/resources/xsds/xml.xsd with targetNamespace http://www.w3.org/XML/1998/namespace
+2013-07-11 15:16:07,430 INFO  [SchemaUtils] Added default schema from file:/opt/soapui/bin/soapui-4.5.0.jar!/com/eviware/soapui/resources/xsds/swaref.xsd with targetNamespace http://ws-i.org/profiles/basic/1.1/xsd
+2013-07-11 15:16:07,432 INFO  [SchemaUtils] Added default schema from file:/opt/soapui/bin/soapui-4.5.0.jar!/com/eviware/soapui/resources/xsds/xmime200505.xsd with targetNamespace http://www.w3.org/2005/05/xmlmime
+2013-07-11 15:16:07,433 INFO  [SchemaUtils] Added default schema from file:/opt/soapui/bin/soapui-4.5.0.jar!/com/eviware/soapui/resources/xsds/xmime200411.xsd with targetNamespace http://www.w3.org/2004/11/xmlmime
+2013-07-11 15:16:07,435 INFO  [SchemaUtils] Added default schema from file:/opt/soapui/bin/soapui-4.5.0.jar!/com/eviware/soapui/resources/xsds/soapEnvelope.xsd with targetNamespace http://schemas.xmlsoap.org/soap/envelope/
+2013-07-11 15:16:07,478 INFO  [SchemaUtils] Added default schema from file:/opt/soapui/bin/soapui-4.5.0.jar!/com/eviware/soapui/resources/xsds/soapEncoding.xsd with targetNamespace http://schemas.xmlsoap.org/soap/encoding/
+2013-07-11 15:16:07,484 INFO  [SchemaUtils] Added default schema from file:/opt/soapui/bin/soapui-4.5.0.jar!/com/eviware/soapui/resources/xsds/soapEnvelope12.xsd with targetNamespace http://www.w3.org/2003/05/soap-envelope
+2013-07-11 15:16:07,495 INFO  [SchemaUtils] Added default schema from file:/opt/soapui/bin/soapui-4.5.0.jar!/com/eviware/soapui/resources/xsds/soapEncoding12.xsd with targetNamespace http://www.w3.org/2003/05/soap-encoding
+2013-07-11 15:16:21,369 ERROR [SoapUI] An error occured [Connessione scaduta], see error log for details
+2013-07-11 15:16:21,369 ERROR [errorlog] Network Error for Version Update or Proxy
+2013-07-11 15:16:21,371 ERROR [errorlog] java.net.ConnectException: Connessione scaduta
+java.net.ConnectException: Connessione scaduta
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at sun.net.NetworkClient.doConnect(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.openServer(Unknown Source)
+	at sun.net.www.http.HttpClient.<init>(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.http.HttpClient.New(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getNewHttpClient(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.plainConnect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.connect(Unknown Source)
+	at sun.net.www.protocol.http.HttpURLConnection.getInputStream(Unknown Source)
+	at com.eviware.soapui.support.SoapUIVersionUpdate.getLatestVersionAvailable(SoapUIVersionUpdate.java:96)
+	at com.eviware.soapui.support.SoapUIVersionUpdate.checkForNewVersion(SoapUIVersionUpdate.java:261)
+	at com.eviware.soapui.SoapUI$SoapUIRunner.run(SoapUI.java:649)
+	at com.eviware.soapui.SoapUI.main(SoapUI.java:744)
+2013-07-11 15:17:11,292 ERROR [WsdlLoader] Failed to load url [https://accessoconcertificato.comune.fi.it/ssocdf/firenzewifi/proxy-auth.php?wsdl]
+2013-07-11 15:17:11,292 ERROR [SoapUI] An error occured [com.eviware.soapui.impl.support.definition.support.InvalidDefinitionException], see error log for details
+2013-07-11 15:17:11,293 ERROR [errorlog] com.eviware.soapui.impl.support.definition.support.InvalidDefinitionException
+com.eviware.soapui.impl.support.definition.support.InvalidDefinitionException
+	at com.eviware.soapui.impl.wsdl.support.wsdl.WsdlLoader.loadXmlObject(WsdlLoader.java:138)
+	at com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils.getDefinitionParts(SchemaUtils.java:535)
+	at com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils.getDefinitionParts(SchemaUtils.java:524)
+	at com.eviware.soapui.impl.support.definition.support.AbstractDefinitionCache.update(AbstractDefinitionCache.java:97)
+	at com.eviware.soapui.impl.support.definition.support.AbstractDefinitionContext$Loader.construct(AbstractDefinitionContext.java:226)
+	at com.eviware.soapui.support.swing.SwingWorkerDelegator.construct(SwingWorkerDelegator.java:46)
+	at com.eviware.soapui.support.swing.SwingWorker$2.run(SwingWorker.java:149)
+	at java.lang.Thread.run(Unknown Source)
+2013-07-11 15:18:30,074 ERROR [WsdlLoader] Failed to load url [https://accessoconcertificato.comune.fi.it/ssocdf/firenzewifi/proxy-auth.php?wsdl]
+2013-07-11 15:18:30,074 ERROR [SoapUI] An error occured [com.eviware.soapui.impl.support.definition.support.InvalidDefinitionException], see error log for details
+2013-07-11 15:18:30,074 ERROR [errorlog] com.eviware.soapui.impl.support.definition.support.InvalidDefinitionException
+com.eviware.soapui.impl.support.definition.support.InvalidDefinitionException
+	at com.eviware.soapui.impl.wsdl.support.wsdl.WsdlLoader.loadXmlObject(WsdlLoader.java:138)
+	at com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils.getDefinitionParts(SchemaUtils.java:535)
+	at com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils.getDefinitionParts(SchemaUtils.java:524)
+	at com.eviware.soapui.impl.support.definition.support.AbstractDefinitionCache.update(AbstractDefinitionCache.java:97)
+	at com.eviware.soapui.impl.support.definition.support.AbstractDefinitionContext$Loader.construct(AbstractDefinitionContext.java:226)
+	at com.eviware.soapui.support.swing.SwingWorkerDelegator.construct(SwingWorkerDelegator.java:46)
+	at com.eviware.soapui.support.swing.SwingWorker$2.run(SwingWorker.java:149)
+	at java.lang.Thread.run(Unknown Source)
+2013-07-11 15:29:23,002 ERROR [WsdlLoader] Failed to load url [https://autentica:-Ut3nz4-@accessoconcertificato.comune.fi.it/ssocdf/firenzewifi/proxy-auth.php]
+2013-07-11 15:29:23,002 ERROR [SoapUI] An error occured [com.eviware.soapui.impl.support.definition.support.InvalidDefinitionException], see error log for details
+2013-07-11 15:29:23,002 ERROR [errorlog] com.eviware.soapui.impl.support.definition.support.InvalidDefinitionException
+com.eviware.soapui.impl.support.definition.support.InvalidDefinitionException
+	at com.eviware.soapui.impl.wsdl.support.wsdl.WsdlLoader.loadXmlObject(WsdlLoader.java:138)
+	at com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils.getDefinitionParts(SchemaUtils.java:535)
+	at com.eviware.soapui.impl.wsdl.support.xsd.SchemaUtils.getDefinitionParts(SchemaUtils.java:524)
+	at com.eviware.soapui.impl.support.definition.support.AbstractDefinitionCache.update(AbstractDefinitionCache.java:97)
+	at com.eviware.soapui.impl.support.definition.support.AbstractDefinitionContext$Loader.construct(AbstractDefinitionContext.java:226)
+	at com.eviware.soapui.support.swing.SwingWorkerDelegator.construct(SwingWorkerDelegator.java:46)
+	at com.eviware.soapui.support.swing.SwingWorker$2.run(SwingWorker.java:149)
+	at java.lang.Thread.run(Unknown Source)
+2013-07-11 15:29:29,026 INFO  [DefaultSoapUICore] Settings saved to [/opt/soapui/soapui-settings.xml]
+2013-07-11 15:29:30,903 INFO  [WorkspaceImpl] Saved workspace to [/home/likewise-open/COMUNE-INTRANET/d59207/development/sfproject/fifree2/../../TestPBE-workspace.xml]

@@ -1,0 +1,20 @@
+parameters:
+#    fi_fele.example.class: Fi\FeleBundle\Example
+  SIPOPARAMETERS:
+    utente: SIEF
+    password: com01fir
+    connessione: ORASIPO
+  SIPOTESTPARAMETERS:
+    utente: SIPOT
+    password: pw5190test
+    connessione: ORASIPOT
+    
+services:
+#    fi_fele.example:
+#        class: %fi_fele.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    oracle_sipo:
+        class:     "%fiQuery.class%"
+        arguments: [%SIPOPARAMETERS%]
+
+

@@ -1,0 +1,8 @@
+parameters:
+#    autenticazione.example.class: Fi\AutenticazioneBundle\Example
+
+services:
+#    autenticazione.example:
+#        class: %autenticazione.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+  
