@@ -1,0 +1,77 @@
+{% include 'FiCoreBundle::layout.html.twig' %}
+{% block content %}
+    <h1>Report totale</h1>
+    <table id="totale">
+        <tr>
+            <th>Utente</th>
+            <th>Importo</th>
+        </tr>
+        {% for recordreporttotale in reporttotale %}
+            <tr>
+                <td>{{recordreporttotale.nomeutente}} {{recordreporttotale.cognomeutente}}</td>
+                <td>{{recordreporttotale.importototale|number_format(2, '.', ',')}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br/><br/>
+    <h1>Report mensile</h1>
+    <table id="mensile">
+        <tr>
+            <th>Utente</th>
+            <th>Mese</th>
+            <th>Importo</th>
+        </tr>
+        {% for recordreportmensile in reportmensile %}
+            <tr>
+                <td>{{recordreportmensile.nomeutente}} {{recordreportmensile.cognomeutente}}</td>
+                <td>{{recordreportmensile.mese|monthName}} {{recordreportmensile.anno}}</td>
+                <td>{{recordreportmensile.importototale|number_format(2, '.', ',')}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br/><br/>
+    <h1>Report mensile per tipologia</h1>
+    <table id="mensiletipologia">
+        <tr>
+            <th>Utente</th>
+            <th>Tipologia</th>
+            <th>Mese</th>
+            <th>Importo</th>
+        </tr>
+        {% for recordreportmensiletipologia in reportmensiletipologia %}
+            <tr>
+                <td>{{recordreportmensiletipologia.nomeutente}} {{recordreportmensiletipologia.cognomeutente}}</td>
+                <td>{{recordreportmensiletipologia.descrizionetipologia}}</td>
+                <td>{{recordreportmensiletipologia.mese|monthName}} {{recordreportmensiletipologia.anno}}</td>
+                <td>{{recordreportmensiletipologia.importototale|number_format(2, '.', ',')}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <br/><br/>
+    <h1>Report mensile per categoria</h1>
+    <table id="mensilecategoria" class="tabella">
+        <tr>
+            <th>Utente</th>
+            <th>Categoria</th>
+            <th>Mese</th>
+            <th>Importo</th>
+        </tr>
+        {% for recordreportmensilecategoria in reportmensilecategoria %}
+            <tr>
+                <td>{{recordreportmensilecategoria.nomeutente}} {{recordreportmensilecategoria.cognomeutente}}</td>
+                <td>{{recordreportmensilecategoria.descrizionecategoria}}</td>
+                <td>{{recordreportmensilecategoria.mese|monthName}} {{recordreportmensilecategoria.anno}}</td>
+                <td>{{recordreportmensilecategoria.importototale|number_format(2, '.', ',')}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            tableToGrid("#mensiletipologia");
+            tableToGrid("#mensilecategoria");
+            tableToGrid("#mensile");
+            tableToGrid("#totale");
+        });
+
+    </script>
+{% endblock %}

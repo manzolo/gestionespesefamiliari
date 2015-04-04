@@ -155,7 +155,7 @@ class tipologia
     }
     
         public function __toString() {
-        return $this->descrizione;
+        return $this->descrizione . " (" . $this->getCategoria()->getDescrizione() . ")";
     }
 
 

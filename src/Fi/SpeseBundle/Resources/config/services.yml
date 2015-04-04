@@ -2,3 +2,7 @@ services:
 #    fi_spese.example:
 #        class: Fi\SpeseBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]
+    spese.twig.date_extension:
+        class: Fi\SpeseBundle\Twig\Extension\DateExtension
+        tags:
+            - { name: twig.extension }

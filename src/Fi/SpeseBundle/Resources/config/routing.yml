@@ -1,3 +1,7 @@
+fi_spese_reports:
+    resource: "@FiSpeseBundle/Resources/config/routing/reports.yml"
+    prefix:   /reports
+
 fi_spese_movimento:
     resource: "@FiSpeseBundle/Resources/config/routing/movimento.yml"
     prefix:   /movimento
