@@ -1,3 +1,7 @@
+fi_spese:
+    resource: "@FiSpeseBundle/Resources/config/routing.yml"
+    prefix:   /
+
 fi_ldap:
     resource: "@FiLdapBundle/Resources/config/routing.yml"
     prefix:   /
