@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>famiglia</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Descrizione</th>
+                <td>{{ entity.descrizione }}</td>
+            </tr>
+            <tr>
+                <th>Dal</th>
+                <td>{{ entity.dal|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Al</th>
+                <td>{{ entity.al|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('famiglia') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('famiglia_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

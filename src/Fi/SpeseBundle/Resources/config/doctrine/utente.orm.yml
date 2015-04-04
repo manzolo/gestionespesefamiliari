@@ -1,6 +1,9 @@
 Fi\SpeseBundle\Entity\utente:
     type: entity
     table: utente
+    indexes:
+        fk_utente_famiglia1_idx:
+            columns: [famiglia_id]
     id:
         id:
             type: integer
@@ -22,6 +25,9 @@ Fi\SpeseBundle\Entity\utente:
         password:
             type: string
             length: 255
+        famiglia_id:
+            type: integer
+            nullable: true
     oneToMany:
         movimentos:
             targetEntity: movimento
@@ -30,3 +36,10 @@ Fi\SpeseBundle\Entity\utente:
                 name: utente_id
                 referencedColumnName: id
                 nullable: false
+    manyToOne:
+        famiglia:
+            targetEntity: famiglia
+            inversedBy: utentes
+            joinColumn:
+                name: famiglia_id
+                referencedColumnName: id

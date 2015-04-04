@@ -14,8 +14,6 @@ Fi\SpeseBundle\Entity\movimento:
             generator:
                 strategy: AUTO
     fields:
-        tipomovimento_id:
-            type: integer
         tipologia_id:
             type: integer
         utente_id:
@@ -30,6 +28,8 @@ Fi\SpeseBundle\Entity\movimento:
             type: string
             length: 4000
             nullable: true
+        tipomovimento_id:
+            type: integer
     manyToOne:
         tipologia:
             targetEntity: tipologia
