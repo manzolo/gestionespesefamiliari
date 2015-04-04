@@ -34,7 +34,7 @@ fi_core:
 homepage:
     prefix:   /
     path:      /
-    defaults: { _controller: FiSpeseBundle:movimenti:index }
+    defaults: { _controller: FiSpeseBundle:movimento:index }
     requirements:
       _method:  GET
 
