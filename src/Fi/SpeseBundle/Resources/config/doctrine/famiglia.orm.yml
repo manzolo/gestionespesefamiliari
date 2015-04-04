@@ -1,0 +1,24 @@
+Fi\SpeseBundle\Entity\famiglia:
+    type: entity
+    table: famiglia
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        descrizione:
+            type: string
+            length: 255
+        dal:
+            type: date
+        al:
+            type: date
+            nullable: true
+    oneToMany:
+        utentes:
+            targetEntity: utente
+            mappedBy: famiglia
+            joinColumn:
+                name: famiglia_id
+                referencedColumnName: id

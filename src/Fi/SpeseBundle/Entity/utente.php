@@ -203,4 +203,60 @@ class utente {
         return $this->nome . " " . $this->cognome;
     }
 
+    /**
+     * @var integer
+     */
+    private $famiglia_id;
+
+    /**
+     * @var \Fi\SpeseBundle\Entity\famiglia
+     */
+    private $famiglia;
+
+
+    /**
+     * Set famiglia_id
+     *
+     * @param integer $famigliaId
+     * @return utente
+     */
+    public function setFamigliaId($famigliaId)
+    {
+        $this->famiglia_id = $famigliaId;
+
+        return $this;
+    }
+
+    /**
+     * Get famiglia_id
+     *
+     * @return integer 
+     */
+    public function getFamigliaId()
+    {
+        return $this->famiglia_id;
+    }
+
+    /**
+     * Set famiglia
+     *
+     * @param \Fi\SpeseBundle\Entity\famiglia $famiglia
+     * @return utente
+     */
+    public function setFamiglia(\Fi\SpeseBundle\Entity\famiglia $famiglia = null)
+    {
+        $this->famiglia = $famiglia;
+
+        return $this;
+    }
+
+    /**
+     * Get famiglia
+     *
+     * @return \Fi\SpeseBundle\Entity\famiglia 
+     */
+    public function getFamiglia()
+    {
+        return $this->famiglia;
+    }
 }

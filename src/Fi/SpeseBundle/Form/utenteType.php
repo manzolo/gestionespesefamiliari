@@ -15,6 +15,7 @@ class utenteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('famiglia')
             ->add('nome')
             ->add('cognome')
             ->add('email')
