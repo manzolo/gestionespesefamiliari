@@ -1,3 +1,7 @@
+fi_spese_android:
+    resource: "@FiSpeseBundle/Resources/config/routing/android.yml"
+    prefix:   /android
+
 fi_spese_famiglia:
     resource: "@FiSpeseBundle/Resources/config/routing/famiglia.yml"
     prefix:   /famiglia
