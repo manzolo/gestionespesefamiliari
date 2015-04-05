@@ -99,13 +99,38 @@ class androidController extends Controller {
         $nuovaspesa->setUtente($utente);
         $nuovaspesa->setTipologia($tipologia);
         $nuovaspesa->setTipomovimento($tipomovimento);
-        $nuovaspesa->setData(new \DateTime($datamovimento) );
+        $nuovaspesa->setData(new \DateTime($datamovimento));
         $nuovaspesa->setNota($nota);
         $nuovaspesa->setImporto($importo);
         $em->persist($nuovaspesa);
         $em->flush();
 
         return new Response(json_encode(array("retcode" => 0, "message" => "OK")));
+    }
+
+    public function appCurrentVersionAction(Request $request) {
+        $prjPath = substr($this->get('kernel')->getRootDir(), 0, -4);
+        $apkFile = $prjPath . DIRECTORY_SEPARATOR . "web" . DIRECTORY_SEPARATOR . "app-release-unaligned.apk";
+        $apk = new \ApkParser\Parser($apkFile);
+
+        return new Response($apk->getManifest()->getVersionName());
+    }
+
+    public function getAppApkAction(Request $request) {
+        $prjPath = substr($this->get('kernel')->getRootDir(), 0, -4);
+        $apkName = $prjPath . DIRECTORY_SEPARATOR . "web" . DIRECTORY_SEPARATOR . "app-release-unaligned.apk";
+        /* header('Content-Type', 'application/apk');
+          header('Content-disposition: attachment; filename="' . basename($apkName) . '"');
+          header('Content-Length: ' . filesize($apkName));
+          return new Response(readfile($apkName)); */
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/vnd.android.package-archive');
+        $response->headers->set('Content-disposition','attachment; filename="' . basename($apkName) . '"');
+        $response->headers->set('Content-Length',filesize($apkName));
+        $response->sendHeaders();
+        $response->setContent(file_get_contents($apkName));
+        return $response;
+        
     }
 
 }

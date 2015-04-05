@@ -14,3 +14,10 @@ android_registraspesa:
     pattern:  /registraspesa
     defaults: { _controller: "FiSpeseBundle:android:registraSpesa" }
     
+android_appcurrentversion:
+    pattern:  /appCurrentVersion
+    defaults: { _controller: "FiSpeseBundle:android:appCurrentVersion" }
+
+android_getappapk:
+    pattern:  /getAppApk
+    defaults: { _controller: "FiSpeseBundle:android:getAppApk" }
