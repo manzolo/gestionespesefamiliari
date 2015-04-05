@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "319ceb40c7ee446e8353800be1b7d489",
+    "hash": "97548fc8c07b049fbf26034710461cf8",
     "packages": [
         {
             "name": "beberlei/DoctrineExtensions",
@@ -1754,6 +1754,53 @@
             "time": "2015-01-28 18:51:40"
         },
         {
+            "name": "tufanbarisyildirim/php-apk-parser",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tufanbarisyildirim/php-apk-parser.git",
+                "reference": "c736bb170eef9f1f5c087534599310ae60c4d1ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tufanbarisyildirim/php-apk-parser/zipball/c736bb170eef9f1f5c087534599310ae60c4d1ba",
+                "reference": "c736bb170eef9f1f5c087534599310ae60c4d1ba",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ApkParser": "lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tufan Baris YILDIRIM",
+                    "email": "tufanbarisyildirim@gmail.com",
+                    "homepage": "http://tufanbarisyildirim.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Read basic info about an application from .apk file.",
+            "homepage": "https://github.com/tufanbarisyildirim/php-apk-parser",
+            "keywords": [
+                "android",
+                "apk",
+                "parser"
+            ],
+            "time": "2015-03-23 09:24:43"
+        },
+        {
             "name": "twig/extensions",
             "version": "v1.2.0",
             "source": {
@@ -1867,7 +1914,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "friendsofsymfony/user-bundle": 20
+        "friendsofsymfony/user-bundle": 20,
+        "tufanbarisyildirim/php-apk-parser": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

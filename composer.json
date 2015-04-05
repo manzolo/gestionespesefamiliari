@@ -39,7 +39,8 @@
         "phpoffice/phpexcel": "~1.8",
         "phpoffice/phpword": "~0.11",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
-        "beberlei/DoctrineExtensions": "*"
+        "beberlei/DoctrineExtensions": "*",
+        "tufanbarisyildirim/php-apk-parser": "dev-master"
 
     },
     "scripts": {
