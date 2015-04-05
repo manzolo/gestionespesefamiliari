@@ -1,0 +1,3 @@
+android_login:
+    pattern:  /login
+    defaults: { _controller: "FiSpeseBundle:android:login" }
