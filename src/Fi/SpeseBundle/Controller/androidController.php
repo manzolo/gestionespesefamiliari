@@ -33,4 +33,79 @@ class androidController extends Controller {
         }
     }
 
+    public function getTipologieAction(Request $request) {
+        /* @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->get('doctrine')->getManager();
+
+        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        $qb = $em->createQueryBuilder();
+        $qb->select(array('t'));
+        $qb->from('FiSpeseBundle:tipologia', 't');
+        $qb->leftJoin("FiSpeseBundle:categoria", 'c', 'WITH', '(t.categoria_id = c.id)');
+        $qb->orderBy("c.descrizione, t.descrizione");
+        $tipologie = $qb->getQuery()->getResult();
+
+        if (count($tipologie) <= 0) {
+            return new Response(json_encode(array("retcode" => -1, "message" => "Nessuna tipologia trovata")));
+        } else {
+            $tipologiearray = array();
+            foreach ($tipologie as $tipologia) {
+                $tipologiearray[] = array("id" => $tipologia->getId(), "categoria" => $tipologia->getCategoria()->getDescrizione(), "descrizione" => $tipologia->getDescrizione());
+            }
+
+            return new Response(json_encode(array("retcode" => 0, "tipologie" => $tipologiearray)));
+        }
+    }
+
+    public function getTipimovimentoAction(Request $request) {
+        /* @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->get('doctrine')->getManager();
+
+        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        $qb = $em->createQueryBuilder();
+        $qb->select(array('t'));
+        $qb->from('FiSpeseBundle:tipomovimento', 't');
+        $tipimovimento = $qb->getQuery()->getResult();
+
+        if (count($tipimovimento) <= 0) {
+            return new Response(json_encode(array("retcode" => -1, "message" => "Nessuna tipo movimento trovato")));
+        } else {
+            $tipimovimentoarray = array();
+            foreach ($tipimovimento as $tipomovimento) {
+                $tipimovimentoarray[] = array("id" => $tipomovimento->getId(), "tipo" => $tipomovimento->getTipo(), "segno" => $tipomovimento->getSegno());
+            }
+
+            return new Response(json_encode(array("retcode" => 0, "tipimovimento" => $tipimovimentoarray)));
+        }
+    }
+
+    public function registraSpesaAction(Request $request) {
+        /* @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->get('doctrine')->getManager();
+
+        $json = file_get_contents('php://input');
+        $obj = json_decode($json);
+        $utenteid = (int) $obj->spesa->utente;
+        $tipologiaid = (int) $obj->spesa->tipologia;
+        $importo = (float) $obj->spesa->importo;
+        $nota = $obj->spesa->nota;
+        $datamovimento = $obj->spesa->datamovimento;
+        $tipomovimentoid = $obj->spesa->tipomovimento;
+        $utente = $em->getReference('FiSpeseBundle:utente', $utenteid);
+        $tipologia = $em->getReference('FiSpeseBundle:tipologia', $tipologiaid);
+        $tipomovimento = $em->getReference('FiSpeseBundle:tipomovimento', $tipomovimentoid);
+
+        $nuovaspesa = new \Fi\SpeseBundle\Entity\movimento();
+        $nuovaspesa->setUtente($utente);
+        $nuovaspesa->setTipologia($tipologia);
+        $nuovaspesa->setTipomovimento($tipomovimento);
+        $nuovaspesa->setData(new \DateTime($datamovimento) );
+        $nuovaspesa->setNota($nota);
+        $nuovaspesa->setImporto($importo);
+        $em->persist($nuovaspesa);
+        $em->flush();
+
+        return new Response(json_encode(array("retcode" => 0, "message" => "OK")));
+    }
+
 }
