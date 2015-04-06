@@ -110,7 +110,7 @@ class androidController extends Controller {
 
     public function appCurrentVersionAction(Request $request) {
         $prjPath = substr($this->get('kernel')->getRootDir(), 0, -4);
-        $apkFile = $prjPath . DIRECTORY_SEPARATOR . "web" . DIRECTORY_SEPARATOR . "app-release-unaligned.apk";
+        $apkFile = $prjPath . DIRECTORY_SEPARATOR . "web" . DIRECTORY_SEPARATOR . "gestionespesefamiliari.apk";
         $apk = new \ApkParser\Parser($apkFile);
 
         return new Response($apk->getManifest()->getVersionName());
@@ -118,7 +118,7 @@ class androidController extends Controller {
 
     public function getAppApkAction(Request $request) {
         $prjPath = substr($this->get('kernel')->getRootDir(), 0, -4);
-        $apkName = $prjPath . DIRECTORY_SEPARATOR . "web" . DIRECTORY_SEPARATOR . "app-release-unaligned.apk";
+        $apkName = $prjPath . DIRECTORY_SEPARATOR . "web" . DIRECTORY_SEPARATOR . "gestionespesefamiliari.apk";
         /* header('Content-Type', 'application/apk');
           header('Content-disposition: attachment; filename="' . basename($apkName) . '"');
           header('Content-Length: ' . filesize($apkName));
