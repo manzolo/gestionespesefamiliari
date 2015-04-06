@@ -19,11 +19,7 @@ class AppKernel extends Kernel {
             new Wb\SchemaExporterBundle\WbSchemaExporterBundle(),
             new Fi\AutenticazioneBundle\AutenticazioneBundle(),
             new Fi\PannelloAmministrazioneBundle\FiPannelloAmministrazioneBundle(),
-            new Fi\OracleBundle\FiOracleBundle(),
-            new Fi\PersonaleBundle\FiPersonaleBundle(),
-            new Fi\NetworkBundle\FiNetworkBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new Fi\LdapBundle\FiLdapBundle(),
             new Fi\FOSUserBundle\FiFOSUserBundle(),
             new Fi\SpeseBundle\FiSpeseBundle(),
         );
