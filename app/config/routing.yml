@@ -2,22 +2,6 @@ fi_spese:
     resource: "@FiSpeseBundle/Resources/config/routing.yml"
     prefix:   /
 
-fi_ldap:
-    resource: "@FiLdapBundle/Resources/config/routing.yml"
-    prefix:   /
-
-fi_personale:
-    resource: "@FiPersonaleBundle/Resources/config/routing.yml"
-    prefix:   /
-
-fi_network:
-    resource: "@FiNetworkBundle/Resources/config/routing.yml"
-    prefix:   /
-
-fi_oracle:
-    resource: "@FiOracleBundle/Resources/config/routing.yml"
-    prefix:   /
-
 fi_pannello_amministrazione:
     resource: "@FiPannelloAmministrazioneBundle/Resources/config/routing.yml"
     prefix:   /
