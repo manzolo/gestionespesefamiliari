@@ -1,3 +1,0 @@
-fi_network_homepage:
-    path:  /network/{ip}
-    defaults: { _controller: FiNetworkBundle:Default:index }

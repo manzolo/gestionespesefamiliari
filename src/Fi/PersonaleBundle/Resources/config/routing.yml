@@ -1,3 +1,0 @@
-fi_personale_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: FiPersonaleBundle:Default:index }
