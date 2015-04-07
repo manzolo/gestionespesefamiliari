@@ -83,14 +83,13 @@ class androidController extends Controller {
         /* @var $em \Doctrine\ORM\EntityManager */
         $em = $this->get('doctrine')->getManager();
 
-        $json = file_get_contents('php://input');
-        $obj = json_decode($json);
-        $utenteid = (int) $obj->spesa->utente;
-        $tipologiaid = (int) $obj->spesa->tipologia;
-        $importo = (float) $obj->spesa->importo;
-        $nota = $obj->spesa->nota;
-        $datamovimento = $obj->spesa->datamovimento;
-        $tipomovimentoid = $obj->spesa->tipomovimento;
+        $utenteid = (int) $request->request->get("utente");
+        $tipologiaid = (int) $request->request->get("tipologia");
+        $importo = (float) $request->request->get("importo");
+        $nota = $request->request->get("nota");
+        $datamovimento = $request->request->get("datamovimento");
+        $tipomovimentoid = $request->request->get("tipomovimento");
+        
         $utente = $em->getReference('FiSpeseBundle:utente', $utenteid);
         $tipologia = $em->getReference('FiSpeseBundle:tipologia', $tipologiaid);
         $tipomovimento = $em->getReference('FiSpeseBundle:tipomovimento', $tipomovimentoid);
@@ -111,26 +110,35 @@ class androidController extends Controller {
     public function appCurrentVersionAction(Request $request) {
         $prjPath = substr($this->get('kernel')->getRootDir(), 0, -4);
         $apkFile = $prjPath . DIRECTORY_SEPARATOR . "web" . DIRECTORY_SEPARATOR . "gestionespesefamiliari.apk";
-        $apk = new \ApkParser\Parser($apkFile);
+        $version = "0.0";
+        if (file_exists($apkFile)) {
+            $apk = new \ApkParser\Parser($apkFile);
+            $version = $apk->getManifest()->getVersionName();
+        }
 
-        return new Response($apk->getManifest()->getVersionName());
+
+        return new Response($version);
     }
 
     public function getAppApkAction(Request $request) {
         $prjPath = substr($this->get('kernel')->getRootDir(), 0, -4);
-        $apkName = $prjPath . DIRECTORY_SEPARATOR . "web" . DIRECTORY_SEPARATOR . "gestionespesefamiliari.apk";
+        $apkFile = $prjPath . DIRECTORY_SEPARATOR . "web" . DIRECTORY_SEPARATOR . "gestionespesefamiliari.apk";
         /* header('Content-Type', 'application/apk');
           header('Content-disposition: attachment; filename="' . basename($apkName) . '"');
           header('Content-Length: ' . filesize($apkName));
           return new Response(readfile($apkName)); */
-        $response = new Response();
-        $response->headers->set('Content-Type', 'application/vnd.android.package-archive');
-        $response->headers->set('Content-disposition','attachment; filename="' . basename($apkName) . '"');
-        $response->headers->set('Content-Length',filesize($apkName));
-        $response->sendHeaders();
-        $response->setContent(file_get_contents($apkName));
-        return $response;
-        
+        if (file_exists($apkFile)) {
+            $response = new Response();
+            $response->headers->set('Content-Type', 'application/vnd.android.package-archive');
+            $response->headers->set('Content-disposition', 'attachment; filename="' . basename($apkFile) . '"');
+            $response->headers->set('Content-Length', filesize($apkFile));
+            $response->sendHeaders();
+            $response->setContent(file_get_contents($apkFile));
+            return $response;
+        } else {
+            $response = new Response("Nessun apk disponibile al momento");
+            return $response;
+        }
     }
 
 }
