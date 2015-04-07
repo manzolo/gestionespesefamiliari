@@ -26,7 +26,7 @@ class androidController extends Controller {
         $utente = $qb->getQuery()->getResult();
 
         if (count($utente) <= 0) {
-            return new Response(json_encode(array("retcode" => -1, "message" => "Utente " . $username . " non autorizzato")));
+            return new Response(json_encode(array("retcode" => -1, "message" => "Utente " . $username . " non autorizzato o password errata")));
         } else {
             $loginuser = $utente[0];
             return new Response(json_encode(array("retcode" => 0, "utente_id" => $loginuser->getId(), "famiglia_id" => $loginuser->getFamiglia()->getId(), "nominativo" => $loginuser->getNominativo())));
