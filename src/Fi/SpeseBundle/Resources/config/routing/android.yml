@@ -1,6 +1,7 @@
 android_login:
     pattern:  /login
     defaults: { _controller: "FiSpeseBundle:android:login" }
+    requirements: { _method: post }
     
 android_gettipologie:
     pattern:  /gettipologie
@@ -13,6 +14,7 @@ android_gettipimovimento:
 android_registraspesa:
     pattern:  /registraspesa
     defaults: { _controller: "FiSpeseBundle:android:registraSpesa" }
+    requirements: { _method: post }
     
 android_appcurrentversion:
     pattern:  /appCurrentVersion
