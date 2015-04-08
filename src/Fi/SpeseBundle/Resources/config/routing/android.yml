@@ -23,3 +23,21 @@ android_appcurrentversion:
 android_getappapk:
     pattern:  /getAppApk
     defaults: { _controller: "FiSpeseBundle:android:getAppApk" }
+
+android_getultimimovimenti:
+    pattern:  /getultimimovimenti
+    defaults: { _controller: "FiSpeseBundle:android:getUltimiMovimenti" }
+    
+android_getcategorie:
+    pattern:  /getcategorie
+    defaults: { _controller: "FiSpeseBundle:android:getCategorie" }
+
+android_gettipimovimento:
+    pattern:  /gettipimovimento
+    defaults: { _controller: "FiSpeseBundle:android:getTipimovimento" }
+    
+android_deletemovimenti:
+    pattern:  /deletemovimenti
+    defaults: { _controller: "FiSpeseBundle:android:deleteMovimenti" }
+    requirements: { _method: post }
+    
