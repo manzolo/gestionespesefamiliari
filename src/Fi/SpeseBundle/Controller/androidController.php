@@ -9,8 +9,8 @@ use Symfony\Component\HttpFoundation\Response;
 class androidController extends Controller {
 
     public function loginAction(Request $request) {
-        $username = $request->get("username");
-        $password = $request->get("password");
+        $username = $request->request->get("username");
+        $password = $request->request->get("password");
         /* @var $em \Doctrine\ORM\EntityManager */
 
         $em = $this->get('doctrine')->getManager();
