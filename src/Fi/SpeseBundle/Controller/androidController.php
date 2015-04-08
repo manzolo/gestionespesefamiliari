@@ -89,7 +89,7 @@ class androidController extends Controller {
         $nota = $request->request->get("nota");
         $datamovimento = $request->request->get("datamovimento");
         $tipomovimentoid = $request->request->get("tipomovimento");
-        
+
         $utente = $em->getReference('FiSpeseBundle:utente', $utenteid);
         $tipologia = $em->getReference('FiSpeseBundle:tipologia', $tipologiaid);
         $tipomovimento = $em->getReference('FiSpeseBundle:tipomovimento', $tipomovimentoid);
@@ -139,6 +139,75 @@ class androidController extends Controller {
             $response = new Response("Nessun apk disponibile al momento");
             return $response;
         }
+    }
+
+    public function getCategorieAction(Request $request) {
+        /* @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->get('doctrine')->getManager();
+
+        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        $qb = $em->createQueryBuilder();
+        $qb->select(array('c'));
+        $qb->from('FiSpeseBundle:categoria', 'c');
+        $qb->orderBy("c.descrizione");
+        $categorie = $qb->getQuery()->getResult();
+
+        if (count($categorie) <= 0) {
+            return new Response(json_encode(array("retcode" => -1, "message" => "Nessuna categoria trovata")));
+        } else {
+            $categoriearray = array();
+            foreach ($categorie as $categoria) {
+                $categoriearray[] = array("id" => $categoria->getId(), "descrizione" => $categoria->getDescrizione());
+            }
+
+            return new Response(json_encode(array("retcode" => 0, "categorie" => $categoriearray)));
+        }
+    }
+
+    public function getUltimiMovimentiAction(Request $request) {
+        $utenteid = $request->get("utenteid");
+
+        /* @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->get('doctrine')->getManager();
+
+        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        $qb = $em->createQueryBuilder();
+        $qb->select(array('m'));
+        $qb->from('FiSpeseBundle:movimento', 'm');
+        $qb->where('m.utente_id = :uteteid');
+        $qb->orderby('m.id', 'desc');
+        $qb->setMaxResults(10);
+        $qb->setParameter("uteteid", $utenteid);
+        $movimenti = $qb->getQuery()->getResult();
+
+        if (count($movimenti) <= 0) {
+            return new Response(json_encode(array("retcode" => -1, "message" => "Nessuna movimento trovato")));
+        } else {
+            $movimentiarray = array();
+            foreach ($movimenti as $movimento) {
+                $movimentiarray[] = array("id" => $movimento->getId(), "descrizione" => $movimento->getTipologia()->__toString() . " " . $movimento->getData()->format("d/m/Y") . " " . $movimento->getNota());
+            }
+
+            return new Response(json_encode($movimentiarray));
+        }
+    }
+
+    public function deleteMovimentiAction(Request $request) {
+        $movimenti = $request->request->get("movimenti");
+        /* @var $em \Doctrine\ORM\EntityManager */
+        $em = $this->get('doctrine')->getManager();
+
+        foreach ($movimenti as $movimento) {
+            /* @var $qb \Doctrine\ORM\QueryBuilder */
+            $qb = $em->createQueryBuilder();
+            $qb->delete();
+            $qb->from('FiSpeseBundle:movimento', 'm');
+            $qb->where('m.id = :movimentoid');
+            $qb->setParameter("movimentoid", (int)$movimento);
+            $qb->getQuery()->execute();
+        }
+
+        return new Response(json_encode(array("retcode" => 0, "message" => "OK")));
     }
 
 }
