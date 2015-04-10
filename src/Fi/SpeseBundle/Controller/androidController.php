@@ -50,7 +50,7 @@ class androidController extends Controller {
         } else {
             $tipologiearray = array();
             foreach ($tipologie as $tipologia) {
-                $tipologiearray[] = array("id" => $tipologia->getId(), "categoria" => $tipologia->getCategoria()->getDescrizione(), "descrizione" => $tipologia->getDescrizione());
+                $tipologiearray[] = array("id" => $tipologia->getId(), "categoria" => $tipologia->getCategoria()->getDescrizione(),"categoria_id" => $tipologia->getCategoria()->getId(), "descrizione" => $tipologia->getDescrizione());
             }
 
             return new Response(json_encode(array("retcode" => 0, "tipologie" => $tipologiearray)));
