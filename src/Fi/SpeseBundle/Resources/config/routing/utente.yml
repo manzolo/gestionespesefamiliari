@@ -38,4 +38,4 @@ utente_deletemultiple:
 utente_griglia:
     pattern:  /griglia
     defaults: { _controller: "FiSpeseBundle:utente:griglia" }
-    requirements: { _method: get }
+    requirements: { _method: get|post }

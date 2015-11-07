@@ -38,4 +38,4 @@ tipomovimento_deletemultiple:
 tipomovimento_griglia:
     pattern:  /griglia
     defaults: { _controller: "FiSpeseBundle:tipomovimento:griglia" }
-    requirements: { _method: get }
+    requirements: { _method: get|post }
