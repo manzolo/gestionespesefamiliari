@@ -4,13 +4,36 @@
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
-        "psr-0": {"": "src/"},
-        "classmap": ["vendor/tecnick.com/tcpdf/tcpdf.php"]
-    }, "repositories": [
+        "psr-4": {
+            "": "src/",
+            "Fi\\CoreBundle\\": "vendor/fi/fifreecorebundle/",
+            "Fi\\PannelloAmministrazioneBundle\\": "vendor/fi/pannelloamministrazionebundle/"
+
+
+
+
+
+        },
+        "classmap": ["vendor/tecnickcom/tcpdf/tcpdf.php"]
+
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/manzolo/fifreecorebundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/manzolo/pannelloamministrazionebundle.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/manzolo/schemaexporterbundle.git"
+        },
         {
             "type": "package",
             "package": {
-                "name": "tecnick.com/tcpdf",
+                "name": "tecnickcom/tcpdf",
                 "version": "master",
                 "source": {
                     "url": "http://git.code.sf.net/p/tcpdf/code",
@@ -22,23 +45,27 @@
     ],
     "require": {
         "php": ">=5.4.3",
-        "symfony/symfony": "2.5.*",
-        "doctrine/orm": ">=2.4.0,<2.5-dev",
+        "symfony/symfony": "2.7.*",
+        "doctrine/orm": ">=2.4.0,<2.7-dev",
         "doctrine/doctrine-bundle": "1.2.*",
         "doctrine/inflector": "1.0.*",
         "twig/extensions": "1.2.*",
-        "symfony/assetic-bundle": "2.5.*",
+        "symfony/assetic-bundle": "2.7.*",
         "symfony/swiftmailer-bundle": "2.3.*",
-        "symfony/monolog-bundle": "2.6.*",
-        "symfony/yaml": "2.5.*",
+        "symfony/monolog-bundle": "2.7.*",
+        "symfony/yaml": "2.6.*",
         "sensio/distribution-bundle": "3.0.*",
         "sensio/framework-extra-bundle": "3.0.*",
-        "sensio/generator-bundle": "2.4.*",
+        "sensio/generator-bundle": "2.5.*",
         "incenteev/composer-parameter-handler": "2.1.*",
-        "tecnick.com/tcpdf": "~6.0",
+        "fi/fifreecorebundle": "dev-master",
+        "fi/pannelloamministrazionebundle": "dev-master",
+        "fi/schemaexporterbundle": "dev-master",
+        "tecnickcom/tcpdf": "~6.0",
         "phpoffice/phpexcel": "~1.8",
         "phpoffice/phpword": "~0.11",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
+        "phpunit/phpunit": "4.8.x-dev",
         "beberlei/DoctrineExtensions": "*",
         "tufanbarisyildirim/php-apk-parser": "dev-master"
 
@@ -67,10 +94,11 @@
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
         "incenteev-parameters": {
-            "file": "app/config/parameters.yml"
+            "file": "app/config/parameters.yml",
+            "keep-outdated": true
         },
         "branch-alias": {
-            "dev-master": "2.5-dev"
+            "dev-master": "2.7-dev"
         }
     }
 }
