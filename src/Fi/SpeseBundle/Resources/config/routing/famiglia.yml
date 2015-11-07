@@ -38,4 +38,4 @@ famiglia_deletemultiple:
 famiglia_griglia:
     pattern:  /griglia
     defaults: { _controller: "FiSpeseBundle:famiglia:griglia" }
-    requirements: { _method: get }
+    requirements: { _method: get|post }

@@ -38,4 +38,4 @@ categoria_deletemultiple:
 categoria_griglia:
     pattern:  /griglia
     defaults: { _controller: "FiSpeseBundle:categoria:griglia" }
-    requirements: { _method: get }
+    requirements: { _method: get|post }
