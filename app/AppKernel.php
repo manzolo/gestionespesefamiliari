@@ -16,8 +16,6 @@ class AppKernel extends Kernel {
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Fi\CoreBundle\FiCoreBundle(),
-            new Wb\SchemaExporterBundle\WbSchemaExporterBundle(),
-            new Fi\AutenticazioneBundle\AutenticazioneBundle(),
             new Fi\PannelloAmministrazioneBundle\FiPannelloAmministrazioneBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Fi\FOSUserBundle\FiFOSUserBundle(),

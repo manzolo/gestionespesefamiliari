@@ -6,10 +6,6 @@ fi_pannello_amministrazione:
     resource: "@FiPannelloAmministrazioneBundle/Resources/config/routing.yml"
     prefix:   /
 
-autenticazione:
-    resource: "@AutenticazioneBundle/Resources/config/routing.yml"
-    prefix:   /
-
 fi_core:
     resource: "@FiCoreBundle/Resources/config/routing.yml"
     prefix:   /
