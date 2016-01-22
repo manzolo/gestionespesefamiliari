@@ -185,7 +185,7 @@ class androidController extends Controller {
         } else {
             $movimentiarray = array();
             foreach ($movimenti as $movimento) {
-                $movimentiarray[] = array("id" => $movimento->getId(), "descrizione" => $movimento->getTipologia()->__toString() . " " . $movimento->getData()->format("d/m/Y") . " " . number_format($movimento->getImporto(), 2, '.', ',') . "€, ". $movimento->getNota());
+                $movimentiarray[] = array("id" => $movimento->getId(), "descrizione" => $movimento->getTipologia()->__toString() . " " . $movimento->getData()->format("d/m/Y") . " " . number_format($movimento->getImporto(), 2, '.', ',') . "€ ". ($movimento->getNota()?", " . $movimento->getNota():""));
             }
 
             return new Response(json_encode($movimentiarray));
