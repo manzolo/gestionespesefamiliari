@@ -7,6 +7,7 @@
         "psr-4": {
             "": "src/",
             "Fi\\CoreBundle\\": "vendor/fi/fifreecorebundle/",
+            "Fi\\OsBundle\\": "vendor/fi/osbundle/",
             "Fi\\PannelloAmministrazioneBundle\\": "vendor/fi/pannelloamministrazionebundle/"
 
 
@@ -14,6 +15,7 @@
 
 
         },
+        "files": ["app/AppKernel.php"],
         "classmap": ["vendor/tecnickcom/tcpdf/tcpdf.php"]
 
     },
@@ -31,6 +33,10 @@
             "url": "https://github.com/manzolo/schemaexporterbundle.git"
         },
         {
+            "type": "vcs",
+            "url": "https://github.com/manzolo/osbundle.git"
+        },
+        {
             "type": "package",
             "package": {
                 "name": "tecnickcom/tcpdf",
@@ -44,21 +50,19 @@
         }
     ],
     "require": {
-        "php": ">=5.4.3",
-        "symfony/symfony": "2.7.*",
-        "doctrine/orm": ">=2.4.0,<2.7-dev",
-        "doctrine/doctrine-bundle": "1.2.*",
+        "php": ">=5.4.3,<5.6",
+        "symfony/symfony": "2.8.*",
+        "doctrine/orm": "^2.4.8",
+        "doctrine/doctrine-bundle": "~1.4",
         "doctrine/inflector": "1.0.*",
-        "twig/extensions": "1.2.*",
-        "symfony/assetic-bundle": "2.7.*",
-        "symfony/swiftmailer-bundle": "2.3.*",
-        "symfony/monolog-bundle": "2.7.*",
-        "symfony/yaml": "2.6.*",
-        "sensio/distribution-bundle": "3.0.*",
-        "sensio/framework-extra-bundle": "3.0.*",
-        "sensio/generator-bundle": "2.5.*",
-        "incenteev/composer-parameter-handler": "2.1.*",
+        "symfony/swiftmailer-bundle": "~2.3",
+        "symfony/monolog-bundle": "~2.4",
+        "symfony/yaml": "2.8.*",
+        "sensio/distribution-bundle": "~5.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
+        "incenteev/composer-parameter-handler": "~2.0",
         "fi/fifreecorebundle": "dev-master",
+        "fi/osbundle": "dev-master",
         "fi/pannelloamministrazionebundle": "dev-master",
         "fi/schemaexporterbundle": "dev-master",
         "tecnickcom/tcpdf": "~6.0",
@@ -69,6 +73,10 @@
         "beberlei/DoctrineExtensions": "*",
         "tufanbarisyildirim/php-apk-parser": "dev-master"
 
+    },
+    "require-dev": {
+        "sensio/generator-bundle": "~3.0",
+        "symfony/phpunit-bridge": "~2.7"
     },
     "scripts": {
         "post-install-cmd": [
@@ -98,7 +106,7 @@
             "keep-outdated": true
         },
         "branch-alias": {
-            "dev-master": "2.7-dev"
+            "dev-master": "2.8-dev"
         }
     }
 }

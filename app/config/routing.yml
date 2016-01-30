@@ -16,5 +16,5 @@ homepage:
     path:      /
     defaults: { _controller: FiSpeseBundle:movimento:index }
     requirements:
-      _method:  GET
+      methods:  GET
 

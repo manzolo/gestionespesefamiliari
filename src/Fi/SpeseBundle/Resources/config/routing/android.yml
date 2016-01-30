@@ -1,43 +1,43 @@
 android_login:
-    pattern:  /login
+    path:  /login
     defaults: { _controller: "FiSpeseBundle:android:login" }
-    requirements: { _method: post }
+    requirements: { methods: post }
     
 android_gettipologie:
-    pattern:  /gettipologie
+    path:  /gettipologie
     defaults: { _controller: "FiSpeseBundle:android:getTipologie" }
 
 android_gettipimovimento:
-    pattern:  /gettipimovimento
+    path:  /gettipimovimento
     defaults: { _controller: "FiSpeseBundle:android:getTipimovimento" }
 
 android_registraspesa:
-    pattern:  /registraspesa
+    path:  /registraspesa
     defaults: { _controller: "FiSpeseBundle:android:registraSpesa" }
-    requirements: { _method: post }
+    requirements: { methods: post }
     
 android_appcurrentversion:
-    pattern:  /appCurrentVersion
+    path:  /appCurrentVersion
     defaults: { _controller: "FiSpeseBundle:android:appCurrentVersion" }
 
 android_getappapk:
-    pattern:  /getAppApk
+    path:  /getAppApk
     defaults: { _controller: "FiSpeseBundle:android:getAppApk" }
 
 android_getultimimovimenti:
-    pattern:  /getultimimovimenti
+    path:  /getultimimovimenti
     defaults: { _controller: "FiSpeseBundle:android:getUltimiMovimenti" }
     
 android_getcategorie:
-    pattern:  /getcategorie
+    path:  /getcategorie
     defaults: { _controller: "FiSpeseBundle:android:getCategorie" }
 
 android_gettipimovimento:
-    pattern:  /gettipimovimento
+    path:  /gettipimovimento
     defaults: { _controller: "FiSpeseBundle:android:getTipimovimento" }
     
 android_deletemovimenti:
-    pattern:  /deletemovimenti
+    path:  /deletemovimenti
     defaults: { _controller: "FiSpeseBundle:android:deleteMovimenti" }
-    requirements: { _method: post }
+    requirements: { methods: post }
     
