@@ -69,7 +69,7 @@
         "phpoffice/phpexcel": "~1.8",
         "phpoffice/phpword": "~0.11",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
-        "phpunit/phpunit": "4.8.x-dev",
+        "phpunit/phpunit": "~4.8",
         "beberlei/DoctrineExtensions": "*",
         "tufanbarisyildirim/php-apk-parser": "dev-master"
 
