@@ -841,15 +841,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/manzolo/fifreecorebundle.git",
-                "reference": "3f32c0fe392552a3217a629d7c4b11919d4708ef"
+                "reference": "245d276c75217f5e3b4727ecdb4d067f3ee46580"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/manzolo/fifreecorebundle/zipball/3f32c0fe392552a3217a629d7c4b11919d4708ef",
-                "reference": "3f32c0fe392552a3217a629d7c4b11919d4708ef",
+                "url": "https://api.github.com/repos/manzolo/fifreecorebundle/zipball/245d276c75217f5e3b4727ecdb4d067f3ee46580",
+                "reference": "245d276c75217f5e3b4727ecdb4d067f3ee46580",
                 "shasum": ""
             },
             "require": {
+                "fi/osbundle": "~1.0",
                 "oneup/flysystem-bundle": "@stable",
                 "php": ">=5.5.0",
                 "vich/uploader-bundle": "~1.0"
@@ -898,7 +899,7 @@
                 "source": "https://github.com/manzolo/fifreecorebundle/tree/master",
                 "issues": "https://github.com/manzolo/fifreecorebundle/issues"
             },
-            "time": "2016-04-05 12:00:24"
+            "time": "2016-04-07 14:47:43"
         },
         {
             "name": "fi/osbundle",
@@ -954,19 +955,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/manzolo/pannelloamministrazionebundle.git",
-                "reference": "1015207afe843c85c0cea62c068f94330a052f28"
+                "reference": "eda6fa66bf45aff9cedfd3e1a30131dd5907e7ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/manzolo/pannelloamministrazionebundle/zipball/1015207afe843c85c0cea62c068f94330a052f28",
-                "reference": "1015207afe843c85c0cea62c068f94330a052f28",
+                "url": "https://api.github.com/repos/manzolo/pannelloamministrazionebundle/zipball/eda6fa66bf45aff9cedfd3e1a30131dd5907e7ae",
+                "reference": "eda6fa66bf45aff9cedfd3e1a30131dd5907e7ae",
                 "shasum": ""
             },
             "require": {
                 "fi/osbundle": "~1.0",
                 "fi/schemaexporterbundle": "~1.0",
-                "php": ">=5.4.0",
-                "php-kit/php-web-console": "~1.0"
+                "php": ">=5.4.0"
             },
             "type": "symfony-bundle",
             "autoload": {
@@ -991,7 +991,7 @@
                 "source": "https://github.com/manzolo/pannelloamministrazionebundle/tree/master",
                 "issues": "https://github.com/manzolo/pannelloamministrazionebundle/issues"
             },
-            "time": "2016-04-06 10:31:01"
+            "time": "2016-04-07 14:48:06"
         },
         {
             "name": "fi/schemaexporterbundle",
@@ -1660,52 +1660,6 @@
             "time": "2016-03-18 20:34:03"
         },
         {
-            "name": "php-kit/php-web-console",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-kit/php-web-console.git",
-                "reference": "1cf8cf720e68818da51d3e75140955b580f8d98c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-kit/php-web-console/zipball/1cf8cf720e68818da51d3e75140955b580f8d98c",
-                "reference": "1cf8cf720e68818da51d3e75140955b580f8d98c",
-                "shasum": ""
-            },
-            "require": {
-                "psr/http-message": "~1.0",
-                "psr/log": "~1.0"
-            },
-            "suggest": {
-                "monolog/monolog": "You can redirect Monolog logging output to a Debug Console panel, or vice-versa"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "PhpKit\\WebConsole\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Claudio Silva",
-                    "email": "claudio.silva@impactwave.com"
-                },
-                {
-                    "name": "Impactwave",
-                    "email": "impactwave@impactwave.com",
-                    "homepage": "http://impactwave.com"
-                }
-            ],
-            "description": "In-browser debugging tools for your PHP applications",
-            "homepage": "https://github.com/php-kit/php-web-console",
-            "time": "2016-01-12 17:27:51"
-        },
-        {
             "name": "phpdocumentor/reflection-docblock",
             "version": "2.0.4",
             "source": {
@@ -2336,55 +2290,6 @@
                 "xunit"
             ],
             "time": "2015-10-02 06:51:40"
-        },
-        {
-            "name": "psr/http-message",
-            "version": "1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-message.git",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP messages",
-            "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
-            ],
-            "time": "2015-05-04 20:22:00"
         },
         {
             "name": "psr/log",
