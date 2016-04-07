@@ -15,8 +15,10 @@ class DateExtension extends \Twig_Extension {
 
     public function getFunctions() {
         return array(
-            'daysInMonth' => new \Twig_Function_Method($this, 'getDaysInMonth'),
-            'dayWeekNumber' => new \Twig_Function_Method($this, 'getDayWeekNumber'),
+             new \Twig_SimpleFunction(
+                    'daysInMonth', array($this, 'getDaysInMonth')),
+             new \Twig_SimpleFunction(
+                    'dayWeekNumber', array($this, 'getDayWeekNumber')),
         );
     }
 
