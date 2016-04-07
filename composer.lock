@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "71ec129429a5bb1f99cc7f5c5acd5e85",
-    "content-hash": "6ae0de59430ee035f1d01363cd9f65bd",
+    "hash": "e09afe6e77ed009d6f865a8a244770d6",
+    "content-hash": "5bdee33a1ee75f665ad0970ed107f366",
     "packages": [
         {
             "name": "beberlei/DoctrineExtensions",
@@ -954,12 +954,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/manzolo/pannelloamministrazionebundle.git",
-                "reference": "7a51a53dbb8c21b028e82f13416a3b162c7756c2"
+                "reference": "1015207afe843c85c0cea62c068f94330a052f28"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/manzolo/pannelloamministrazionebundle/zipball/7a51a53dbb8c21b028e82f13416a3b162c7756c2",
-                "reference": "7a51a53dbb8c21b028e82f13416a3b162c7756c2",
+                "url": "https://api.github.com/repos/manzolo/pannelloamministrazionebundle/zipball/1015207afe843c85c0cea62c068f94330a052f28",
+                "reference": "1015207afe843c85c0cea62c068f94330a052f28",
                 "shasum": ""
             },
             "require": {
@@ -991,7 +991,7 @@
                 "source": "https://github.com/manzolo/pannelloamministrazionebundle/tree/master",
                 "issues": "https://github.com/manzolo/pannelloamministrazionebundle/issues"
             },
-            "time": "2016-04-05 12:00:53"
+            "time": "2016-04-06 10:31:01"
         },
         {
             "name": "fi/schemaexporterbundle",
