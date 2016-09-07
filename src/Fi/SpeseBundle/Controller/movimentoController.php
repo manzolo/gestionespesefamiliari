@@ -119,7 +119,12 @@ class movimentoController extends FiController
         $tabellej['tipologia_id'] = array('tabella' => 'tipologia', 'campi' => array('descrizione'));
         $campiextra = array('nomecampo' => 'descrizionecategoria');
 
-        $paricevuti = array('container' => $this->container, 'nomebundle' => $nomebundle, 'tabellej' => $tabellej, 'nometabella' => $controller, 'escludere' => $escludi, 'campiextra' => $campiextra);
+        $paricevuti = array('container' => $this->container,
+            'nomebundle' => $nomebundle,
+            'tabellej' => $tabellej,
+            'nometabella' => $controller,
+            'escludere' => $escludi,
+            'campiextra' => $campiextra, );
 
         if ($prepar) {
             $paricevuti = array_merge($paricevuti, $prepar);
