@@ -73,7 +73,8 @@
         "beberlei/DoctrineExtensions": "*",
         "tufanbarisyildirim/php-apk-parser": "dev-master",
         "phpmd/phpmd": "dev-master",
-        "bamboohr/phpcs": "dev-master"
+        "bamboohr/phpcs": "dev-master",
+        "satooshi/php-coveralls": "^1.0"
         
 
     },
