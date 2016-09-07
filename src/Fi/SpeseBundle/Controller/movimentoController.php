@@ -26,17 +26,57 @@ class movimentoController extends FiController
         $entities = $em->getRepository($nomebundle.':'.$controller)->findAll();
 
         $dettaglij = array(
-            'tipomovimento_id' => array(array('nomecampo' => 'tipomovimento.tipo', 'lunghezza' => '180', 'descrizione' => 'Movimento', 'tipo' => 'text')),
-            'tipologia_id' => array(array('nomecampo' => 'tipologia.descrizione', 'lunghezza' => '180', 'descrizione' => 'Tipologia', 'tipo' => 'text')),
-            'categoria' => array('nomecampo' => 'categoria.descrizione', 'lunghezza' => '180', 'descrizione' => 'Categoria', 'tipo' => 'text'),
-            'utente_id' => array(array('nomecampo' => 'utente.nome', 'lunghezza' => '180', 'descrizione' => 'Nome', 'tipo' => 'text'), array('nomecampo' => 'utente.cognome', 'lunghezza' => '180', 'descrizione' => 'Cognome', 'tipo' => 'text')),
-            'data' => array(array('nomecampo' => 'data', 'lunghezza' => '150', 'descrizione' => 'Data', 'tipo' => 'text')),
-            'importo' => array(array('nomecampo' => 'importo', 'lunghezza' => '150', 'descrizione' => 'Importo', 'tipo' => 'text')),
-            'nota' => array(array('nomecampo' => 'nota', 'lunghezza' => '400', 'descrizione' => 'Nota', 'tipo' => 'text')),
+            'tipomovimento_id' => array(
+                array('nomecampo' => 'tipomovimento.tipo',
+                    'lunghezza' => '180',
+                    'descrizione' => 'Movimento',
+                    'tipo' => 'text', ),
+            ),
+            'tipologia_id' => array(
+                array('nomecampo' => 'tipologia.descrizione',
+                    'lunghezza' => '180',
+                    'descrizione' => 'Tipologia',
+                    'tipo' => 'text', ), ),
+            'categoria' => array('nomecampo' => 'categoria.descrizione',
+                'lunghezza' => '180',
+                'descrizione' => 'Categoria',
+                'tipo' => 'text', ),
+            'utente_id' => array(
+                array('nomecampo' => 'utente.nome',
+                    'lunghezza' => '180', 'descrizione' => 'Nome',
+                    'tipo' => 'text', ),
+                array('nomecampo' => 'utente.cognome',
+                    'lunghezza' => '180',
+                    'descrizione' => 'Cognome',
+                    'tipo' => 'text', ), ),
+            'data' => array(array('nomecampo' => 'data',
+                    'lunghezza' => '150',
+                    'descrizione' => 'Data',
+                    'tipo' => 'text', )),
+            'importo' => array(
+                array('nomecampo' => 'importo',
+                    'lunghezza' => '150',
+                    'descrizione' => 'Importo',
+                    'tipo' => 'text', ), ),
+            'nota' => array(
+                array('nomecampo' => 'nota',
+                    'lunghezza' => '400',
+                    'descrizione' => 'Nota',
+                    'tipo' => 'text', ), ),
         );
         $escludi = array('id');
-        $campiextra = array(array('nomecampo' => 'categoria', 'lunghezza' => '500', 'descrizione' => 'Categoria', 'type' => 'string'));
-        $paricevuti = array('nomebundle' => $nomebundle, 'nometabella' => $controller, 'dettaglij' => $dettaglij, 'escludere' => $escludi, 'container' => $container, 'campiextra' => $campiextra);
+        $campiextra = array(
+            array('nomecampo' => 'categoria',
+                'lunghezza' => '500',
+                'descrizione' => 'Categoria',
+                'type' => 'string', ), );
+        $paricevuti = array(
+            'nomebundle' => $nomebundle,
+            'nometabella' => $controller,
+            'dettaglij' => $dettaglij,
+            'escludere' => $escludi,
+            'container' => $container,
+            'campiextra' => $campiextra, );
 
         $testatagriglia = griglia::testataPerGriglia($paricevuti);
 
