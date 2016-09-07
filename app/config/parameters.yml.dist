@@ -1,15 +1,15 @@
+# This file is auto-generated during the composer install
 parameters:
-    database_driver: pdo_pgsql
-    database_host: comfipgsql01.comune.intranet
+    database_driver: "pdo_sqlite"
+    database_host: null
     database_port: null
-    database_name: fifree2test
-    database_user: fifree2usr
-    database_password: liberafi
-
+    database_name: "app/tmp/dbtest.sqlite"
+    database_user: null
+    database_password: null
     mailer_transport: smtp
-    mailer_host: smtp.comune.intranet
-    mailer_user:       ~
-    mailer_password:   ~
-
-    locale:            it
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    mailer_host: null
+    mailer_user: null
+    mailer_password: null
+    locale: it
+    secret: ThisTokenIsNotSoSecretChangeIt
+    temascelto: sunny
