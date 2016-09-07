@@ -2,20 +2,18 @@
 
 namespace Fi\SpeseBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * tipologia
+ * tipologia.
  */
 class tipologia
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
     /**
-     * @var integer
+     * @var int
      */
     private $categoria_id;
 
@@ -35,7 +33,7 @@ class tipologia
     private $categoria;
 
     /**
-     * Constructor
+     * Constructor.
      */
     public function __construct()
     {
@@ -43,9 +41,9 @@ class tipologia
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -53,9 +51,10 @@ class tipologia
     }
 
     /**
-     * Set categoria_id
+     * Set categoria_id.
      *
-     * @param integer $categoriaId
+     * @param int $categoriaId
+     *
      * @return tipologia
      */
     public function setCategoriaId($categoriaId)
@@ -66,9 +65,9 @@ class tipologia
     }
 
     /**
-     * Get categoria_id
+     * Get categoria_id.
      *
-     * @return integer 
+     * @return int
      */
     public function getCategoriaId()
     {
@@ -76,9 +75,10 @@ class tipologia
     }
 
     /**
-     * Set descrizione
+     * Set descrizione.
      *
      * @param string $descrizione
+     *
      * @return tipologia
      */
     public function setDescrizione($descrizione)
@@ -89,9 +89,9 @@ class tipologia
     }
 
     /**
-     * Get descrizione
+     * Get descrizione.
      *
-     * @return string 
+     * @return string
      */
     public function getDescrizione()
     {
@@ -99,9 +99,10 @@ class tipologia
     }
 
     /**
-     * Add movimentos
+     * Add movimentos.
      *
      * @param \Fi\SpeseBundle\Entity\movimento $movimentos
+     *
      * @return tipologia
      */
     public function addMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos)
@@ -112,7 +113,7 @@ class tipologia
     }
 
     /**
-     * Remove movimentos
+     * Remove movimentos.
      *
      * @param \Fi\SpeseBundle\Entity\movimento $movimentos
      */
@@ -122,9 +123,9 @@ class tipologia
     }
 
     /**
-     * Get movimentos
+     * Get movimentos.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMovimentos()
     {
@@ -132,9 +133,10 @@ class tipologia
     }
 
     /**
-     * Set categoria
+     * Set categoria.
      *
      * @param \Fi\SpeseBundle\Entity\categoria $categoria
+     *
      * @return tipologia
      */
     public function setCategoria(\Fi\SpeseBundle\Entity\categoria $categoria)
@@ -145,18 +147,17 @@ class tipologia
     }
 
     /**
-     * Get categoria
+     * Get categoria.
      *
-     * @return \Fi\SpeseBundle\Entity\categoria 
+     * @return \Fi\SpeseBundle\Entity\categoria
      */
     public function getCategoria()
     {
         return $this->categoria;
     }
-    
-        public function __toString() {
-        return $this->descrizione . " (" . $this->getCategoria()->getDescrizione() . ")";
+
+    public function __toString()
+    {
+        return $this->descrizione.' ('.$this->getCategoria()->getDescrizione().')';
     }
-
-
 }

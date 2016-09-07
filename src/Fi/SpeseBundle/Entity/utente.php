@@ -2,15 +2,13 @@
 
 namespace Fi\SpeseBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * utente
+ * utente.
  */
-class utente {
-
+class utente
+{
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -45,166 +43,189 @@ class utente {
     private $movimentos;
 
     /**
-     * Constructor
+     * Constructor.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->movimentos = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
-     * Set nome
+     * Set nome.
      *
      * @param string $nome
+     *
      * @return utente
      */
-    public function setNome($nome) {
+    public function setNome($nome)
+    {
         $this->nome = $nome;
 
         return $this;
     }
 
     /**
-     * Get nome
+     * Get nome.
      *
-     * @return string 
+     * @return string
      */
-    public function getNome() {
+    public function getNome()
+    {
         return $this->nome;
     }
 
     /**
-     * Set cognome
+     * Set cognome.
      *
      * @param string $cognome
+     *
      * @return utente
      */
-    public function setCognome($cognome) {
+    public function setCognome($cognome)
+    {
         $this->cognome = $cognome;
 
         return $this;
     }
 
     /**
-     * Get cognome
+     * Get cognome.
      *
-     * @return string 
+     * @return string
      */
-    public function getCognome() {
+    public function getCognome()
+    {
         return $this->cognome;
     }
 
     /**
-     * Set email
+     * Set email.
      *
      * @param string $email
+     *
      * @return utente
      */
-    public function setEmail($email) {
+    public function setEmail($email)
+    {
         $this->email = $email;
 
         return $this;
     }
 
     /**
-     * Get email
+     * Get email.
      *
-     * @return string 
+     * @return string
      */
-    public function getEmail() {
+    public function getEmail()
+    {
         return $this->email;
     }
 
     /**
-     * Set username
+     * Set username.
      *
      * @param string $username
+     *
      * @return utente
      */
-    public function setUsername($username) {
+    public function setUsername($username)
+    {
         $this->username = $username;
 
         return $this;
     }
 
     /**
-     * Get username
+     * Get username.
      *
-     * @return string 
+     * @return string
      */
-    public function getUsername() {
+    public function getUsername()
+    {
         return $this->username;
     }
 
     /**
-     * Set password
+     * Set password.
      *
      * @param string $password
+     *
      * @return utente
      */
-    public function setPassword($password) {
+    public function setPassword($password)
+    {
         $this->password = $password;
 
         return $this;
     }
 
     /**
-     * Get password
+     * Get password.
      *
-     * @return string 
+     * @return string
      */
-    public function getPassword() {
+    public function getPassword()
+    {
         return $this->password;
     }
 
     /**
-     * Add movimentos
+     * Add movimentos.
      *
      * @param \Fi\SpeseBundle\Entity\movimento $movimentos
+     *
      * @return utente
      */
-    public function addMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos) {
+    public function addMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos)
+    {
         $this->movimentos[] = $movimentos;
 
         return $this;
     }
 
     /**
-     * Remove movimentos
+     * Remove movimentos.
      *
      * @param \Fi\SpeseBundle\Entity\movimento $movimentos
      */
-    public function removeMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos) {
+    public function removeMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos)
+    {
         $this->movimentos->removeElement($movimentos);
     }
 
     /**
-     * Get movimentos
+     * Get movimentos.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getMovimentos() {
+    public function getMovimentos()
+    {
         return $this->movimentos;
     }
 
-    public function __toString() {
-        return $this->nome . " " . $this->cognome;
+    public function __toString()
+    {
+        return $this->nome.' '.$this->cognome;
     }
 
-    public function getNominativo() {
-        return $this->nome . " " . $this->cognome;
+    public function getNominativo()
+    {
+        return $this->nome.' '.$this->cognome;
     }
 
     /**
-     * @var integer
+     * @var int
      */
     private $famiglia_id;
 
@@ -213,11 +234,11 @@ class utente {
      */
     private $famiglia;
 
-
     /**
-     * Set famiglia_id
+     * Set famiglia_id.
      *
-     * @param integer $famigliaId
+     * @param int $famigliaId
+     *
      * @return utente
      */
     public function setFamigliaId($famigliaId)
@@ -228,9 +249,9 @@ class utente {
     }
 
     /**
-     * Get famiglia_id
+     * Get famiglia_id.
      *
-     * @return integer 
+     * @return int
      */
     public function getFamigliaId()
     {
@@ -238,9 +259,10 @@ class utente {
     }
 
     /**
-     * Set famiglia
+     * Set famiglia.
      *
      * @param \Fi\SpeseBundle\Entity\famiglia $famiglia
+     *
      * @return utente
      */
     public function setFamiglia(\Fi\SpeseBundle\Entity\famiglia $famiglia = null)
@@ -251,9 +273,9 @@ class utente {
     }
 
     /**
-     * Get famiglia
+     * Get famiglia.
      *
-     * @return \Fi\SpeseBundle\Entity\famiglia 
+     * @return \Fi\SpeseBundle\Entity\famiglia
      */
     public function getFamiglia()
     {

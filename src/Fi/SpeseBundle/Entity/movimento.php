@@ -2,25 +2,23 @@
 
 namespace Fi\SpeseBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * movimento
+ * movimento.
  */
 class movimento
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
     /**
-     * @var integer
+     * @var int
      */
     private $tipologia_id;
 
     /**
-     * @var integer
+     * @var int
      */
     private $utente_id;
 
@@ -40,7 +38,7 @@ class movimento
     private $nota;
 
     /**
-     * @var integer
+     * @var int
      */
     private $tipomovimento_id;
 
@@ -59,11 +57,10 @@ class movimento
      */
     private $tipomovimento;
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -71,9 +68,10 @@ class movimento
     }
 
     /**
-     * Set tipologia_id
+     * Set tipologia_id.
      *
-     * @param integer $tipologiaId
+     * @param int $tipologiaId
+     *
      * @return movimento
      */
     public function setTipologiaId($tipologiaId)
@@ -84,9 +82,9 @@ class movimento
     }
 
     /**
-     * Get tipologia_id
+     * Get tipologia_id.
      *
-     * @return integer 
+     * @return int
      */
     public function getTipologiaId()
     {
@@ -94,9 +92,10 @@ class movimento
     }
 
     /**
-     * Set utente_id
+     * Set utente_id.
      *
-     * @param integer $utenteId
+     * @param int $utenteId
+     *
      * @return movimento
      */
     public function setUtenteId($utenteId)
@@ -107,9 +106,9 @@ class movimento
     }
 
     /**
-     * Get utente_id
+     * Get utente_id.
      *
-     * @return integer 
+     * @return int
      */
     public function getUtenteId()
     {
@@ -117,9 +116,10 @@ class movimento
     }
 
     /**
-     * Set importo
+     * Set importo.
      *
      * @param float $importo
+     *
      * @return movimento
      */
     public function setImporto($importo)
@@ -130,9 +130,9 @@ class movimento
     }
 
     /**
-     * Get importo
+     * Get importo.
      *
-     * @return float 
+     * @return float
      */
     public function getImporto()
     {
@@ -140,9 +140,10 @@ class movimento
     }
 
     /**
-     * Set data
+     * Set data.
      *
      * @param \DateTime $data
+     *
      * @return movimento
      */
     public function setData($data)
@@ -153,9 +154,9 @@ class movimento
     }
 
     /**
-     * Get data
+     * Get data.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getData()
     {
@@ -163,9 +164,10 @@ class movimento
     }
 
     /**
-     * Set nota
+     * Set nota.
      *
      * @param string $nota
+     *
      * @return movimento
      */
     public function setNota($nota)
@@ -176,9 +178,9 @@ class movimento
     }
 
     /**
-     * Get nota
+     * Get nota.
      *
-     * @return string 
+     * @return string
      */
     public function getNota()
     {
@@ -186,9 +188,10 @@ class movimento
     }
 
     /**
-     * Set tipomovimento_id
+     * Set tipomovimento_id.
      *
-     * @param integer $tipomovimentoId
+     * @param int $tipomovimentoId
+     *
      * @return movimento
      */
     public function setTipomovimentoId($tipomovimentoId)
@@ -199,9 +202,9 @@ class movimento
     }
 
     /**
-     * Get tipomovimento_id
+     * Get tipomovimento_id.
      *
-     * @return integer 
+     * @return int
      */
     public function getTipomovimentoId()
     {
@@ -209,9 +212,10 @@ class movimento
     }
 
     /**
-     * Set tipologia
+     * Set tipologia.
      *
      * @param \Fi\SpeseBundle\Entity\tipologia $tipologia
+     *
      * @return movimento
      */
     public function setTipologia(\Fi\SpeseBundle\Entity\tipologia $tipologia)
@@ -222,9 +226,9 @@ class movimento
     }
 
     /**
-     * Get tipologia
+     * Get tipologia.
      *
-     * @return \Fi\SpeseBundle\Entity\tipologia 
+     * @return \Fi\SpeseBundle\Entity\tipologia
      */
     public function getTipologia()
     {
@@ -232,9 +236,10 @@ class movimento
     }
 
     /**
-     * Set utente
+     * Set utente.
      *
      * @param \Fi\SpeseBundle\Entity\utente $utente
+     *
      * @return movimento
      */
     public function setUtente(\Fi\SpeseBundle\Entity\utente $utente)
@@ -245,9 +250,9 @@ class movimento
     }
 
     /**
-     * Get utente
+     * Get utente.
      *
-     * @return \Fi\SpeseBundle\Entity\utente 
+     * @return \Fi\SpeseBundle\Entity\utente
      */
     public function getUtente()
     {
@@ -255,9 +260,10 @@ class movimento
     }
 
     /**
-     * Set tipomovimento
+     * Set tipomovimento.
      *
      * @param \Fi\SpeseBundle\Entity\tipomovimento $tipomovimento
+     *
      * @return movimento
      */
     public function setTipomovimento(\Fi\SpeseBundle\Entity\tipomovimento $tipomovimento)
@@ -268,17 +274,17 @@ class movimento
     }
 
     /**
-     * Get tipomovimento
+     * Get tipomovimento.
      *
-     * @return \Fi\SpeseBundle\Entity\tipomovimento 
+     * @return \Fi\SpeseBundle\Entity\tipomovimento
      */
     public function getTipomovimento()
     {
         return $this->tipomovimento;
     }
-    
-    public function getDescrizionecategoria() {
+
+    public function getDescrizionecategoria()
+    {
         return $this->getTipologia()->getCategoria()->getDescrizione();
     }
-
 }

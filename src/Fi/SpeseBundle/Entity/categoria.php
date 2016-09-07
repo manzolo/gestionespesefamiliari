@@ -2,15 +2,13 @@
 
 namespace Fi\SpeseBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * categoria
+ * categoria.
  */
-class categoria {
-
+class categoria
+{
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -25,74 +23,83 @@ class categoria {
     private $tipologias;
 
     /**
-     * Constructor
+     * Constructor.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->tipologias = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
-     * Set descrizione
+     * Set descrizione.
      *
      * @param string $descrizione
+     *
      * @return categoria
      */
-    public function setDescrizione($descrizione) {
+    public function setDescrizione($descrizione)
+    {
         $this->descrizione = $descrizione;
 
         return $this;
     }
 
     /**
-     * Get descrizione
+     * Get descrizione.
      *
-     * @return string 
+     * @return string
      */
-    public function getDescrizione() {
+    public function getDescrizione()
+    {
         return $this->descrizione;
     }
 
     /**
-     * Add tipologias
+     * Add tipologias.
      *
      * @param \Fi\SpeseBundle\Entity\tipologia $tipologias
+     *
      * @return categoria
      */
-    public function addTipologia(\Fi\SpeseBundle\Entity\tipologia $tipologias) {
+    public function addTipologia(\Fi\SpeseBundle\Entity\tipologia $tipologias)
+    {
         $this->tipologias[] = $tipologias;
 
         return $this;
     }
 
     /**
-     * Remove tipologias
+     * Remove tipologias.
      *
      * @param \Fi\SpeseBundle\Entity\tipologia $tipologias
      */
-    public function removeTipologia(\Fi\SpeseBundle\Entity\tipologia $tipologias) {
+    public function removeTipologia(\Fi\SpeseBundle\Entity\tipologia $tipologias)
+    {
         $this->tipologias->removeElement($tipologias);
     }
 
     /**
-     * Get tipologias
+     * Get tipologias.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getTipologias() {
+    public function getTipologias()
+    {
         return $this->tipologias;
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return $this->descrizione;
     }
-
 }
