@@ -1,6 +1,10 @@
 # gestionespesefamiliari
 Gestione spese familiari (family expenses management)
 
+[![Build Status](https://travis-ci.org/manzolo/gestionespesefamiliari.svg?branch=master)]
+(https://travis-ci.org/manzolo/gestionespesefamiliari) [![Coverage Status](https://img.shields.io/coveralls/manzolo/gestionespesefamiliari.svg)] 
+(https://coveralls.io/r/manzolo/gestionespesefamiliari)
+
 ##Installazione:
 ```
 cp app/config/parameters.yml.dist app/config/parameters.yml
