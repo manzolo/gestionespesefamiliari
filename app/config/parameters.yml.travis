@@ -4,6 +4,7 @@ parameters:
     database_host: null
     database_port: null
     database_name: "app/tmp/dbtest.sqlite"
+    database_path: "app/tmp/dbtest.sqlite"
     database_user: null
     database_password: null
     mailer_transport: smtp
