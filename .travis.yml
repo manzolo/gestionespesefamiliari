@@ -16,4 +16,4 @@ script:
 
 notifications:
   email:
-- andrea.manzi@libero.it
+  - andrea.manzi@libero.it
