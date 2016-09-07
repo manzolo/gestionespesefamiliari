@@ -16,11 +16,8 @@ class DateExtension extends \Twig_Extension
 
     public function getFunctions()
     {
-        return array(
-             new \Twig_SimpleFunction(
-                    'daysInMonth', array($this, 'getDaysInMonth')),
-             new \Twig_SimpleFunction(
-                    'dayWeekNumber', array($this, 'getDayWeekNumber')),
+        return array(new \Twig_SimpleFunction('daysInMonth', array($this, 'getDaysInMonth')),
+            new \Twig_SimpleFunction('dayWeekNumber', array($this, 'getDayWeekNumber')),
         );
     }
 
@@ -51,7 +48,18 @@ class DateExtension extends \Twig_Extension
 
     public function monthNameFilter($monthNum)
     {
-        $mesi = array('Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre');
+        $mesi = array('Gennaio',
+            'Febbraio',
+            'Marzo',
+            'Aprile',
+            'Maggio',
+            'Giugno',
+            'Luglio',
+            'Agosto',
+            'Settembre',
+            'Ottobre',
+            'Novembre',
+            'Dicembre', );
 
         return ucfirst($mesi[$monthNum - 1]);
     }
