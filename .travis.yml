@@ -7,10 +7,12 @@ php:
   - 5.5
 
 before_script:
+  - cp app/config/parameters.yml.travis app/config/parameters.yml
   - composer install
+  - php app/console fifree2:install admin admin admin@admin.it
 
 script:
-  - phpunit -c app
+  - bin/phpunit -c app
 
 notifications:
   email:

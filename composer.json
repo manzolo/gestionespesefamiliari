@@ -71,7 +71,10 @@
         "friendsofsymfony/user-bundle": "2.0.*@dev",
         "phpunit/phpunit": "~4.8",
         "beberlei/DoctrineExtensions": "*",
-        "tufanbarisyildirim/php-apk-parser": "dev-master"
+        "tufanbarisyildirim/php-apk-parser": "dev-master",
+        "phpmd/phpmd": "dev-master",
+        "bamboohr/phpcs": "dev-master"
+        
 
     },
     "require-dev": {
