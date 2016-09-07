@@ -7,79 +7,77 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use DoctrineExtensions\Query\Mysql\Month;
 
-class reportsController extends Controller
-{
-    public function indexAction(Request $request)
-    {
+class reportsController extends Controller {
+
+    public function indexAction(Request $request) {
         /* @var $em \Doctrine\ORM\EntityManager */
         //$em = $this->get('doctrine')->getManager();
 
         /* @var $qb \Doctrine\ORM\QueryBuilder */
-        /*$qb = $em->createQueryBuilder("reports");
-        $qb->select("m utenteid, u.nome nomeutente, u.cognome cognomeutente, tm.segno segnomovimento,SUM(m.importo) as importototale")
-                ->from("FiSpeseBundle:movimento", 'm')
-                ->leftJoin("FiSpeseBundle:tipomovimento", 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
-                ->leftJoin("FiSpeseBundle:utente", 'u', 'WITH', '(m.utente_id = u.id)')
-                ->leftJoin("FiSpeseBundle:tipologia", 't', 'WITH', '(m.tipologia_id = t.id)')
-                ->leftJoin("FiSpeseBundle:categoria", 'c', 'WITH', '(t.categoria_id = c.id)')
-                //->andWhere('u.id = :utenteid')
-                ->groupBy('m.utente_id, u.nome, u.cognome, tm.segno')
-                //->setParameter('utenteid', 1)
-                ->orderby("u.id")
-        ;
-        $reporttotale = $qb->getQuery()->getResult();
-*/
+        /* $qb = $em->createQueryBuilder("reports");
+          $qb->select("m utenteid, u.nome nomeutente, u.cognome cognomeutente, tm.segno segnomovimento,SUM(m.importo) as importototale")
+          ->from("FiSpeseBundle:movimento", 'm')
+          ->leftJoin("FiSpeseBundle:tipomovimento", 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
+          ->leftJoin("FiSpeseBundle:utente", 'u', 'WITH', '(m.utente_id = u.id)')
+          ->leftJoin("FiSpeseBundle:tipologia", 't', 'WITH', '(m.tipologia_id = t.id)')
+          ->leftJoin("FiSpeseBundle:categoria", 'c', 'WITH', '(t.categoria_id = c.id)')
+          //->andWhere('u.id = :utenteid')
+          ->groupBy('m.utente_id, u.nome, u.cognome, tm.segno')
+          //->setParameter('utenteid', 1)
+          ->orderby("u.id")
+          ;
+          $reporttotale = $qb->getQuery()->getResult();
+         */
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         /*
-        $qb = $em->createQueryBuilder("reports");
-        $qb->select("m utenteid, u.nome nomeutente, u.cognome cognomeutente, YEAR(m.data) anno,MONTH(m.data) mese,SUM(m.importo) as importototale")
-                ->from("FiSpeseBundle:movimento", 'm')
-                ->leftJoin("FiSpeseBundle:utente", 'u', 'WITH', '(m.utente_id = u.id)')
-                ->leftJoin("FiSpeseBundle:tipologia", 't', 'WITH', '(m.tipologia_id = t.id)')
-                ->leftJoin("FiSpeseBundle:categoria", 'c', 'WITH', '(t.categoria_id = c.id)')
-                //->andWhere('u.id = :utenteid')
-                ->groupBy('m.utente_id, u.nome, u.cognome, anno, mese')
-                ->orderby("u.id")
-        //->setParameter('utenteid', 1)
-        ;
-        $reportmensile = $qb->getQuery()->getResult();*/
+          $qb = $em->createQueryBuilder("reports");
+          $qb->select("m utenteid, u.nome nomeutente, u.cognome cognomeutente, YEAR(m.data) anno,MONTH(m.data) mese,SUM(m.importo) as importototale")
+          ->from("FiSpeseBundle:movimento", 'm')
+          ->leftJoin("FiSpeseBundle:utente", 'u', 'WITH', '(m.utente_id = u.id)')
+          ->leftJoin("FiSpeseBundle:tipologia", 't', 'WITH', '(m.tipologia_id = t.id)')
+          ->leftJoin("FiSpeseBundle:categoria", 'c', 'WITH', '(t.categoria_id = c.id)')
+          //->andWhere('u.id = :utenteid')
+          ->groupBy('m.utente_id, u.nome, u.cognome, anno, mese')
+          ->orderby("u.id")
+          //->setParameter('utenteid', 1)
+          ;
+          $reportmensile = $qb->getQuery()->getResult(); */
 
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         /*
-        $qb = $em->createQueryBuilder("reports");
-        $qb->select("m utenteid, u.nome nomeutente, u.cognome cognomeutente, concat(concat(c.descrizione,' -> '),t.descrizione) descrizionetipologia, YEAR(m.data) anno,MONTH(m.data) mese,SUM(m.importo) as importototale")
-                ->from("FiSpeseBundle:movimento", 'm')
-                ->leftJoin("FiSpeseBundle:utente", 'u', 'WITH', '(m.utente_id = u.id)')
-                ->leftJoin("FiSpeseBundle:tipologia", 't', 'WITH', '(m.tipologia_id = t.id)')
-                ->leftJoin("FiSpeseBundle:categoria", 'c', 'WITH', '(t.categoria_id = c.id)')
-                //->andWhere('u.id = :utenteid')
-                ->groupBy('m.utente_id, u.nome, u.cognome,  t.descrizione , anno, mese')
-                ->orderby('u.id, c.descrizione,t.descrizione,anno,mese')
-        //->setParameter('utenteid', 1)
-        ;
-        $reportmensiletipologia = $qb->getQuery()->getResult();*/
+          $qb = $em->createQueryBuilder("reports");
+          $qb->select("m utenteid, u.nome nomeutente, u.cognome cognomeutente, concat(concat(c.descrizione,' -> '),t.descrizione) descrizionetipologia, YEAR(m.data) anno,MONTH(m.data) mese,SUM(m.importo) as importototale")
+          ->from("FiSpeseBundle:movimento", 'm')
+          ->leftJoin("FiSpeseBundle:utente", 'u', 'WITH', '(m.utente_id = u.id)')
+          ->leftJoin("FiSpeseBundle:tipologia", 't', 'WITH', '(m.tipologia_id = t.id)')
+          ->leftJoin("FiSpeseBundle:categoria", 'c', 'WITH', '(t.categoria_id = c.id)')
+          //->andWhere('u.id = :utenteid')
+          ->groupBy('m.utente_id, u.nome, u.cognome,  t.descrizione , anno, mese')
+          ->orderby('u.id, c.descrizione,t.descrizione,anno,mese')
+          //->setParameter('utenteid', 1)
+          ;
+          $reportmensiletipologia = $qb->getQuery()->getResult(); */
 
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         /*
-        $qb = $em->createQueryBuilder("reports");
-        $qb->select("m utenteid, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria, YEAR(m.data) anno,MONTH(m.data) mese,SUM(m.importo) as importototale")
-                ->from("FiSpeseBundle:movimento", 'm')
-                ->leftJoin("FiSpeseBundle:utente", 'u', 'WITH', '(m.utente_id = u.id)')
-                ->leftJoin("FiSpeseBundle:tipologia", 't', 'WITH', '(m.tipologia_id = t.id)')
-                ->leftJoin("FiSpeseBundle:categoria", 'c', 'WITH', '(t.categoria_id = c.id)')
-                //->andWhere('u.id = :utenteid')
-                ->groupBy('m.utente_id, u.nome, u.cognome,  c.descrizione , anno, mese')
-                ->orderby('u.id,c.descrizione,anno,mese')
-        //->setParameter('utenteid', 1)
-        ;
-        $reportmensilecategoria = $qb->getQuery()->getResult();
+          $qb = $em->createQueryBuilder("reports");
+          $qb->select("m utenteid, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria, YEAR(m.data) anno,MONTH(m.data) mese,SUM(m.importo) as importototale")
+          ->from("FiSpeseBundle:movimento", 'm')
+          ->leftJoin("FiSpeseBundle:utente", 'u', 'WITH', '(m.utente_id = u.id)')
+          ->leftJoin("FiSpeseBundle:tipologia", 't', 'WITH', '(m.tipologia_id = t.id)')
+          ->leftJoin("FiSpeseBundle:categoria", 'c', 'WITH', '(t.categoria_id = c.id)')
+          //->andWhere('u.id = :utenteid')
+          ->groupBy('m.utente_id, u.nome, u.cognome,  c.descrizione , anno, mese')
+          ->orderby('u.id,c.descrizione,anno,mese')
+          //->setParameter('utenteid', 1)
+          ;
+          $reportmensilecategoria = $qb->getQuery()->getResult();
 
-        //var_dump($reportmensilecategoria);exit;
-        return $this->render('FiSpeseBundle:Reports:index.html.twig', array('reporttotale' => $reporttotale, 'reportmensile' => $reportmensile, 'reportmensiletipologia' => $reportmensiletipologia, 'reportmensilecategoria' => $reportmensilecategoria));*/
+          //var_dump($reportmensilecategoria);exit;
+          return $this->render('FiSpeseBundle:Reports:index.html.twig', array('reporttotale' => $reporttotale, 'reportmensile' => $reportmensile, 'reportmensiletipologia' => $reportmensiletipologia, 'reportmensilecategoria' => $reportmensilecategoria)); */
     }
 
-    public function excelspeseAction(Request $request)
-    {
+    public function excelspeseAction(Request $request) {
         set_time_limit(960);
         ini_set('memory_limit', '2048M');
         /* @var $em \Doctrine\ORM\EntityManager */
@@ -213,23 +211,22 @@ class reportsController extends Controller
         $todaydate = date('d-m-y');
         //$todaydate = $todaydate . '-' . date("H-i-s");
         $filename = 'report';
-        $filename = $filename.'-'.$todaydate;
-        $filename = $filename.'.xls';
-        $filename = sys_get_temp_dir().DIRECTORY_SEPARATOR.$filename;
+        $filename = $filename . '-' . $todaydate;
+        $filename = $filename . '.xls';
+        $filename = sys_get_temp_dir() . DIRECTORY_SEPARATOR . $filename;
         if (file_exists($filename)) {
             unlink($filename);
         }
         $objWriter->save($filename);
         $response = new Response();
         $response->headers->set('Content-Type', 'text/csv');
-        $response->headers->set('Content-Disposition', 'attachment;filename="'.basename($filename).'"');
+        $response->headers->set('Content-Disposition', 'attachment;filename="' . basename($filename) . '"');
         $response->setContent(file_get_contents($filename));
 
         return $response;
     }
 
-    public function writeReportTotale($resultset, $sheet)
-    {
+    public function writeReportTotale($resultset, $sheet) {
         $sheet->setTitle('Report totale');
         // Si imposta il font
         //Times new romans
@@ -271,18 +268,18 @@ class reportsController extends Controller
         foreach ($resultset as $record) {
             $col = 0;
             $col = $col + 1;
-            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'].' '.$record['cognomeutente']);
+            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'] . ' ' . $record['cognomeutente']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['anno']);
             $col = $col + 1;
-            $sheet->setCellValueByColumnAndRow($col, $row, ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale']);
+            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']) . $record['importototale'];
+            $sheet->setCellValueByColumnAndRow($col, $row, $segnomovimento);
             $col = $col + 1;
             ++$row;
         }
     }
 
-    public function writeReportTotaleCategoria($resultset, $sheet)
-    {
+    public function writeReportTotaleCategoria($resultset, $sheet) {
         $sheet->setTitle('Report totale categoria');
         // Si imposta il font
         //Times new romans
@@ -328,20 +325,20 @@ class reportsController extends Controller
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionefamiglia']);
             $col = $col + 1;
 
-            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'].' '.$record['cognomeutente']);
+            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'] . ' ' . $record['cognomeutente']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['anno']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionecategoria']);
             $col = $col + 1;
-            $sheet->setCellValueByColumnAndRow($col, $row, ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale']);
+            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']) . $record['importototale'];
+            $sheet->setCellValueByColumnAndRow($col, $row, $segnomovimento);
             $col = $col + 1;
             ++$row;
         }
     }
 
-    public function writeReportMensileCategoria($resultset, $sheet)
-    {
+    public function writeReportMensileCategoria($resultset, $sheet) {
         $sheet->setTitle('Report mensile categoria');
         // Si imposta il font
         //Times new romans
@@ -391,7 +388,7 @@ class reportsController extends Controller
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionefamiglia']);
             $col = $col + 1;
 
-            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'].' '.$record['cognomeutente']);
+            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'] . ' ' . $record['cognomeutente']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['anno']);
             $col = $col + 1;
@@ -399,14 +396,14 @@ class reportsController extends Controller
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionecategoria']);
             $col = $col + 1;
-            $sheet->setCellValueByColumnAndRow($col, $row, ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale']);
+            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']) . $record['importototale'];
+            $sheet->setCellValueByColumnAndRow($col, $row, $segnomovimento);
             $col = $col + 1;
             ++$row;
         }
     }
 
-    public function writeReportTotaleTipologia($resultset, $sheet)
-    {
+    public function writeReportTotaleTipologia($resultset, $sheet) {
         $sheet->setTitle('Report totale tipologia');
         // Si imposta il font
         //Times new romans
@@ -457,7 +454,7 @@ class reportsController extends Controller
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionefamiglia']);
             $col = $col + 1;
 
-            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'].' '.$record['cognomeutente']);
+            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'] . ' ' . $record['cognomeutente']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['anno']);
             $col = $col + 1;
@@ -465,14 +462,14 @@ class reportsController extends Controller
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionetipologia']);
             $col = $col + 1;
-            $sheet->setCellValueByColumnAndRow($col, $row, ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale']);
+            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']) . $record['importototale'];
+            $sheet->setCellValueByColumnAndRow($col, $row, $segnomovimento);
             $col = $col + 1;
             ++$row;
         }
     }
 
-    public function writeReportMensileTipologia($resultset, $sheet)
-    {
+    public function writeReportMensileTipologia($resultset, $sheet) {
         $sheet->setTitle('Report mensile tipologia');
         // Si imposta il font
         //Times new romans
@@ -525,7 +522,7 @@ class reportsController extends Controller
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionefamiglia']);
             $col = $col + 1;
 
-            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'].' '.$record['cognomeutente']);
+            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'] . ' ' . $record['cognomeutente']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['anno']);
             $col = $col + 1;
@@ -535,16 +532,27 @@ class reportsController extends Controller
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionetipologia']);
             $col = $col + 1;
-            $sheet->setCellValueByColumnAndRow($col, $row, ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale']);
+            $sheet->setCellValueByColumnAndRow($col, $row, ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']) . $record['importototale']);
             $col = $col + 1;
             ++$row;
         }
     }
 
-    public function getMonthName($monthNum)
-    {
-        $mesi = array('Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre');
+    public function getMonthName($monthNum) {
+        $mesi = array('Gennaio',
+            'Febbraio',
+            'Marzo',
+            'Aprile',
+            'Maggio',
+            'Giugno',
+            'Luglio',
+            'Agosto',
+            'Settembre',
+            'Ottobre',
+            'Novembre',
+            'Dicembre');
 
         return ucfirst($mesi[$monthNum - 1]);
     }
+
 }
