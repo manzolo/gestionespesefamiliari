@@ -6,13 +6,14 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class movimentoType extends AbstractType {
-
+class movimentoType extends AbstractType
+{
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
-    public function buildForm(FormBuilderInterface $builder, array $options) {
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
         $builder
                 ->add('tipomovimento')
                 ->add('utente')
@@ -22,7 +23,7 @@ class movimentoType extends AbstractType {
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),
-                    'required' => false))
+                    'required' => false, ))
                 ->add('nota')
         ;
     }
@@ -30,17 +31,18 @@ class movimentoType extends AbstractType {
     /**
      * @param OptionsResolverInterface $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver) {
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    {
         $resolver->setDefaults(array(
-            'data_class' => 'Fi\SpeseBundle\Entity\movimento'
+            'data_class' => 'Fi\SpeseBundle\Entity\movimento',
         ));
     }
 
     /**
      * @return string
      */
-    public function getName() {
+    public function getName()
+    {
         return 'fi_spesebundle_movimento';
     }
-
 }

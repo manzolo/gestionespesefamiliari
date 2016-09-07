@@ -10,7 +10,7 @@ class famigliaType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
-     * @param array $options
+     * @param array                $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -20,22 +20,22 @@ class famigliaType extends AbstractType
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),
-                    'required' => true))
+                    'required' => true, ))
             ->add('al', 'date', array('input' => 'datetime',
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),
-                    'required' => false))
+                    'required' => false, ))
         ;
     }
-    
+
     /**
      * @param OptionsResolverInterface $resolver
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Fi\SpeseBundle\Entity\famiglia'
+            'data_class' => 'Fi\SpeseBundle\Entity\famiglia',
         ));
     }
 

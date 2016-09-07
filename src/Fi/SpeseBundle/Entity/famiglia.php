@@ -2,15 +2,13 @@
 
 namespace Fi\SpeseBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
- * famiglia
+ * famiglia.
  */
-class famiglia {
-
+class famiglia
+{
     /**
-     * @var integer
+     * @var int
      */
     private $id;
 
@@ -35,116 +33,131 @@ class famiglia {
     private $utentes;
 
     /**
-     * Constructor
+     * Constructor.
      */
-    public function __construct() {
+    public function __construct()
+    {
         $this->utentes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer 
+     * @return int
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
-     * Set descrizione
+     * Set descrizione.
      *
      * @param string $descrizione
+     *
      * @return famiglia
      */
-    public function setDescrizione($descrizione) {
+    public function setDescrizione($descrizione)
+    {
         $this->descrizione = $descrizione;
 
         return $this;
     }
 
     /**
-     * Get descrizione
+     * Get descrizione.
      *
-     * @return string 
+     * @return string
      */
-    public function getDescrizione() {
+    public function getDescrizione()
+    {
         return $this->descrizione;
     }
 
     /**
-     * Set dal
+     * Set dal.
      *
      * @param \DateTime $dal
+     *
      * @return famiglia
      */
-    public function setDal($dal) {
+    public function setDal($dal)
+    {
         $this->dal = $dal;
 
         return $this;
     }
 
     /**
-     * Get dal
+     * Get dal.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getDal() {
+    public function getDal()
+    {
         return $this->dal;
     }
 
     /**
-     * Set al
+     * Set al.
      *
      * @param \DateTime $al
+     *
      * @return famiglia
      */
-    public function setAl($al) {
+    public function setAl($al)
+    {
         $this->al = $al;
 
         return $this;
     }
 
     /**
-     * Get al
+     * Get al.
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getAl() {
+    public function getAl()
+    {
         return $this->al;
     }
 
     /**
-     * Add utentes
+     * Add utentes.
      *
      * @param \Fi\SpeseBundle\Entity\utente $utentes
+     *
      * @return famiglia
      */
-    public function addUtente(\Fi\SpeseBundle\Entity\utente $utentes) {
+    public function addUtente(\Fi\SpeseBundle\Entity\utente $utentes)
+    {
         $this->utentes[] = $utentes;
 
         return $this;
     }
 
     /**
-     * Remove utentes
+     * Remove utentes.
      *
      * @param \Fi\SpeseBundle\Entity\utente $utentes
      */
-    public function removeUtente(\Fi\SpeseBundle\Entity\utente $utentes) {
+    public function removeUtente(\Fi\SpeseBundle\Entity\utente $utentes)
+    {
         $this->utentes->removeElement($utentes);
     }
 
     /**
-     * Get utentes
+     * Get utentes.
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
-    public function getUtentes() {
+    public function getUtentes()
+    {
         return $this->utentes;
     }
 
-    public function __toString() {
+    public function __toString()
+    {
         return $this->descrizione;
     }
-
 }

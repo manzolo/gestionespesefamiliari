@@ -8,6 +8,6 @@ class tipologiaControllerTest extends WebTestCase
 {
     public function testCompleteScenario()
     {
-        $this->assertTrue(true,true);
+        $this->assertTrue(true, true);
     }
 }
