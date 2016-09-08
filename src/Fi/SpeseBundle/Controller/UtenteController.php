@@ -10,26 +10,34 @@ use Fi\SpeseBundle\Entity\utente;
 /**
  * Utente controller.
  */
-class UtenteController extends FiController
-{
-    public function indexAction(Request $request)
-    {
+class UtenteController extends FiController {
+
+    public function indexAction(Request $request) {
         parent::setup($request);
         $namespace = $this->getNamespace();
         $bundle = $this->getBundle();
         $controller = $this->getController();
         $container = $this->container;
 
-        $nomebundle = $namespace.$bundle.'Bundle';
+        $nomebundle = $namespace . $bundle . 'Bundle';
 
         $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository($nomebundle.':'.$controller)->findAll();
+        $entities = $em->getRepository($nomebundle . ':' . $controller)->findAll();
 
         $dettaglij = array(
-            'famiglia_id' => array(array('nomecampo' => 'famiglia.descrizione', 'lunghezza' => '180', 'descrizione' => 'Famiglia', 'tipo' => 'text')),
+            'famiglia_id' => array(
+                array('nomecampo' => 'famiglia.descrizione',
+                    'lunghezza' => '180',
+                    'descrizione' => 'Famiglia',
+                    'tipo' => 'text')
+            ),
         );
         $escludi = array('id');
-        $paricevuti = array('nomebundle' => $nomebundle, 'nometabella' => $controller, 'dettaglij' => $dettaglij, 'escludere' => $escludi, 'container' => $container);
+        $paricevuti = array('nomebundle' => $nomebundle,
+            'nometabella' => $controller,
+            'dettaglij' => $dettaglij,
+            'escludere' => $escludi,
+            'container' => $container);
 
         $testatagriglia = griglia::testataPerGriglia($paricevuti);
 
@@ -50,21 +58,20 @@ class UtenteController extends FiController
 
         $testata = json_encode($testatagriglia);
 
-        return $this->render($nomebundle.':'.$controller.':index.html.twig', array(
+        return $this->render($nomebundle . ':' . $controller . ':index.html.twig', array(
                     'entities' => $entities,
                     'nomecontroller' => $controller,
                     'testata' => $testata,
         ));
     }
 
-    public function setParametriGriglia($prepar = array())
-    {
+    public function setParametriGriglia($prepar = array()) {
         self::setup($prepar['request']);
         $namespace = $this->getNamespace();
         $bundle = $this->getBundle();
         $controller = $this->getController();
 
-        $nomebundle = $namespace.$bundle.'Bundle';
+        $nomebundle = $namespace . $bundle . 'Bundle';
         $escludi = array('id');
 
         $tabellej['famiglia_id'] = array('tabella' => 'famiglia', 'campi' => array('descrizione'));
@@ -77,4 +84,5 @@ class UtenteController extends FiController
 
         self::$parametrigriglia = $paricevuti;
     }
+
 }

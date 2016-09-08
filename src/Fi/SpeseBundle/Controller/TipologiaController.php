@@ -10,27 +10,38 @@ use Fi\SpeseBundle\Entity\tipologia;
 /**
  * Tipologia controller.
  */
-class TipologiaController extends FiController
-{
-    public function indexAction(Request $request)
-    {
+class TipologiaController extends FiController {
+
+    public function indexAction(Request $request) {
         parent::setup($request);
         $namespace = $this->getNamespace();
         $bundle = $this->getBundle();
         $controller = $this->getController();
         $container = $this->container;
 
-        $nomebundle = $namespace.$bundle.'Bundle';
+        $nomebundle = $namespace . $bundle . 'Bundle';
 
         $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository($nomebundle.':'.$controller)->findAll();
+        $entities = $em->getRepository($nomebundle . ':' . $controller)->findAll();
 
         $dettaglij = array(
-            'descrizione' => array(array('nomecampo' => 'descrizione', 'lunghezza' => '400', 'descrizione' => 'Descrizione tipologia', 'tipo' => 'text')),
-            'categoria_id' => array(array('nomecampo' => 'categoria.descrizione', 'lunghezza' => '400', 'descrizione' => 'Categoria', 'tipo' => 'text')),
+            'descrizione' => array(
+                array('nomecampo' => 'descrizione',
+                    'lunghezza' => '400',
+                    'descrizione' => 'Descrizione tipologia',
+                    'tipo' => 'text')),
+            'categoria_id' => array(
+                array('nomecampo' => 'categoria.descrizione',
+                    'lunghezza' => '400', 'descrizione' => 'Categoria',
+                    'tipo' => 'text')
+            ),
         );
         $escludi = array();
-        $paricevuti = array('nomebundle' => $nomebundle, 'nometabella' => $controller, 'dettaglij' => $dettaglij, 'escludere' => $escludi, 'container' => $container);
+        $paricevuti = array('nomebundle' => $nomebundle,
+            'nometabella' => $controller,
+            'dettaglij' => $dettaglij,
+            'escludere' => $escludi,
+            'container' => $container);
 
         $testatagriglia = griglia::testataPerGriglia($paricevuti);
 
@@ -51,25 +62,28 @@ class TipologiaController extends FiController
 
         $testata = json_encode($testatagriglia);
 
-        return $this->render($nomebundle.':'.$controller.':index.html.twig', array(
+        return $this->render($nomebundle . ':' . $controller . ':index.html.twig', array(
                     'entities' => $entities,
                     'nomecontroller' => $controller,
                     'testata' => $testata,
         ));
     }
 
-    public function setParametriGriglia($prepar = array())
-    {
+    public function setParametriGriglia($prepar = array()) {
         self::setup($prepar['request']);
         $namespace = $this->getNamespace();
         $bundle = $this->getBundle();
         $controller = $this->getController();
 
-        $nomebundle = $namespace.$bundle.'Bundle';
+        $nomebundle = $namespace . $bundle . 'Bundle';
         $escludi = array();
         $tabellej['categoria_id'] = array('tabella' => 'categoria', 'campi' => array('descrizione'));
 
-        $paricevuti = array('container' => $this->container, 'nomebundle' => $nomebundle, 'tabellej' => $tabellej, 'nometabella' => $controller, 'escludere' => $escludi);
+        $paricevuti = array('container' => $this->container, 
+            'nomebundle' => $nomebundle, 
+            'tabellej' => $tabellej, 
+            'nometabella' => $controller, 
+            'escludere' => $escludi);
 
         if ($prepar) {
             $paricevuti = array_merge($paricevuti, $prepar);
@@ -77,4 +91,5 @@ class TipologiaController extends FiController
 
         self::$parametrigriglia = $paricevuti;
     }
+
 }
