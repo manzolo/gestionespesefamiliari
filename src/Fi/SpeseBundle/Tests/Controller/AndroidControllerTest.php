@@ -32,11 +32,11 @@ class AndroidControllerTest extends WebTestCase
         $body = $crawler->filter('body');
         $jsonString = strip_tags($body->html());
         $json = json_decode($jsonString);
-        if (isset($json->retcode)) {
-            $this->assertEquals(-1, $json->retcode);
-        } else {
+        if (isset($json->tipologie)) {
             $categorie = count($json->tipologie);
             $this->assertGreaterThanOrEqual(0, $categorie);
+        } else {
+            $this->assertEquals(-1, $json->retcode);
         }
     }
 
@@ -51,11 +51,11 @@ class AndroidControllerTest extends WebTestCase
         $body = $crawler->filter('body');
         $jsonString = strip_tags($body->html());
         $json = json_decode($jsonString);
-        if (isset($json->retcode)) {
-            $this->assertEquals(-1, $json->retcode);
-        } else {
+        if (isset($json->tipimovimento)) {
             $tipimovimento = count($json->tipimovimento);
             $this->assertGreaterThanOrEqual(0, $tipimovimento);
+        } else {
+            $this->assertEquals(-1, $json->retcode);
         }
     }
 
@@ -72,5 +72,63 @@ class AndroidControllerTest extends WebTestCase
         $isVersion = preg_match('/^(\d+\.)?(\d+\.)?(\d+\.)?(\*|\d+)$/', $string);
 
         $this->assertTrue((bool) $isVersion);
+    }
+
+    /**
+     * @test
+     */
+    public function androidControllerRegistraSpesaTest()
+    {
+        $client = static::createClient();
+
+        /* @var $em \Doctrine\ORM\EntityManager */
+        $em = $client->getContainer()->get('doctrine')->getManager();
+
+        $qu = $em->createQueryBuilder();
+        $qu->select(array('m'))
+            ->from('FiSpeseBundle:Utente', 'm')
+            ->where('m.id = :id')
+            ->setParameter('id', 1);
+        $utente = $qu->getQuery()->getSingleResult();
+
+        $qt = $em->createQueryBuilder();
+        $qt->select(array('t'))
+            ->from('FiSpeseBundle:Tipologia', 't')
+            ->where('t.id = :id')
+            ->setParameter('id', 1);
+        $tipologia = $qt->getQuery()->getSingleResult();
+
+        $qtm = $em->createQueryBuilder();
+        $qtm->select(array('t'))
+            ->from('FiSpeseBundle:Tipomovimento', 't')
+            ->where('t.id = :id')
+            ->setParameter('id', 1);
+        $tipomovimentoe = $qt->getQuery()->getSingleResult();
+
+        $post = array(
+            'utente' => $utente->getId(),
+            'tipologia' => $tipologia->getId(),
+            'importo' => 10,
+            'nota' => 'prova-'.date('Y-m-d_h:i:s'),
+            'datamovimento' => date('Y-m-d'),
+            'tipomovimento' => $tipomovimentoe->getId(),
+        );
+        $crawler = $client->request('POST', '/Android/registraspesa', $post);
+        $body = $crawler->filter('body');
+        $jsonString = strip_tags($body->html());
+        $json = json_decode($jsonString);
+        $this->assertEquals(0, $json->retcode);
+
+        $qtmv = $em->createQueryBuilder();
+        $qtmv->select(array('m'))
+            ->from('FiSpeseBundle:Movimento', 'm')
+            ->where('m.nota = :nota')
+            ->setParameter('nota', 'prova-'.date('Y-m-d_h:i:s'));
+
+        $movimento = $qtmv->getQuery()->getSingleResult();
+        $this->assertGreaterThanOrEqual(1, $movimento->getId());
+
+        $em->remove($movimento);
+        $em->flush();
     }
 }

@@ -9,6 +9,7 @@ before_script:
   - cp app/config/parameters.yml.travis app/config/parameters.yml
   - composer install
   - php app/console fifree2:install admin admin admin@admin.it --env=test
+  - php app/console gestionespese:installdefaultdata --env=test
 
 script:
   - ant
