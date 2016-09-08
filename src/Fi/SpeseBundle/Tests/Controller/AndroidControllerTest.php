@@ -104,12 +104,12 @@ class AndroidControllerTest extends WebTestCase
             ->where('t.id = :id')
             ->setParameter('id', 1);
         $tipomovimentoe = $qt->getQuery()->getSingleResult();
-
+        $nota = 'prova-'.date('Y-m-d_h:i:s');
         $post = array(
             'utente' => $utente->getId(),
             'tipologia' => $tipologia->getId(),
             'importo' => 10,
-            'nota' => 'prova-'.date('Y-m-d_h:i:s'),
+            'nota' => $nota,
             'datamovimento' => date('Y-m-d'),
             'tipomovimento' => $tipomovimentoe->getId(),
         );
@@ -123,7 +123,7 @@ class AndroidControllerTest extends WebTestCase
         $qtmv->select(array('m'))
             ->from('FiSpeseBundle:Movimento', 'm')
             ->where('m.nota = :nota')
-            ->setParameter('nota', 'prova-'.date('Y-m-d_h:i:s'));
+            ->setParameter('nota', $nota);
 
         $movimento = $qtmv->getQuery()->getSingleResult();
         $this->assertGreaterThanOrEqual(1, $movimento->getId());
