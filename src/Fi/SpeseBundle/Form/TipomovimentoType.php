@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class tipologiaType extends AbstractType
+class TipomovimentoType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,8 +15,9 @@ class tipologiaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('categoria')
-            ->add('descrizione')
+            ->add('tipo')
+            ->add('abbreviazione')
+            ->add('segno')
         ;
     }
 
@@ -26,7 +27,7 @@ class tipologiaType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Fi\SpeseBundle\Entity\tipologia',
+            'data_class' => 'Fi\SpeseBundle\Entity\tipomovimento',
         ));
     }
 
@@ -35,6 +36,6 @@ class tipologiaType extends AbstractType
      */
     public function getName()
     {
-        return 'fi_spesebundle_tipologia';
+        return 'fi_spesebundle_tipomovimento';
     }
 }

@@ -1,41 +1,41 @@
-famiglia_container:
+Famiglia_container:
     path:  /
     defaults: { _controller: "FiSpeseBundle:Famiglia:index" }
 
-famiglia_new:
+Famiglia_new:
     path:  /new
     defaults: { _controller: "FiSpeseBundle:Famiglia:new" }
 
-famiglia_create:
+Famiglia_create:
     path:  /create
     defaults: { _controller: "FiSpeseBundle:Famiglia:create" }
     requirements: { methods: post }
 
-famiglia_edit:
+Famiglia_edit:
     path:  /{id}/edit
     defaults: { _controller: "FiSpeseBundle:Famiglia:edit" }
 
-famiglia_update:
+Famiglia_update:
     path:  /{id}/update
     defaults: { _controller: "FiSpeseBundle:Famiglia:update" }
     requirements: { methods: post|put }
 
-famiglia_aggiorna:
+Famiglia_aggiorna:
     path:  /aggiorna
     defaults: { _controller: "FiSpeseBundle:Famiglia:aggiorna" }
     requirements: { methods: post|put }
 
-famiglia_delete:
+Famiglia_delete:
     path:  /{id}/delete
     defaults: { _controller: "FiSpeseBundle:Famiglia:delete" }
     requirements: { methods: post|delete }
 
-famiglia_deletemultiple:
+Famiglia_deletemultiple:
     path:  /delete
     defaults: { _controller: "FiSpeseBundle:Famiglia:delete" }
     requirements: { methods: post|delete }
 
-famiglia_griglia:
+Famiglia_griglia:
     path:  /griglia
     defaults: { _controller: "FiSpeseBundle:Famiglia:griglia" }
     requirements: { methods: get|post }

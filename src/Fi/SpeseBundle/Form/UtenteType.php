@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class tipomovimentoType extends AbstractType
+class UtenteType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,9 +15,12 @@ class tipomovimentoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('tipo')
-            ->add('abbreviazione')
-            ->add('segno')
+            ->add('famiglia')
+            ->add('nome')
+            ->add('cognome')
+            ->add('email')
+            ->add('username')
+            ->add('password')
         ;
     }
 
@@ -27,7 +30,7 @@ class tipomovimentoType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Fi\SpeseBundle\Entity\tipomovimento',
+            'data_class' => 'Fi\SpeseBundle\Entity\utente',
         ));
     }
 
@@ -36,6 +39,6 @@ class tipomovimentoType extends AbstractType
      */
     public function getName()
     {
-        return 'fi_spesebundle_tipomovimento';
+        return 'fi_spesebundle_utente';
     }
 }

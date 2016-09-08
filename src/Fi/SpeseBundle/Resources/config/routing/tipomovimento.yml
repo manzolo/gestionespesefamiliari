@@ -1,41 +1,41 @@
-tipomovimento_container:
+Tipomovimento_container:
     path:  /
     defaults: { _controller: "FiSpeseBundle:Tipomovimento:index" }
 
-tipomovimento_new:
+Tipomovimento_new:
     path:  /new
     defaults: { _controller: "FiSpeseBundle:Tipomovimento:new" }
 
-tipomovimento_create:
+Tipomovimento_create:
     path:  /create
     defaults: { _controller: "FiSpeseBundle:Tipomovimento:create" }
     requirements: { methods: post }
 
-tipomovimento_edit:
+Tipomovimento_edit:
     path:  /{id}/edit
     defaults: { _controller: "FiSpeseBundle:Tipomovimento:edit" }
 
-tipomovimento_update:
+Tipomovimento_update:
     path:  /{id}/update
     defaults: { _controller: "FiSpeseBundle:Tipomovimento:update" }
     requirements: { methods: post|put }
 
-tipomovimento_aggiorna:
+Tipomovimento_aggiorna:
     path:  /aggiorna
     defaults: { _controller: "FiSpeseBundle:Tipomovimento:aggiorna" }
     requirements: { methods: post|put }
 
-tipomovimento_delete:
+Tipomovimento_delete:
     path:  /{id}/delete
     defaults: { _controller: "FiSpeseBundle:Tipomovimento:delete" }
     requirements: { methods: post|delete }
 
-tipomovimento_deletemultiple:
+Tipomovimento_deletemultiple:
     path:  /delete
     defaults: { _controller: "FiSpeseBundle:Tipomovimento:delete" }
     requirements: { methods: post|delete }
 
-tipomovimento_griglia:
+Tipomovimento_griglia:
     path:  /griglia
     defaults: { _controller: "FiSpeseBundle:Tipomovimento:griglia" }
     requirements: { methods: get|post }
