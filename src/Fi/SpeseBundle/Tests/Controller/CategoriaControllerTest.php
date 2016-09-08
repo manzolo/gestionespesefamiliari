@@ -4,11 +4,13 @@ namespace Fi\SpeseBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CategoriaControllerTest extends WebTestCase {
-
-    /** @test */
-    public function testCompleteScenario() {
+class CategoriaControllerTest extends WebTestCase
+{
+    /**
+     * @test
+     */
+    public function testCompleteScenario()
+    {
         $this->assertTrue(true, true);
     }
-
 }
