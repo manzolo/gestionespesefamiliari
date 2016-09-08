@@ -10,9 +10,11 @@ use Fi\SpeseBundle\Entity\tipologia;
 /**
  * Tipologia controller.
  */
-class TipologiaController extends FiController {
+class TipologiaController extends FiController
+{
 
-    public function indexAction(Request $request) {
+    public function indexAction(Request $request) 
+    {
         parent::setup($request);
         $namespace = $this->getNamespace();
         $bundle = $this->getBundle();
@@ -62,14 +64,17 @@ class TipologiaController extends FiController {
 
         $testata = json_encode($testatagriglia);
 
-        return $this->render($nomebundle . ':' . $controller . ':index.html.twig', array(
+        return $this->render(
+            $nomebundle . ':' . $controller . ':index.html.twig', array(
                     'entities' => $entities,
                     'nomecontroller' => $controller,
                     'testata' => $testata,
-        ));
+            )
+        );
     }
 
-    public function setParametriGriglia($prepar = array()) {
+    public function setParametriGriglia($prepar = array()) 
+    {
         self::setup($prepar['request']);
         $namespace = $this->getNamespace();
         $bundle = $this->getBundle();

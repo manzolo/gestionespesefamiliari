@@ -10,9 +10,11 @@ use Fi\SpeseBundle\Entity\utente;
 /**
  * Utente controller.
  */
-class UtenteController extends FiController {
+class UtenteController extends FiController
+{
 
-    public function indexAction(Request $request) {
+    public function indexAction(Request $request) 
+    {
         parent::setup($request);
         $namespace = $this->getNamespace();
         $bundle = $this->getBundle();
@@ -58,14 +60,17 @@ class UtenteController extends FiController {
 
         $testata = json_encode($testatagriglia);
 
-        return $this->render($nomebundle . ':' . $controller . ':index.html.twig', array(
+        return $this->render(
+            $nomebundle . ':' . $controller . ':index.html.twig', array(
                     'entities' => $entities,
                     'nomecontroller' => $controller,
                     'testata' => $testata,
-        ));
+            )
+        );
     }
 
-    public function setParametriGriglia($prepar = array()) {
+    public function setParametriGriglia($prepar = array()) 
+    {
         self::setup($prepar['request']);
         $namespace = $this->getNamespace();
         $bundle = $this->getBundle();
@@ -76,7 +81,11 @@ class UtenteController extends FiController {
 
         $tabellej['famiglia_id'] = array('tabella' => 'famiglia', 'campi' => array('descrizione'));
 
-        $paricevuti = array('container' => $this->container, 'nomebundle' => $nomebundle, 'tabellej' => $tabellej, 'nometabella' => $controller, 'escludere' => $escludi);
+        $paricevuti = array('container' => $this->container, 
+            'nomebundle' => $nomebundle, 
+            'tabellej' => $tabellej, 
+            'nometabella' => $controller, 
+            'escludere' => $escludi);
 
         if ($prepar) {
             $paricevuti = array_merge($paricevuti, $prepar);

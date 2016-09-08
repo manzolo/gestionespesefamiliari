@@ -83,7 +83,8 @@ class ReportsController extends Controller
 
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
-        $selectFields = 'm utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria,  '
+        $selectFields = 'm utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, '
+                . 'c.descrizione descrizionecategoria,  '
                 .'tm.segno segnomovimento, YEAR(m.data) anno, MONTH(m.data) mese, SUM(m.importo) as importototale';
         $qb->select($selectFields)
                 ->from('FiSpeseBundle:Movimento', 'm')
@@ -107,7 +108,8 @@ class ReportsController extends Controller
 
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
-        $selectFields = 'm utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria, '
+        $selectFields = 'm utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, '
+                . 'c.descrizione descrizionecategoria, '
                 .'t.descrizione descrizionetipologia,  tm.segno segnomovimento, YEAR(m.data) anno, SUM(m.importo) as importototale';
         $qb->select($selectFields)
                 ->from('FiSpeseBundle:Movimento', 'm')
@@ -131,8 +133,10 @@ class ReportsController extends Controller
 
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
-        $selectFields = 'm utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria, '
-                .'t.descrizione descrizionetipologia,  tm.segno segnomovimento, YEAR(m.data) anno, MONTH(m.data) mese, SUM(m.importo) as importototale';
+        $selectFields = 'm utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, '
+                . 'c.descrizione descrizionecategoria, '
+                .'t.descrizione descrizionetipologia,  tm.segno segnomovimento, YEAR(m.data) anno, MONTH(m.data) mese, '
+                . 'SUM(m.importo) as importototale';
         $qb->select($selectFields)
                 ->from('FiSpeseBundle:Movimento', 'm')
                 ->leftJoin('FiSpeseBundle:tipomovimento', 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
