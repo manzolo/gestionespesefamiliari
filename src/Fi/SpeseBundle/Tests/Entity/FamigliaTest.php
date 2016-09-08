@@ -26,7 +26,7 @@ class FamigliaTest extends KernelTestCase
     /**
      * @test
      */
-    public function FamigliaInsertDeleteTest()
+    public function famigliaInsertDeleteTest()
     {
         $em = $this->em;
         $famiglia = new \Fi\SpeseBundle\Entity\Famiglia();

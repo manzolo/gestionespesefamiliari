@@ -26,7 +26,7 @@ class UtenteTest extends KernelTestCase
     /**
      * @test
      */
-    public function UtenteInsertDeleteTest()
+    public function utenteInsertDeleteTest()
     {
         $em = $this->em;
         $famiglia = new \Fi\SpeseBundle\Entity\Famiglia();

@@ -26,7 +26,7 @@ class TipomovimentoTest extends KernelTestCase
     /**
      * @test
      */
-    public function TipomovimentoInsertDeleteTest()
+    public function tipomovimentoInsertDeleteTest()
     {
         $em = $this->em;
         $tipomovimentou = new \Fi\SpeseBundle\Entity\Tipomovimento();

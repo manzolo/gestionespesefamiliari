@@ -26,7 +26,7 @@ class TipologiaTest extends KernelTestCase
     /**
      * @test
      */
-    public function TipologiaInsertDeleteTest()
+    public function tipologiaInsertDeleteTest()
     {
         $em = $this->em;
         $categoria = new \Fi\SpeseBundle\Entity\Categoria();

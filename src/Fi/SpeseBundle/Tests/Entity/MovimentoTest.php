@@ -26,7 +26,7 @@ class MovimentoTest extends KernelTestCase
     /**
      * @test
      */
-    public function FamigliaInsertDeleteTest()
+    public function movimentoInsertDeleteTest()
     {
         $em = $this->em;
 
