@@ -50,7 +50,7 @@ security:
         - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/android, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/Android, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/operatori/, role: ROLE_ADMIN }
         - { path: ^/ruoli/, role: ROLE_ADMIN }
