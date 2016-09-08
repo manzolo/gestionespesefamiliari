@@ -74,7 +74,8 @@
         "tufanbarisyildirim/php-apk-parser": "dev-master",
         "phpmd/phpmd": "dev-master",
         "bamboohr/phpcs": "dev-master",
-        "satooshi/php-coveralls": "^1.0"
+        "satooshi/php-coveralls": "^1.0",
+        "sebastian/phpcpd": "^2.0"
         
 
     },
