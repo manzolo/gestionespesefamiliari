@@ -32,9 +32,12 @@ class AndroidControllerTest extends WebTestCase
         $body = $crawler->filter('body');
         $jsonString = strip_tags($body->html());
         $json = json_decode($jsonString);
-        $categorie = count($json->tipologie);
-
-        $this->assertGreaterThanOrEqual(0, $categorie);
+        if (isset($json->retcode)) {
+            $this->assertEquals(-1, $json->retcode);
+        } else {
+            $categorie = count($json->tipologie);
+            $this->assertGreaterThanOrEqual(0, $categorie);
+        }
     }
 
     /**
@@ -48,9 +51,12 @@ class AndroidControllerTest extends WebTestCase
         $body = $crawler->filter('body');
         $jsonString = strip_tags($body->html());
         $json = json_decode($jsonString);
-        $tipimovimento = count($json->tipimovimento);
-
-        $this->assertGreaterThanOrEqual(0, $tipimovimento);
+        if (isset($json->retcode)) {
+            $this->assertEquals(-1, $json->retcode);
+        } else {
+            $tipimovimento = count($json->tipimovimento);
+            $this->assertGreaterThanOrEqual(0, $tipimovimento);
+        }
     }
 
     /**
