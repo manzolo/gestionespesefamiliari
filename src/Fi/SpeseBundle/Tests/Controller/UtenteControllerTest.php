@@ -4,7 +4,7 @@ namespace Fi\SpeseBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class tipomovimentoControllerTest extends WebTestCase
+class UtenteControllerTest extends WebTestCase
 {
     public function testCompleteScenario()
     {
