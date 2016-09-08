@@ -9,8 +9,7 @@ use DoctrineExtensions\Query\Mysql\Month;
 
 class reportsController extends Controller
 {
-
-    public function indexAction(Request $request) 
+    public function indexAction(Request $request)
     {
         /* @var $em \Doctrine\ORM\EntityManager */
         //$em = $this->get('doctrine')->getManager();
@@ -79,7 +78,7 @@ class reportsController extends Controller
           return $this->render('FiSpeseBundle:Reports:index.html.twig', array('reporttotale' => $reporttotale, 'reportmensile' => $reportmensile, 'reportmensiletipologia' => $reportmensiletipologia, 'reportmensilecategoria' => $reportmensilecategoria)); */
     }
 
-    public function excelspeseAction(Request $request) 
+    public function excelspeseAction(Request $request)
     {
         set_time_limit(960);
         ini_set('memory_limit', '2048M');
@@ -213,22 +212,22 @@ class reportsController extends Controller
         $todaydate = date('d-m-y');
         //$todaydate = $todaydate . '-' . date("H-i-s");
         $filename = 'report';
-        $filename = $filename . '-' . $todaydate;
-        $filename = $filename . '.xls';
-        $filename = sys_get_temp_dir() . DIRECTORY_SEPARATOR . $filename;
+        $filename = $filename.'-'.$todaydate;
+        $filename = $filename.'.xls';
+        $filename = sys_get_temp_dir().DIRECTORY_SEPARATOR.$filename;
         if (file_exists($filename)) {
             unlink($filename);
         }
         $objWriter->save($filename);
         $response = new Response();
         $response->headers->set('Content-Type', 'text/csv');
-        $response->headers->set('Content-Disposition', 'attachment;filename="' . basename($filename) . '"');
+        $response->headers->set('Content-Disposition', 'attachment;filename="'.basename($filename).'"');
         $response->setContent(file_get_contents($filename));
 
         return $response;
     }
 
-    public function writeReportTotale($resultset, $sheet) 
+    public function writeReportTotale($resultset, $sheet)
     {
         $sheet->setTitle('Report totale');
         // Si imposta il font
@@ -271,18 +270,18 @@ class reportsController extends Controller
         foreach ($resultset as $record) {
             $col = 0;
             $col = $col + 1;
-            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'] . ' ' . $record['cognomeutente']);
+            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'].' '.$record['cognomeutente']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['anno']);
             $col = $col + 1;
-            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']) . $record['importototale'];
+            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale'];
             $sheet->setCellValueByColumnAndRow($col, $row, $segnomovimento);
             $col = $col + 1;
             ++$row;
         }
     }
 
-    public function writeReportTotaleCategoria($resultset, $sheet) 
+    public function writeReportTotaleCategoria($resultset, $sheet)
     {
         $sheet->setTitle('Report totale categoria');
         // Si imposta il font
@@ -329,20 +328,20 @@ class reportsController extends Controller
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionefamiglia']);
             $col = $col + 1;
 
-            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'] . ' ' . $record['cognomeutente']);
+            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'].' '.$record['cognomeutente']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['anno']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionecategoria']);
             $col = $col + 1;
-            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']) . $record['importototale'];
+            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale'];
             $sheet->setCellValueByColumnAndRow($col, $row, $segnomovimento);
             $col = $col + 1;
             ++$row;
         }
     }
 
-    public function writeReportMensileCategoria($resultset, $sheet) 
+    public function writeReportMensileCategoria($resultset, $sheet)
     {
         $sheet->setTitle('Report mensile categoria');
         // Si imposta il font
@@ -393,7 +392,7 @@ class reportsController extends Controller
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionefamiglia']);
             $col = $col + 1;
 
-            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'] . ' ' . $record['cognomeutente']);
+            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'].' '.$record['cognomeutente']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['anno']);
             $col = $col + 1;
@@ -401,14 +400,14 @@ class reportsController extends Controller
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionecategoria']);
             $col = $col + 1;
-            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']) . $record['importototale'];
+            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale'];
             $sheet->setCellValueByColumnAndRow($col, $row, $segnomovimento);
             $col = $col + 1;
             ++$row;
         }
     }
 
-    public function writeReportTotaleTipologia($resultset, $sheet) 
+    public function writeReportTotaleTipologia($resultset, $sheet)
     {
         $sheet->setTitle('Report totale tipologia');
         // Si imposta il font
@@ -460,7 +459,7 @@ class reportsController extends Controller
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionefamiglia']);
             $col = $col + 1;
 
-            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'] . ' ' . $record['cognomeutente']);
+            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'].' '.$record['cognomeutente']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['anno']);
             $col = $col + 1;
@@ -468,14 +467,14 @@ class reportsController extends Controller
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionetipologia']);
             $col = $col + 1;
-            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']) . $record['importototale'];
+            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale'];
             $sheet->setCellValueByColumnAndRow($col, $row, $segnomovimento);
             $col = $col + 1;
             ++$row;
         }
     }
 
-    public function writeReportMensileTipologia($resultset, $sheet) 
+    public function writeReportMensileTipologia($resultset, $sheet)
     {
         $sheet->setTitle('Report mensile tipologia');
         // Si imposta il font
@@ -529,7 +528,7 @@ class reportsController extends Controller
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionefamiglia']);
             $col = $col + 1;
 
-            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'] . ' ' . $record['cognomeutente']);
+            $sheet->setCellValueByColumnAndRow($col, $row, $record['nomeutente'].' '.$record['cognomeutente']);
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['anno']);
             $col = $col + 1;
@@ -539,13 +538,13 @@ class reportsController extends Controller
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionetipologia']);
             $col = $col + 1;
-            $sheet->setCellValueByColumnAndRow($col, $row, ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']) . $record['importototale']);
+            $sheet->setCellValueByColumnAndRow($col, $row, ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale']);
             $col = $col + 1;
             ++$row;
         }
     }
 
-    public function getMonthName($monthNum) 
+    public function getMonthName($monthNum)
     {
         $mesi = array('Gennaio',
             'Febbraio',
@@ -558,9 +557,8 @@ class reportsController extends Controller
             'Settembre',
             'Ottobre',
             'Novembre',
-            'Dicembre');
+            'Dicembre', );
 
         return ucfirst($mesi[$monthNum - 1]);
     }
-
 }
