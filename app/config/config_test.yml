@@ -18,3 +18,20 @@ swiftmailer:
 fi_core:
     testroutes: true
     testdb: true
+
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%
+        path:     %database_path%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+    orm:
+        entity_managers:
+            default:
+                metadata_cache_driver: apc
+                query_cache_driver:    apc
+                result_cache_driver:   apc
