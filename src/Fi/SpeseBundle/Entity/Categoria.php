@@ -3,9 +3,9 @@
 namespace Fi\SpeseBundle\Entity;
 
 /**
- * categoria.
+ * Categoria.
  */
-class categoria
+class Categoria
 {
     /**
      * @var int

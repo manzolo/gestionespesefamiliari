@@ -1,4 +1,4 @@
-Fi\SpeseBundle\Entity\utente:
+Fi\SpeseBundle\Entity\Utente:
     type: entity
     table: utente
     indexes:
@@ -30,7 +30,7 @@ Fi\SpeseBundle\Entity\utente:
             nullable: true
     oneToMany:
         movimentos:
-            targetEntity: movimento
+            targetEntity: Movimento
             mappedBy: utente
             joinColumn:
                 name: utente_id
@@ -38,7 +38,7 @@ Fi\SpeseBundle\Entity\utente:
                 nullable: false
     manyToOne:
         famiglia:
-            targetEntity: famiglia
+            targetEntity: Famiglia
             inversedBy: utentes
             joinColumn:
                 name: famiglia_id

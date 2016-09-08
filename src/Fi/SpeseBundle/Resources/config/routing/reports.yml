@@ -1,7 +1,7 @@
 reports_container:
     path:  /
-    defaults: { _controller: "FiSpeseBundle:reports:index" }
+    defaults: { _controller: "FiSpeseBundle:Reports:index" }
 
 reports_excelspese:
     path:  /excelspese
-    defaults: { _controller: "FiSpeseBundle:reports:excelspese" }
+    defaults: { _controller: "FiSpeseBundle:Reports:excelspese" }

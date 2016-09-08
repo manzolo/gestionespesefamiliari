@@ -3,9 +3,9 @@
 namespace Fi\SpeseBundle\Entity;
 
 /**
- * famiglia.
+ * Famiglia.
  */
-class famiglia
+class Famiglia
 {
     /**
      * @var int

@@ -1,41 +1,41 @@
 categoria_container:
     path:  /
-    defaults: { _controller: "FiSpeseBundle:categoria:index" }
+    defaults: { _controller: "FiSpeseBundle:Categoria:index" }
 
 categoria_new:
     path:  /new
-    defaults: { _controller: "FiSpeseBundle:categoria:new" }
+    defaults: { _controller: "FiSpeseBundle:Categoria:new" }
 
 categoria_create:
     path:  /create
-    defaults: { _controller: "FiSpeseBundle:categoria:create" }
+    defaults: { _controller: "FiSpeseBundle:Categoria:create" }
     requirements: { methods: post }
 
 categoria_edit:
     path:  /{id}/edit
-    defaults: { _controller: "FiSpeseBundle:categoria:edit" }
+    defaults: { _controller: "FiSpeseBundle:Categoria:edit" }
 
 categoria_update:
     path:  /{id}/update
-    defaults: { _controller: "FiSpeseBundle:categoria:update" }
+    defaults: { _controller: "FiSpeseBundle:Categoria:update" }
     requirements: { methods: post|put }
 
 categoria_aggiorna:
     path:  /aggiorna
-    defaults: { _controller: "FiSpeseBundle:categoria:aggiorna" }
+    defaults: { _controller: "FiSpeseBundle:Categoria:aggiorna" }
     requirements: { methods: post|put }
 
 categoria_delete:
     path:  /{id}/delete
-    defaults: { _controller: "FiSpeseBundle:categoria:delete" }
+    defaults: { _controller: "FiSpeseBundle:Categoria:delete" }
     requirements: { methods: post|delete }
 
 categoria_deletemultiple:
     path:  /delete
-    defaults: { _controller: "FiSpeseBundle:categoria:delete" }
+    defaults: { _controller: "FiSpeseBundle:Categoria:delete" }
     requirements: { methods: post|delete }
 
 categoria_griglia:
     path:  /griglia
-    defaults: { _controller: "FiSpeseBundle:categoria:griglia" }
+    defaults: { _controller: "FiSpeseBundle:Categoria:griglia" }
     requirements: { methods: get|post }

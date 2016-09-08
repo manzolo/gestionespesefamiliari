@@ -5,12 +5,12 @@ namespace Fi\SpeseBundle\Controller;
 use Fi\CoreBundle\Controller\FiController;
 use Symfony\Component\HttpFoundation\Request;
 use Fi\CoreBundle\Controller\griglia;
-use Fi\SpeseBundle\Entity\utente;
+use Fi\SpeseBundle\Entity\tipologia;
 
 /**
- * utente controller.
+ * Tipologia controller.
  */
-class utenteController extends FiController
+class TipologiaController extends FiController
 {
     public function indexAction(Request $request)
     {
@@ -26,9 +26,10 @@ class utenteController extends FiController
         $entities = $em->getRepository($nomebundle.':'.$controller)->findAll();
 
         $dettaglij = array(
-            'famiglia_id' => array(array('nomecampo' => 'famiglia.descrizione', 'lunghezza' => '180', 'descrizione' => 'Famiglia', 'tipo' => 'text')),
+            'descrizione' => array(array('nomecampo' => 'descrizione', 'lunghezza' => '400', 'descrizione' => 'Descrizione tipologia', 'tipo' => 'text')),
+            'categoria_id' => array(array('nomecampo' => 'categoria.descrizione', 'lunghezza' => '400', 'descrizione' => 'Categoria', 'tipo' => 'text')),
         );
-        $escludi = array('id');
+        $escludi = array();
         $paricevuti = array('nomebundle' => $nomebundle, 'nometabella' => $controller, 'dettaglij' => $dettaglij, 'escludere' => $escludi, 'container' => $container);
 
         $testatagriglia = griglia::testataPerGriglia($paricevuti);
@@ -65,9 +66,8 @@ class utenteController extends FiController
         $controller = $this->getController();
 
         $nomebundle = $namespace.$bundle.'Bundle';
-        $escludi = array('id');
-
-        $tabellej['famiglia_id'] = array('tabella' => 'famiglia', 'campi' => array('descrizione'));
+        $escludi = array();
+        $tabellej['categoria_id'] = array('tabella' => 'categoria', 'campi' => array('descrizione'));
 
         $paricevuti = array('container' => $this->container, 'nomebundle' => $nomebundle, 'tabellej' => $tabellej, 'nometabella' => $controller, 'escludere' => $escludi);
 

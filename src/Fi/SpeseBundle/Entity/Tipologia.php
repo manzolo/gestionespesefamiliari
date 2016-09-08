@@ -3,9 +3,9 @@
 namespace Fi\SpeseBundle\Entity;
 
 /**
- * tipomovimento.
+ * Tipologia.
  */
-class tipomovimento
+class Tipologia
 {
     /**
      * @var int
@@ -13,24 +13,24 @@ class tipomovimento
     private $id;
 
     /**
-     * @var string
+     * @var int
      */
-    private $tipo;
+    private $categoria_id;
 
     /**
      * @var string
      */
-    private $abbreviazione;
-
-    /**
-     * @var string
-     */
-    private $segno;
+    private $descrizione;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $movimentos;
+
+    /**
+     * @var \Fi\SpeseBundle\Entity\categoria
+     */
+    private $categoria;
 
     /**
      * Constructor.
@@ -51,75 +51,51 @@ class tipomovimento
     }
 
     /**
-     * Set tipo.
+     * Set categoria_id.
      *
-     * @param string $tipo
+     * @param int $categoriaId
      *
-     * @return tipomovimento
+     * @return tipologia
      */
-    public function setTipo($tipo)
+    public function setCategoriaId($categoriaId)
     {
-        $this->tipo = $tipo;
+        $this->categoria_id = $categoriaId;
 
         return $this;
     }
 
     /**
-     * Get tipo.
+     * Get categoria_id.
      *
-     * @return string
+     * @return int
      */
-    public function getTipo()
+    public function getCategoriaId()
     {
-        return $this->tipo;
+        return $this->categoria_id;
     }
 
     /**
-     * Set abbreviazione.
+     * Set descrizione.
      *
-     * @param string $abbreviazione
+     * @param string $descrizione
      *
-     * @return tipomovimento
+     * @return tipologia
      */
-    public function setAbbreviazione($abbreviazione)
+    public function setDescrizione($descrizione)
     {
-        $this->abbreviazione = $abbreviazione;
+        $this->descrizione = $descrizione;
 
         return $this;
     }
 
     /**
-     * Get abbreviazione.
+     * Get descrizione.
      *
      * @return string
      */
-    public function getAbbreviazione()
+    public function getDescrizione()
     {
-        return $this->abbreviazione;
-    }
-
-    /**
-     * Set segno.
-     *
-     * @param string $segno
-     *
-     * @return tipomovimento
-     */
-    public function setSegno($segno)
-    {
-        $this->segno = $segno;
-
-        return $this;
-    }
-
-    /**
-     * Get segno.
-     *
-     * @return string
-     */
-    public function getSegno()
-    {
-        return $this->segno;
+        return $this->descrizione;
     }
 
     /**
@@ -127,7 +103,7 @@ class tipomovimento
      *
      * @param \Fi\SpeseBundle\Entity\movimento $movimentos
      *
-     * @return tipomovimento
+     * @return tipologia
      */
     public function addMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos)
     {
@@ -156,8 +132,32 @@ class tipomovimento
         return $this->movimentos;
     }
 
+    /**
+     * Set categoria.
+     *
+     * @param \Fi\SpeseBundle\Entity\categoria $categoria
+     *
+     * @return tipologia
+     */
+    public function setCategoria(\Fi\SpeseBundle\Entity\categoria $categoria)
+    {
+        $this->categoria = $categoria;
+
+        return $this;
+    }
+
+    /**
+     * Get categoria.
+     *
+     * @return \Fi\SpeseBundle\Entity\categoria
+     */
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
+
     public function __toString()
     {
-        return $this->tipo;
+        return $this->descrizione.' ('.$this->getCategoria()->getDescrizione().')';
     }
 }

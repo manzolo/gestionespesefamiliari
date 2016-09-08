@@ -1,4 +1,4 @@
-Fi\SpeseBundle\Entity\categoria:
+Fi\SpeseBundle\Entity\Categoria:
     type: entity
     table: categoria
     id:
@@ -13,7 +13,7 @@ Fi\SpeseBundle\Entity\categoria:
             nullable: true
     oneToMany:
         tipologias:
-            targetEntity: tipologia
+            targetEntity: Tipologia
             mappedBy: categoria
             joinColumn:
                 name: categoria_id

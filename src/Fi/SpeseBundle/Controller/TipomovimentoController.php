@@ -6,8 +6,8 @@ use Fi\CoreBundle\Controller\FiController;
 use Fi\SpeseBundle\Entity\tipomovimento;
 
 /**
- * tipomovimento controller.
+ * Tipomovimento controller.
  */
-class tipomovimentoController extends FiController
+class TipomovimentoController extends FiController
 {
 }

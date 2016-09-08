@@ -1,41 +1,41 @@
 famiglia_container:
     path:  /
-    defaults: { _controller: "FiSpeseBundle:famiglia:index" }
+    defaults: { _controller: "FiSpeseBundle:Famiglia:index" }
 
 famiglia_new:
     path:  /new
-    defaults: { _controller: "FiSpeseBundle:famiglia:new" }
+    defaults: { _controller: "FiSpeseBundle:Famiglia:new" }
 
 famiglia_create:
     path:  /create
-    defaults: { _controller: "FiSpeseBundle:famiglia:create" }
+    defaults: { _controller: "FiSpeseBundle:Famiglia:create" }
     requirements: { methods: post }
 
 famiglia_edit:
     path:  /{id}/edit
-    defaults: { _controller: "FiSpeseBundle:famiglia:edit" }
+    defaults: { _controller: "FiSpeseBundle:Famiglia:edit" }
 
 famiglia_update:
     path:  /{id}/update
-    defaults: { _controller: "FiSpeseBundle:famiglia:update" }
+    defaults: { _controller: "FiSpeseBundle:Famiglia:update" }
     requirements: { methods: post|put }
 
 famiglia_aggiorna:
     path:  /aggiorna
-    defaults: { _controller: "FiSpeseBundle:famiglia:aggiorna" }
+    defaults: { _controller: "FiSpeseBundle:Famiglia:aggiorna" }
     requirements: { methods: post|put }
 
 famiglia_delete:
     path:  /{id}/delete
-    defaults: { _controller: "FiSpeseBundle:famiglia:delete" }
+    defaults: { _controller: "FiSpeseBundle:Famiglia:delete" }
     requirements: { methods: post|delete }
 
 famiglia_deletemultiple:
     path:  /delete
-    defaults: { _controller: "FiSpeseBundle:famiglia:delete" }
+    defaults: { _controller: "FiSpeseBundle:Famiglia:delete" }
     requirements: { methods: post|delete }
 
 famiglia_griglia:
     path:  /griglia
-    defaults: { _controller: "FiSpeseBundle:famiglia:griglia" }
+    defaults: { _controller: "FiSpeseBundle:Famiglia:griglia" }
     requirements: { methods: get|post }

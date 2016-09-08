@@ -1,41 +1,41 @@
 tipologia_container:
     path:  /
-    defaults: { _controller: "FiSpeseBundle:tipologia:index" }
+    defaults: { _controller: "FiSpeseBundle:Tipologia:index" }
 
 tipologia_new:
     path:  /new
-    defaults: { _controller: "FiSpeseBundle:tipologia:new" }
+    defaults: { _controller: "FiSpeseBundle:Tipologia:new" }
 
 tipologia_create:
     path:  /create
-    defaults: { _controller: "FiSpeseBundle:tipologia:create" }
+    defaults: { _controller: "FiSpeseBundle:Tipologia:create" }
     requirements: { methods: post }
 
 tipologia_edit:
     path:  /{id}/edit
-    defaults: { _controller: "FiSpeseBundle:tipologia:edit" }
+    defaults: { _controller: "FiSpeseBundle:Tipologia:edit" }
 
 tipologia_update:
     path:  /{id}/update
-    defaults: { _controller: "FiSpeseBundle:tipologia:update" }
+    defaults: { _controller: "FiSpeseBundle:Tipologia:update" }
     requirements: { methods: post|put }
 
 tipologia_aggiorna:
     path:  /aggiorna
-    defaults: { _controller: "FiSpeseBundle:tipologia:aggiorna" }
+    defaults: { _controller: "FiSpeseBundle:Tipologia:aggiorna" }
     requirements: { methods: post|put }
 
 tipologia_delete:
     path:  /{id}/delete
-    defaults: { _controller: "FiSpeseBundle:tipologia:delete" }
+    defaults: { _controller: "FiSpeseBundle:Tipologia:delete" }
     requirements: { methods: post|delete }
 
 tipologia_deletemultiple:
     path:  /delete
-    defaults: { _controller: "FiSpeseBundle:tipologia:delete" }
+    defaults: { _controller: "FiSpeseBundle:Tipologia:delete" }
     requirements: { methods: post|delete }
 
 tipologia_griglia:
     path:  /griglia
-    defaults: { _controller: "FiSpeseBundle:tipologia:griglia" }
+    defaults: { _controller: "FiSpeseBundle:Tipologia:griglia" }
     requirements: { methods: get|post }

@@ -6,8 +6,8 @@ use Fi\CoreBundle\Controller\FiController;
 use Fi\SpeseBundle\Entity\famiglia;
 
 /**
- * famiglia controller.
+ * Famiglia controller.
  */
-class famigliaController extends FiController
+class FamigliaController extends FiController
 {
 }

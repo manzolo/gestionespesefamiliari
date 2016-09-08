@@ -8,9 +8,9 @@ use Fi\CoreBundle\Controller\griglia;
 use Fi\SpeseBundle\Entity\movimento;
 
 /**
- * movimento controller.
+ * Movimento controller.
  */
-class movimentoController extends FiController
+class MovimentoController extends FiController
 {
     public function indexAction(Request $request)
     {

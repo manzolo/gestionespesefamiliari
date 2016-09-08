@@ -1,41 +1,41 @@
 movimento_container:
     path:  /
-    defaults: { _controller: "FiSpeseBundle:movimento:index" }
+    defaults: { _controller: "FiSpeseBundle:Movimento:index" }
 
 movimento_new:
     path:  /new
-    defaults: { _controller: "FiSpeseBundle:movimento:new" }
+    defaults: { _controller: "FiSpeseBundle:Movimento:new" }
 
 movimento_create:
     path:  /create
-    defaults: { _controller: "FiSpeseBundle:movimento:create" }
+    defaults: { _controller: "FiSpeseBundle:Movimento:create" }
     requirements: { methods: post }
 
 movimento_edit:
     path:  /{id}/edit
-    defaults: { _controller: "FiSpeseBundle:movimento:edit" }
+    defaults: { _controller: "FiSpeseBundle:Movimento:edit" }
 
 movimento_update:
     path:  /{id}/update
-    defaults: { _controller: "FiSpeseBundle:movimento:update" }
+    defaults: { _controller: "FiSpeseBundle:Movimento:update" }
     requirements: { methods: post|put }
 
 movimento_aggiorna:
     path:  /aggiorna
-    defaults: { _controller: "FiSpeseBundle:movimento:aggiorna" }
+    defaults: { _controller: "FiSpeseBundle:Movimento:aggiorna" }
     requirements: { methods: post|put }
 
 movimento_delete:
     path:  /{id}/delete
-    defaults: { _controller: "FiSpeseBundle:movimento:delete" }
+    defaults: { _controller: "FiSpeseBundle:Movimento:delete" }
     requirements: { methods: post|delete }
 
 movimento_deletemultiple:
     path:  /delete
-    defaults: { _controller: "FiSpeseBundle:movimento:delete" }
+    defaults: { _controller: "FiSpeseBundle:Movimento:delete" }
     requirements: { methods: post|delete }
 
 movimento_griglia:
     path:  /griglia
-    defaults: { _controller: "FiSpeseBundle:movimento:griglia" }
+    defaults: { _controller: "FiSpeseBundle:Movimento:griglia" }
     requirements: { methods: get|post }

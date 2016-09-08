@@ -3,9 +3,9 @@
 namespace Fi\SpeseBundle\Entity;
 
 /**
- * movimento.
+ * Movimento.
  */
-class movimento
+class Movimento
 {
     /**
      * @var int

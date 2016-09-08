@@ -1,4 +1,4 @@
-Fi\SpeseBundle\Entity\tipologia:
+Fi\SpeseBundle\Entity\Tipologia:
     type: entity
     table: tipologia
     indexes:
@@ -17,7 +17,7 @@ Fi\SpeseBundle\Entity\tipologia:
             length: 255
     oneToMany:
         movimentos:
-            targetEntity: movimento
+            targetEntity: Movimento
             mappedBy: tipologia
             joinColumn:
                 name: tipologia_id
@@ -25,7 +25,7 @@ Fi\SpeseBundle\Entity\tipologia:
                 nullable: false
     manyToOne:
         categoria:
-            targetEntity: categoria
+            targetEntity: Categoria
             inversedBy: tipologias
             joinColumn:
                 name: categoria_id

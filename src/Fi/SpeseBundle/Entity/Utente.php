@@ -3,9 +3,9 @@
 namespace Fi\SpeseBundle\Entity;
 
 /**
- * utente.
+ * Utente.
  */
-class utente
+class Utente
 {
     /**
      * @var int

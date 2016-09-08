@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use DoctrineExtensions\Query\Mysql\Month;
 
-class reportsController extends Controller
+class ReportsController extends Controller
 {
     public function indexAction(Request $request)
     {
@@ -99,17 +99,19 @@ class reportsController extends Controller
 
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
-        $qb->select('m utenteid, u.nome nomeutente, u.cognome cognomeutente,  tm.segno segnomovimento,YEAR(m.data) anno, SUM(m.importo) as importototale')
-            ->from('FiSpeseBundle:movimento', 'm')
-            ->leftJoin('FiSpeseBundle:tipomovimento', 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
-            ->leftJoin('FiSpeseBundle:utente', 'u', 'WITH', '(m.utente_id = u.id)')
-            ->leftJoin('FiSpeseBundle:tipologia', 't', 'WITH', '(m.tipologia_id = t.id)')
-            ->leftJoin('FiSpeseBundle:categoria', 'c', 'WITH', '(t.categoria_id = c.id)')
+        $selectFields = 'm utenteid, u.nome nomeutente, u.cognome cognomeutente,  tm.segno segnomovimento,YEAR(m.data) anno, SUM(m.importo) as importototale';
+        $qb->select($selectFields)
+                ->from('FiSpeseBundle:Movimento', 'm')
+                ->leftJoin('FiSpeseBundle:tipomovimento', 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
+                ->leftJoin('FiSpeseBundle:utente', 'u', 'WITH', '(m.utente_id = u.id)')
+                ->leftJoin('FiSpeseBundle:tipologia', 't', 'WITH', '(m.tipologia_id = t.id)')
+                ->leftJoin('FiSpeseBundle:categoria', 'c', 'WITH', '(t.categoria_id = c.id)')
                 //->andWhere('u.id = :utenteid')
-            ->groupBy('m.utente_id, u.nome, u.cognome, anno, tm.segno')
-            ->orderby('m.utente,anno')
-                //->setParameter('utenteid', 1)
-            ->orderby('u.id');
+                ->groupBy('m.utente_id, nomeutente, cognomeutente, segnomovimento, anno')
+                ->orderby('m.utente,anno')
+        //->setParameter('utenteid', 1)
+        //->orderby('u.id')
+        ;
         $reporttotale = $qb->getQuery()->getResult();
 
         $sheet = $objPHPExcel->getActiveSheet();
@@ -121,16 +123,17 @@ class reportsController extends Controller
 
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
-        $qb->select('m utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria,  tm.segno segnomovimento, YEAR(m.data) anno, SUM(m.importo) as importototale')
-            ->from('FiSpeseBundle:movimento', 'm')
-            ->leftJoin('FiSpeseBundle:tipomovimento', 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
-            ->leftJoin('FiSpeseBundle:utente', 'u', 'WITH', '(m.utente_id = u.id)')
-            ->leftJoin('FiSpeseBundle:famiglia', 'f', 'WITH', '(u.famiglia_id = f.id)')
-            ->leftJoin('FiSpeseBundle:tipologia', 't', 'WITH', '(m.tipologia_id = t.id)')
-            ->leftJoin('FiSpeseBundle:categoria', 'c', 'WITH', '(t.categoria_id = c.id)')
+        $selectFields = 'm utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria,  tm.segno segnomovimento, YEAR(m.data) anno, SUM(m.importo) as importototale';
+        $qb->select($selectFields)
+                ->from('FiSpeseBundle:Movimento', 'm')
+                ->leftJoin('FiSpeseBundle:tipomovimento', 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
+                ->leftJoin('FiSpeseBundle:utente', 'u', 'WITH', '(m.utente_id = u.id)')
+                ->leftJoin('FiSpeseBundle:famiglia', 'f', 'WITH', '(u.famiglia_id = f.id)')
+                ->leftJoin('FiSpeseBundle:tipologia', 't', 'WITH', '(m.tipologia_id = t.id)')
+                ->leftJoin('FiSpeseBundle:categoria', 'c', 'WITH', '(t.categoria_id = c.id)')
                 //->andWhere('u.id = :utenteid')
-            ->groupBy('m.utente_id, f.descrizione, u.nome, u.cognome,  c.descrizione , tm.segno, anno')
-            ->orderby('f.descrizione,u.id,anno, c.descrizione')
+                ->groupBy('m.utente_id, f.descrizione, u.nome, u.cognome,  c.descrizione , tm.segno, anno')
+                ->orderby('f.descrizione,u.id,anno, c.descrizione')
         //->setParameter('utenteid', 1)
         ;
         $reporttotalecategoria = $qb->getQuery()->getResult();
@@ -143,16 +146,17 @@ class reportsController extends Controller
 
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
-        $qb->select('m utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria,  tm.segno segnomovimento, YEAR(m.data) anno, MONTH(m.data) mese, SUM(m.importo) as importototale')
-            ->from('FiSpeseBundle:movimento', 'm')
-            ->leftJoin('FiSpeseBundle:tipomovimento', 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
-            ->leftJoin('FiSpeseBundle:utente', 'u', 'WITH', '(m.utente_id = u.id)')
-            ->leftJoin('FiSpeseBundle:famiglia', 'f', 'WITH', '(u.famiglia_id = f.id)')
-            ->leftJoin('FiSpeseBundle:tipologia', 't', 'WITH', '(m.tipologia_id = t.id)')
-            ->leftJoin('FiSpeseBundle:categoria', 'c', 'WITH', '(t.categoria_id = c.id)')
+        $selectFields = 'm utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria,  tm.segno segnomovimento, YEAR(m.data) anno, MONTH(m.data) mese, SUM(m.importo) as importototale';
+        $qb->select($selectFields)
+                ->from('FiSpeseBundle:Movimento', 'm')
+                ->leftJoin('FiSpeseBundle:tipomovimento', 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
+                ->leftJoin('FiSpeseBundle:utente', 'u', 'WITH', '(m.utente_id = u.id)')
+                ->leftJoin('FiSpeseBundle:famiglia', 'f', 'WITH', '(u.famiglia_id = f.id)')
+                ->leftJoin('FiSpeseBundle:tipologia', 't', 'WITH', '(m.tipologia_id = t.id)')
+                ->leftJoin('FiSpeseBundle:categoria', 'c', 'WITH', '(t.categoria_id = c.id)')
                 //->andWhere('u.id = :utenteid')
-            ->groupBy('m.utente_id, f.descrizione, u.nome, u.cognome,  c.descrizione , tm.segno, anno, mese')
-            ->orderby('f.descrizione,u.id,anno desc, mese desc, c.descrizione')
+                ->groupBy('m.utente_id, f.descrizione, u.nome, u.cognome,  c.descrizione , tm.segno, anno, mese')
+                ->orderby('f.descrizione,u.id,anno desc, mese desc, c.descrizione')
         //->setParameter('utenteid', 1)
         ;
         $reportmensilecategoria = $qb->getQuery()->getResult();
@@ -165,16 +169,17 @@ class reportsController extends Controller
 
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
-        $qb->select('m utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria, t.descrizione descrizionetipologia,  tm.segno segnomovimento, YEAR(m.data) anno, SUM(m.importo) as importototale')
-            ->from('FiSpeseBundle:movimento', 'm')
-            ->leftJoin('FiSpeseBundle:tipomovimento', 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
-            ->leftJoin('FiSpeseBundle:utente', 'u', 'WITH', '(m.utente_id = u.id)')
-            ->leftJoin('FiSpeseBundle:famiglia', 'f', 'WITH', '(u.famiglia_id = f.id)')
-            ->leftJoin('FiSpeseBundle:tipologia', 't', 'WITH', '(m.tipologia_id = t.id)')
-            ->leftJoin('FiSpeseBundle:categoria', 'c', 'WITH', '(t.categoria_id = c.id)')
+        $selectFields = 'm utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria, t.descrizione descrizionetipologia,  tm.segno segnomovimento, YEAR(m.data) anno, SUM(m.importo) as importototale';
+        $qb->select($selectFields)
+                ->from('FiSpeseBundle:Movimento', 'm')
+                ->leftJoin('FiSpeseBundle:tipomovimento', 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
+                ->leftJoin('FiSpeseBundle:utente', 'u', 'WITH', '(m.utente_id = u.id)')
+                ->leftJoin('FiSpeseBundle:famiglia', 'f', 'WITH', '(u.famiglia_id = f.id)')
+                ->leftJoin('FiSpeseBundle:tipologia', 't', 'WITH', '(m.tipologia_id = t.id)')
+                ->leftJoin('FiSpeseBundle:categoria', 'c', 'WITH', '(t.categoria_id = c.id)')
                 //->andWhere('u.id = :utenteid')
-            ->groupBy('m.utente_id, f.descrizione, u.nome, u.cognome,  c.descrizione , tm.segno, t.descrizione, anno')
-            ->orderby('f.descrizione,u.id,anno, c.descrizione, t.descrizione')
+                ->groupBy('m.utente_id, f.descrizione, u.nome, u.cognome,  c.descrizione , tm.segno, t.descrizione, anno')
+                ->orderby('f.descrizione,u.id,anno, c.descrizione, t.descrizione')
         //->setParameter('utenteid', 1)
         ;
         $reporttotaletipologia = $qb->getQuery()->getResult();
@@ -187,16 +192,17 @@ class reportsController extends Controller
 
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
-        $qb->select('m utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria, t.descrizione descrizionetipologia,  tm.segno segnomovimento, YEAR(m.data) anno, MONTH(m.data) mese, SUM(m.importo) as importototale')
-            ->from('FiSpeseBundle:movimento', 'm')
-            ->leftJoin('FiSpeseBundle:tipomovimento', 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
-            ->leftJoin('FiSpeseBundle:utente', 'u', 'WITH', '(m.utente_id = u.id)')
-            ->leftJoin('FiSpeseBundle:famiglia', 'f', 'WITH', '(u.famiglia_id = f.id)')
-            ->leftJoin('FiSpeseBundle:tipologia', 't', 'WITH', '(m.tipologia_id = t.id)')
-            ->leftJoin('FiSpeseBundle:categoria', 'c', 'WITH', '(t.categoria_id = c.id)')
+        $selectFields = 'm utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, c.descrizione descrizionecategoria, t.descrizione descrizionetipologia,  tm.segno segnomovimento, YEAR(m.data) anno, MONTH(m.data) mese, SUM(m.importo) as importototale';
+        $qb->select($selectFields)
+                ->from('FiSpeseBundle:Movimento', 'm')
+                ->leftJoin('FiSpeseBundle:tipomovimento', 'tm', 'WITH', '(m.tipomovimento_id = tm.id)')
+                ->leftJoin('FiSpeseBundle:utente', 'u', 'WITH', '(m.utente_id = u.id)')
+                ->leftJoin('FiSpeseBundle:famiglia', 'f', 'WITH', '(u.famiglia_id = f.id)')
+                ->leftJoin('FiSpeseBundle:tipologia', 't', 'WITH', '(m.tipologia_id = t.id)')
+                ->leftJoin('FiSpeseBundle:categoria', 'c', 'WITH', '(t.categoria_id = c.id)')
                 //->andWhere('u.id = :utenteid')
-            ->groupBy('m.utente_id, f.descrizione, u.nome, u.cognome,  c.descrizione , t.descrizione, tm.segno, anno, mese')
-            ->orderby('f.descrizione,u.id,anno desc, mese desc, c.descrizione, t.descrizione')
+                ->groupBy('m.utente_id, f.descrizione, u.nome, u.cognome,  c.descrizione , t.descrizione, tm.segno, anno, mese')
+                ->orderby('f.descrizione,u.id,anno desc, mese desc, c.descrizione, t.descrizione')
         //->setParameter('utenteid', 1)
         ;
         $reportmensiletipologia = $qb->getQuery()->getResult();

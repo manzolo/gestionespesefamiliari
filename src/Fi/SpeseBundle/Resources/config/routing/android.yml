@@ -1,43 +1,43 @@
-android_login:
+Android_login:
     path:  /login
-    defaults: { _controller: "FiSpeseBundle:android:login" }
+    defaults: { _controller: "FiSpeseBundle:Android:login" }
     requirements: { methods: post }
     
-android_gettipologie:
+Android_gettipologie:
     path:  /gettipologie
-    defaults: { _controller: "FiSpeseBundle:android:getTipologie" }
+    defaults: { _controller: "FiSpeseBundle:Android:getTipologie" }
 
-android_gettipimovimento:
+Android_gettipimovimento:
     path:  /gettipimovimento
-    defaults: { _controller: "FiSpeseBundle:android:getTipimovimento" }
+    defaults: { _controller: "FiSpeseBundle:Android:getTipimovimento" }
 
-android_registraspesa:
+Android_registraspesa:
     path:  /registraspesa
-    defaults: { _controller: "FiSpeseBundle:android:registraSpesa" }
+    defaults: { _controller: "FiSpeseBundle:Android:registraSpesa" }
     requirements: { methods: post }
     
-android_appcurrentversion:
+Android_appcurrentversion:
     path:  /appCurrentVersion
-    defaults: { _controller: "FiSpeseBundle:android:appCurrentVersion" }
+    defaults: { _controller: "FiSpeseBundle:Android:appCurrentVersion" }
 
-android_getappapk:
+Android_getappapk:
     path:  /getAppApk
-    defaults: { _controller: "FiSpeseBundle:android:getAppApk" }
+    defaults: { _controller: "FiSpeseBundle:Android:getAppApk" }
 
-android_getultimimovimenti:
+Android_getultimimovimenti:
     path:  /getultimimovimenti
-    defaults: { _controller: "FiSpeseBundle:android:getUltimiMovimenti" }
+    defaults: { _controller: "FiSpeseBundle:Android:getUltimiMovimenti" }
     
-android_getcategorie:
+Android_getcategorie:
     path:  /getcategorie
-    defaults: { _controller: "FiSpeseBundle:android:getCategorie" }
+    defaults: { _controller: "FiSpeseBundle:Android:getCategorie" }
 
-android_gettipimovimento:
+Android_gettipimovimento:
     path:  /gettipimovimento
-    defaults: { _controller: "FiSpeseBundle:android:getTipimovimento" }
+    defaults: { _controller: "FiSpeseBundle:Android:getTipimovimento" }
     
-android_deletemovimenti:
+Android_deletemovimenti:
     path:  /deletemovimenti
-    defaults: { _controller: "FiSpeseBundle:android:deleteMovimenti" }
+    defaults: { _controller: "FiSpeseBundle:Android:deleteMovimenti" }
     requirements: { methods: post }
     

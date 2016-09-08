@@ -1,41 +1,41 @@
 utente_container:
     path:  /
-    defaults: { _controller: "FiSpeseBundle:utente:index" }
+    defaults: { _controller: "FiSpeseBundle:Utente:index" }
 
 utente_new:
     path:  /new
-    defaults: { _controller: "FiSpeseBundle:utente:new" }
+    defaults: { _controller: "FiSpeseBundle:Utente:new" }
 
 utente_create:
     path:  /create
-    defaults: { _controller: "FiSpeseBundle:utente:create" }
+    defaults: { _controller: "FiSpeseBundle:Utente:create" }
     requirements: { methods: post }
 
 utente_edit:
     path:  /{id}/edit
-    defaults: { _controller: "FiSpeseBundle:utente:edit" }
+    defaults: { _controller: "FiSpeseBundle:Utente:edit" }
 
 utente_update:
     path:  /{id}/update
-    defaults: { _controller: "FiSpeseBundle:utente:update" }
+    defaults: { _controller: "FiSpeseBundle:Utente:update" }
     requirements: { methods: post|put }
 
 utente_aggiorna:
     path:  /aggiorna
-    defaults: { _controller: "FiSpeseBundle:utente:aggiorna" }
+    defaults: { _controller: "FiSpeseBundle:Utente:aggiorna" }
     requirements: { methods: post|put }
 
 utente_delete:
     path:  /{id}/delete
-    defaults: { _controller: "FiSpeseBundle:utente:delete" }
+    defaults: { _controller: "FiSpeseBundle:Utente:delete" }
     requirements: { methods: post|delete }
 
 utente_deletemultiple:
     path:  /delete
-    defaults: { _controller: "FiSpeseBundle:utente:delete" }
+    defaults: { _controller: "FiSpeseBundle:Utente:delete" }
     requirements: { methods: post|delete }
 
 utente_griglia:
     path:  /griglia
-    defaults: { _controller: "FiSpeseBundle:utente:griglia" }
+    defaults: { _controller: "FiSpeseBundle:Utente:griglia" }
     requirements: { methods: get|post }

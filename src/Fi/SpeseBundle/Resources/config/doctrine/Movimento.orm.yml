@@ -1,4 +1,4 @@
-Fi\SpeseBundle\Entity\movimento:
+Fi\SpeseBundle\Entity\Movimento:
     type: entity
     table: movimento
     indexes:
@@ -32,21 +32,21 @@ Fi\SpeseBundle\Entity\movimento:
             type: integer
     manyToOne:
         tipologia:
-            targetEntity: tipologia
+            targetEntity: Tipologia
             inversedBy: movimentos
             joinColumn:
                 name: tipologia_id
                 referencedColumnName: id
                 nullable: false
         utente:
-            targetEntity: utente
+            targetEntity: Utente
             inversedBy: movimentos
             joinColumn:
                 name: utente_id
                 referencedColumnName: id
                 nullable: false
         tipomovimento:
-            targetEntity: tipomovimento
+            targetEntity: Tipomovimento
             inversedBy: movimentos
             joinColumn:
                 name: tipomovimento_id

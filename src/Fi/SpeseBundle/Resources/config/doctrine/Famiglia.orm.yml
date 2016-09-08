@@ -1,4 +1,4 @@
-Fi\SpeseBundle\Entity\famiglia:
+Fi\SpeseBundle\Entity\Famiglia:
     type: entity
     table: famiglia
     id:
@@ -17,7 +17,7 @@ Fi\SpeseBundle\Entity\famiglia:
             nullable: true
     oneToMany:
         utentes:
-            targetEntity: utente
+            targetEntity: Utente
             mappedBy: famiglia
             joinColumn:
                 name: famiglia_id

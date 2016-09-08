@@ -1,4 +1,4 @@
-Fi\SpeseBundle\Entity\tipomovimento:
+Fi\SpeseBundle\Entity\Tipomovimento:
     type: entity
     table: tipomovimento
     id:
@@ -19,7 +19,7 @@ Fi\SpeseBundle\Entity\tipomovimento:
             length: 45
     oneToMany:
         movimentos:
-            targetEntity: movimento
+            targetEntity: Movimento
             mappedBy: tipomovimento
             joinColumn:
                 name: tipomovimento_id

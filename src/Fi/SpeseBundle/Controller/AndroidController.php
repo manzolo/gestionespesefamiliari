@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class androidController extends Controller
+class AndroidController extends Controller
 {
     public function loginAction(Request $request)
     {

@@ -30,30 +30,30 @@ fi_spese_categoria:
     resource: "@FiSpeseBundle/Resources/config/routing/categoria.yml"
     prefix:   /categoria
 
-fi_spese_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: FiSpeseBundle:Default:index }
+FiSpeseBundle_android: 
+  resource: "@FiSpeseBundle/Resources/config/routing/android.yml"
+  prefix: /Android
 
 FiSpeseBundle_categoria: 
   resource: "@FiSpeseBundle/Resources/config/routing/categoria.yml"
-  prefix: /categoria
+  prefix: /Categoria
 
 FiSpeseBundle_tipologia: 
   resource: "@FiSpeseBundle/Resources/config/routing/tipologia.yml"
-  prefix: /tipologia
+  prefix: /Tipologia
 
 FiSpeseBundle_tipomovimento: 
   resource: "@FiSpeseBundle/Resources/config/routing/tipomovimento.yml"
-  prefix: /tipomovimento
+  prefix: /Tipomovimento
 
 FiSpeseBundle_utente: 
   resource: "@FiSpeseBundle/Resources/config/routing/utente.yml"
-  prefix: /utente
+  prefix: /Utente
 
 FiSpeseBundle_movimento: 
   resource: "@FiSpeseBundle/Resources/config/routing/movimento.yml"
-  prefix: /movimento
+  prefix: /Movimento
 
 FiSpeseBundle_famiglia: 
   resource: "@FiSpeseBundle/Resources/config/routing/famiglia.yml"
-  prefix: /famiglia
+  prefix: /Famiglia
