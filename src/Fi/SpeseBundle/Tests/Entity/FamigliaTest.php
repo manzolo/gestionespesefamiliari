@@ -4,7 +4,7 @@ namespace Fi\SpeseBundle\Tests\Entity;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class CategoriaTest extends KernelTestCase
+class FamigliaTest extends KernelTestCase
 {
     /**
      * @var \Doctrine\ORM\EntityManager
@@ -26,17 +26,17 @@ class CategoriaTest extends KernelTestCase
     /**
      * @test
      */
-    public function CategoriaInsertDeleteTest()
+    public function FamigliaInsertDeleteTest()
     {
         $em = $this->em;
-        $categoria = new \Fi\SpeseBundle\Entity\Categoria();
-        $categoria->setDescrizione('Prova categoria');
-        $em->persist($categoria);
+        $famiglia = new \Fi\SpeseBundle\Entity\Famiglia();
+        $famiglia->setDescrizione('Prova Famiglia');
+        $famiglia->setDal(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+        $em->persist($famiglia);
         $em->flush();
-        $this->assertGreaterThanOrEqual(1, $categoria->getId());
-        $em->remove($categoria);
+        $this->assertGreaterThanOrEqual(1, $famiglia->getId());
+        $em->remove($famiglia);
         $em->flush();
-        $em->clear();
-        $this->assertTrue(is_null($categoria->getId()));
+        $this->assertTrue(is_null($famiglia->getId()));
     }
 }

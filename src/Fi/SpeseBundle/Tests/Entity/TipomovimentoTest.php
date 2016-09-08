@@ -4,7 +4,7 @@ namespace Fi\SpeseBundle\Tests\Entity;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class CategoriaTest extends KernelTestCase
+class TipomovimentoTest extends KernelTestCase
 {
     /**
      * @var \Doctrine\ORM\EntityManager
@@ -26,17 +26,19 @@ class CategoriaTest extends KernelTestCase
     /**
      * @test
      */
-    public function CategoriaInsertDeleteTest()
+    public function TipomovimentoInsertDeleteTest()
     {
         $em = $this->em;
-        $categoria = new \Fi\SpeseBundle\Entity\Categoria();
-        $categoria->setDescrizione('Prova categoria');
-        $em->persist($categoria);
+        $tipomovimentou = new \Fi\SpeseBundle\Entity\Tipomovimento();
+        $tipomovimentou->setTipo('Uscita');
+        $tipomovimentou->setAbbreviazione('U');
+        $tipomovimentou->setSegno('-');
+
+        $em->persist($tipomovimentou);
         $em->flush();
-        $this->assertGreaterThanOrEqual(1, $categoria->getId());
-        $em->remove($categoria);
+        $this->assertGreaterThanOrEqual(1, $tipomovimentou->getId());
+        $em->remove($tipomovimentou);
         $em->flush();
-        $em->clear();
-        $this->assertTrue(is_null($categoria->getId()));
+        $this->assertTrue(is_null($tipomovimentou->getId()));
     }
 }
