@@ -19,7 +19,7 @@ class AndroidController extends Controller
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder();
         $qb->select(array('a'));
-        $qb->from('FiSpeseBundle:utente', 'a');
+        $qb->from('FiSpeseBundle:Utente', 'a');
         $qb->where('a.username = :username');
         $qb->andWhere('a.password= :password');
         $qb->setParameter('username', $username);
@@ -51,7 +51,7 @@ class AndroidController extends Controller
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder();
         $qb->select(array('t'));
-        $qb->from('FiSpeseBundle:tipologia', 't');
+        $qb->from('FiSpeseBundle:Tipologia', 't');
         $qb->leftJoin('FiSpeseBundle:categoria', 'c', 'WITH', '(t.categoria_id = c.id)');
         $qb->orderBy('c.descrizione, t.descrizione');
         $tipologie = $qb->getQuery()->getResult();
@@ -80,7 +80,7 @@ class AndroidController extends Controller
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder();
         $qb->select(array('t'));
-        $qb->from('FiSpeseBundle:tipomovimento', 't');
+        $qb->from('FiSpeseBundle:Tipomovimento', 't');
         $tipimovimento = $qb->getQuery()->getResult();
 
         if (count($tipimovimento) <= 0) {
@@ -109,9 +109,9 @@ class AndroidController extends Controller
         $datamovimento = $request->request->get('datamovimento');
         $tipomovimentoid = $request->request->get('tipomovimento');
 
-        $utente = $em->getReference('FiSpeseBundle:utente', $utenteid);
-        $tipologia = $em->getReference('FiSpeseBundle:tipologia', $tipologiaid);
-        $tipomovimento = $em->getReference('FiSpeseBundle:tipomovimento', $tipomovimentoid);
+        $utente = $em->getReference('FiSpeseBundle:Utente', $utenteid);
+        $tipologia = $em->getReference('FiSpeseBundle:Tipologia', $tipologiaid);
+        $tipomovimento = $em->getReference('FiSpeseBundle:Tipomovimento', $tipomovimentoid);
 
         $nuovaspesa = new \Fi\SpeseBundle\Entity\movimento();
         $nuovaspesa->setUtente($utente);
@@ -197,7 +197,7 @@ class AndroidController extends Controller
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder();
         $qb->select(array('m'));
-        $qb->from('FiSpeseBundle:movimento', 'm');
+        $qb->from('FiSpeseBundle:Movimento', 'm');
         $qb->where('m.utente_id = :uteteid');
         $qb->orderby('m.id', 'desc');
         $qb->setMaxResults(10);
@@ -232,7 +232,7 @@ class AndroidController extends Controller
             /* @var $qb \Doctrine\ORM\QueryBuilder */
             $qb = $em->createQueryBuilder();
             $qb->delete();
-            $qb->from('FiSpeseBundle:movimento', 'm');
+            $qb->from('FiSpeseBundle:Movimento', 'm');
             $qb->where('m.id = :movimentoid');
             $qb->setParameter('movimentoid', (int) $movimento);
             $qb->getQuery()->execute();
