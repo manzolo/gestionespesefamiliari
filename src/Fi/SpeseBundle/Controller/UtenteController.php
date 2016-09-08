@@ -58,14 +58,13 @@ class UtenteController extends FiController
         $testatagriglia['parametrigriglia'] = json_encode(self::$parametrigriglia);
 
         $testata = json_encode($testatagriglia);
-
-        return $this->render(
-            $nomebundle.':'.$controller.':index.html.twig', array(
-                    'entities' => $entities,
-                    'nomecontroller' => $controller,
-                    'testata' => $testata,
-            )
+        $parametriTwig = array(
+            'entities' => $entities,
+            'nomecontroller' => $controller,
+            'testata' => $testata,
         );
+
+        return $this->render($nomebundle.':'.$controller.':index.html.twig', $parametriTwig);
     }
 
     public function setParametriGriglia($prepar = array())
