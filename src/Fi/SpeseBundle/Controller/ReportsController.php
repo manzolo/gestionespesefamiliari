@@ -488,7 +488,8 @@ class ReportsController extends Controller
             $col = $col + 1;
             $sheet->setCellValueByColumnAndRow($col, $row, $record['descrizionetipologia']);
             $col = $col + 1;
-            $sheet->setCellValueByColumnAndRow($col, $row, ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale']);
+            $segnomovimento = ($record['segnomovimento'] == '+' ? '' : $record['segnomovimento']).$record['importototale'];
+            $sheet->setCellValueByColumnAndRow($col, $row, $segnomovimento);
             $col = $col + 1;
             ++$row;
         }
