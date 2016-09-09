@@ -4,19 +4,15 @@ namespace Fi\SpeseBundle\Tests\Controller;
 
 use Symfony\Component\DomCrawler\Crawler;
 use Fi\SpeseBundle\DependencyInjection\SpeseTest;
-use Facebook\WebDriver\Remote\RemoteWebDriver;
-use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Behat\Mink\Mink;
 use Behat\Mink\Session;
-use Behat\Mink\Driver\Selenium2Driver;
 
 class CategoriaControllerTest extends SpeseTest
 {
-
     /**
      * @test
      */
-    public function testIndexCategoria() 
+    public function testIndexCategoria()
     {
         parent::__construct();
         $this->setClassName(get_class());
@@ -33,14 +29,14 @@ class CategoriaControllerTest extends SpeseTest
     /**
      * @test
      */
-    public function testAddCategoria() 
+    public function testAddCategoria()
     {
         parent::__construct();
         $this->setClassName(get_class());
         //$client = $this->getClientAutorizzato();
-        $browser = "firefox";
+        $browser = 'firefox';
         //$url = $client->getContainer()->get('router')->generate('Categoria_container');
-        $url = "http://127.0.0.1:8000/app_test.php/Categoria";
+        $url = 'http://127.0.0.1:8000/app_test.php/Categoria';
 
         // Choose a Mink driver. More about it in later chapters.
         $driver = new \Behat\Mink\Driver\Selenium2Driver($browser);
@@ -51,10 +47,10 @@ class CategoriaControllerTest extends SpeseTest
         $page = $session->getPage();
         $page->fillField('username', 'admin');
         $page->fillField('password', 'admin');
-        $page->pressButton("_submit");
+        $page->pressButton('_submit');
         //$page = $session->getPage();
 
-        $element = $page->findAll('css', ".ui-icon-plus");
+        $element = $page->findAll('css', '.ui-icon-plus');
 
         foreach ($element as $e) {
             if ($e->isVisible()) {
@@ -63,7 +59,7 @@ class CategoriaControllerTest extends SpeseTest
         }
 
         $page->fillField('fi_spesebundle_categoria_descrizione', 'Emidio Brutto e Grasso');
-        $page->find("css", "a#sDataCategoriaS")->click();
+        $page->find('css', 'a#sDataCategoriaS')->click();
 
         //$session->wait(5000, "$('.ui-icon-plus').visible");
         //$findName = $page->find("css", ".ui-icon-plus");
@@ -81,5 +77,4 @@ class CategoriaControllerTest extends SpeseTest
           $session->visit($url);
           echo $session->evaluateScript("jQuery('#addjqgridrow')"); */
     }
-
 }
