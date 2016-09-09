@@ -37,7 +37,7 @@ class CategoriaControllerTest extends SpeseTest
     {
         parent::__construct();
         $this->setClassName(get_class());
-        $client = $this->getClientAutorizzato();
+        //$client = $this->getClientAutorizzato();
         $browser = "firefox";
         //$url = $client->getContainer()->get('router')->generate('Categoria_container');
         $url = "http://127.0.0.1:8000/app_test.php/Categoria";
