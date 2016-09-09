@@ -39,6 +39,19 @@ class FamigliaTest extends KernelTestCase
         $em->flush();
         $this->assertGreaterThanOrEqual(1, $famiglia->getId());
 
+        $utente = new \Fi\SpeseBundle\Entity\Utente();
+        $utente->setCognome('Prova Cognome');
+        $utente->setNome('Prova Nome');
+        $utente->setEmail('email@email.it');
+        $utente->setUsername('Username');
+        $utente->setPassword('Password');
+        $em->persist($utente);
+        $em->flush();
+        $famiglia->addUtente($utente);
+        $em->flush();
+        $famiglia->removeUtente($utente);
+        $em->flush();
+
         $qu = $em->createQueryBuilder();
         $qu->select(array('f'))
             ->from('FiSpeseBundle:Famiglia', 'f')
