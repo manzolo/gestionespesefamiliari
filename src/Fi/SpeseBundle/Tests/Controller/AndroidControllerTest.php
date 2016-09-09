@@ -179,7 +179,7 @@ class AndroidControllerTest extends WebTestCase {
         $jsonString = strip_tags($body->html());
         $json = json_decode($jsonString);
         $this->assertEquals(0, $json->retcode);
-        
+
         $em->remove($newmovimento);
         $em->flush();
     }
@@ -226,8 +226,8 @@ class AndroidControllerTest extends WebTestCase {
 
         $em->persist($newmovimento);
         $em->flush();
-        
-        $crawler = $client->request('GET', '/Android/getultimimovimenti',array("utenteid"=>$utente->getId()));
+
+        $crawler = $client->request('GET', '/Android/getultimimovimenti', array("utenteid" => $utente->getId()));
         $body = $crawler->filter('body');
         $jsonString = strip_tags($body->html());
         $json = json_decode($jsonString);
@@ -238,11 +238,42 @@ class AndroidControllerTest extends WebTestCase {
             $tipimovimento = count($json);
             $this->assertGreaterThanOrEqual(1, $tipimovimento);
         }
-        
+
         $em->remove($newmovimento);
         $em->flush();
-        
-        
+    }
+
+    /**
+     * @test
+     */
+    public function androidControllerGetcategorie() {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/Android/getcategorie');
+        $body = $crawler->filter('body');
+        $jsonString = strip_tags($body->html());
+        $json = json_decode($jsonString);
+
+        if (isset($json->categorie)) {
+            $this->assertGreaterThanOrEqual(0, count($json));
+        } else {
+            $this->assertEquals(-1, $json->retcode);
+        }
+    }
+
+    /**
+     * @test
+     */
+    public function androidControllerGetAppApk() {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/Android/getAppApk');
+
+        $this->assertTrue(
+                $client->getResponse()->headers->contains(
+                        'Content-Type', 'application/vnd.android.package-archive'
+                ), 'the "Content-Type" header is "application/vnd.android.package-archive"' // optional message shown on failure
+        );
     }
 
 }
