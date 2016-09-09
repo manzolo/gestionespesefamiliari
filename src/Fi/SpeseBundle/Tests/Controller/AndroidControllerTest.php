@@ -270,6 +270,25 @@ class AndroidControllerTest extends WebTestCase
         }
     }
 
+        /**
+     * @test
+     */
+    public function androidControllergetTipimovimento() 
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/Android/gettipimovimento');
+        $body = $crawler->filter('body');
+        $jsonString = strip_tags($body->html());
+        $json = json_decode($jsonString);
+
+        if (isset($json->tipimovimento)) {
+            $this->assertGreaterThanOrEqual(0, count($json));
+        } else {
+            $this->assertEquals(-1, $json->retcode);
+        }
+    }
+
     /**
      * @test
      */
