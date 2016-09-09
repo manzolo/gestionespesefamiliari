@@ -4,8 +4,8 @@ namespace Fi\SpeseBundle\Tests\Entity;
 
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class FamigliaTest extends KernelTestCase
-{
+class FamigliaTest extends KernelTestCase {
+
     /**
      * @var \Doctrine\ORM\EntityManager
      */
@@ -14,27 +14,26 @@ class FamigliaTest extends KernelTestCase
     /**
      * {@inheritdoc}
      */
-    protected function setUp()
-    {
+    protected function setUp() {
         self::bootKernel();
 
         $this->em = static::$kernel->getContainer()
-            ->get('doctrine')
-            ->getManager();
+                ->get('doctrine')
+                ->getManager();
     }
 
     /**
      * @test
      */
-    public function famigliaInsertDeleteTest()
-    {
+    public function famigliaInsertDeleteTest() {
         $em = $this->em;
         $descrizione = 'ProvaFamiglia';
+        $data = \DateTime::createFromFormat('Y-m-d', date('Y-m-d'));
         $famiglia = new \Fi\SpeseBundle\Entity\Famiglia();
         $famiglia->setDescrizione($descrizione);
-        $famiglia->setDal(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+        $famiglia->setDal($data);
         $em->persist($famiglia);
-        $famiglia->setAl(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+        $famiglia->setAl($data);
         $em->persist($famiglia);
         $em->flush();
         $this->assertGreaterThanOrEqual(1, $famiglia->getId());
@@ -54,14 +53,17 @@ class FamigliaTest extends KernelTestCase
 
         $qu = $em->createQueryBuilder();
         $qu->select(array('f'))
-            ->from('FiSpeseBundle:Famiglia', 'f')
-            ->where('f.descrizione = :descrizione')
-            ->setParameter('descrizione', $descrizione);
+                ->from('FiSpeseBundle:Famiglia', 'f')
+                ->where('f.descrizione = :descrizione')
+                ->setParameter('descrizione', $descrizione);
         $famigliaq = $qu->getQuery()->getSingleResult();
         $this->assertEquals($famigliaq->getDescrizione(), $descrizione);
+        $this->assertEquals($famigliaq->getDal(), $data);
+        $this->assertEquals($famigliaq->getAl(), $data);
 
         $em->remove($famiglia);
         $em->flush();
         $this->assertTrue(is_null($famiglia->getId()));
     }
+
 }
