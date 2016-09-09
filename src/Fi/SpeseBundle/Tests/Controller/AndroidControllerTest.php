@@ -6,11 +6,10 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class AndroidControllerTest extends WebTestCase
 {
-
     /**
      * @test
      */
-    public function androidControllerTest() 
+    public function androidControllerTest()
     {
         $client = static::createClient();
 
@@ -25,7 +24,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerTipologieTest() 
+    public function androidControllerTipologieTest()
     {
         $client = static::createClient();
 
@@ -44,7 +43,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerTipimovimentoTest() 
+    public function androidControllerTipimovimentoTest()
     {
         $client = static::createClient();
 
@@ -63,7 +62,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerAppCurrentVersionTest() 
+    public function androidControllerAppCurrentVersionTest()
     {
         $client = static::createClient();
 
@@ -78,7 +77,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerRegistraSpesaTest() 
+    public function androidControllerRegistraSpesaTest()
     {
         $client = static::createClient();
 
@@ -105,7 +104,7 @@ class AndroidControllerTest extends WebTestCase
             ->where('t.id = :id')
             ->setParameter('id', 1);
         $tipomovimentoe = $qt->getQuery()->getSingleResult();
-        $nota = 'prova-' . date('Y-m-d_h:i:s');
+        $nota = 'prova-'.date('Y-m-d_h:i:s');
         $post = array(
             'utente' => $utente->getId(),
             'tipologia' => $tipologia->getId(),
@@ -136,7 +135,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerDeletemovimentoTest() 
+    public function androidControllerDeletemovimentoTest()
     {
         $client = static::createClient();
 
@@ -164,7 +163,7 @@ class AndroidControllerTest extends WebTestCase
             ->setParameter('id', 1);
         $tipomovimentoe = $qtm->getQuery()->getSingleResult();
 
-        $nota = 'prova-' . date('Y-m-d_h:i:s');
+        $nota = 'prova-'.date('Y-m-d_h:i:s');
 
         $newmovimento = new \Fi\SpeseBundle\Entity\Movimento();
         $newmovimento->setUtente($utente);
@@ -194,7 +193,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerUltimimovimentiTest() 
+    public function androidControllerUltimimovimentiTest()
     {
         $client = static::createClient();
 
@@ -222,7 +221,7 @@ class AndroidControllerTest extends WebTestCase
             ->setParameter('id', 1);
         $tipomovimentoe = $qtm->getQuery()->getSingleResult();
 
-        $nota = 'prova-' . date('Y-m-d_h:i:s');
+        $nota = 'prova-'.date('Y-m-d_h:i:s');
 
         $newmovimento = new \Fi\SpeseBundle\Entity\Movimento();
         $newmovimento->setUtente($utente);
@@ -235,7 +234,7 @@ class AndroidControllerTest extends WebTestCase
         $em->persist($newmovimento);
         $em->flush();
 
-        $crawler = $client->request('GET', '/Android/getultimimovimenti', array("utenteid" => $utente->getId()));
+        $crawler = $client->request('GET', '/Android/getultimimovimenti', array('utenteid' => $utente->getId()));
         $body = $crawler->filter('body');
         $jsonString = strip_tags($body->html());
         $json = json_decode($jsonString);
@@ -254,7 +253,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerGetcategorie() 
+    public function androidControllerGetcategorie()
     {
         $client = static::createClient();
 
@@ -270,10 +269,10 @@ class AndroidControllerTest extends WebTestCase
         }
     }
 
-        /**
+    /**
      * @test
      */
-    public function androidControllergetTipimovimento() 
+    public function androidControllergetTipimovimento()
     {
         $client = static::createClient();
 
@@ -292,7 +291,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerGetAppApk() 
+    public function androidControllerGetAppApk()
     {
         $client = static::createClient();
 
@@ -304,5 +303,4 @@ class AndroidControllerTest extends WebTestCase
             ), 'the "Content-Type" header is "application/vnd.android.package-archive"' // optional message shown on failure
         );
     }
-
 }
