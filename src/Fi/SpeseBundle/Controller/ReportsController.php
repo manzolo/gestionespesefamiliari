@@ -84,7 +84,6 @@ class ReportsController extends Controller
         unset($sheet);
 
         //REPORT TOTALE PER CATEGORIA
-
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
         $selectFields = 'm.utente_id utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, '
@@ -108,7 +107,6 @@ class ReportsController extends Controller
         unset($sheet);
 
         //REPORT MENSILE PER CATEGORIA
-
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
         $selectFields = 'm.utente_id utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, '
@@ -133,7 +131,6 @@ class ReportsController extends Controller
         unset($sheet);
 
         //REPORT TOTALE PER TIPOLOGIA
-
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
         $selectFields = 'm.utente_id utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, '
@@ -164,7 +161,6 @@ class ReportsController extends Controller
         unset($sheet);
 
         //REPORT MENSILE PER TIPOLOGIA
-
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
         $selectFields = 'm.utente_id utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, '
