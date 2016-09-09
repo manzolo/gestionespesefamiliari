@@ -4,12 +4,14 @@ namespace Fi\SpeseBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class AndroidControllerTest extends WebTestCase {
+class AndroidControllerTest extends WebTestCase
+{
 
     /**
      * @test
      */
-    public function androidControllerTest() {
+    public function androidControllerTest() 
+    {
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/Android/login');
@@ -23,7 +25,8 @@ class AndroidControllerTest extends WebTestCase {
     /**
      * @test
      */
-    public function androidControllerTipologieTest() {
+    public function androidControllerTipologieTest() 
+    {
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/Android/gettipologie');
@@ -41,7 +44,8 @@ class AndroidControllerTest extends WebTestCase {
     /**
      * @test
      */
-    public function androidControllerTipimovimentoTest() {
+    public function androidControllerTipimovimentoTest() 
+    {
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/Android/gettipimovimento');
@@ -59,7 +63,8 @@ class AndroidControllerTest extends WebTestCase {
     /**
      * @test
      */
-    public function androidControllerAppCurrentVersionTest() {
+    public function androidControllerAppCurrentVersionTest() 
+    {
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/Android/appCurrentVersion');
@@ -73,7 +78,8 @@ class AndroidControllerTest extends WebTestCase {
     /**
      * @test
      */
-    public function androidControllerRegistraSpesaTest() {
+    public function androidControllerRegistraSpesaTest() 
+    {
         $client = static::createClient();
 
         /* @var $em \Doctrine\ORM\EntityManager */
@@ -81,23 +87,23 @@ class AndroidControllerTest extends WebTestCase {
 
         $qu = $em->createQueryBuilder();
         $qu->select(array('m'))
-                ->from('FiSpeseBundle:Utente', 'm')
-                ->where('m.id = :id')
-                ->setParameter('id', 1);
+            ->from('FiSpeseBundle:Utente', 'm')
+            ->where('m.id = :id')
+            ->setParameter('id', 1);
         $utente = $qu->getQuery()->getSingleResult();
 
         $qt = $em->createQueryBuilder();
         $qt->select(array('t'))
-                ->from('FiSpeseBundle:Tipologia', 't')
-                ->where('t.id = :id')
-                ->setParameter('id', 1);
+            ->from('FiSpeseBundle:Tipologia', 't')
+            ->where('t.id = :id')
+            ->setParameter('id', 1);
         $tipologia = $qt->getQuery()->getSingleResult();
 
         $qtm = $em->createQueryBuilder();
         $qtm->select(array('t'))
-                ->from('FiSpeseBundle:Tipomovimento', 't')
-                ->where('t.id = :id')
-                ->setParameter('id', 1);
+            ->from('FiSpeseBundle:Tipomovimento', 't')
+            ->where('t.id = :id')
+            ->setParameter('id', 1);
         $tipomovimentoe = $qt->getQuery()->getSingleResult();
         $nota = 'prova-' . date('Y-m-d_h:i:s');
         $post = array(
@@ -116,9 +122,9 @@ class AndroidControllerTest extends WebTestCase {
 
         $qtmv = $em->createQueryBuilder();
         $qtmv->select(array('m'))
-                ->from('FiSpeseBundle:Movimento', 'm')
-                ->where('m.nota = :nota')
-                ->setParameter('nota', $nota);
+            ->from('FiSpeseBundle:Movimento', 'm')
+            ->where('m.nota = :nota')
+            ->setParameter('nota', $nota);
 
         $movimento = $qtmv->getQuery()->getSingleResult();
         $this->assertGreaterThanOrEqual(1, $movimento->getId());
@@ -130,7 +136,8 @@ class AndroidControllerTest extends WebTestCase {
     /**
      * @test
      */
-    public function androidControllerDeletemovimentoTest() {
+    public function androidControllerDeletemovimentoTest() 
+    {
         $client = static::createClient();
 
         /* @var $em \Doctrine\ORM\EntityManager */
@@ -138,23 +145,23 @@ class AndroidControllerTest extends WebTestCase {
 
         $qu = $em->createQueryBuilder();
         $qu->select(array('m'))
-                ->from('FiSpeseBundle:Utente', 'm')
-                ->where('m.id = :id')
-                ->setParameter('id', 1);
+            ->from('FiSpeseBundle:Utente', 'm')
+            ->where('m.id = :id')
+            ->setParameter('id', 1);
         $utente = $qu->getQuery()->getSingleResult();
 
         $qt = $em->createQueryBuilder();
         $qt->select(array('t'))
-                ->from('FiSpeseBundle:Tipologia', 't')
-                ->where('t.id = :id')
-                ->setParameter('id', 1);
+            ->from('FiSpeseBundle:Tipologia', 't')
+            ->where('t.id = :id')
+            ->setParameter('id', 1);
         $tipologia = $qt->getQuery()->getSingleResult();
 
         $qtm = $em->createQueryBuilder();
         $qtm->select(array('tm'))
-                ->from('FiSpeseBundle:Tipomovimento', 'tm')
-                ->where('tm.id = :id')
-                ->setParameter('id', 1);
+            ->from('FiSpeseBundle:Tipomovimento', 'tm')
+            ->where('tm.id = :id')
+            ->setParameter('id', 1);
         $tipomovimentoe = $qtm->getQuery()->getSingleResult();
 
         $nota = 'prova-' . date('Y-m-d_h:i:s');
@@ -187,7 +194,8 @@ class AndroidControllerTest extends WebTestCase {
     /**
      * @test
      */
-    public function androidControllerUltimimovimentiTest() {
+    public function androidControllerUltimimovimentiTest() 
+    {
         $client = static::createClient();
 
         /* @var $em \Doctrine\ORM\EntityManager */
@@ -195,23 +203,23 @@ class AndroidControllerTest extends WebTestCase {
 
         $qu = $em->createQueryBuilder();
         $qu->select(array('m'))
-                ->from('FiSpeseBundle:Utente', 'm')
-                ->where('m.id = :id')
-                ->setParameter('id', 1);
+            ->from('FiSpeseBundle:Utente', 'm')
+            ->where('m.id = :id')
+            ->setParameter('id', 1);
         $utente = $qu->getQuery()->getSingleResult();
 
         $qt = $em->createQueryBuilder();
         $qt->select(array('t'))
-                ->from('FiSpeseBundle:Tipologia', 't')
-                ->where('t.id = :id')
-                ->setParameter('id', 1);
+            ->from('FiSpeseBundle:Tipologia', 't')
+            ->where('t.id = :id')
+            ->setParameter('id', 1);
         $tipologia = $qt->getQuery()->getSingleResult();
 
         $qtm = $em->createQueryBuilder();
         $qtm->select(array('tm'))
-                ->from('FiSpeseBundle:Tipomovimento', 'tm')
-                ->where('tm.id = :id')
-                ->setParameter('id', 1);
+            ->from('FiSpeseBundle:Tipomovimento', 'tm')
+            ->where('tm.id = :id')
+            ->setParameter('id', 1);
         $tipomovimentoe = $qtm->getQuery()->getSingleResult();
 
         $nota = 'prova-' . date('Y-m-d_h:i:s');
@@ -246,7 +254,8 @@ class AndroidControllerTest extends WebTestCase {
     /**
      * @test
      */
-    public function androidControllerGetcategorie() {
+    public function androidControllerGetcategorie() 
+    {
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/Android/getcategorie');
@@ -264,15 +273,16 @@ class AndroidControllerTest extends WebTestCase {
     /**
      * @test
      */
-    public function androidControllerGetAppApk() {
+    public function androidControllerGetAppApk() 
+    {
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/Android/getAppApk');
 
         $this->assertTrue(
-                $client->getResponse()->headers->contains(
-                        'Content-Type', 'application/vnd.android.package-archive'
-                ), 'the "Content-Type" header is "application/vnd.android.package-archive"' // optional message shown on failure
+            $client->getResponse()->headers->contains(
+                'Content-Type', 'application/vnd.android.package-archive'
+            ), 'the "Content-Type" header is "application/vnd.android.package-archive"' // optional message shown on failure
         );
     }
 
