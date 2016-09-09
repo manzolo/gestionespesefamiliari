@@ -10,13 +10,16 @@ class CategoriaControllerTest extends SpeseTest
     /**
      * @test
      */
-    public function testCategoria()
+    public function testIndexCategoria()
     {
         parent::__construct();
         $this->setClassName(get_class());
         $client = $this->getClientAutorizzato();
         $client->request('GET', '/Categoria/');
-        //$crawler = new Crawler($client->getResponse()->getContent());
+        $crawler = new Crawler($client->getResponse()->getContent());
         $this->assertTrue($client->getResponse()->isSuccessful());
+        $body = $crawler->filter('div[id="Categoria"]');
+        $attributes = $body->extract(array('_text', 'class'));
+        $this->assertEquals($attributes[0][1], 'tabella');
     }
 }
