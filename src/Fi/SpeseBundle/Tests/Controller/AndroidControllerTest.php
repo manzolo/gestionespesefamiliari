@@ -9,7 +9,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerTest()
+    public function androidControllerLoginTest()
     {
         $client = static::createClient();
 
@@ -24,41 +24,15 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerTipologieTest()
+    public function androidControllerGetAppApk()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/Android/gettipologie');
-        $body = $crawler->filter('body');
-        $jsonString = strip_tags($body->html());
-        $json = json_decode($jsonString);
-        if (isset($json->tipologie)) {
-            $categorie = count($json->tipologie);
-            $this->assertGreaterThanOrEqual(0, $categorie);
-        } else {
-            $this->assertEquals(-1, $json->retcode);
-        }
+        $client->request('GET', '/Android/getAppApk');
+        $checkContentType = 'application/vnd.android.package-archive';
+        $assertion = $client->getResponse()->headers->contains('Content-Type', $checkContentType);
+        $this->assertTrue($assertion, 'the "Content-Type" header is '.$checkContentType);
     }
-
-    /**
-     * @test
-     */
-    public function androidControllerTipimovimentoTest()
-    {
-        $client = static::createClient();
-
-        $crawler = $client->request('GET', '/Android/gettipimovimento');
-        $body = $crawler->filter('body');
-        $jsonString = strip_tags($body->html());
-        $json = json_decode($jsonString);
-        if (isset($json->tipimovimento)) {
-            $tipimovimento = count($json->tipimovimento);
-            $this->assertGreaterThanOrEqual(0, $tipimovimento);
-        } else {
-            $this->assertEquals(-1, $json->retcode);
-        }
-    }
-
     /**
      * @test
      */
@@ -253,7 +227,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerGetcategorie()
+    public function androidControllerGetCategorie()
     {
         $client = static::createClient();
 
@@ -272,17 +246,17 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllergetTipimovimento()
+    public function androidControllerGetTipologieTest()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/Android/gettipimovimento');
+        $crawler = $client->request('GET', '/Android/gettipologie');
         $body = $crawler->filter('body');
         $jsonString = strip_tags($body->html());
         $json = json_decode($jsonString);
-
-        if (isset($json->tipimovimento)) {
-            $this->assertGreaterThanOrEqual(0, count($json));
+        if (isset($json->tipologie)) {
+            $categorie = count($json->tipologie);
+            $this->assertGreaterThanOrEqual(0, $categorie);
         } else {
             $this->assertEquals(-1, $json->retcode);
         }
@@ -291,13 +265,19 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerGetAppApk()
+    public function androidControllerGetTipimovimentoTest()
     {
         $client = static::createClient();
 
-        $client->request('GET', '/Android/getAppApk');
-        $checkContentType = 'application/vnd.android.package-archive';
-        $assertion = $client->getResponse()->headers->contains('Content-Type', $checkContentType);
-        $this->assertTrue($assertion, 'the "Content-Type" header is '.$checkContentType);
+        $crawler = $client->request('GET', '/Android/gettipimovimento');
+        $body = $crawler->filter('body');
+        $jsonString = strip_tags($body->html());
+        $json = json_decode($jsonString);
+        if (isset($json->tipimovimento)) {
+            $tipimovimento = count($json->tipimovimento);
+            $this->assertGreaterThanOrEqual(0, $tipimovimento);
+        } else {
+            $this->assertEquals(-1, $json->retcode);
+        }
     }
 }
