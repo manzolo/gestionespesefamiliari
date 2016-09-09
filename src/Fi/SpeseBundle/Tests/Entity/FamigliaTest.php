@@ -67,10 +67,6 @@ class FamigliaTest extends KernelTestCase
         $this->assertEquals($famigliaq->getDescrizione(), $descrizione);
         $this->assertEquals($famigliaq->getDal(), $data);
         $this->assertEquals($famigliaq->getAl(), $data);
-        $this->assertEquals($famigliaq->getCognome(), $cognome);
-        $this->assertEquals($famigliaq->getNome(), $nome);
-        $this->assertEquals($famigliaq->getUsername(), $username);
-        $this->assertEquals($famigliaq->getPassword(), $password);
 
         $em->remove($famiglia);
         $em->flush();
