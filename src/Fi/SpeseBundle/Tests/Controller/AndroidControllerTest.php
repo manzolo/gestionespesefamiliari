@@ -131,4 +131,59 @@ class AndroidControllerTest extends WebTestCase
         $em->remove($movimento);
         $em->flush();
     }
+
+    /**
+     * @test
+     */
+    public function androidControllerDeletemovimentoTest()
+    {
+        $client = static::createClient();
+
+        /* @var $em \Doctrine\ORM\EntityManager */
+        $em = $client->getContainer()->get('doctrine')->getManager();
+
+        $qu = $em->createQueryBuilder();
+        $qu->select(array('m'))
+            ->from('FiSpeseBundle:Utente', 'm')
+            ->where('m.id = :id')
+            ->setParameter('id', 1);
+        $utente = $qu->getQuery()->getSingleResult();
+
+        $qt = $em->createQueryBuilder();
+        $qt->select(array('t'))
+            ->from('FiSpeseBundle:Tipologia', 't')
+            ->where('t.id = :id')
+            ->setParameter('id', 1);
+        $tipologia = $qt->getQuery()->getSingleResult();
+
+        $qtm = $em->createQueryBuilder();
+        $qtm->select(array('tm'))
+            ->from('FiSpeseBundle:Tipomovimento', 'tm')
+            ->where('tm.id = :id')
+            ->setParameter('id', 1);
+        $tipomovimentoe = $qtm->getQuery()->getSingleResult();
+
+        $nota = 'prova-'.date('Y-m-d_h:i:s');
+
+        $newmovimento = new \Fi\SpeseBundle\Entity\Movimento();
+        $newmovimento->setUtente($utente);
+        $newmovimento->setTipomovimento($tipomovimentoe);
+        $newmovimento->setTipologia($tipologia);
+        $newmovimento->setImporto(10);
+        $newmovimento->setNota($nota);
+        $newmovimento->setData(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+
+        $em->persist($newmovimento);
+        $em->flush();
+
+        $post = array(
+            'movimenti' => array($newmovimento->getId()),
+        );
+
+        $crawler = $client->request('POST', '/Android/deletemovimenti', $post);
+        $body = $crawler->filter('body');
+        $jsonString = strip_tags($body->html());
+        $json = json_decode($jsonString);
+        $this->assertEquals(0, $json->retcode);
+    }
 }
