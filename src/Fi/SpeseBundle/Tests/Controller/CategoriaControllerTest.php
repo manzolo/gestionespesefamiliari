@@ -16,7 +16,7 @@ class CategoriaControllerTest extends SpeseTest
         $this->setClassName(get_class());
         $client = $this->getClientAutorizzato();
         $client->request('GET', '/Categoria/');
-        $crawler = new Crawler($client->getResponse()->getContent());
+        //$crawler = new Crawler($client->getResponse()->getContent());
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 }

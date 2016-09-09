@@ -297,8 +297,7 @@ class AndroidControllerTest extends WebTestCase
 
         $client->request('GET', '/Android/getAppApk');
         $checkContentType = 'application/vnd.android.package-archive';
-        $this->assertTrue(
-            $client->getResponse()->headers->contains('Content-Type', $checkContentType), 'the "Content-Type" header is '.$checkContentType
-        );
+        $assertion = $client->getResponse()->headers->contains('Content-Type', $checkContentType);
+        $this->assertTrue($assertion, 'the "Content-Type" header is '.$checkContentType);
     }
 }
