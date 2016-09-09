@@ -9,11 +9,10 @@ use Behat\Mink\Session;
 
 class CategoriaControllerTest extends SpeseTest
 {
-
     /**
      * @test
      */
-    public function testIndexCategoria() 
+    public function testIndexCategoria()
     {
         parent::__construct();
         $this->setClassName(get_class());
@@ -30,7 +29,7 @@ class CategoriaControllerTest extends SpeseTest
     /**
      * @test
      */
-    public function testAddCategoria() 
+    public function testAddCategoria()
     {
         parent::__construct();
         $this->setClassName(get_class());
@@ -98,5 +97,4 @@ class CategoriaControllerTest extends SpeseTest
           $session->visit($url);
           echo $session->evaluateScript("jQuery('#addjqgridrow')"); */
     }
-
 }
