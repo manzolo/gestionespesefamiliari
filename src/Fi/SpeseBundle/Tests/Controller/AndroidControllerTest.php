@@ -9,7 +9,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerLoginTest()
+    public function androidControllerLoginNoPwdTest()
     {
         $client = static::createClient();
 
@@ -24,6 +24,29 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
+    public function androidControllerLoginTest()
+    {
+        $client = static::createClient();
+
+        $post = array(
+            'username' => 'Username',
+            'password' => 'Password',
+        );
+
+        $url = $client->getContainer()->get('router')->generate('Android_login');
+        $crawler = $client->request('POST', $url, $post);
+        $body = $crawler->filter('body');
+        $jsonString = strip_tags($body->html());
+        $json = json_decode($jsonString);
+        $this->assertEquals(0, $json->retcode);
+        $this->assertGreaterThanOrEqual(1, $json->utente_id);
+        $this->assertGreaterThanOrEqual(1, $json->famiglia_id);
+        $this->assertGreaterThanOrEqual(0, count($json->nominativo));
+    }
+
+    /**
+     * @test
+     */
     public function androidControllerGetAppApk()
     {
         $client = static::createClient();
@@ -33,6 +56,7 @@ class AndroidControllerTest extends WebTestCase
         $assertion = $client->getResponse()->headers->contains('Content-Type', $checkContentType);
         $this->assertTrue($assertion, 'the "Content-Type" header is '.$checkContentType);
     }
+
     /**
      * @test
      */
