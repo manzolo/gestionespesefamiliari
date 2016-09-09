@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "7b82f4c9070131dde183317e06765ac8",
-    "content-hash": "de26e4fad804a6d53c1c60079f836a2e",
+    "hash": "ece0fbf5a2567971621ecdaca9b4721a",
+    "content-hash": "6d95d77f290529e9425a64267daf02a2",
     "packages": [
         {
             "name": "bamboohr/phpcs",

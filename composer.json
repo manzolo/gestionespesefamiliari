@@ -70,7 +70,7 @@
         "phpoffice/phpword": "~0.11",
         "friendsofsymfony/user-bundle": "2.0.*@dev",
         "phpunit/phpunit": "~4.8",
-        "beberlei/DoctrineExtensions": "*",
+        "beberlei/DoctrineExtensions": "^1.0",
         "tufanbarisyildirim/php-apk-parser": "dev-master",
         "phpmd/phpmd": "dev-master",
         "bamboohr/phpcs": "dev-master",
