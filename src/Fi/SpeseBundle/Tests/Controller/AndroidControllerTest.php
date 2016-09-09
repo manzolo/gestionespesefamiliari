@@ -296,11 +296,9 @@ class AndroidControllerTest extends WebTestCase
         $client = static::createClient();
 
         $client->request('GET', '/Android/getAppApk');
-
+        $checkContentType = 'application/vnd.android.package-archive';
         $this->assertTrue(
-            $client->getResponse()->headers->contains(
-                'Content-Type', 'application/vnd.android.package-archive'
-            ), 'the "Content-Type" header is "application/vnd.android.package-archive"' // optional message shown on failure
+            $client->getResponse()->headers->contains('Content-Type', $checkContentType), 'the "Content-Type" header is '.$checkContentType
         );
     }
 }

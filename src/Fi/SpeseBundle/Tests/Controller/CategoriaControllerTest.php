@@ -2,15 +2,21 @@
 
 namespace Fi\SpeseBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\DomCrawler\Crawler;
+use Fi\SpeseBundle\DependencyInjection\SpeseTest;
 
-class CategoriaControllerTest extends WebTestCase
+class CategoriaControllerTest extends SpeseTest
 {
     /**
      * @test
      */
-    public function testCompleteScenario()
+    public function testCategoria()
     {
-        $this->assertTrue(true, true);
+        parent::__construct();
+        $this->setClassName(get_class());
+        $client = $this->getClientAutorizzato();
+        $client->request('GET', '/Categoria/');
+        $crawler = new Crawler($client->getResponse()->getContent());
+        $this->assertTrue($client->getResponse()->isSuccessful());
     }
 }
