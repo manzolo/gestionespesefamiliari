@@ -33,7 +33,6 @@ class CategoriaControllerTest extends SpeseTest
     {
         parent::__construct();
         $this->setClassName(get_class());
-        //$client = $this->getClientAutorizzato();
         $browser = 'firefox';
         //$url = $client->getContainer()->get('router')->generate('Categoria_container');
         $url = 'http://127.0.0.1:8000/app_test.php/Categoria';
@@ -58,8 +57,28 @@ class CategoriaControllerTest extends SpeseTest
             }
         }
 
-        $page->fillField('fi_spesebundle_categoria_descrizione', 'Emidio Brutto e Grasso');
+        sleep(1);
+        $descrizionetest = 'CategoriaProva';
+        $page->fillField('fi_spesebundle_categoria_descrizione', $descrizionetest);
         $page->find('css', 'a#sDataCategoriaS')->click();
+        $session->stop();
+
+        $client = $this->getClientAutorizzato();
+        /* @var $em \Doctrine\ORM\EntityManager */
+        $em = $client->getContainer()->get('doctrine')->getManager();
+
+        $qu = $em->createQueryBuilder();
+        $qu->select(array('c'))
+            ->from('FiSpeseBundle:Categoria', 'c')
+            ->where('c.descrizione = :descrizione')
+            ->setParameter('descrizione', $descrizionetest);
+        $categoria = $qu->getQuery()->getSingleResult();
+        $this->assertEquals($categoria->getDescrizione(), $descrizionetest);
+
+        $em->remove($categoria);
+        $em->flush();
+        $em->clear();
+        $this->assertTrue(is_null($categoria->getId()));
 
         //$session->wait(5000, "$('.ui-icon-plus').visible");
         //$findName = $page->find("css", ".ui-icon-plus");
