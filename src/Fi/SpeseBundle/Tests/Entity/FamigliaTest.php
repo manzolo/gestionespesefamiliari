@@ -46,6 +46,7 @@ class FamigliaTest extends KernelTestCase
         $this->assertGreaterThanOrEqual(1, $famiglia->getId());
         $this->assertEquals($famiglia->getDal(), $data);
         $this->assertEquals($famiglia->getAl(), $data);
+        $this->assertGreaterThanOrEqual(0, count($famiglia->getUtentes()));
 
         $utente = new \Fi\SpeseBundle\Entity\Utente();
         $utente->setCognome($cognome);
