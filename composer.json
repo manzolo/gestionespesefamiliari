@@ -77,7 +77,9 @@
         "satooshi/php-coveralls": "^1.0",
         "sebastian/phpcpd": "^2.0",
         "behat/mink": "^1.7",
-        "behat/mink-browserkit-driver": "^1.3"
+        "behat/mink-selenium2-driver": "^1.3",
+        "joomla-projects/selenium-server-standalone": "v2.53.1.1",
+        "behat/behat": "^3.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",

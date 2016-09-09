@@ -1,0 +1,19 @@
+default:
+    suites:
+        sofia:
+            type: symfony_bundle
+            bundle: SpeseBundle
+            mink_session: selenium2
+            contexts:
+                - AcmeBundle\Features\Context\FeatureContext
+    extensions:
+        Behat\Symfony2Extension: ~
+        Behat\MinkExtension:
+            base_url:  http://127.0.0.1:8000
+            sessions:
+                default:
+                    symfony2: ~
+                goutte:
+                    goutte: ~
+                selenium2:
+                    selenium2: ~

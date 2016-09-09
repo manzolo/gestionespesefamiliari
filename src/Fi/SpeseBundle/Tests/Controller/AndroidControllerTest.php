@@ -245,6 +245,7 @@ class AndroidControllerTest extends WebTestCase
 
         if (isset($json->retcode)) {
             $this->assertEquals(-1, $json->retcode);
+            $this->assertGreaterThanOrEqual(0, count($json->message));
         } else {
             $tipimovimento = count($json);
             $this->assertGreaterThanOrEqual(1, $tipimovimento);
@@ -270,6 +271,7 @@ class AndroidControllerTest extends WebTestCase
             $this->assertGreaterThanOrEqual(0, count($json));
         } else {
             $this->assertEquals(-1, $json->retcode);
+            $this->assertGreaterThanOrEqual(0, count($json->message));
         }
     }
 
