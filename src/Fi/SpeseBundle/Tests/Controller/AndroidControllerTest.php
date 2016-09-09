@@ -4,13 +4,12 @@ namespace Fi\SpeseBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class AndroidControllerTest extends WebTestCase
-{
+class AndroidControllerTest extends WebTestCase {
+
     /**
      * @test
      */
-    public function androidControllerTest()
-    {
+    public function androidControllerTest() {
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/Android/login');
@@ -24,8 +23,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerTipologieTest()
-    {
+    public function androidControllerTipologieTest() {
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/Android/gettipologie');
@@ -43,8 +41,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerTipimovimentoTest()
-    {
+    public function androidControllerTipimovimentoTest() {
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/Android/gettipimovimento');
@@ -62,8 +59,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerAppCurrentVersionTest()
-    {
+    public function androidControllerAppCurrentVersionTest() {
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/Android/appCurrentVersion');
@@ -77,8 +73,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerRegistraSpesaTest()
-    {
+    public function androidControllerRegistraSpesaTest() {
         $client = static::createClient();
 
         /* @var $em \Doctrine\ORM\EntityManager */
@@ -86,25 +81,25 @@ class AndroidControllerTest extends WebTestCase
 
         $qu = $em->createQueryBuilder();
         $qu->select(array('m'))
-            ->from('FiSpeseBundle:Utente', 'm')
-            ->where('m.id = :id')
-            ->setParameter('id', 1);
+                ->from('FiSpeseBundle:Utente', 'm')
+                ->where('m.id = :id')
+                ->setParameter('id', 1);
         $utente = $qu->getQuery()->getSingleResult();
 
         $qt = $em->createQueryBuilder();
         $qt->select(array('t'))
-            ->from('FiSpeseBundle:Tipologia', 't')
-            ->where('t.id = :id')
-            ->setParameter('id', 1);
+                ->from('FiSpeseBundle:Tipologia', 't')
+                ->where('t.id = :id')
+                ->setParameter('id', 1);
         $tipologia = $qt->getQuery()->getSingleResult();
 
         $qtm = $em->createQueryBuilder();
         $qtm->select(array('t'))
-            ->from('FiSpeseBundle:Tipomovimento', 't')
-            ->where('t.id = :id')
-            ->setParameter('id', 1);
+                ->from('FiSpeseBundle:Tipomovimento', 't')
+                ->where('t.id = :id')
+                ->setParameter('id', 1);
         $tipomovimentoe = $qt->getQuery()->getSingleResult();
-        $nota = 'prova-'.date('Y-m-d_h:i:s');
+        $nota = 'prova-' . date('Y-m-d_h:i:s');
         $post = array(
             'utente' => $utente->getId(),
             'tipologia' => $tipologia->getId(),
@@ -121,9 +116,9 @@ class AndroidControllerTest extends WebTestCase
 
         $qtmv = $em->createQueryBuilder();
         $qtmv->select(array('m'))
-            ->from('FiSpeseBundle:Movimento', 'm')
-            ->where('m.nota = :nota')
-            ->setParameter('nota', $nota);
+                ->from('FiSpeseBundle:Movimento', 'm')
+                ->where('m.nota = :nota')
+                ->setParameter('nota', $nota);
 
         $movimento = $qtmv->getQuery()->getSingleResult();
         $this->assertGreaterThanOrEqual(1, $movimento->getId());
@@ -135,8 +130,7 @@ class AndroidControllerTest extends WebTestCase
     /**
      * @test
      */
-    public function androidControllerDeletemovimentoTest()
-    {
+    public function androidControllerDeletemovimentoTest() {
         $client = static::createClient();
 
         /* @var $em \Doctrine\ORM\EntityManager */
@@ -144,26 +138,26 @@ class AndroidControllerTest extends WebTestCase
 
         $qu = $em->createQueryBuilder();
         $qu->select(array('m'))
-            ->from('FiSpeseBundle:Utente', 'm')
-            ->where('m.id = :id')
-            ->setParameter('id', 1);
+                ->from('FiSpeseBundle:Utente', 'm')
+                ->where('m.id = :id')
+                ->setParameter('id', 1);
         $utente = $qu->getQuery()->getSingleResult();
 
         $qt = $em->createQueryBuilder();
         $qt->select(array('t'))
-            ->from('FiSpeseBundle:Tipologia', 't')
-            ->where('t.id = :id')
-            ->setParameter('id', 1);
+                ->from('FiSpeseBundle:Tipologia', 't')
+                ->where('t.id = :id')
+                ->setParameter('id', 1);
         $tipologia = $qt->getQuery()->getSingleResult();
 
         $qtm = $em->createQueryBuilder();
         $qtm->select(array('tm'))
-            ->from('FiSpeseBundle:Tipomovimento', 'tm')
-            ->where('tm.id = :id')
-            ->setParameter('id', 1);
+                ->from('FiSpeseBundle:Tipomovimento', 'tm')
+                ->where('tm.id = :id')
+                ->setParameter('id', 1);
         $tipomovimentoe = $qtm->getQuery()->getSingleResult();
 
-        $nota = 'prova-'.date('Y-m-d_h:i:s');
+        $nota = 'prova-' . date('Y-m-d_h:i:s');
 
         $newmovimento = new \Fi\SpeseBundle\Entity\Movimento();
         $newmovimento->setUtente($utente);
@@ -185,5 +179,70 @@ class AndroidControllerTest extends WebTestCase
         $jsonString = strip_tags($body->html());
         $json = json_decode($jsonString);
         $this->assertEquals(0, $json->retcode);
+        
+        $em->remove($newmovimento);
+        $em->flush();
     }
+
+    /**
+     * @test
+     */
+    public function androidControllerUltimimovimentiTest() {
+        $client = static::createClient();
+
+        /* @var $em \Doctrine\ORM\EntityManager */
+        $em = $client->getContainer()->get('doctrine')->getManager();
+
+        $qu = $em->createQueryBuilder();
+        $qu->select(array('m'))
+                ->from('FiSpeseBundle:Utente', 'm')
+                ->where('m.id = :id')
+                ->setParameter('id', 1);
+        $utente = $qu->getQuery()->getSingleResult();
+
+        $qt = $em->createQueryBuilder();
+        $qt->select(array('t'))
+                ->from('FiSpeseBundle:Tipologia', 't')
+                ->where('t.id = :id')
+                ->setParameter('id', 1);
+        $tipologia = $qt->getQuery()->getSingleResult();
+
+        $qtm = $em->createQueryBuilder();
+        $qtm->select(array('tm'))
+                ->from('FiSpeseBundle:Tipomovimento', 'tm')
+                ->where('tm.id = :id')
+                ->setParameter('id', 1);
+        $tipomovimentoe = $qtm->getQuery()->getSingleResult();
+
+        $nota = 'prova-' . date('Y-m-d_h:i:s');
+
+        $newmovimento = new \Fi\SpeseBundle\Entity\Movimento();
+        $newmovimento->setUtente($utente);
+        $newmovimento->setTipomovimento($tipomovimentoe);
+        $newmovimento->setTipologia($tipologia);
+        $newmovimento->setImporto(10);
+        $newmovimento->setNota($nota);
+        $newmovimento->setData(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+
+        $em->persist($newmovimento);
+        $em->flush();
+        
+        $crawler = $client->request('GET', '/Android/getultimimovimenti',array("utenteid"=>$utente->getId()));
+        $body = $crawler->filter('body');
+        $jsonString = strip_tags($body->html());
+        $json = json_decode($jsonString);
+
+        if (isset($json->retcode)) {
+            $this->assertEquals(-1, $json->retcode);
+        } else {
+            $tipimovimento = count($json);
+            $this->assertGreaterThanOrEqual(1, $tipimovimento);
+        }
+        
+        $em->remove($newmovimento);
+        $em->flush();
+        
+        
+    }
+
 }
