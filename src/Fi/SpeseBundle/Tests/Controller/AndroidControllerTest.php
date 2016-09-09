@@ -296,7 +296,7 @@ class AndroidControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/Android/getAppApk');
+        $client->request('GET', '/Android/getAppApk');
 
         $this->assertTrue(
             $client->getResponse()->headers->contains(
