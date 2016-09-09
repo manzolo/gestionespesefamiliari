@@ -29,33 +29,11 @@ class ReportsController extends Controller
         // Set properties
         $objPHPExcel->getProperties()->setCreator('Andrea Manzi');
         $objPHPExcel->getProperties()->setLastModifiedBy('Andrea Manzi');
+        $dbfunctions = $this->getDbfunctions($em);
+        $year = $dbfunctions['year'];
+        $month = $dbfunctions['month'];
 
         //REPORT TOTALE
-        $dbtype = $em->getConnection()->getDatabasePlatform()->getName();
-        switch ($dbtype) {
-        case 'mysql':
-            $year = 'year(m.data)';
-            $month = 'month(m.data)';
-            break;
-        case 'postgresql':
-            $config = $em->getConfiguration();
-            $config->addCustomStringFunction('TO_CHAR', 'DoctrineExtensions\Query\Postgresql\DateFormat');
-            $year = "TO_CHAR(m.data,'YYYY')";
-            $month = "TO_CHAR(m.data,'MM')";
-            break;
-        case 'sqlite':
-            $config = $em->getConfiguration();
-            $config->addCustomStringFunction('YEAR', 'DoctrineExtensions\Query\Sqlite\Year');
-            $config->addCustomStringFunction('MONTH', 'DoctrineExtensions\Query\Sqlite\Month');
-            $year = 'year(m.data)';
-            $month = 'month(m.data)';
-            break;
-        default:
-            $year = 'year(m.data)';
-            $month = 'month(m.data)';
-            break;
-        }
-
         /* @var $qb \Doctrine\ORM\QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
         $selectFields = 'm.utente_id utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente,  '
@@ -544,5 +522,30 @@ class ReportsController extends Controller
             'Dicembre', );
 
         return ucfirst($mesi[$monthNum - 1]);
+    }
+
+    public function getDbfunctions($em)
+    {
+        $dbtype = $em->getConnection()->getDatabasePlatform()->getName();
+        if ($dbtype == 'mysql') {
+            $year = 'year(m.data)';
+            $month = 'month(m.data)';
+        } elseif ($dbtype == 'postgresql') {
+            $config = $em->getConfiguration();
+            $config->addCustomStringFunction('TO_CHAR', 'DoctrineExtensions\Query\Postgresql\DateFormat');
+            $year = "TO_CHAR(m.data,'YYYY')";
+            $month = "TO_CHAR(m.data,'MM')";
+        } elseif ($dbtype == 'sqlite') {
+            $config = $em->getConfiguration();
+            $config->addCustomStringFunction('YEAR', 'DoctrineExtensions\Query\Sqlite\Year');
+            $config->addCustomStringFunction('MONTH', 'DoctrineExtensions\Query\Sqlite\Month');
+            $year = 'year(m.data)';
+            $month = 'month(m.data)';
+        } else {
+            $year = 'year(m.data)';
+            $month = 'month(m.data)';
+        }
+
+        return array('year' => $year, 'month' => $month);
     }
 }
