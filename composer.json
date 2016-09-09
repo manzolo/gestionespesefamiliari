@@ -75,7 +75,9 @@
         "phpmd/phpmd": "dev-master",
         "bamboohr/phpcs": "dev-master",
         "satooshi/php-coveralls": "^1.0",
-        "sebastian/phpcpd": "^2.0"
+        "sebastian/phpcpd": "^2.0",
+        "behat/mink": "^1.7",
+        "behat/mink-goutte-driver": "^1.2"
         
 
     },
