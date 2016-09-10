@@ -22,10 +22,10 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
     private function loadDefaultValues()
     {
         $em = $this->getContainer()->get('doctrine')->getManager();
-
+        $today = \DateTime::createFromFormat('Y-m-d', date('Y-m-d'));
         $famiglia = new \Fi\SpeseBundle\Entity\Famiglia();
         $famiglia->setDescrizione('Prova famiglia');
-        $famiglia->setDal(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+        $famiglia->setDal($today);
 
         $utente = new \Fi\SpeseBundle\Entity\Utente();
         $utente->setFamiglia($famiglia);
@@ -52,12 +52,21 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $tipomovimentoe->setAbbreviazione('E');
         $tipomovimentoe->setSegno('+');
 
+        $movimento = new \Fi\SpeseBundle\Entity\Movimento();
+        $movimento->setData($today);
+        $movimento->setImporto(10);
+        $movimento->setNota('Acquisto ricarica telefonica');
+        $movimento->setTipologia($tipologia);
+        $movimento->setTipomovimento($tipomovimentou);
+        $movimento->setUtente($utente);
+
         $em->persist($famiglia);
         $em->persist($utente);
         $em->persist($categoria);
         $em->persist($tipologia);
         $em->persist($tipomovimentou);
         $em->persist($tipomovimentoe);
+        $em->persist($movimento);
         $em->flush();
 
         $menutabellegestione = new \Fi\CoreBundle\Entity\menuApplicazione();
