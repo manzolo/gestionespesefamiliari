@@ -29,17 +29,27 @@ class TipologiaTest extends KernelTestCase
     public function tipologiaInsertDeleteTest()
     {
         $em = $this->em;
+        $descrizinecategoria = 'Prova categoria';
+        $descrizinetipologia = 'Prova tipologia';
+
         $categoria = new \Fi\SpeseBundle\Entity\Categoria();
-        $categoria->setDescrizione('Prova categoria');
+        $categoria->setDescrizione($descrizinecategoria);
 
         $tipologia = new \Fi\SpeseBundle\Entity\Tipologia();
-        $tipologia->setDescrizione('Prova tipologia');
+        $tipologia->setDescrizione($descrizinetipologia);
         $tipologia->setCategoria($categoria);
+
+        $categoria->addTipologia($tipologia);
+        $categoria->removeTipologia($tipologia);
 
         $em->persist($categoria);
         $em->persist($tipologia);
+
         $em->flush();
+        $this->assertGreaterThanOrEqual(0, count($tipologia->getMovimentos()));
         $this->assertGreaterThanOrEqual(1, $tipologia->getId());
+        $this->assertEquals($descrizinetipologia, $tipologia->getDescrizione());
+        $this->assertEquals($descrizinecategoria, $categoria->getDescrizione());
         $em->remove($tipologia);
         $em->remove($categoria);
         $em->flush();

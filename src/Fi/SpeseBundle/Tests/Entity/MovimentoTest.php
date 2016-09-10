@@ -80,6 +80,16 @@ class MovimentoTest extends KernelTestCase
         $em->flush();
 
         $this->assertGreaterThanOrEqual(1, $movimento->getId());
+        $this->assertGreaterThanOrEqual(1, $movimento->getTipologia()->getId());
+        $this->assertGreaterThanOrEqual(1, $movimento->getTipologia()->getCategoria()->getId());
+        $this->assertEquals($nota, $movimento->getNota());
+        $this->assertEquals($utente, $movimento->getUtente());
+        $this->assertEquals(0, $movimento->getImporto());
+        $this->assertEquals($tipologia, $movimento->getTipologia());
+        $this->assertEquals($tipomovimentoe, $movimento->getTipomovimento());
+        $this->assertEquals(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')), $movimento->getData());
+        $movimento->getTipomovimento()->addMovimento($movimento);
+        $movimento->getTipomovimento()->removeMovimento($movimento);
 
         $em->remove($movimento);
         $em->flush();

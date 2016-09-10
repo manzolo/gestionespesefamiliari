@@ -31,6 +31,7 @@ class CategoriaTest extends KernelTestCase
         $em = $this->em;
         $categoria = new \Fi\SpeseBundle\Entity\Categoria();
         $categoria->setDescrizione('Prova categoria');
+
         $em->persist($categoria);
         $em->flush();
         $this->assertGreaterThanOrEqual(1, $categoria->getId());
