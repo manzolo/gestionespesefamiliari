@@ -11,7 +11,7 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this->setName('gestionespese:installdefaultdata')
-            ->setDescription('Insert default data');
+                ->setDescription('Insert default data');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -58,6 +58,64 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $em->persist($tipologia);
         $em->persist($tipomovimentou);
         $em->persist($tipomovimentoe);
+        $em->flush();
+
+        $menutabellegestione = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabellegestione->setNome('Gestione');
+        $menutabellegestione->setAttivo(true);
+        $menutabellegestione->setOrdine(10);
+        $em->persist($menutabellegestione);
+        $em->flush();
+
+        $menutabellefamiglia = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabellefamiglia->setNome('Famiglia');
+        $menutabellefamiglia->setAttivo(true);
+        $menutabellefamiglia->setOrdine(50);
+        $menutabellefamiglia->setPercorso('Famiglia_container');
+        $menutabellefamiglia->setPadre($menutabellegestione->getId());
+        $em->persist($menutabellefamiglia);
+
+        $menutabelleutente = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabelleutente->setNome('Utente');
+        $menutabelleutente->setAttivo(true);
+        $menutabelleutente->setOrdine(100);
+        $menutabelleutente->setPercorso('Utente_container');
+        $menutabelleutente->setPadre($menutabellegestione->getId());
+        $em->persist($menutabelleutente);
+
+        $menutabellecategoria = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabellecategoria->setNome('Categorie');
+        $menutabellecategoria->setAttivo(true);
+        $menutabellecategoria->setOrdine(200);
+        $menutabellecategoria->setPercorso('Categoria_container');
+        $menutabellecategoria->setPadre($menutabellegestione->getId());
+        $em->persist($menutabellecategoria);
+
+        $menutabelletipologia = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabelletipologia->setNome('Tipologie');
+        $menutabelletipologia->setAttivo(true);
+        $menutabelletipologia->setOrdine(300);
+        $menutabelletipologia->setPercorso('Tipologia_container');
+        $menutabelletipologia->setPadre($menutabellegestione->getId());
+        $em->persist($menutabelletipologia);
+
+        $menutabellemovimento = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabellemovimento->setNome('Movimenti');
+        $menutabellemovimento->setAttivo(true);
+        $menutabellemovimento->setOrdine(500);
+        $menutabellemovimento->setPercorso('Movimento_container');
+        $menutabellemovimento->setPadre($menutabellegestione->getId());
+        $em->persist($menutabellemovimento);
+
+        $em->flush();
+
+        $menutabelleprova = $em
+                ->getRepository('FiCoreBundle:menuApplicazione')
+                ->find(1);
+
+        $menutabelleprova->setAttivo(false);
+        $em->persist($menutabelleprova);
+
         $em->flush();
     }
 }

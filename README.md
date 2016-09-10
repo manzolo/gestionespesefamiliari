@@ -10,5 +10,11 @@ Gestione spese familiari (family expenses management)
 cp app/config/parameters.yml.dist app/config/parameters.yml
 composer install
 php app/console fifree2:install admin admin admin@admin.it
-
+php app/console gestionespese:installdefaultdata
 ```
+###Se si utilizza il database sqlite
+```
+chmod +w app/cache/dbtest.sqlite
+```
+
+
