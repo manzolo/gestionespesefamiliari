@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1473461896">
-  <project timestamp="1473461896">
+<coverage generated="1473506859">
+  <project timestamp="1473506859">
     <package name="Fi\FOSUserBundle\DependencyInjection">
       <file name="/src/php/gestionespesefamiliari/src/Fi/FOSUserBundle/DependencyInjection/Configuration.php">
         <class name="Configuration" namespace="Fi\FOSUserBundle\DependencyInjection">
@@ -966,29 +966,29 @@
     <package name="Fi\SpeseBundle\Entity">
       <file name="/src/php/gestionespesefamiliari/src/Fi/SpeseBundle/Entity/Categoria.php">
         <class name="Categoria" namespace="Fi\SpeseBundle\Entity">
-          <metrics methods="8" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="6" elements="20" coveredelements="10"/>
+          <metrics methods="8" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="10" elements="20" coveredelements="16"/>
         </class>
         <line num="28" type="method" name="__construct" crap="1" count="3"/>
         <line num="30" type="stmt" count="3"/>
         <line num="31" type="stmt" count="3"/>
-        <line num="38" type="method" name="getId" crap="1" count="3"/>
-        <line num="40" type="stmt" count="3"/>
+        <line num="38" type="method" name="getId" crap="1" count="4"/>
+        <line num="40" type="stmt" count="4"/>
         <line num="50" type="method" name="setDescrizione" crap="1" count="3"/>
         <line num="52" type="stmt" count="3"/>
         <line num="54" type="stmt" count="3"/>
-        <line num="62" type="method" name="getDescrizione" crap="1" count="3"/>
-        <line num="64" type="stmt" count="3"/>
-        <line num="74" type="method" name="addTipologia" crap="2" count="0"/>
-        <line num="76" type="stmt" count="0"/>
-        <line num="78" type="stmt" count="0"/>
-        <line num="86" type="method" name="removeTipologia" crap="2" count="0"/>
-        <line num="88" type="stmt" count="0"/>
-        <line num="89" type="stmt" count="0"/>
+        <line num="62" type="method" name="getDescrizione" crap="1" count="4"/>
+        <line num="64" type="stmt" count="4"/>
+        <line num="74" type="method" name="addTipologia" crap="1" count="1"/>
+        <line num="76" type="stmt" count="1"/>
+        <line num="78" type="stmt" count="1"/>
+        <line num="86" type="method" name="removeTipologia" crap="1" count="1"/>
+        <line num="88" type="stmt" count="1"/>
+        <line num="89" type="stmt" count="1"/>
         <line num="96" type="method" name="getTipologias" crap="2" count="0"/>
         <line num="98" type="stmt" count="0"/>
         <line num="101" type="method" name="__toString" crap="2" count="0"/>
         <line num="103" type="stmt" count="0"/>
-        <metrics loc="105" ncloc="56" classes="1" methods="8" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="6" elements="20" coveredelements="10"/>
+        <metrics loc="105" ncloc="56" classes="1" methods="8" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="10" elements="20" coveredelements="16"/>
       </file>
       <file name="/src/php/gestionespesefamiliari/src/Fi/SpeseBundle/Entity/Famiglia.php">
         <class name="Famiglia" namespace="Fi\SpeseBundle\Entity">
@@ -1009,9 +1009,9 @@
         <line num="88" type="stmt" count="3"/>
         <line num="96" type="method" name="getDal" crap="1" count="1"/>
         <line num="98" type="stmt" count="1"/>
-        <line num="108" type="method" name="setAl" crap="1" count="1"/>
-        <line num="110" type="stmt" count="1"/>
-        <line num="112" type="stmt" count="1"/>
+        <line num="108" type="method" name="setAl" crap="1" count="2"/>
+        <line num="110" type="stmt" count="2"/>
+        <line num="112" type="stmt" count="2"/>
         <line num="120" type="method" name="getAl" crap="1" count="1"/>
         <line num="122" type="stmt" count="1"/>
         <line num="132" type="method" name="addUtente" crap="1" count="1"/>
@@ -1028,7 +1028,7 @@
       </file>
       <file name="/src/php/gestionespesefamiliari/src/Fi/SpeseBundle/Entity/Movimento.php">
         <class name="Movimento" namespace="Fi\SpeseBundle\Entity">
-          <metrics methods="20" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="17" elements="49" coveredelements="28"/>
+          <metrics methods="20" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="19" elements="49" coveredelements="32"/>
         </class>
         <line num="65" type="method" name="getId" crap="1" count="4"/>
         <line num="67" type="stmt" count="4"/>
@@ -1045,18 +1045,18 @@
         <line num="125" type="method" name="setImporto" crap="1" count="4"/>
         <line num="127" type="stmt" count="4"/>
         <line num="129" type="stmt" count="4"/>
-        <line num="137" type="method" name="getImporto" crap="1" count="1"/>
-        <line num="139" type="stmt" count="1"/>
+        <line num="137" type="method" name="getImporto" crap="1" count="2"/>
+        <line num="139" type="stmt" count="2"/>
         <line num="149" type="method" name="setData" crap="1" count="4"/>
         <line num="151" type="stmt" count="4"/>
         <line num="153" type="stmt" count="4"/>
-        <line num="161" type="method" name="getData" crap="1" count="1"/>
-        <line num="163" type="stmt" count="1"/>
+        <line num="161" type="method" name="getData" crap="1" count="2"/>
+        <line num="163" type="stmt" count="2"/>
         <line num="173" type="method" name="setNota" crap="1" count="4"/>
         <line num="175" type="stmt" count="4"/>
         <line num="177" type="stmt" count="4"/>
-        <line num="185" type="method" name="getNota" crap="1" count="1"/>
-        <line num="187" type="stmt" count="1"/>
+        <line num="185" type="method" name="getNota" crap="1" count="2"/>
+        <line num="187" type="stmt" count="2"/>
         <line num="197" type="method" name="setTipomovimentoId" crap="2" count="0"/>
         <line num="199" type="stmt" count="0"/>
         <line num="201" type="stmt" count="0"/>
@@ -1065,31 +1065,31 @@
         <line num="221" type="method" name="setTipologia" crap="1" count="4"/>
         <line num="223" type="stmt" count="4"/>
         <line num="225" type="stmt" count="4"/>
-        <line num="233" type="method" name="getTipologia" crap="1" count="1"/>
-        <line num="235" type="stmt" count="1"/>
+        <line num="233" type="method" name="getTipologia" crap="1" count="2"/>
+        <line num="235" type="stmt" count="2"/>
         <line num="245" type="method" name="setUtente" crap="1" count="4"/>
         <line num="247" type="stmt" count="4"/>
         <line num="249" type="stmt" count="4"/>
-        <line num="257" type="method" name="getUtente" crap="2" count="0"/>
-        <line num="259" type="stmt" count="0"/>
+        <line num="257" type="method" name="getUtente" crap="1" count="1"/>
+        <line num="259" type="stmt" count="1"/>
         <line num="269" type="method" name="setTipomovimento" crap="1" count="4"/>
         <line num="271" type="stmt" count="4"/>
         <line num="273" type="stmt" count="4"/>
-        <line num="281" type="method" name="getTipomovimento" crap="2" count="0"/>
-        <line num="283" type="stmt" count="0"/>
+        <line num="281" type="method" name="getTipomovimento" crap="1" count="1"/>
+        <line num="283" type="stmt" count="1"/>
         <line num="286" type="method" name="getDescrizionecategoria" crap="2" count="0"/>
         <line num="288" type="stmt" count="0"/>
-        <metrics loc="290" ncloc="144" classes="1" methods="20" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="17" elements="49" coveredelements="28"/>
+        <metrics loc="290" ncloc="144" classes="1" methods="20" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="19" elements="49" coveredelements="32"/>
       </file>
       <file name="/src/php/gestionespesefamiliari/src/Fi/SpeseBundle/Entity/Tipologia.php">
         <class name="Tipologia" namespace="Fi\SpeseBundle\Entity">
-          <metrics methods="12" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="10" elements="30" coveredelements="17"/>
+          <metrics methods="12" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="11" elements="30" coveredelements="19"/>
         </class>
         <line num="38" type="method" name="__construct" crap="1" count="2"/>
         <line num="40" type="stmt" count="2"/>
         <line num="41" type="stmt" count="2"/>
-        <line num="48" type="method" name="getId" crap="1" count="3"/>
-        <line num="50" type="stmt" count="3"/>
+        <line num="48" type="method" name="getId" crap="1" count="4"/>
+        <line num="50" type="stmt" count="4"/>
         <line num="60" type="method" name="setCategoriaId" crap="2" count="0"/>
         <line num="62" type="stmt" count="0"/>
         <line num="64" type="stmt" count="0"/>
@@ -1098,28 +1098,28 @@
         <line num="84" type="method" name="setDescrizione" crap="1" count="2"/>
         <line num="86" type="stmt" count="2"/>
         <line num="88" type="stmt" count="2"/>
-        <line num="96" type="method" name="getDescrizione" crap="1" count="1"/>
-        <line num="98" type="stmt" count="1"/>
+        <line num="96" type="method" name="getDescrizione" crap="1" count="2"/>
+        <line num="98" type="stmt" count="2"/>
         <line num="108" type="method" name="addMovimento" crap="2" count="0"/>
         <line num="110" type="stmt" count="0"/>
         <line num="112" type="stmt" count="0"/>
         <line num="120" type="method" name="removeMovimento" crap="2" count="0"/>
         <line num="122" type="stmt" count="0"/>
         <line num="123" type="stmt" count="0"/>
-        <line num="130" type="method" name="getMovimentos" crap="2" count="0"/>
-        <line num="132" type="stmt" count="0"/>
+        <line num="130" type="method" name="getMovimentos" crap="1" count="1"/>
+        <line num="132" type="stmt" count="1"/>
         <line num="142" type="method" name="setCategoria" crap="1" count="2"/>
         <line num="144" type="stmt" count="2"/>
         <line num="146" type="stmt" count="2"/>
-        <line num="154" type="method" name="getCategoria" crap="1" count="2"/>
-        <line num="156" type="stmt" count="2"/>
+        <line num="154" type="method" name="getCategoria" crap="1" count="3"/>
+        <line num="156" type="stmt" count="3"/>
         <line num="159" type="method" name="__toString" crap="1" count="1"/>
         <line num="161" type="stmt" count="1"/>
-        <metrics loc="163" ncloc="84" classes="1" methods="12" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="10" elements="30" coveredelements="17"/>
+        <metrics loc="163" ncloc="84" classes="1" methods="12" coveredmethods="8" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="11" elements="30" coveredelements="19"/>
       </file>
       <file name="/src/php/gestionespesefamiliari/src/Fi/SpeseBundle/Entity/Tipomovimento.php">
         <class name="Tipomovimento" namespace="Fi\SpeseBundle\Entity">
-          <metrics methods="12" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="11" elements="30" coveredelements="18"/>
+          <metrics methods="12" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="16" elements="30" coveredelements="26"/>
         </class>
         <line num="38" type="method" name="__construct" crap="1" count="2"/>
         <line num="40" type="stmt" count="2"/>
@@ -1129,33 +1129,33 @@
         <line num="60" type="method" name="setTipo" crap="1" count="2"/>
         <line num="62" type="stmt" count="2"/>
         <line num="64" type="stmt" count="2"/>
-        <line num="72" type="method" name="getTipo" crap="1" count="1"/>
-        <line num="74" type="stmt" count="1"/>
+        <line num="72" type="method" name="getTipo" crap="1" count="2"/>
+        <line num="74" type="stmt" count="2"/>
         <line num="84" type="method" name="setAbbreviazione" crap="1" count="2"/>
         <line num="86" type="stmt" count="2"/>
         <line num="88" type="stmt" count="2"/>
-        <line num="96" type="method" name="getAbbreviazione" crap="2" count="0"/>
-        <line num="98" type="stmt" count="0"/>
+        <line num="96" type="method" name="getAbbreviazione" crap="1" count="1"/>
+        <line num="98" type="stmt" count="1"/>
         <line num="108" type="method" name="setSegno" crap="1" count="2"/>
         <line num="110" type="stmt" count="2"/>
         <line num="112" type="stmt" count="2"/>
-        <line num="120" type="method" name="getSegno" crap="1" count="1"/>
-        <line num="122" type="stmt" count="1"/>
-        <line num="132" type="method" name="addMovimento" crap="2" count="0"/>
-        <line num="134" type="stmt" count="0"/>
-        <line num="136" type="stmt" count="0"/>
-        <line num="144" type="method" name="removeMovimento" crap="2" count="0"/>
-        <line num="146" type="stmt" count="0"/>
-        <line num="147" type="stmt" count="0"/>
+        <line num="120" type="method" name="getSegno" crap="1" count="2"/>
+        <line num="122" type="stmt" count="2"/>
+        <line num="132" type="method" name="addMovimento" crap="1" count="1"/>
+        <line num="134" type="stmt" count="1"/>
+        <line num="136" type="stmt" count="1"/>
+        <line num="144" type="method" name="removeMovimento" crap="1" count="1"/>
+        <line num="146" type="stmt" count="1"/>
+        <line num="147" type="stmt" count="1"/>
         <line num="154" type="method" name="getMovimentos" crap="2" count="0"/>
         <line num="156" type="stmt" count="0"/>
         <line num="159" type="method" name="__toString" crap="2" count="0"/>
         <line num="161" type="stmt" count="0"/>
-        <metrics loc="163" ncloc="84" classes="1" methods="12" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="11" elements="30" coveredelements="18"/>
+        <metrics loc="163" ncloc="84" classes="1" methods="12" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="16" elements="30" coveredelements="26"/>
       </file>
       <file name="/src/php/gestionespesefamiliari/src/Fi/SpeseBundle/Entity/Utente.php">
         <class name="Utente" namespace="Fi\SpeseBundle\Entity">
-          <metrics methods="21" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="17" elements="52" coveredelements="27"/>
+          <metrics methods="21" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="22" elements="52" coveredelements="37"/>
         </class>
         <line num="48" type="method" name="__construct" crap="1" count="3"/>
         <line num="50" type="stmt" count="3"/>
@@ -1165,28 +1165,28 @@
         <line num="70" type="method" name="setNome" crap="1" count="3"/>
         <line num="72" type="stmt" count="3"/>
         <line num="74" type="stmt" count="3"/>
-        <line num="82" type="method" name="getNome" crap="2" count="0"/>
-        <line num="84" type="stmt" count="0"/>
+        <line num="82" type="method" name="getNome" crap="1" count="1"/>
+        <line num="84" type="stmt" count="1"/>
         <line num="94" type="method" name="setCognome" crap="1" count="3"/>
         <line num="96" type="stmt" count="3"/>
         <line num="98" type="stmt" count="3"/>
-        <line num="106" type="method" name="getCognome" crap="2" count="0"/>
-        <line num="108" type="stmt" count="0"/>
+        <line num="106" type="method" name="getCognome" crap="1" count="1"/>
+        <line num="108" type="stmt" count="1"/>
         <line num="118" type="method" name="setEmail" crap="1" count="3"/>
         <line num="120" type="stmt" count="3"/>
         <line num="122" type="stmt" count="3"/>
-        <line num="130" type="method" name="getEmail" crap="2" count="0"/>
-        <line num="132" type="stmt" count="0"/>
+        <line num="130" type="method" name="getEmail" crap="1" count="1"/>
+        <line num="132" type="stmt" count="1"/>
         <line num="142" type="method" name="setUsername" crap="1" count="3"/>
         <line num="144" type="stmt" count="3"/>
         <line num="146" type="stmt" count="3"/>
-        <line num="154" type="method" name="getUsername" crap="2" count="0"/>
-        <line num="156" type="stmt" count="0"/>
+        <line num="154" type="method" name="getUsername" crap="1" count="1"/>
+        <line num="156" type="stmt" count="1"/>
         <line num="166" type="method" name="setPassword" crap="1" count="3"/>
         <line num="168" type="stmt" count="3"/>
         <line num="170" type="stmt" count="3"/>
-        <line num="178" type="method" name="getPassword" crap="2" count="0"/>
-        <line num="180" type="stmt" count="0"/>
+        <line num="178" type="method" name="getPassword" crap="1" count="1"/>
+        <line num="180" type="stmt" count="1"/>
         <line num="190" type="method" name="addMovimento" crap="2" count="0"/>
         <line num="192" type="stmt" count="0"/>
         <line num="194" type="stmt" count="0"/>
@@ -1209,7 +1209,7 @@
         <line num="272" type="stmt" count="2"/>
         <line num="280" type="method" name="getFamiglia" crap="1" count="1"/>
         <line num="282" type="stmt" count="1"/>
-        <metrics loc="284" ncloc="145" classes="1" methods="21" coveredmethods="10" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="17" elements="52" coveredelements="27"/>
+        <metrics loc="284" ncloc="145" classes="1" methods="21" coveredmethods="15" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="22" elements="52" coveredelements="37"/>
       </file>
     </package>
     <package name="Fi\SpeseBundle">
@@ -1435,6 +1435,6 @@
         <metrics loc="85" ncloc="85" classes="1" methods="9" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="1" elements="46" coveredelements="2"/>
       </file>
     </package>
-    <metrics files="30" loc="2974" ncloc="2116" classes="30" methods="154" coveredmethods="61" conditionals="0" coveredconditionals="0" statements="1082" coveredstatements="237" elements="1236" coveredelements="298"/>
+    <metrics files="30" loc="2974" ncloc="2116" classes="30" methods="154" coveredmethods="74" conditionals="0" coveredconditionals="0" statements="1082" coveredstatements="254" elements="1236" coveredelements="328"/>
   </project>
 </coverage>

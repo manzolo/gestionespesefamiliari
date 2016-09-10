@@ -40,6 +40,8 @@ class TipomovimentoTest extends KernelTestCase
         $this->assertEquals('Uscita', $tipomovimentou->getTipo());
         $this->assertEquals('U', $tipomovimentou->getAbbreviazione());
         $this->assertEquals('-', $tipomovimentou->getSegno());
+        $this->assertEquals('Uscita', $tipomovimentou);
+        $this->assertGreaterThanOrEqual(0, count($tipomovimentou->getMovimentos()));
 
         $em->remove($tipomovimentou);
         $em->flush();

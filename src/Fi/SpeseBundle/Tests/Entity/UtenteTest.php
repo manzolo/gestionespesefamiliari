@@ -53,8 +53,9 @@ class UtenteTest extends KernelTestCase
         $em->persist($famiglia);
         $em->persist($utente);
         $em->flush();
-
         $this->assertGreaterThanOrEqual(1, $utente->getId());
+        $this->assertGreaterThanOrEqual(0, $utente->getFamigliaId());
+        $this->assertGreaterThanOrEqual(0, count($utente->getMovimentos()));
         $this->assertEquals($cognome, $utente->getCognome());
         $this->assertEquals($nome, $utente->getNome());
         $this->assertEquals($email, $utente->getEmail());
@@ -62,6 +63,7 @@ class UtenteTest extends KernelTestCase
         $this->assertEquals($password, $utente->getPassword());
 
         $this->assertGreaterThanOrEqual(1, $utente->getId());
+        $utente->setFamigliaId(1);
 
         $em->remove($utente);
         $em->remove($famiglia);
