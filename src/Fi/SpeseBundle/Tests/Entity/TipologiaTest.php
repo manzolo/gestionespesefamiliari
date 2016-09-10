@@ -54,5 +54,6 @@ class TipologiaTest extends KernelTestCase
         $em->remove($categoria);
         $em->flush();
         $this->assertTrue(is_null($tipologia->getId()));
+        $tipologia->setCategoriaId(1);
     }
 }

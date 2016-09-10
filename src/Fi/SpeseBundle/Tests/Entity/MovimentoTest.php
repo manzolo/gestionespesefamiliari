@@ -87,6 +87,7 @@ class MovimentoTest extends KernelTestCase
         $this->assertEquals(0, $movimento->getImporto());
         $this->assertEquals($tipologia, $movimento->getTipologia());
         $this->assertEquals($tipomovimentoe, $movimento->getTipomovimento());
+        $this->assertEquals($categoria, $movimento->getDescrizionecategoria());
         $this->assertEquals(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')), $movimento->getData());
         $movimento->getTipomovimento()->addMovimento($movimento);
         $movimento->getTipomovimento()->removeMovimento($movimento);
@@ -104,5 +105,11 @@ class MovimentoTest extends KernelTestCase
         $em->remove($tipomovimentoe);
         $em->remove($tipomovimentou);
         $em->flush();
+        $movimento->setTipologiaId(1);
+        $movimento->getTipologiaId();
+        $movimento->setTipomovimentoId(1);
+        $movimento->getTipomovimentoId();
+        $movimento->setUtenteId(1);
+        $movimento->getUtenteId();
     }
 }
