@@ -22,5 +22,8 @@ php app/console gestionespese:installdefaultdata
 ```
 chmod +w app/cache/dbtest.sqlite
 ```
+###Per altri database (mysql, prostgres) modificare file app/config/parameters.yml
+
+
 
 
