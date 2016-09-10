@@ -93,7 +93,7 @@ class MovimentoTest extends KernelTestCase
 
         $utente->addMovimento($movimento);
         $utente->removeMovimento($movimento);
-        
+
         $em->remove($movimento);
         $em->flush();
         $this->assertTrue(is_null($movimento->getId()));
