@@ -6,11 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class UtenteControllerTest extends WebTestCase
 {
+
     /**
- * @test 
-*/
-    public function testCompleteScenario()
+     * @test 
+     */
+    public function testCompleteScenario() 
     {
         $this->assertTrue(true, true);
     }
+
 }
