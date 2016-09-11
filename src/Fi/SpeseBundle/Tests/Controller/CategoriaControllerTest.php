@@ -30,10 +30,7 @@ class CategoriaControllerTest extends SpeseTest
 
         $clientnoauth = $this->getClientNonAutorizzato();
         $urlnoauth = '/Categoria/';
-        $clientnoauth->request('GET', $url);
-        $crawlernoauth = new Crawler($clientnoauth->getResponse()->getContent());
-        $this->assertTrue($client->getResponse()->isSuccessful());
-        $body = $crawlernoauth->filter('body');
+        $clientnoauth->request('GET', $urlnoauth);
 
         $this->assertEquals($this->getClassName(), get_class());
         $this->assertEquals(302, $clientnoauth->getResponse()->getStatusCode());
