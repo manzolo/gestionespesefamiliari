@@ -48,6 +48,18 @@ class TipologiaTest extends KernelTestCase
         $em->flush();
         $this->assertGreaterThanOrEqual(0, count($tipologia->getMovimentos()));
         $this->assertGreaterThanOrEqual(1, $tipologia->getId());
+        $this->assertGreaterThanOrEqual(1, $tipologia->getCategoriaId());
+
+        $qu = $em->createQueryBuilder();
+        $qu->select(array('m'))
+            ->from('FiSpeseBundle:Movimento', 'm')
+            ->where('m.nota = :descrizione')
+            ->setParameter('descrizione', 'Acquisto ricarica telefonica');
+        $movimento = $qu->getQuery()->getSingleResult();
+
+        $tipologia->addMovimento($movimento);
+        $tipologia->removeMovimento($movimento);
+
         $this->assertEquals($descrizinetipologia, $tipologia->getDescrizione());
         $this->assertEquals($descrizinecategoria, $categoria->getDescrizione());
         $em->remove($tipologia);
