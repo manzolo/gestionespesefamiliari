@@ -29,10 +29,10 @@ class MovimentoTest extends KernelTestCase
     public function movimentoInsertDeleteTest()
     {
         $em = $this->em;
-
+        $data = \DateTime::createFromFormat('Y-m-d', date('Y-m-d'));
         $famiglia = new \Fi\SpeseBundle\Entity\Famiglia();
         $famiglia->setDescrizione('Prova famiglia');
-        $famiglia->setDal(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+        $famiglia->setDal($data);
 
         $utente = new \Fi\SpeseBundle\Entity\Utente();
         $utente->setFamiglia($famiglia);
@@ -73,7 +73,7 @@ class MovimentoTest extends KernelTestCase
         $movimento->setTipomovimento($tipomovimentoe);
         $movimento->setTipologia($tipologia);
         $movimento->setUtente($utente);
-        $movimento->setData(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+        $movimento->setData($data);
         $movimento->setImporto(0);
         $movimento->setNota($nota);
         $em->persist($movimento);
@@ -88,7 +88,7 @@ class MovimentoTest extends KernelTestCase
         $this->assertEquals($tipologia, $movimento->getTipologia());
         $this->assertEquals($tipomovimentoe, $movimento->getTipomovimento());
         $this->assertEquals($categoria, $movimento->getDescrizionecategoria());
-        $this->assertEquals(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')), $movimento->getData());
+        $this->assertEquals($data, $movimento->getData());
         $movimento->getTipomovimento()->addMovimento($movimento);
         $movimento->getTipomovimento()->removeMovimento($movimento);
 
