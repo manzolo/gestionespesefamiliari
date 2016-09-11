@@ -27,21 +27,22 @@ class AndroidControllerTest extends WebTestCase
     public function androidControllerLoginTest()
     {
         $client = static::createClient();
+        if ($client->getContainer()->get('kernel')->getEnvironment() == 'test') {
+            $post = array(
+                'username' => 'Username',
+                'password' => 'Password',
+            );
 
-        $post = array(
-            'username' => 'Username',
-            'password' => 'Password',
-        );
-
-        $url = $client->getContainer()->get('router')->generate('Android_login');
-        $crawler = $client->request('POST', $url, $post);
-        $body = $crawler->filter('body');
-        $jsonString = strip_tags($body->html());
-        $json = json_decode($jsonString);
-        $this->assertEquals(0, $json->retcode);
-        $this->assertGreaterThanOrEqual(1, $json->utente_id);
-        $this->assertGreaterThanOrEqual(1, $json->famiglia_id);
-        $this->assertGreaterThanOrEqual(0, count($json->nominativo));
+            $url = $client->getContainer()->get('router')->generate('Android_login');
+            $crawler = $client->request('POST', $url, $post);
+            $body = $crawler->filter('body');
+            $jsonString = strip_tags($body->html());
+            $json = json_decode($jsonString);
+            $this->assertEquals(0, $json->retcode);
+            $this->assertGreaterThanOrEqual(1, $json->utente_id);
+            $this->assertGreaterThanOrEqual(1, $json->famiglia_id);
+            $this->assertGreaterThanOrEqual(0, count($json->nominativo));
+        }
     }
 
     /**

@@ -6,7 +6,9 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class TipomovimentoControllerTest extends WebTestCase
 {
-    /** @test */
+    /**
+ * @test 
+*/
     public function testCompleteScenario()
     {
         $this->assertTrue(true, true);
