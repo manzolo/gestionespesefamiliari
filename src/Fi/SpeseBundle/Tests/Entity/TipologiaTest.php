@@ -34,20 +34,21 @@ class TipologiaTest extends KernelTestCase
 
         $categoria = new \Fi\SpeseBundle\Entity\Categoria();
         $categoria->setDescrizione($descrizinecategoria);
+        $em->persist($categoria);
 
         $tipologia = new \Fi\SpeseBundle\Entity\Tipologia();
         $tipologia->setDescrizione($descrizinetipologia);
         $tipologia->setCategoria($categoria);
 
-        $categoria->addTipologia($tipologia);
-        $categoria->removeTipologia($tipologia);
-
-        $em->persist($categoria);
         $em->persist($tipologia);
 
         $em->flush();
+        $categoria->addTipologia($tipologia);
+        $categoria->removeTipologia($tipologia);
+
         $this->assertGreaterThanOrEqual(0, count($tipologia->getMovimentos()));
         $this->assertGreaterThanOrEqual(1, $tipologia->getId());
+        $tipologia->setCategoriaId(1);
         $this->assertGreaterThanOrEqual(1, $tipologia->getCategoriaId());
 
         $qu = $em->createQueryBuilder();
