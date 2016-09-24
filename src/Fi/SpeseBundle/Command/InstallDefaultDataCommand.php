@@ -69,14 +69,14 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $em->persist($movimento);
         $em->flush();
 
-        $menutabellegestione = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabellegestione = new \Fi\CoreBundle\Entity\MenuApplicazione();
         $menutabellegestione->setNome('Gestione');
         $menutabellegestione->setAttivo(true);
         $menutabellegestione->setOrdine(10);
         $em->persist($menutabellegestione);
         $em->flush();
 
-        $menutabellefamiglia = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabellefamiglia = new \Fi\CoreBundle\Entity\MenuApplicazione();
         $menutabellefamiglia->setNome('Famiglia');
         $menutabellefamiglia->setAttivo(true);
         $menutabellefamiglia->setOrdine(50);
@@ -84,7 +84,7 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $menutabellefamiglia->setPadre($menutabellegestione->getId());
         $em->persist($menutabellefamiglia);
 
-        $menutabelleutente = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabelleutente = new \Fi\CoreBundle\Entity\MenuApplicazione();
         $menutabelleutente->setNome('Utente');
         $menutabelleutente->setAttivo(true);
         $menutabelleutente->setOrdine(100);
@@ -92,7 +92,7 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $menutabelleutente->setPadre($menutabellegestione->getId());
         $em->persist($menutabelleutente);
 
-        $menutabellecategoria = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabellecategoria = new \Fi\CoreBundle\Entity\MenuApplicazione();
         $menutabellecategoria->setNome('Categorie');
         $menutabellecategoria->setAttivo(true);
         $menutabellecategoria->setOrdine(200);
@@ -100,7 +100,7 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $menutabellecategoria->setPadre($menutabellegestione->getId());
         $em->persist($menutabellecategoria);
 
-        $menutabelletipologia = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabelletipologia = new \Fi\CoreBundle\Entity\MenuApplicazione();
         $menutabelletipologia->setNome('Tipologie');
         $menutabelletipologia->setAttivo(true);
         $menutabelletipologia->setOrdine(300);
@@ -108,7 +108,7 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $menutabelletipologia->setPadre($menutabellegestione->getId());
         $em->persist($menutabelletipologia);
 
-        $menutabellemovimento = new \Fi\CoreBundle\Entity\menuApplicazione();
+        $menutabellemovimento = new \Fi\CoreBundle\Entity\MenuApplicazione();
         $menutabellemovimento->setNome('Movimenti');
         $menutabellemovimento->setAttivo(true);
         $menutabellemovimento->setOrdine(500);
@@ -119,7 +119,7 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $em->flush();
 
         $menutabelleprova = $em
-                ->getRepository('FiCoreBundle:menuApplicazione')
+                ->getRepository('FiCoreBundle:MenuApplicazione')
                 ->find(1);
 
         $menutabelleprova->setAttivo(false);
