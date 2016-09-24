@@ -5,50 +5,12 @@
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-4": {
-            "": "src/",
-            "Fi\\CoreBundle\\": "vendor/fi/fifreecorebundle/",
-            "Fi\\OsBundle\\": "vendor/fi/osbundle/",
-            "Fi\\PannelloAmministrazioneBundle\\": "vendor/fi/pannelloamministrazionebundle/"
-
-
-
-
-
+            "": "src/"
         },
         "files": ["app/AppKernel.php"],
         "classmap": ["vendor/tecnickcom/tcpdf/tcpdf.php"]
 
     },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/manzolo/fifreecorebundle.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/manzolo/pannelloamministrazionebundle.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/manzolo/schemaexporterbundle.git"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/manzolo/osbundle.git"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "tecnickcom/tcpdf",
-                "version": "master",
-                "source": {
-                    "url": "http://git.code.sf.net/p/tcpdf/code",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        }
-    ],
     "require": {
         "php": ">=5.4.3,<5.7",
         "symfony/symfony": "2.8.*",
@@ -61,10 +23,9 @@
         "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        "fi/fifreecorebundle": "1.0.*",
-        "fi/pannelloamministrazionebundle": "1.0.*",
-        "fi/osbundle": "~1.0",
-        "fi/schemaexporterbundle": "~1.0",
+        "fi/fifreecorebundle": "2.0.*",
+        "fi/pannelloamministrazionebundle": "2.0.*",
+        "fi/osbundle": "~2.0",
         "tecnickcom/tcpdf": "~6.0",
         "phpoffice/phpexcel": "~1.8",
         "phpoffice/phpword": "~0.11",

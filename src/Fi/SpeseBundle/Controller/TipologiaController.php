@@ -4,7 +4,7 @@ namespace Fi\SpeseBundle\Controller;
 
 use Fi\CoreBundle\Controller\FiController;
 use Symfony\Component\HttpFoundation\Request;
-use Fi\CoreBundle\Controller\griglia;
+use Fi\CoreBundle\Controller\Griglia;
 use Fi\SpeseBundle\Entity\tipologia;
 
 /**
@@ -44,7 +44,7 @@ class TipologiaController extends FiController
             'escludere' => $escludi,
             'container' => $container, );
 
-        $testatagriglia = griglia::testataPerGriglia($paricevuti);
+        $testatagriglia = Griglia::testataPerGriglia($paricevuti);
 
         $testatagriglia['multisearch'] = 1;
         $testatagriglia['showconfig'] = 1;
