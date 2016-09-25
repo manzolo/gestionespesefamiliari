@@ -10,73 +10,72 @@ use Fi\SpeseBundle\Entity\movimento;
 /**
  * Movimento controller.
  */
-class MovimentoController extends FiController
-{
-    public function indexAction(Request $request)
-    {
+class MovimentoController extends FiController {
+
+    public function indexAction(Request $request) {
         parent::setup($request);
         $namespace = $this->getNamespace();
         $bundle = $this->getBundle();
         $controller = $this->getController();
         $container = $this->container;
 
-        $nomebundle = $namespace.$bundle.'Bundle';
+        $nomebundle = $namespace . $bundle . 'Bundle';
 
         $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository($nomebundle.':'.$controller)->findAll();
+        $entities = $em->getRepository($nomebundle . ':' . $controller)->findAll();
 
         $dettaglij = array(
             'tipomovimento_id' => array(
                 array('nomecampo' => 'tipomovimento.tipo',
                     'lunghezza' => '180',
                     'descrizione' => 'Movimento',
-                    'tipo' => 'text', ),
+                    'tipo' => 'text',),
             ),
             'tipologia_id' => array(
                 array('nomecampo' => 'tipologia.descrizione',
                     'lunghezza' => '180',
                     'descrizione' => 'Tipologia',
-                    'tipo' => 'text', ), ),
+                    'tipo' => 'text',),),
             'categoria' => array('nomecampo' => 'categoria.descrizione',
                 'lunghezza' => '180',
                 'descrizione' => 'Categoria',
-                'tipo' => 'text', ),
+                'tipo' => 'text',),
             'utente_id' => array(
                 array('nomecampo' => 'utente.nome',
                     'lunghezza' => '180', 'descrizione' => 'Nome',
-                    'tipo' => 'text', ),
+                    'tipo' => 'text',),
                 array('nomecampo' => 'utente.cognome',
                     'lunghezza' => '180',
                     'descrizione' => 'Cognome',
-                    'tipo' => 'text', ), ),
+                    'tipo' => 'text',),),
             'data' => array(array('nomecampo' => 'data',
                     'lunghezza' => '150',
                     'descrizione' => 'Data',
-                    'tipo' => 'text', )),
+                    'tipo' => 'text',)),
             'importo' => array(
                 array('nomecampo' => 'importo',
                     'lunghezza' => '150',
                     'descrizione' => 'Importo',
-                    'tipo' => 'text', ), ),
+                    'tipo' => 'text',),),
             'nota' => array(
                 array('nomecampo' => 'nota',
                     'lunghezza' => '400',
                     'descrizione' => 'Nota',
-                    'tipo' => 'text', ), ),
+                    'tipo' => 'text',),),
         );
         $escludi = array('id');
         $campiextra = array(
             array('nomecampo' => 'categoria',
                 'lunghezza' => '500',
                 'descrizione' => 'Categoria',
-                'type' => 'string', ), );
+                'type' => 'string',),);
         $paricevuti = array(
             'nomebundle' => $nomebundle,
             'nometabella' => $controller,
             'dettaglij' => $dettaglij,
             'escludere' => $escludi,
             'container' => $container,
-            'campiextra' => $campiextra, );
+            'campiextra' => $campiextra,);
 
         $testatagriglia = Griglia::testataPerGriglia($paricevuti);
 
@@ -85,6 +84,9 @@ class MovimentoController extends FiController
         $testatagriglia['showadd'] = 1;
         $testatagriglia['showedit'] = 1;
         $testatagriglia['showdel'] = 1;
+
+        $testatagriglia['showexcel'] = 1;
+
 
         //$testatagriglia["filterToolbar_stringResult"] = false;
         //$testatagriglia["filterToolbar_searchOnEnter"] = true;
@@ -97,21 +99,20 @@ class MovimentoController extends FiController
 
         $testata = json_encode($testatagriglia);
 
-        return $this->render($nomebundle.':'.$controller.':index.html.twig', array(
+        return $this->render($nomebundle . ':' . $controller . ':index.html.twig', array(
                     'entities' => $entities,
                     'nomecontroller' => $controller,
                     'testata' => $testata,
         ));
     }
 
-    public function setParametriGriglia($prepar = array())
-    {
+    public function setParametriGriglia($prepar = array()) {
         self::setup($prepar['request']);
         $namespace = $this->getNamespace();
         $bundle = $this->getBundle();
         $controller = $this->getController();
 
-        $nomebundle = $namespace.$bundle.'Bundle';
+        $nomebundle = $namespace . $bundle . 'Bundle';
         $escludi = array('id', 'utente', 'tipomovimento', 'categoria', 'tipologia');
 
         $tabellej['utente_id'] = array('tabella' => 'utente', 'campi' => array('nome', 'cognome'));
@@ -124,7 +125,7 @@ class MovimentoController extends FiController
             'tabellej' => $tabellej,
             'nometabella' => $controller,
             'escludere' => $escludi,
-            'campiextra' => $campiextra, );
+            'campiextra' => $campiextra,);
 
         if ($prepar) {
             $paricevuti = array_merge($paricevuti, $prepar);
@@ -132,4 +133,5 @@ class MovimentoController extends FiController
 
         self::$parametrigriglia = $paricevuti;
     }
+
 }
