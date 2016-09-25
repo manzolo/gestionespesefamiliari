@@ -839,37 +839,38 @@
         },
         {
             "name": "fi/fifreecorebundle",
-            "version": "2.0.8",
+            "version": "2.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
-                "reference": "a148905039cfdd3a424054761046665aff6f65c2"
+                "reference": "0b72414212751e1b475b9afbd9fb3fd8236cde50"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/a148905039cfdd3a424054761046665aff6f65c2",
-                "reference": "a148905039cfdd3a424054761046665aff6f65c2",
+                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/0b72414212751e1b475b9afbd9fb3fd8236cde50",
+                "reference": "0b72414212751e1b475b9afbd9fb3fd8236cde50",
                 "shasum": ""
             },
             "require": {
                 "fi/osbundle": "~2.0",
                 "fi/pannelloamministrazionebundle": "~2.0",
+                "friendsofsymfony/user-bundle": "2.0.*@dev",
                 "oneup/flysystem-bundle": "@stable",
                 "php": ">=5.5.0",
+                "phpoffice/phpexcel": "^1.8",
+                "phpoffice/phpword": "^0.13.0",
                 "symfony/symfony": "2.8.*",
+                "tecnickcom/tcpdf": "^6.2",
                 "vich/uploader-bundle": "~1.0"
             },
             "require-dev": {
                 "doctrine/doctrine-bundle": "~1.4",
                 "doctrine/inflector": "1.0.*",
                 "doctrine/orm": "^2.4.8",
-                "friendsofsymfony/user-bundle": "2.0.*@dev",
                 "incenteev/composer-parameter-handler": "~2.0",
                 "mockery/mockery": "^0.9.5",
                 "phpmd/phpmd": "^2.4",
-                "phpoffice/phpexcel": "~1.8",
-                "phpoffice/phpword": "~0.11",
-                "phpunit/phpunit": "^5.5",
+                "phpunit/phpunit": "^4.8",
                 "satooshi/php-coveralls": "^1.0",
                 "sebastian/phpcpd": "^2.0",
                 "sensio/distribution-bundle": "~5.0",
@@ -879,9 +880,7 @@
                 "squizlabs/php_codesniffer": "^2.7",
                 "symfony/monolog-bundle": "~2.4",
                 "symfony/swiftmailer-bundle": "~2.3",
-                "symfony/symfony": "2.8.*",
-                "symfony/yaml": "2.8.*",
-                "tecnickcom/tcpdf": "~6.0"
+                "symfony/yaml": "2.8.*"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -929,7 +928,7 @@
             "keywords": [
                 "Core fifree2 bundle"
             ],
-            "time": "2016-09-24 22:08:34"
+            "time": "2016-09-25 10:27:48"
         },
         {
             "name": "fi/osbundle",
@@ -3496,16 +3495,16 @@
         },
         {
             "name": "behat/behat",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Behat/Behat.git",
-                "reference": "73b433326c87bbd8bc528ce57c29722405ffff5e"
+                "reference": "df7d9225e9ee37fdaa54273e3e0aecf2515bbe76"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Behat/Behat/zipball/73b433326c87bbd8bc528ce57c29722405ffff5e",
-                "reference": "73b433326c87bbd8bc528ce57c29722405ffff5e",
+                "url": "https://api.github.com/repos/Behat/Behat/zipball/df7d9225e9ee37fdaa54273e3e0aecf2515bbe76",
+                "reference": "df7d9225e9ee37fdaa54273e3e0aecf2515bbe76",
                 "shasum": ""
             },
             "require": {
@@ -3573,7 +3572,7 @@
                 "symfony",
                 "testing"
             ],
-            "time": "2016-09-20 07:23:29"
+            "time": "2016-09-25 09:40:39"
         },
         {
             "name": "behat/gherkin",
