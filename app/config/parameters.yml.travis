@@ -4,7 +4,8 @@ parameters:
     database_host: null
     database_port: null
     database_name: null
-    database_path: %kernel.root_dir%/sqlite.db.cache
+    database_name: "%kernel.root_dir%/tmp/dbtest.sqlite"
+    database_path: "%kernel.root_dir%/tmp/dbtest.sqlite"
     database_user: test
     database_password: null
     mailer_transport: smtp
