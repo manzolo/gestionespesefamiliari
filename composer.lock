@@ -839,16 +839,16 @@
         },
         {
             "name": "fi/fifreecorebundle",
-            "version": "2.0.14",
+            "version": "2.0.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
-                "reference": "0b72414212751e1b475b9afbd9fb3fd8236cde50"
+                "reference": "f311d2c99752570c2af936633c19af250bc3fac5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/0b72414212751e1b475b9afbd9fb3fd8236cde50",
-                "reference": "0b72414212751e1b475b9afbd9fb3fd8236cde50",
+                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/f311d2c99752570c2af936633c19af250bc3fac5",
+                "reference": "f311d2c99752570c2af936633c19af250bc3fac5",
                 "shasum": ""
             },
             "require": {
@@ -864,14 +864,23 @@
                 "vich/uploader-bundle": "~1.0"
             },
             "require-dev": {
+                "behat/behat": "3.0.*",
+                "behat/mink-browserkit-driver": "^1.3",
+                "behat/mink-extension": "^2.2",
+                "behat/mink-goutte-driver": "~1.1",
+                "behat/mink-selenium2-driver": "1.2.*",
+                "behat/symfony2-extension": "2.0.*",
                 "doctrine/doctrine-bundle": "~1.4",
                 "doctrine/inflector": "1.0.*",
                 "doctrine/orm": "^2.4.8",
                 "incenteev/composer-parameter-handler": "~2.0",
                 "mockery/mockery": "^0.9.5",
+                "mysql-workbench-schema-exporter/doctrine2-exporter": "^3.0",
+                "mysql-workbench-schema-exporter/mysql-workbench-schema-exporter": "^3.0",
                 "phpmd/phpmd": "^2.4",
                 "phpunit/phpunit": "^4.8",
                 "satooshi/php-coveralls": "^1.0",
+                "se/selenium-server-standalone": "^2.53",
                 "sebastian/phpcpd": "^2.0",
                 "sensio/distribution-bundle": "~5.0",
                 "sensio/framework-extra-bundle": "^3.0.2",
@@ -895,7 +904,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "Fi\\CoreBundle\\": "src"
+                    "Fi\\CoreBundle\\": "src/Fi/CoreBundle"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -928,7 +937,7 @@
             "keywords": [
                 "Core fifree2 bundle"
             ],
-            "time": "2016-09-25 10:27:48"
+            "time": "2016-09-26 12:55:12"
         },
         {
             "name": "fi/osbundle",
@@ -986,16 +995,16 @@
         },
         {
             "name": "fi/pannelloamministrazionebundle",
-            "version": "2.0.28",
+            "version": "2.0.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/PannelloamministrazioneBundle.git",
-                "reference": "152924947e754767daa55c8a497a68ca244c41a3"
+                "reference": "4c0372ccbf7b8fd0875411216ed4d3d73404319d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/152924947e754767daa55c8a497a68ca244c41a3",
-                "reference": "152924947e754767daa55c8a497a68ca244c41a3",
+                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/4c0372ccbf7b8fd0875411216ed4d3d73404319d",
+                "reference": "4c0372ccbf7b8fd0875411216ed4d3d73404319d",
                 "shasum": ""
             },
             "require": {
@@ -1037,7 +1046,7 @@
             "keywords": [
                 "Pannello amministrazione bundle"
             ],
-            "time": "2016-09-23 20:46:22"
+            "time": "2016-09-26 18:08:27"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1045,12 +1054,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "4cb7a29869e4a9bef4f51986d48b1a3af76d3f48"
+                "reference": "7abb0ff366c404f2c2b34fd264693071148351a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/4cb7a29869e4a9bef4f51986d48b1a3af76d3f48",
-                "reference": "4cb7a29869e4a9bef4f51986d48b1a3af76d3f48",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/7abb0ff366c404f2c2b34fd264693071148351a2",
+                "reference": "7abb0ff366c404f2c2b34fd264693071148351a2",
                 "shasum": ""
             },
             "require": {
@@ -1084,7 +1093,10 @@
             "autoload": {
                 "psr-4": {
                     "FOS\\UserBundle\\": ""
-                }
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1109,7 +1121,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2016-09-12 15:04:02"
+            "time": "2016-09-26 07:23:44"
         },
         {
             "name": "incenteev/composer-parameter-handler",
