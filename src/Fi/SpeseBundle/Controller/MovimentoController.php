@@ -99,11 +99,13 @@ class MovimentoController extends FiController
 
         $testata = json_encode($testatagriglia);
 
-        return $this->render($nomebundle.':'.$controller.':index.html.twig', array(
+        return $this->render(
+            $nomebundle.':'.$controller.':index.html.twig', array(
                     'entities' => $entities,
                     'nomecontroller' => $controller,
                     'testata' => $testata,
-        ));
+            )
+        );
     }
 
     public function setParametriGriglia($prepar = array())
