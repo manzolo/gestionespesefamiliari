@@ -839,16 +839,16 @@
         },
         {
             "name": "fi/fifreecorebundle",
-            "version": "2.0.17",
+            "version": "2.0.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
-                "reference": "f311d2c99752570c2af936633c19af250bc3fac5"
+                "reference": "e57b8dc1b6b4db3563a68ee3b59f1db49e605a09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/f311d2c99752570c2af936633c19af250bc3fac5",
-                "reference": "f311d2c99752570c2af936633c19af250bc3fac5",
+                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/e57b8dc1b6b4db3563a68ee3b59f1db49e605a09",
+                "reference": "e57b8dc1b6b4db3563a68ee3b59f1db49e605a09",
                 "shasum": ""
             },
             "require": {
@@ -937,7 +937,7 @@
             "keywords": [
                 "Core fifree2 bundle"
             ],
-            "time": "2016-09-26 12:55:12"
+            "time": "2016-09-28 20:53:02"
         },
         {
             "name": "fi/osbundle",
@@ -1054,12 +1054,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
-                "reference": "7abb0ff366c404f2c2b34fd264693071148351a2"
+                "reference": "9f86fe2d69df11159fca9ec44b529cb1df5e14aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/7abb0ff366c404f2c2b34fd264693071148351a2",
-                "reference": "7abb0ff366c404f2c2b34fd264693071148351a2",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/9f86fe2d69df11159fca9ec44b529cb1df5e14aa",
+                "reference": "9f86fe2d69df11159fca9ec44b529cb1df5e14aa",
                 "shasum": ""
             },
             "require": {
@@ -1121,7 +1121,7 @@
             "keywords": [
                 "User management"
             ],
-            "time": "2016-09-26 07:23:44"
+            "time": "2016-09-28 09:10:06"
         },
         {
             "name": "incenteev/composer-parameter-handler",
