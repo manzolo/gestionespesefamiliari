@@ -839,22 +839,22 @@
         },
         {
             "name": "fi/fifreecorebundle",
-            "version": "2.0.39",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
-                "reference": "f68c9ed50994af418eb9c080d6cebbced787b5cd"
+                "reference": "5a2f738b148babe35775542c91d7bb86726cefc9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/f68c9ed50994af418eb9c080d6cebbced787b5cd",
-                "reference": "f68c9ed50994af418eb9c080d6cebbced787b5cd",
+                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/5a2f738b148babe35775542c91d7bb86726cefc9",
+                "reference": "5a2f738b148babe35775542c91d7bb86726cefc9",
                 "shasum": ""
             },
             "require": {
                 "fi/osbundle": "~2.0",
                 "fi/pannelloamministrazionebundle": "~2.0",
-                "friendsofsymfony/user-bundle": "2.0.*@dev",
+                "friendsofsymfony/user-bundle": "dev-master#47e4de9d8b6fed521729fb38107d9413863fe4ce as 2.0",
                 "oneup/flysystem-bundle": "^1.4",
                 "php": ">=5.5.0",
                 "phpoffice/phpexcel": "^1.8",
@@ -938,11 +938,11 @@
             "keywords": [
                 "Core fifree2 bundle"
             ],
-            "time": "2016-10-04 18:52:00"
+            "time": "2016-10-05 14:50:58"
         },
         {
             "name": "fi/osbundle",
-            "version": "2.0.4",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/OsBundle.git",
@@ -996,21 +996,20 @@
         },
         {
             "name": "fi/pannelloamministrazionebundle",
-            "version": "2.0.51",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/PannelloamministrazioneBundle.git",
-                "reference": "20dc0f33d027d2672cb641176c5ccea416996fd4"
+                "reference": "da1846327944008be975a3f0b307982acc1b65b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/20dc0f33d027d2672cb641176c5ccea416996fd4",
-                "reference": "20dc0f33d027d2672cb641176c5ccea416996fd4",
+                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/da1846327944008be975a3f0b307982acc1b65b3",
+                "reference": "da1846327944008be975a3f0b307982acc1b65b3",
                 "shasum": ""
             },
             "require": {
                 "fi/osbundle": "~2.0",
-                "friendsofsymfony/user-bundle": "2.0.*@dev",
                 "php": ">=5.5.0"
             },
             "require-dev": {
@@ -1024,6 +1023,7 @@
                 "doctrine/inflector": "1.0.*",
                 "doctrine/orm": "^2.4.8",
                 "fi/fifreecorebundle": "~2.0",
+                "friendsofsymfony/user-bundle": "dev-master#47e4de9d8b6fed521729fb38107d9413863fe4ce as 2.0",
                 "incenteev/composer-parameter-handler": "~2.0",
                 "mockery/mockery": "^0.9.5",
                 "mysql-workbench-schema-exporter/doctrine2-exporter": "^3.0",
@@ -1069,7 +1069,7 @@
             "keywords": [
                 "Pannello amministrazione bundle"
             ],
-            "time": "2016-10-04 20:44:13"
+            "time": "2016-10-05 14:52:06"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -3069,16 +3069,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.26.0",
+            "version": "v1.26.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "81c2b5fd36581370c7731387f05dcdb577050513"
+                "reference": "a09d8ee17ac1cfea29ed60c83960ad685c6a898d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/81c2b5fd36581370c7731387f05dcdb577050513",
-                "reference": "81c2b5fd36581370c7731387f05dcdb577050513",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/a09d8ee17ac1cfea29ed60c83960ad685c6a898d",
+                "reference": "a09d8ee17ac1cfea29ed60c83960ad685c6a898d",
                 "shasum": ""
             },
             "require": {
@@ -3126,7 +3126,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2016-10-02 16:19:13"
+            "time": "2016-10-05 18:57:41"
         },
         {
             "name": "vich/uploader-bundle",
