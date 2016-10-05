@@ -1000,16 +1000,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/PannelloamministrazioneBundle.git",
-                "reference": "da1846327944008be975a3f0b307982acc1b65b3"
+                "reference": "e7b8ea0f317dae725bac56afa04384ccd03aeb39"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/da1846327944008be975a3f0b307982acc1b65b3",
-                "reference": "da1846327944008be975a3f0b307982acc1b65b3",
+                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/e7b8ea0f317dae725bac56afa04384ccd03aeb39",
+                "reference": "e7b8ea0f317dae725bac56afa04384ccd03aeb39",
                 "shasum": ""
             },
             "require": {
                 "fi/osbundle": "~2.0",
+                "mysql-workbench-schema-exporter/doctrine2-exporter": "^3.0",
+                "mysql-workbench-schema-exporter/mysql-workbench-schema-exporter": "^3.0",
                 "php": ">=5.5.0"
             },
             "require-dev": {
@@ -1069,7 +1071,7 @@
             "keywords": [
                 "Pannello amministrazione bundle"
             ],
-            "time": "2016-10-05 14:52:06"
+            "time": "2016-10-05 21:30:19"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1501,6 +1503,126 @@
                 "psr-3"
             ],
             "time": "2016-07-29 03:23:52"
+        },
+        {
+            "name": "mysql-workbench-schema-exporter/doctrine2-exporter",
+            "version": "3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mysql-workbench-schema-exporter/doctrine2-exporter.git",
+                "reference": "6017b2cf0ba6b3585af253b8a5a18f53990da531"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mysql-workbench-schema-exporter/doctrine2-exporter/zipball/6017b2cf0ba6b3585af253b8a5a18f53990da531",
+                "reference": "6017b2cf0ba6b3585af253b8a5a18f53990da531",
+                "shasum": ""
+            },
+            "require": {
+                "mysql-workbench-schema-exporter/mysql-workbench-schema-exporter": "^3.0.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MwbExporter\\Formatter\\Doctrine2\\": "lib/MwbExporter/Formatter/Doctrine2/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes Mueller",
+                    "email": "circus2@web.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Toha",
+                    "email": "tohenk@yahoo.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Robert Vock",
+                    "email": "robertvock82@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "MySQL Workbench Schema Exporter for Doctrine 2",
+            "homepage": "https://github.com/mysql-workbench-schema-exporter/doctrine2-exporter",
+            "keywords": [
+                "cli",
+                "database",
+                "doctrine",
+                "mysql",
+                "mysql workbench"
+            ],
+            "time": "2016-01-04 19:53:41"
+        },
+        {
+            "name": "mysql-workbench-schema-exporter/mysql-workbench-schema-exporter",
+            "version": "v3.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mysql-workbench-schema-exporter/mysql-workbench-schema-exporter.git",
+                "reference": "9e0b239e65497aa73b0f1896d521820df9c1edea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mysql-workbench-schema-exporter/mysql-workbench-schema-exporter/zipball/9e0b239e65497aa73b0f1896d521820df9c1edea",
+                "reference": "9e0b239e65497aa73b0f1896d521820df9c1edea",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/inflector": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "bin": [
+                "bin/mysql-workbench-schema-export",
+                "bin/update-sql-reserved-words"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "MwbExporter\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes Mueller",
+                    "email": "circus2@web.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Toha",
+                    "email": "tohenk@yahoo.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Robert Vock",
+                    "email": "robertvock82@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "MySQL Workbench Schema Exporter",
+            "homepage": "https://github.com/mysql-workbench-schema-exporter/mysql-workbench-schema-exporter",
+            "keywords": [
+                "cli",
+                "database",
+                "doctrine",
+                "extjs",
+                "mysql",
+                "mysql workbench",
+                "propel",
+                "sequelizejs",
+                "zend"
+            ],
+            "time": "2016-02-28 09:06:16"
         },
         {
             "name": "ocramius/proxy-manager",
