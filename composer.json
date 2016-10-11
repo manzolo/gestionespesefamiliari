@@ -9,26 +9,24 @@
         },
         "files": ["app/AppKernel.php"],
         "classmap": ["vendor/tecnickcom/tcpdf/tcpdf.php"]
-
     },
     "require": {
         "php": ">=5.4.3,<5.7",
         "symfony/symfony": "2.8.*",
         "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.4",
-        "doctrine/inflector": "1.0.*",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
-        "symfony/yaml": "2.8.*",
         "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        "fi/fifreecorebundle": "2.0.*",
-        "fi/pannelloamministrazionebundle": "2.0.*",
+        "paragonie/random_compat": "~1.4.0",
+        "fi/fifreecorebundle": "~2.0",
+        "fi/pannelloamministrazionebundle": "~2.0",
         "fi/osbundle": "~2.0",
         "phpoffice/phpexcel": "~1.8",
         "phpoffice/phpword": "~0.11",
-        "friendsofsymfony/user-bundle": "2.0.*@dev",
+        "friendsofsymfony/user-bundle": "dev-master#47e4de9d8b6fed521729fb38107d9413863fe4ce as 2.0",
         "beberlei/DoctrineExtensions": "^1.0",
         "tufanbarisyildirim/php-apk-parser": "dev-master",
         "tecnickcom/tcpdf": "^6.2"
@@ -36,15 +34,14 @@
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
         "symfony/phpunit-bridge": "~2.7",
-        "phpmd/phpmd": "dev-master",
-        "bamboohr/phpcs": "dev-master",
-        "satooshi/php-coveralls": "^1.0",
-        "sebastian/phpcpd": "^2.0",
-        "behat/mink": "^1.7",
-        "behat/mink-selenium2-driver": "^1.3",
-        "joomla-projects/selenium-server-standalone": "v2.53.1.1",
-        "behat/behat": "^3.1",
-        "phpunit/phpunit": "^4.8"
+        "behat/behat": "3.0.*",
+        "behat/mink-selenium2-driver": "1.2.*",
+        "behat/symfony2-extension": "2.0.*",
+        "behat/mink-browserkit-driver": "^1.3",
+        "behat/mink-extension": "^2.2",
+        "behat/mink-goutte-driver": "~1.1",
+        "se/selenium-server-standalone": "^2.53",
+        "phpunit/phpunit": "^5.5"
     },
     "scripts": {
         "post-install-cmd": [
