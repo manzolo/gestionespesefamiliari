@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bad7a7a9268990a09fd132e58482c293",
-    "content-hash": "45ccc1a85079c4b4476aca969105b1d1",
+    "hash": "8a09e356d6bf0c1aa057b629bb840ff5",
+    "content-hash": "a4fab2d48edafd0afbb06fc04301b3f5",
     "packages": [
         {
             "name": "beberlei/DoctrineExtensions",
@@ -839,16 +839,16 @@
         },
         {
             "name": "fi/fifreecorebundle",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
-                "reference": "f0a9fff40feca7899b69c724740c8929ff52a090"
+                "reference": "95f27efa1f957cad48bba9120b09fe2c479eaa52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/f0a9fff40feca7899b69c724740c8929ff52a090",
-                "reference": "f0a9fff40feca7899b69c724740c8929ff52a090",
+                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/95f27efa1f957cad48bba9120b09fe2c479eaa52",
+                "reference": "95f27efa1f957cad48bba9120b09fe2c479eaa52",
                 "shasum": ""
             },
             "require": {
@@ -938,7 +938,7 @@
             "keywords": [
                 "Core fifree2 bundle"
             ],
-            "time": "2016-12-06 16:04:31"
+            "time": "2016-12-06 17:04:53"
         },
         {
             "name": "fi/osbundle",
