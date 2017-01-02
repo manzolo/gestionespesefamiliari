@@ -85,6 +85,7 @@ class MovimentoController extends FiController
         $testatagriglia['showadd'] = 1;
         $testatagriglia['showedit'] = 1;
         $testatagriglia['showdel'] = 1;
+        $testatagriglia['overlayopen'] = 1;
 
         $testatagriglia['showexcel'] = 1;
 
