@@ -71,16 +71,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.3.0",
+            "version": "v1.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "30e07cf03edc3cd3ef579d0dd4dd8c58250799a5"
+                "reference": "bd4461328621bde0ae6b1b2675fbc6aca4ceb558"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/30e07cf03edc3cd3ef579d0dd4dd8c58250799a5",
-                "reference": "30e07cf03edc3cd3ef579d0dd4dd8c58250799a5",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/bd4461328621bde0ae6b1b2675fbc6aca4ceb558",
+                "reference": "bd4461328621bde0ae6b1b2675fbc6aca4ceb558",
                 "shasum": ""
             },
             "require": {
@@ -135,7 +135,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2016-10-24 11:45:47"
+            "time": "2016-12-30 15:59:45"
         },
         {
             "name": "doctrine/cache",
@@ -996,16 +996,16 @@
         },
         {
             "name": "fi/pannelloamministrazionebundle",
-            "version": "2.0.3",
+            "version": "2.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/PannelloamministrazioneBundle.git",
-                "reference": "a1e9490df303bc808200e89a777f45cd5f2621cc"
+                "reference": "46c24cfc60de45d43766fe3a72adf07474282404"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/a1e9490df303bc808200e89a777f45cd5f2621cc",
-                "reference": "a1e9490df303bc808200e89a777f45cd5f2621cc",
+                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/46c24cfc60de45d43766fe3a72adf07474282404",
+                "reference": "46c24cfc60de45d43766fe3a72adf07474282404",
                 "shasum": ""
             },
             "require": {
@@ -1069,7 +1069,7 @@
             "keywords": [
                 "Pannello amministrazione bundle"
             ],
-            "time": "2016-12-30 14:17:22"
+            "time": "2017-01-02 20:48:17"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -2109,16 +2109,16 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v5.0.15",
+            "version": "v5.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "d294b0665cf09c799e9c1993d5c776a5bf55cb85"
+                "reference": "68e3dc02e66fec5036557d457cfdffa332a40da4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/d294b0665cf09c799e9c1993d5c776a5bf55cb85",
-                "reference": "d294b0665cf09c799e9c1993d5c776a5bf55cb85",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/68e3dc02e66fec5036557d457cfdffa332a40da4",
+                "reference": "68e3dc02e66fec5036557d457cfdffa332a40da4",
                 "shasum": ""
             },
             "require": {
@@ -2157,7 +2157,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2016-12-06 07:29:27"
+            "time": "2016-12-31 08:39:25"
         },
         {
             "name": "sensio/framework-extra-bundle",
