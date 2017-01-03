@@ -996,16 +996,16 @@
         },
         {
             "name": "fi/pannelloamministrazionebundle",
-            "version": "2.0.15",
+            "version": "2.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/PannelloamministrazioneBundle.git",
-                "reference": "038f2e44313d8e4580c69511da2dbefe1bd3f4f1"
+                "reference": "f461dc06a254915727e8254a0d997090d0ff87c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/038f2e44313d8e4580c69511da2dbefe1bd3f4f1",
-                "reference": "038f2e44313d8e4580c69511da2dbefe1bd3f4f1",
+                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/f461dc06a254915727e8254a0d997090d0ff87c1",
+                "reference": "f461dc06a254915727e8254a0d997090d0ff87c1",
                 "shasum": ""
             },
             "require": {
@@ -1069,7 +1069,7 @@
             "keywords": [
                 "Pannello amministrazione bundle"
             ],
-            "time": "2017-01-03 20:05:51"
+            "time": "2017-01-03 21:13:24"
         },
         {
             "name": "friendsofsymfony/user-bundle",
