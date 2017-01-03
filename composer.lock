@@ -839,16 +839,16 @@
         },
         {
             "name": "fi/fifreecorebundle",
-            "version": "2.0.20",
+            "version": "2.0.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
-                "reference": "f1df37073f2f92fa332376c00da732f444f8cad7"
+                "reference": "7fd522cc071396f38b1005a33a68d7ceafbed78a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/f1df37073f2f92fa332376c00da732f444f8cad7",
-                "reference": "f1df37073f2f92fa332376c00da732f444f8cad7",
+                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/7fd522cc071396f38b1005a33a68d7ceafbed78a",
+                "reference": "7fd522cc071396f38b1005a33a68d7ceafbed78a",
                 "shasum": ""
             },
             "require": {
@@ -938,7 +938,7 @@
             "keywords": [
                 "Core fifree2 bundle"
             ],
-            "time": "2017-01-03 16:53:29"
+            "time": "2017-01-03 20:17:51"
         },
         {
             "name": "fi/osbundle",
@@ -996,16 +996,16 @@
         },
         {
             "name": "fi/pannelloamministrazionebundle",
-            "version": "2.0.14",
+            "version": "2.0.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/PannelloamministrazioneBundle.git",
-                "reference": "729dfa5c14d23f05e0eb9fb0cbe8f7c3f311e1a3"
+                "reference": "038f2e44313d8e4580c69511da2dbefe1bd3f4f1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/729dfa5c14d23f05e0eb9fb0cbe8f7c3f311e1a3",
-                "reference": "729dfa5c14d23f05e0eb9fb0cbe8f7c3f311e1a3",
+                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/038f2e44313d8e4580c69511da2dbefe1bd3f4f1",
+                "reference": "038f2e44313d8e4580c69511da2dbefe1bd3f4f1",
                 "shasum": ""
             },
             "require": {
@@ -1069,7 +1069,7 @@
             "keywords": [
                 "Pannello amministrazione bundle"
             ],
-            "time": "2017-01-02 21:16:19"
+            "time": "2017-01-03 20:05:51"
         },
         {
             "name": "friendsofsymfony/user-bundle",
