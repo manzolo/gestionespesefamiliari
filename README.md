@@ -20,7 +20,7 @@ php app/console gestionespese:installdefaultdata
 ```
 ###Se si utilizza il database sqlite
 ```
-chmod +w app/cache/dbtest.sqlite
+chmod +w app/tmp/dbtest.sqlite
 ```
 ###Per altri database (mysql, prostgres) modificare file 
 ```
