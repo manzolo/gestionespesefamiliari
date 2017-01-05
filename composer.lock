@@ -996,16 +996,16 @@
         },
         {
             "name": "fi/pannelloamministrazionebundle",
-            "version": "2.0.16",
+            "version": "2.0.24",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/PannelloamministrazioneBundle.git",
-                "reference": "f461dc06a254915727e8254a0d997090d0ff87c1"
+                "reference": "c4c51c3a67a090689c12e5b80231078ed063653f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/f461dc06a254915727e8254a0d997090d0ff87c1",
-                "reference": "f461dc06a254915727e8254a0d997090d0ff87c1",
+                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/c4c51c3a67a090689c12e5b80231078ed063653f",
+                "reference": "c4c51c3a67a090689c12e5b80231078ed063653f",
                 "shasum": ""
             },
             "require": {
@@ -1069,7 +1069,7 @@
             "keywords": [
                 "Pannello amministrazione bundle"
             ],
-            "time": "2017-01-03 21:13:24"
+            "time": "2017-01-05 23:53:21"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1095,6 +1095,7 @@
                 "symfony/twig-bundle": "^2.7 || ^3.0"
             },
             "conflict": {
+                "doctrine/doctrine-bundle": "<1.3",
                 "symfony/doctrine-bridge": "<2.7"
             },
             "require-dev": {
@@ -2109,16 +2110,16 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v5.0.16",
+            "version": "v5.0.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "68e3dc02e66fec5036557d457cfdffa332a40da4"
+                "reference": "4e98a1a6d3935d05414bd11e421a2047c93619f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/68e3dc02e66fec5036557d457cfdffa332a40da4",
-                "reference": "68e3dc02e66fec5036557d457cfdffa332a40da4",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/4e98a1a6d3935d05414bd11e421a2047c93619f7",
+                "reference": "4e98a1a6d3935d05414bd11e421a2047c93619f7",
                 "shasum": ""
             },
             "require": {
@@ -2157,7 +2158,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2016-12-31 08:39:25"
+            "time": "2017-01-04 13:35:35"
         },
         {
             "name": "sensio/framework-extra-bundle",
