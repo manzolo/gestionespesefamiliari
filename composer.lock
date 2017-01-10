@@ -838,16 +838,16 @@
         },
         {
             "name": "fi/fifreecorebundle",
-            "version": "2.0.28",
+            "version": "2.0.30",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
-                "reference": "f2d07c73d4c0179e6c4bf3dfd7422e3e24964113"
+                "reference": "7a9933c89ff3bbec9c1905806e62a613a11312a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/f2d07c73d4c0179e6c4bf3dfd7422e3e24964113",
-                "reference": "f2d07c73d4c0179e6c4bf3dfd7422e3e24964113",
+                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/7a9933c89ff3bbec9c1905806e62a613a11312a5",
+                "reference": "7a9933c89ff3bbec9c1905806e62a613a11312a5",
                 "shasum": ""
             },
             "require": {
@@ -938,7 +938,7 @@
             "keywords": [
                 "Core fifree2 bundle"
             ],
-            "time": "2017-01-09T11:11:36+00:00"
+            "time": "2017-01-09T21:58:44+00:00"
         },
         {
             "name": "fi/osbundle",
@@ -996,16 +996,16 @@
         },
         {
             "name": "fi/pannelloamministrazionebundle",
-            "version": "2.0.40",
+            "version": "2.0.48",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/PannelloamministrazioneBundle.git",
-                "reference": "abdf64268926fd145ab2eb8b4ff3d4758e680463"
+                "reference": "840b2073dcb3b59074142242fdec41d10080ea0e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/abdf64268926fd145ab2eb8b4ff3d4758e680463",
-                "reference": "abdf64268926fd145ab2eb8b4ff3d4758e680463",
+                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/840b2073dcb3b59074142242fdec41d10080ea0e",
+                "reference": "840b2073dcb3b59074142242fdec41d10080ea0e",
                 "shasum": ""
             },
             "require": {
@@ -1069,7 +1069,7 @@
             "keywords": [
                 "Pannello amministrazione bundle"
             ],
-            "time": "2017-01-09T10:10:12+00:00"
+            "time": "2017-01-10T12:44:06+00:00"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -2110,16 +2110,16 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v5.0.17",
+            "version": "v5.0.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "4e98a1a6d3935d05414bd11e421a2047c93619f7"
+                "reference": "17846680901003d26d823c2e3ac9228702837916"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/4e98a1a6d3935d05414bd11e421a2047c93619f7",
-                "reference": "4e98a1a6d3935d05414bd11e421a2047c93619f7",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/17846680901003d26d823c2e3ac9228702837916",
+                "reference": "17846680901003d26d823c2e3ac9228702837916",
                 "shasum": ""
             },
             "require": {
@@ -2158,7 +2158,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2017-01-04T13:35:35+00:00"
+            "time": "2017-01-10T14:58:45+00:00"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -4564,16 +4564,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.3.2",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "8d7ab8fe8c1f9de5056bb7ea2c0852f4ddd44f90"
+                "reference": "64ba7e6d0507729e2bb482cf20cd12c4d96d99bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/8d7ab8fe8c1f9de5056bb7ea2c0852f4ddd44f90",
-                "reference": "8d7ab8fe8c1f9de5056bb7ea2c0852f4ddd44f90",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/64ba7e6d0507729e2bb482cf20cd12c4d96d99bc",
+                "reference": "64ba7e6d0507729e2bb482cf20cd12c4d96d99bc",
                 "shasum": ""
             },
             "require": {
@@ -4600,7 +4600,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2016-11-23T20:25:02+00:00"
+            "time": "2017-01-10T13:45:16+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",
