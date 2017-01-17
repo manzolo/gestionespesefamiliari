@@ -837,64 +837,8 @@
             "time": "2016-12-18T15:42:34+00:00"
         },
         {
-            "name": "fi/doctrine2-exporter",
-            "version": "3.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ComuneFI/doctrine2-exporter.git",
-                "reference": "71aad371884815966c8951acc28efcc614862f3e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/doctrine2-exporter/zipball/71aad371884815966c8951acc28efcc614862f3e",
-                "reference": "71aad371884815966c8951acc28efcc614862f3e",
-                "shasum": ""
-            },
-            "require": {
-                "fi/mysql-workbench-schema-exporter": "^3.0",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "MwbExporter\\Formatter\\Doctrine2\\": "lib/MwbExporter/Formatter/Doctrine2/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Johannes Mueller",
-                    "email": "circus2@web.de",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Toha",
-                    "email": "tohenk@yahoo.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Robert Vock",
-                    "email": "robertvock82@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "MySQL Workbench Schema Exporter for Doctrine 2",
-            "homepage": "https://github.com/mysql-workbench-schema-exporter/doctrine2-exporter",
-            "keywords": [
-                "cli",
-                "database",
-                "doctrine",
-                "mysql",
-                "mysql workbench"
-            ],
-            "time": "2017-01-11T20:47:32+00:00"
-        },
-        {
             "name": "fi/fifreecorebundle",
-            "version": "2.0.37",
+            "version": "2.0.38",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
@@ -993,70 +937,6 @@
             "time": "2017-01-16T13:06:10+00:00"
         },
         {
-            "name": "fi/mysql-workbench-schema-exporter",
-            "version": "v3.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ComuneFI/mysql-workbench-schema-exporter.git",
-                "reference": "4d3de5db256180887eb03b5bcd7c1d7ec0b2faf5"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/mysql-workbench-schema-exporter/zipball/4d3de5db256180887eb03b5bcd7c1d7ec0b2faf5",
-                "reference": "4d3de5db256180887eb03b5bcd7c1d7ec0b2faf5",
-                "shasum": ""
-            },
-            "require": {
-                "doctrine/inflector": "^1.0.0",
-                "php": ">=5.4.0"
-            },
-            "bin": [
-                "bin/mysql-workbench-schema-export",
-                "bin/update-sql-reserved-words"
-            ],
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "MwbExporter\\": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Johannes Mueller",
-                    "email": "circus2@web.de",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Toha",
-                    "email": "tohenk@yahoo.com",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Robert Vock",
-                    "email": "robertvock82@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "MySQL Workbench Schema Exporter",
-            "homepage": "https://github.com/mysql-workbench-schema-exporter/mysql-workbench-schema-exporter",
-            "keywords": [
-                "cli",
-                "database",
-                "doctrine",
-                "extjs",
-                "mysql",
-                "mysql workbench",
-                "propel",
-                "sequelizejs",
-                "zend"
-            ],
-            "time": "2017-01-11T15:03:46+00:00"
-        },
-        {
             "name": "fi/osbundle",
             "version": "2.0.5",
             "source": {
@@ -1112,22 +992,22 @@
         },
         {
             "name": "fi/pannelloamministrazionebundle",
-            "version": "2.0.50",
+            "version": "2.0.51",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/PannelloamministrazioneBundle.git",
-                "reference": "49424f2fec3067b24fc1dde89c56b3dfc2f2404f"
+                "reference": "203eccce37c7aa6e7219fe8812eda006b74e434f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/49424f2fec3067b24fc1dde89c56b3dfc2f2404f",
-                "reference": "49424f2fec3067b24fc1dde89c56b3dfc2f2404f",
+                "url": "https://api.github.com/repos/ComuneFI/PannelloamministrazioneBundle/zipball/203eccce37c7aa6e7219fe8812eda006b74e434f",
+                "reference": "203eccce37c7aa6e7219fe8812eda006b74e434f",
                 "shasum": ""
             },
             "require": {
-                "fi/doctrine2-exporter": "^3.0",
-                "fi/mysql-workbench-schema-exporter": "^3.0",
                 "fi/osbundle": "~2.0",
+                "mysql-workbench-schema-exporter/doctrine2-exporter": "^3.0",
+                "mysql-workbench-schema-exporter/mysql-workbench-schema-exporter": "^3.0",
                 "php": ">=5.5.0"
             },
             "require-dev": {
@@ -1185,7 +1065,7 @@
             "keywords": [
                 "Pannello amministrazione bundle"
             ],
-            "time": "2017-01-14T23:34:48+00:00"
+            "time": "2017-01-17T11:17:55+00:00"
         },
         {
             "name": "friendsofsymfony/user-bundle",
@@ -1617,6 +1497,126 @@
                 "psr-3"
             ],
             "time": "2016-11-26T00:15:39+00:00"
+        },
+        {
+            "name": "mysql-workbench-schema-exporter/doctrine2-exporter",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mysql-workbench-schema-exporter/doctrine2-exporter.git",
+                "reference": "939a015c4cb8623dd282040cfffeb85725857ab4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mysql-workbench-schema-exporter/doctrine2-exporter/zipball/939a015c4cb8623dd282040cfffeb85725857ab4",
+                "reference": "939a015c4cb8623dd282040cfffeb85725857ab4",
+                "shasum": ""
+            },
+            "require": {
+                "mysql-workbench-schema-exporter/mysql-workbench-schema-exporter": "^3.0 || dev-master",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MwbExporter\\Formatter\\Doctrine2\\": "lib/MwbExporter/Formatter/Doctrine2/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes Mueller",
+                    "email": "circus2@web.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Toha",
+                    "email": "tohenk@yahoo.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Robert Vock",
+                    "email": "robertvock82@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "MySQL Workbench Schema Exporter for Doctrine 2",
+            "homepage": "https://github.com/mysql-workbench-schema-exporter/doctrine2-exporter",
+            "keywords": [
+                "cli",
+                "database",
+                "doctrine",
+                "mysql",
+                "mysql workbench"
+            ],
+            "time": "2017-01-17T09:51:46+00:00"
+        },
+        {
+            "name": "mysql-workbench-schema-exporter/mysql-workbench-schema-exporter",
+            "version": "v3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mysql-workbench-schema-exporter/mysql-workbench-schema-exporter.git",
+                "reference": "878745003196452d397d17881890f78a070180c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mysql-workbench-schema-exporter/mysql-workbench-schema-exporter/zipball/878745003196452d397d17881890f78a070180c5",
+                "reference": "878745003196452d397d17881890f78a070180c5",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/inflector": "^1.0.0",
+                "php": ">=5.4.0"
+            },
+            "bin": [
+                "bin/mysql-workbench-schema-export",
+                "bin/update-sql-reserved-words"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "MwbExporter\\": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Johannes Mueller",
+                    "email": "circus2@web.de",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Toha",
+                    "email": "tohenk@yahoo.com",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Robert Vock",
+                    "email": "robertvock82@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "MySQL Workbench Schema Exporter",
+            "homepage": "https://github.com/mysql-workbench-schema-exporter/mysql-workbench-schema-exporter",
+            "keywords": [
+                "cli",
+                "database",
+                "doctrine",
+                "extjs",
+                "mysql",
+                "mysql workbench",
+                "propel",
+                "sequelizejs",
+                "zend"
+            ],
+            "time": "2017-01-17T10:49:34+00:00"
         },
         {
             "name": "ocramius/proxy-manager",
