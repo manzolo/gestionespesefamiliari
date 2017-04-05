@@ -13,7 +13,6 @@
     "require": {
         "php": ">=5.6",
         "fi/fifreecorebundle": "~2.0",
-        "friendsofsymfony/user-bundle": "dev-master#28151dcb25de663c05ce26917fd6a0b5cb2787cf as 2.0",
         "beberlei/DoctrineExtensions": "^1.0",
         "tufanbarisyildirim/php-apk-parser": "dev-master"
     },
