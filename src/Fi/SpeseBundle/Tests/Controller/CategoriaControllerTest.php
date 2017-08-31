@@ -18,7 +18,6 @@ class CategoriaControllerTest extends SpeseTest
         $this->setClassName(get_class());
         $client = $this->getClientAutorizzato();
         $url = $client->getContainer()->get('router')->generate('Categoria_container');
-        $em = $this->getEntityManager();
 
         $client->request('GET', $url);
         $crawler = new Crawler($client->getResponse()->getContent());
