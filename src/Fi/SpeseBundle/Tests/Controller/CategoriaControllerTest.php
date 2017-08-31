@@ -19,7 +19,6 @@ class CategoriaControllerTest extends SpeseTest
         $client = $this->getClientAutorizzato();
         $url = $client->getContainer()->get('router')->generate('Categoria_container');
         $em = $this->getEntityManager();
-        $this->assertContains('DoctrineORMEntityManager', get_class($em));
 
         $client->request('GET', $url);
         $crawler = new Crawler($client->getResponse()->getContent());
