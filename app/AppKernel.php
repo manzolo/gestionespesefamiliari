@@ -19,8 +19,6 @@ class AppKernel extends Kernel {
             new FOS\UserBundle\FOSUserBundle(),
             new Fi\FOSUserBundle\FiFOSUserBundle(),
             new Fi\SpeseBundle\FiSpeseBundle(),
-            new Vich\UploaderBundle\VichUploaderBundle(),
-            new Oneup\FlysystemBundle\OneupFlysystemBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test', 'localhost'))) {
