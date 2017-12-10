@@ -3,7 +3,7 @@ fi_spese:
     prefix:   /
 
 fi_pannello_amministrazione:
-    resource: "@FiPannelloAmministrazioneBundle/Resources/config/routing.yml"
+    resource: "@PannelloAmministrazioneBundle/Resources/config/routing.yml"
     prefix:   /
 
 fi_core:

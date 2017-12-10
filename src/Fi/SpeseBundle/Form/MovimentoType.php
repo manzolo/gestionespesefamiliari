@@ -5,6 +5,7 @@ namespace Fi\SpeseBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class MovimentoType extends AbstractType
 {
@@ -19,7 +20,7 @@ class MovimentoType extends AbstractType
                 ->add('utente')
                 ->add('tipologia')
                 ->add('importo')
-                ->add('data', 'date', array('input' => 'datetime',
+                ->add('data', DateType::class, array('input' => 'datetime',
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),

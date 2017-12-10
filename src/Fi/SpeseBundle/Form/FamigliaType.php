@@ -5,6 +5,7 @@ namespace Fi\SpeseBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 class FamigliaType extends AbstractType
 {
@@ -16,12 +17,12 @@ class FamigliaType extends AbstractType
     {
         $builder
             ->add('descrizione')
-            ->add('dal', 'date', array('input' => 'datetime',
+            ->add('dal', DateType::class, array('input' => 'datetime',
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),
                     'required' => true, ))
-            ->add('al', 'date', array('input' => 'datetime',
+            ->add('al', DateType::class, array('input' => 'datetime',
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),
