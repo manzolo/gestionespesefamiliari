@@ -41,7 +41,7 @@ class AndroidControllerTest extends WebTestCase
             $this->assertEquals(0, $json->retcode);
             $this->assertGreaterThanOrEqual(1, $json->utente_id);
             $this->assertGreaterThanOrEqual(1, $json->famiglia_id);
-            $this->assertGreaterThanOrEqual(0, count($json->nominativo));
+            $this->assertEquals('Prova Nome Prova Cognome', $json->nominativo);
         }
     }
 
@@ -60,7 +60,7 @@ class AndroidControllerTest extends WebTestCase
         } else {
             $body = $crawler->filter('body');
             $jsonString = strip_tags($body->html());
-            $this->assertGreaterThanOrEqual(0, count($jsonString));
+            $this->assertGreaterThanOrEqual(0, strlen($jsonString));
         }
     }
 
