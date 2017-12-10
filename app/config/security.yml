@@ -30,6 +30,7 @@ security:
 
           logout:       true
           anonymous:    true
+          logout_on_user_change: true
           
         secured_area:
             #cambiare il pattern per abilitare/disabilitare la sicurezza su tutto il progetto
@@ -40,10 +41,11 @@ security:
                 check_path: fi_autenticazione_ok
                 login_path: fi_autenticazione_signin
                 
-                
             logout:
                 path:   fi_autenticazione_signout
                 target: /
+                
+            logout_on_user_change: true
 
     access_control:
         - { path: ^/(_(profiler|wdt)|css|images|js|accedi), roles: IS_AUTHENTICATED_ANONYMOUSLY }

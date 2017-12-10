@@ -31,10 +31,6 @@ Android_getultimimovimenti:
 Android_getcategorie:
     path:  /getcategorie
     defaults: { _controller: "FiSpeseBundle:Android:getCategorie" }
-
-Android_gettipimovimento:
-    path:  /gettipimovimento
-    defaults: { _controller: "FiSpeseBundle:Android:getTipimovimento" }
     
 Android_deletemovimenti:
     path:  /deletemovimenti
