@@ -17,7 +17,6 @@ class AppKernel extends Kernel {
             new Fi\CoreBundle\FiCoreBundle(),
             new Fi\PannelloAmministrazioneBundle\PannelloAmministrazioneBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new Fi\FOSUserBundle\FiFOSUserBundle(),
             new Fi\SpeseBundle\FiSpeseBundle(),
         );
 
