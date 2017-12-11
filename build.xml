@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="Simplesamlphp Saml2" default="build">
+<project name="Gestoine spese familiari" default="build">
     <target name="build"
             depends="prepare,composer-run-install,php-lint-ci,phpmd-ci,phpcs-ci,phpcpd-ci,php-security-checker,phpunit-ci"/>
 
@@ -131,13 +131,13 @@
 
     <target name="phpunit" description="Run unit tests with PHPUnit">
         <exec executable="vendor/bin/phpunit" failonerror="true">
-            <arg line="--configuration=${basedir}/app"/>
+            <arg line="--configuration=${basedir}"/>
         </exec>
     </target>
 
     <target name="phpunit-ci" description="Run unit tests with PHPUnit">
         <exec executable="vendor/bin/phpunit" failonerror="true">
-            <arg line="--configuration=${basedir}/app"/>
+            <arg line="--configuration=${basedir}"/>
             <arg line="--coverage-clover=${basedir}/build/artifacts/coverage/clover.xml"/>
         </exec>
     </target>
