@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- http://www.phpunit.de/manual/current/en/appendixes.configuration.html -->
+<phpunit
+    backupGlobals               = "false"
+    backupStaticAttributes      = "false"
+    colors                      = "true"
+    convertErrorsToExceptions   = "true"
+    convertNoticesToExceptions  = "true"
+    convertWarningsToExceptions = "true"
+    processIsolation            = "false"
+    stopOnFailure               = "true"
+    syntaxCheck                 = "false"
+    bootstrap                   = "app/autoload.php" >
+
+    <testsuites>
+        <testsuite name="Gestione spese familiari">
+        <testsuite name="Controller">
+            <directory suffix=".php">./tests/Controller</directory>
+        </testsuite>
+        <testsuite name="Entity">
+            <directory suffix=".php">./tests/Entity</directory>
+        </testsuite>
+        </testsuite>
+    </testsuites>
+    
+    <php>
+        <server name="KERNEL_CLASS" value="AppKernel" />
+    </php>
+    <listeners>
+        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
+    </listeners>
+</phpunit>

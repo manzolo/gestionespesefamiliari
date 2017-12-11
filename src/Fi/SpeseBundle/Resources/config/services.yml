@@ -6,3 +6,16 @@ services:
         class: Fi\SpeseBundle\Twig\Extension\DateExtension
         tags:
             - { name: twig.extension }
+            
+    spese.fos_user.security.login_manager:
+        alias: fos_user.security.login_manager
+        public: true
+            
+    spese.fos_user.user_manager:
+        alias: fos_user.user_manager
+        public: true
+            
+    spese.fos_user.util.user_manipulator:
+        alias: fos_user.util.user_manipulator
+        public: true
+            

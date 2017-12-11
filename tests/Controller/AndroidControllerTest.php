@@ -272,7 +272,7 @@ class AndroidControllerTest extends WebTestCase
             $this->assertGreaterThanOrEqual(0, count($json));
         } else {
             $this->assertEquals(-1, $json->retcode);
-            $this->assertGreaterThanOrEqual(0, count($json->message));
+            $this->assertGreaterThanOrEqual(0, strlen($json->message));
         }
     }
 
