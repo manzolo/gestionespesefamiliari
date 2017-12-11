@@ -15,18 +15,25 @@
 
     <testsuites>
         <testsuite name="Gestione spese familiari">
-        <testsuite name="Controller">
-            <directory suffix=".php">./tests/Controller</directory>
-        </testsuite>
-        <testsuite name="Entity">
-            <directory suffix=".php">./tests/Entity</directory>
-        </testsuite>
+            <testsuite name="Controller">
+                <directory suffix=".php">./tests/Controller</directory>
+            </testsuite>
+            <testsuite name="Entity">
+                <directory suffix=".php">./tests/Entity</directory>
+            </testsuite>
         </testsuite>
     </testsuites>
     
     <php>
         <server name="KERNEL_CLASS" value="AppKernel" />
     </php>
+    
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory>./src</directory>
+        </whitelist>
+    </filter>    
+    
     <listeners>
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
     </listeners>
