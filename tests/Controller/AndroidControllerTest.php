@@ -269,11 +269,11 @@ class AndroidControllerTest extends WebTestCase
         $json = json_decode($jsonString);
 
         if (isset($json->categorie)) {
-            var_dump($json);
-            $this->assertGreaterThanOrEqual(0, sizeof($json));
+            //var_dump($json);
+            $this->assertGreaterThanOrEqual(1, count($json->categorie));
         } else {
             $this->assertEquals(-1, $json->retcode);
-            $this->assertGreaterThanOrEqual(0, strlen($json->message));
+            $this->assertGreaterThanOrEqual(1, strlen($json->message));
         }
     }
 
