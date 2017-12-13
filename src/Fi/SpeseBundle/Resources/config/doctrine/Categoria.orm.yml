@@ -1,6 +1,6 @@
 Fi\SpeseBundle\Entity\Categoria:
     type: entity
-    table: categoria
+    table: Categoria
     id:
         id:
             type: integer
@@ -16,6 +16,5 @@ Fi\SpeseBundle\Entity\Categoria:
             targetEntity: Tipologia
             mappedBy: categoria
             joinColumn:
-                name: categoria_id
-                referencedColumnName: id
-                nullable: false
+                name: id
+                referencedColumnName: categoria_id

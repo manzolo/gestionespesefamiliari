@@ -1,9 +1,9 @@
 Fi\SpeseBundle\Entity\Utente:
     type: entity
-    table: utente
+    table: Utente
     indexes:
         fk_utente_famiglia1_idx:
-            columns: [famiglia_id]
+            columns: [ famiglia_id ]
     id:
         id:
             type: integer
@@ -33,9 +33,8 @@ Fi\SpeseBundle\Entity\Utente:
             targetEntity: Movimento
             mappedBy: utente
             joinColumn:
-                name: utente_id
-                referencedColumnName: id
-                nullable: false
+                name: id
+                referencedColumnName: utente_id
     manyToOne:
         famiglia:
             targetEntity: Famiglia
@@ -43,3 +42,4 @@ Fi\SpeseBundle\Entity\Utente:
             joinColumn:
                 name: famiglia_id
                 referencedColumnName: id
+                nullable: true

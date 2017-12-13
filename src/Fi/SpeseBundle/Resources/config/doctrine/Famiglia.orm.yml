@@ -1,6 +1,6 @@
 Fi\SpeseBundle\Entity\Famiglia:
     type: entity
-    table: famiglia
+    table: Famiglia
     id:
         id:
             type: integer
@@ -20,5 +20,5 @@ Fi\SpeseBundle\Entity\Famiglia:
             targetEntity: Utente
             mappedBy: famiglia
             joinColumn:
-                name: famiglia_id
-                referencedColumnName: id
+                name: id
+                referencedColumnName: famiglia_id

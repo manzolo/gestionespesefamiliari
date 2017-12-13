@@ -1,13 +1,13 @@
 Fi\SpeseBundle\Entity\Movimento:
     type: entity
-    table: movimento
+    table: Movimento
     indexes:
         fk_spesa_tipologia1_idx:
-            columns: [tipologia_id]
+            columns: [ tipologia_id ]
         fk_pagamento_utente1_idx:
-            columns: [utente_id]
+            columns: [ utente_id ]
         fk_movimento_tipomovimento1_idx:
-            columns: [tipomovimento_id]
+            columns: [ tipomovimento_id ]
     id:
         id:
             type: integer
@@ -37,18 +37,15 @@ Fi\SpeseBundle\Entity\Movimento:
             joinColumn:
                 name: tipologia_id
                 referencedColumnName: id
-                nullable: false
         utente:
             targetEntity: Utente
             inversedBy: movimentos
             joinColumn:
                 name: utente_id
                 referencedColumnName: id
-                nullable: false
         tipomovimento:
             targetEntity: Tipomovimento
             inversedBy: movimentos
             joinColumn:
                 name: tipomovimento_id
                 referencedColumnName: id
-                nullable: false

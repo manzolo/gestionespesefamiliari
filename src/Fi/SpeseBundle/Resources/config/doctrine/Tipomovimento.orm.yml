@@ -1,6 +1,6 @@
 Fi\SpeseBundle\Entity\Tipomovimento:
     type: entity
-    table: tipomovimento
+    table: Tipomovimento
     id:
         id:
             type: integer
@@ -22,6 +22,5 @@ Fi\SpeseBundle\Entity\Tipomovimento:
             targetEntity: Movimento
             mappedBy: tipomovimento
             joinColumn:
-                name: tipomovimento_id
-                referencedColumnName: id
-                nullable: false
+                name: id
+                referencedColumnName: tipomovimento_id

@@ -15,7 +15,7 @@
   </ul>
   {% endif  %}
 
-  <form id="formdati{{nomecontroller}}" action="{{ path(nomecontroller ~ '_create') }}" method="post" {{ form_enctype(form) }}>
+  <form id="formdati{{nomecontroller}}" action="{{ path(nomecontroller ~ '_create') }}" method="post" {{ form_start(form) }}>
         {{ form_widget(form) }}
     <p>
       <a class="fi-default-salva fm-button ui-state-default ui-corner-all fm-button-icon-left" id="sData{{nomecontroller}}S" onclick="presubmit('formdati{{nomecontroller}}');">Salva<span class="ui-icon ui-icon-disk"></span></a>

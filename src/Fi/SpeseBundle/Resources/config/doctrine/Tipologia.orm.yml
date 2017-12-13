@@ -1,9 +1,9 @@
 Fi\SpeseBundle\Entity\Tipologia:
     type: entity
-    table: tipologia
+    table: Tipologia
     indexes:
         fk_subcategoria_categoria_idx:
-            columns: [categoria_id]
+            columns: [ categoria_id ]
     id:
         id:
             type: integer
@@ -20,9 +20,8 @@ Fi\SpeseBundle\Entity\Tipologia:
             targetEntity: Movimento
             mappedBy: tipologia
             joinColumn:
-                name: tipologia_id
-                referencedColumnName: id
-                nullable: false
+                name: id
+                referencedColumnName: tipologia_id
     manyToOne:
         categoria:
             targetEntity: Categoria
@@ -30,4 +29,3 @@ Fi\SpeseBundle\Entity\Tipologia:
             joinColumn:
                 name: categoria_id
                 referencedColumnName: id
-                nullable: false
