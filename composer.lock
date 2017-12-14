@@ -844,16 +844,16 @@
         },
         {
             "name": "fi/fifreecorebundle",
-            "version": "v3.0.6",
+            "version": "v3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
-                "reference": "5b0e3f62909460620c831d998320736b4799fea1"
+                "reference": "0b1a2a0ddfed76af66ebbd02b9c17389be3f0a21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/5b0e3f62909460620c831d998320736b4799fea1",
-                "reference": "5b0e3f62909460620c831d998320736b4799fea1",
+                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/0b1a2a0ddfed76af66ebbd02b9c17389be3f0a21",
+                "reference": "0b1a2a0ddfed76af66ebbd02b9c17389be3f0a21",
                 "shasum": ""
             },
             "require": {
@@ -894,6 +894,9 @@
                 "symfony/web-server-bundle": "3.4.*",
                 "tecnickcom/tcpdf": "^6.2"
             },
+            "bin": [
+                "check-src"
+            ],
             "type": "project",
             "extra": {
                 "symfony-app-dir": "tests/app",
@@ -947,7 +950,7 @@
             "keywords": [
                 "Core fifree2 bundle"
             ],
-            "time": "2017-12-13 22:38:49"
+            "time": "2017-12-13 23:54:46"
         },
         {
             "name": "fi/osbundle",
