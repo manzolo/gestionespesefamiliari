@@ -844,16 +844,16 @@
         },
         {
             "name": "fi/fifreecorebundle",
-            "version": "v3.0.8",
+            "version": "v3.0.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
-                "reference": "0b1a2a0ddfed76af66ebbd02b9c17389be3f0a21"
+                "reference": "fc4438c882b86acbc1922dd06c6b2cfccb94c825"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/0b1a2a0ddfed76af66ebbd02b9c17389be3f0a21",
-                "reference": "0b1a2a0ddfed76af66ebbd02b9c17389be3f0a21",
+                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/fc4438c882b86acbc1922dd06c6b2cfccb94c825",
+                "reference": "fc4438c882b86acbc1922dd06c6b2cfccb94c825",
                 "shasum": ""
             },
             "require": {
@@ -950,7 +950,7 @@
             "keywords": [
                 "Core fifree2 bundle"
             ],
-            "time": "2017-12-13 23:54:46"
+            "time": "2017-12-15 17:07:07"
         },
         {
             "name": "fi/osbundle",
@@ -2463,16 +2463,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.4.1",
+            "version": "v3.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "46d4a9027c752ce425f67c94e89e3e3098f3a488"
+                "reference": "29961b693fa2157a3f349d1a801f9f8742be4e03"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/46d4a9027c752ce425f67c94e89e3e3098f3a488",
-                "reference": "46d4a9027c752ce425f67c94e89e3e3098f3a488",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/29961b693fa2157a3f349d1a801f9f8742be4e03",
+                "reference": "29961b693fa2157a3f349d1a801f9f8742be4e03",
                 "shasum": ""
             },
             "require": {
@@ -2614,7 +2614,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-12-04 23:05:15"
+            "time": "2017-12-15 02:05:35"
         },
         {
             "name": "tecnickcom/tcpdf",
