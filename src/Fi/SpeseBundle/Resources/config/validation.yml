@@ -1,0 +1,9 @@
+Fi\SpeseBundle\Entity\Movimento:
+    properties:
+        #descrizione:
+        #    - NotBlank: ~
+        importo:
+            - Range:
+                min: 0.001
+                minMessage: 'Importo deve essere maggiore o uguale a {{ limit }}'
+            

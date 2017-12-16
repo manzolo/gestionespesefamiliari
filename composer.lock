@@ -844,16 +844,16 @@
         },
         {
             "name": "fi/fifreecorebundle",
-            "version": "v3.0.14",
+            "version": "v3.0.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
-                "reference": "fc4438c882b86acbc1922dd06c6b2cfccb94c825"
+                "reference": "b7216d74afafd466b5797f78267ae2496d01dea1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/fc4438c882b86acbc1922dd06c6b2cfccb94c825",
-                "reference": "fc4438c882b86acbc1922dd06c6b2cfccb94c825",
+                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/b7216d74afafd466b5797f78267ae2496d01dea1",
+                "reference": "b7216d74afafd466b5797f78267ae2496d01dea1",
                 "shasum": ""
             },
             "require": {
@@ -950,7 +950,7 @@
             "keywords": [
                 "Core fifree2 bundle"
             ],
-            "time": "2017-12-15 17:07:07"
+            "time": "2017-12-16 01:12:56"
         },
         {
             "name": "fi/osbundle",
