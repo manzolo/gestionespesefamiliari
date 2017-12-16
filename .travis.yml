@@ -5,6 +5,10 @@ php:
   - 7.2
   #- hhvm
   
+services:
+  - mysql
+  - pgsql
+  
 # Configure different DB environments
 env:
   - DB=mysql
@@ -24,6 +28,9 @@ cache:
   directories:
     - $HOME/.composer/cache
 
+addons:
+  firefox: "45.8.0esr"
+  
 before_script:
   - if [[ "$DB" == "pgsql" ]]; then echo "PROVISIONING WITH PostgreSQL"; fi
   - if [[ "$DB" == "pgsql" ]]; then cp -f ./tests/build/parameters.pgsql.yml $TRAVIS_BUILD_DIR/app/config/parameters.yml; fi
@@ -60,4 +67,4 @@ after_failure:
 
 notifications:
   email:
-  - andrea.manzi@libero.it
+  - manzolo@libero.it
