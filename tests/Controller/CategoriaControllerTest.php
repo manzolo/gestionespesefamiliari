@@ -4,8 +4,6 @@ namespace Fi\SpeseBundle\Tests\Controller;
 
 use Symfony\Component\DomCrawler\Crawler;
 use Fi\SpeseBundle\DependencyInjection\SpeseTest;
-use Behat\Mink\Mink;
-use Behat\Mink\Session;
 
 class CategoriaControllerTest extends SpeseTest
 {
@@ -15,8 +13,6 @@ class CategoriaControllerTest extends SpeseTest
      */
     public function testIndexCategoria()
     {
-        parent::__construct();
-        $this->setClassName(get_class());
         $client = $this->getClientAutorizzato();
         $url = $client->getContainer()->get('router')->generate('Categoria_container');
 
@@ -30,8 +26,6 @@ class CategoriaControllerTest extends SpeseTest
         $clientnoauth = $this->getClientNonAutorizzato();
         $urlnoauth = '/Categoria/';
         $clientnoauth->request('GET', $urlnoauth);
-
-        $this->assertEquals($this->getClassName(), get_class());
         $this->assertEquals(302, $clientnoauth->getResponse()->getStatusCode());
     }
 

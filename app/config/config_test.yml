@@ -30,3 +30,6 @@ doctrine:
         password: "%database_password%"
         charset:  "UTF8"
     
+parameters:
+    user4test: admin
+    usernoprivileges4test: user4test
