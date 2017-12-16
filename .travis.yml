@@ -54,6 +54,9 @@ after_success:
   - bin/security-checker -n security:check
   - php app/console server:stop --env=test
   - pkill java
+  
+after_failure:
+  - sudo cat app/logs/test.log
 
 notifications:
   email:
