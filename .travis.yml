@@ -57,10 +57,10 @@ script:
   - ant
 
 after_success:
-  - if [[ "$TRAVIS_PHP_VERSION" == "5.6" ]]; then php vendor/satooshi/php-coveralls/bin/coveralls -v; fi
+  - if [[ "$TRAVIS_PHP_VERSION" == "5.6" ]]; then php vendor/bin/php-coveralls -v; fi
   - bin/security-checker -n security:check
   - php app/console server:stop --env=test
-  - pkill java
+  - kill `ps -ef | grep selenium | awk '{ print $2 }'`
   
 after_failure:
   - sudo cat app/logs/test.log
