@@ -3,6 +3,7 @@ Gestione spese familiari (family expenses management)
 
 [![Build Status](https://travis-ci.org/manzolo/gestionespesefamiliari.svg?branch=master)](https://travis-ci.org/manzolo/gestionespesefamiliari)
 [![Coverage Status](https://img.shields.io/coveralls/manzolo/gestionespesefamiliari.svg)](https://coveralls.io/r/manzolo/gestionespesefamiliari)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/manzolo/gestionespesefamiliari/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/manzolo/gestionespesefamiliari/?branch=master)
 
 ##Installazione:
 ```
