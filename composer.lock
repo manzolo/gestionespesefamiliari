@@ -899,16 +899,16 @@
         },
         {
             "name": "fi/fifreecorebundle",
-            "version": "v3.0.50",
+            "version": "v3.0.53",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ComuneFI/FifreeCoreBundle.git",
-                "reference": "bdce12374abcd46c70193d5c8eafdc8a3caae6a5"
+                "reference": "ffc23106393acf0c5f7bc05a7e4d8cd2b9d7f246"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/bdce12374abcd46c70193d5c8eafdc8a3caae6a5",
-                "reference": "bdce12374abcd46c70193d5c8eafdc8a3caae6a5",
+                "url": "https://api.github.com/repos/ComuneFI/FifreeCoreBundle/zipball/ffc23106393acf0c5f7bc05a7e4d8cd2b9d7f246",
+                "reference": "ffc23106393acf0c5f7bc05a7e4d8cd2b9d7f246",
                 "shasum": ""
             },
             "require": {
@@ -944,6 +944,9 @@
                 "symfony/phpunit-bridge": "^4.0",
                 "symfony/web-server-bundle": "3.4.*",
                 "tecnickcom/tcpdf": "^6.2"
+            },
+            "suggest": {
+                "ext-apcu": "The extension required to use cache"
             },
             "bin": [
                 "check-src"
@@ -1000,7 +1003,7 @@
             "keywords": [
                 "Core fifree2 bundle"
             ],
-            "time": "2018-02-23T23:15:33+00:00"
+            "time": "2018-02-28T09:04:31+00:00"
         },
         {
             "name": "fi/osbundle",
@@ -1953,16 +1956,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v4.1.7",
+            "version": "v4.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "d539ccba2b4dce515de04f16b7ed7ae5b9eeb434"
+                "reference": "dc270d5fec418cc6ac983671dba5d80ffaffb142"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/d539ccba2b4dce515de04f16b7ed7ae5b9eeb434",
-                "reference": "d539ccba2b4dce515de04f16b7ed7ae5b9eeb434",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/dc270d5fec418cc6ac983671dba5d80ffaffb142",
+                "reference": "dc270d5fec418cc6ac983671dba5d80ffaffb142",
                 "shasum": ""
             },
             "require": {
@@ -1994,7 +1997,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2018-01-11T05:54:03+00:00"
+            "time": "2018-02-28T22:10:01+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2668,16 +2671,16 @@
         },
         {
             "name": "tecnickcom/tcpdf",
-            "version": "6.2.16",
+            "version": "6.2.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tecnickcom/TCPDF.git",
-                "reference": "3527098537e6061b752fc261a44563489c927889"
+                "reference": "64fc19439863e1b1314487a72a74d9bfd0b55a53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/3527098537e6061b752fc261a44563489c927889",
-                "reference": "3527098537e6061b752fc261a44563489c927889",
+                "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/64fc19439863e1b1314487a72a74d9bfd0b55a53",
+                "reference": "64fc19439863e1b1314487a72a74d9bfd0b55a53",
                 "shasum": ""
             },
             "require": {
@@ -2726,7 +2729,7 @@
                 "pdf417",
                 "qrcode"
             ],
-            "time": "2018-02-19T15:01:27+00:00"
+            "time": "2018-02-24T11:48:20+00:00"
         },
         {
             "name": "tufanbarisyildirim/php-apk-parser",
