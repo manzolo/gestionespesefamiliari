@@ -23,8 +23,7 @@ class MovimentoController extends FiController
         $nomebundle = $namespace.$bundle.'Bundle';
 
         $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository($nomebundle.':'.$controller)->findAll();
-
+        
         $dettaglij = array(
             'tipomovimento_id' => array(
                 array('nomecampo' => 'tipomovimento.tipo',
@@ -100,7 +99,6 @@ class MovimentoController extends FiController
 
         $testata = json_encode($testatagriglia);
         $twigparms = array(
-            'entities' => $entities,
             'nomecontroller' => $controller,
             'testata' => $testata,
         );
