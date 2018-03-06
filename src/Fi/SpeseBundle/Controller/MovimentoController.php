@@ -22,8 +22,6 @@ class MovimentoController extends FiController
 
         $nomebundle = $namespace.$bundle.'Bundle';
 
-        $em = $this->getDoctrine()->getManager();
-        
         $dettaglij = array(
             'tipomovimento_id' => array(
                 array('nomecampo' => 'tipomovimento.tipo',
