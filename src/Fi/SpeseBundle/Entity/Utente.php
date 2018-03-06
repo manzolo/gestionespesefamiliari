@@ -199,7 +199,7 @@ class Utente
      *
      * @param \Fi\SpeseBundle\Entity\movimento $movimentos
      */
-    public function removeMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos)
+    public function removeMovimento(\Fi\SpeseBundle\Entity\Movimento $movimentos)
     {
         $this->movimentos->removeElement($movimentos);
     }
@@ -265,7 +265,7 @@ class Utente
      *
      * @return utente
      */
-    public function setFamiglia(\Fi\SpeseBundle\Entity\famiglia $famiglia = null)
+    public function setFamiglia(\Fi\SpeseBundle\Entity\Famiglia $famiglia = null)
     {
         $this->famiglia = $famiglia;
 

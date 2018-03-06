@@ -28,7 +28,7 @@ class Tipologia
     private $movimentos;
 
     /**
-     * @var \Fi\SpeseBundle\Entity\categoria
+     * @var \Fi\SpeseBundle\Entity\Categoria
      */
     private $categoria;
 
@@ -139,7 +139,7 @@ class Tipologia
      *
      * @return tipologia
      */
-    public function setCategoria(\Fi\SpeseBundle\Entity\categoria $categoria)
+    public function setCategoria(\Fi\SpeseBundle\Entity\Categoria $categoria)
     {
         $this->categoria = $categoria;
 
