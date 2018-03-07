@@ -75,7 +75,8 @@ class MovimentoController extends FiController
             'container' => $container,
             'campiextra' => $campiextra, );
 
-        $testatagriglia = Griglia::testataPerGriglia($paricevuti);
+        $griglia = $this->get("ficorebundle.griglia");
+        $testatagriglia = $griglia->testataPerGriglia($paricevuti);
 
         $testatagriglia['multisearch'] = 1;
         $testatagriglia['showconfig'] = 1;

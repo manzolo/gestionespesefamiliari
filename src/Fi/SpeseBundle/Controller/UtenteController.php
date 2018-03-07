@@ -20,17 +20,17 @@ class UtenteController extends FiController
         $controller = $this->getController();
         $container = $this->container;
 
-        $nomebundle = $namespace.$bundle.'Bundle';
+        $nomebundle = $namespace . $bundle . 'Bundle';
 
         $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository($nomebundle.':'.$controller)->findAll();
+        $entities = $em->getRepository($nomebundle . ':' . $controller)->findAll();
 
         $dettaglij = array(
             'famiglia_id' => array(
                 array('nomecampo' => 'famiglia.descrizione',
                     'lunghezza' => '180',
                     'descrizione' => 'Famiglia',
-                    'tipo' => 'text', ),
+                    'tipo' => 'text',),
             ),
         );
         $escludi = array('id');
@@ -38,9 +38,10 @@ class UtenteController extends FiController
             'nometabella' => $controller,
             'dettaglij' => $dettaglij,
             'escludere' => $escludi,
-            'container' => $container, );
+            'container' => $container,);
 
-        $testatagriglia = Griglia::testataPerGriglia($paricevuti);
+        $griglia = $this->get("ficorebundle.griglia");
+        $testatagriglia = $griglia->testataPerGriglia($paricevuti);
 
         $testatagriglia['multisearch'] = 1;
         $testatagriglia['showconfig'] = 1;
@@ -64,9 +65,8 @@ class UtenteController extends FiController
             'testata' => $testata,
         );
 
-        return $this->render($nomebundle.':'.$controller.':index.html.twig', $parametriTwig);
+        return $this->render($nomebundle . ':' . $controller . ':index.html.twig', $parametriTwig);
     }
-
     public function setParametriGriglia($prepar = array())
     {
         self::setup($prepar['request']);
@@ -74,7 +74,7 @@ class UtenteController extends FiController
         $bundle = $this->getBundle();
         $controller = $this->getController();
 
-        $nomebundle = $namespace.$bundle.'Bundle';
+        $nomebundle = $namespace . $bundle . 'Bundle';
         $escludi = array('id');
 
         $tabellej['famiglia_id'] = array('tabella' => 'famiglia', 'campi' => array('descrizione'));
@@ -83,7 +83,7 @@ class UtenteController extends FiController
             'nomebundle' => $nomebundle,
             'tabellej' => $tabellej,
             'nometabella' => $controller,
-            'escludere' => $escludi, );
+            'escludere' => $escludi,);
 
         if ($prepar) {
             $paricevuti = array_merge($paricevuti, $prepar);
