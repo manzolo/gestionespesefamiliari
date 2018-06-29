@@ -18,9 +18,7 @@
     "require": {
         "php": ">=5.6",
         "beberlei/DoctrineExtensions": "^1.0",
-        "fi/fifreecorebundle": "^3.0",
-        "phpoffice/phpexcel": "^1.8",
-        "tecnickcom/tcpdf": "^6.2",
+        "fi/fifreecorebundle": "3.0.*",
         "tufanbarisyildirim/php-apk-parser": "dev-master"
     },
     "require-dev": {
@@ -54,7 +52,10 @@
         ],
         "post-update-cmd": [
             "@symfony-scripts"
-        ]
+        ],
+        "auto-scripts": {
+
+        }
     },
     "config": {
         "sort-packages": true
