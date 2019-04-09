@@ -16,10 +16,10 @@
         ]
     },
     "require": {
-        "php": ">=5.6",
-        "beberlei/DoctrineExtensions": "^1.0",
+        "php": ">=7.2",
+        "beberlei/doctrineextensions": "^2.0",
         "fi/fifreecorebundle": "3.0.*",
-        "tufanbarisyildirim/php-apk-parser": "dev-master"
+        "tufanbarisyildirim/php-apk-parser": "^2.0"
     },
     "require-dev": {
         "phpoffice/phpexcel": "^1.8",
