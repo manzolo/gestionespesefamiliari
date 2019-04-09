@@ -2,7 +2,7 @@
 
 namespace Fi\SpeseBundle\Twig\Extension;
 
-class DateExtension extends \Twig_Extension
+class DateExtension extends \Twig\Extension\AbstractExtension
 {
     public function getFilters()
     {
