@@ -13,7 +13,7 @@ services:
 # Configure different DB environments
 env:
   - DB=mysql
-  - DB=pgsql
+  - DB=postgresql
   - DB=sqlite3
 
 matrix:
