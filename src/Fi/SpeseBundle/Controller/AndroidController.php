@@ -2,11 +2,12 @@
 
 namespace Fi\SpeseBundle\Controller;
 
+use ApkParser\Parser;
 use DateTime;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\QueryBuilder;
+use Fi\SpeseBundle\Entity\Movimento;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use ApkParser\Parser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -117,7 +118,7 @@ class AndroidController extends Controller
         $tipologia = $em->getReference('FiSpeseBundle:Tipologia', $tipologiaid);
         $tipomovimento = $em->getReference('FiSpeseBundle:Tipomovimento', $tipomovimentoid);
 
-        $nuovaspesa = new Fi\SpeseBundle\Entity\movimento();
+        $nuovaspesa = new Movimento();
         $nuovaspesa->setUtente($utente);
         $nuovaspesa->setTipologia($tipologia);
         $nuovaspesa->setTipomovimento($tipomovimento);

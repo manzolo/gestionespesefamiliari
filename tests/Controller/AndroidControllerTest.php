@@ -2,6 +2,8 @@
 
 namespace Fi\SpeseBundle\Tests\Controller;
 
+use DateTime;
+use Fi\SpeseBundle\Entity\Movimento;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class AndroidControllerTest extends WebTestCase
@@ -172,13 +174,13 @@ class AndroidControllerTest extends WebTestCase
 
         $nota = 'prova-'.date('Y-m-d_h:i:s');
 
-        $newmovimento = new \Fi\SpeseBundle\Entity\Movimento();
+        $newmovimento = new Movimento();
         $newmovimento->setUtente($utente);
         $newmovimento->setTipomovimento($tipomovimentoe);
         $newmovimento->setTipologia($tipologia);
         $newmovimento->setImporto(10);
         $newmovimento->setNota($nota);
-        $newmovimento->setData(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+        $newmovimento->setData(DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
 
         $em->persist($newmovimento);
         $em->flush();
@@ -230,13 +232,13 @@ class AndroidControllerTest extends WebTestCase
 
         $nota = 'prova-'.date('Y-m-d_h:i:s');
 
-        $newmovimento = new \Fi\SpeseBundle\Entity\Movimento();
+        $newmovimento = new Movimento();
         $newmovimento->setUtente($utente);
         $newmovimento->setTipomovimento($tipomovimentoe);
         $newmovimento->setTipologia($tipologia);
         $newmovimento->setImporto(10);
         $newmovimento->setNota($nota);
-        $newmovimento->setData(\DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
+        $newmovimento->setData(DateTime::createFromFormat('Y-m-d', date('Y-m-d')));
 
         $em->persist($newmovimento);
         $em->flush();
