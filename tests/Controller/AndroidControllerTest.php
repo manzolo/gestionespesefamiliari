@@ -18,7 +18,6 @@ class AndroidControllerTest extends WebTestCase
         $crawler = $client->request('GET', '/Android/login');
         $body = $crawler->filter('body');
         $jsonString = strip_tags($body->html());
-        echo $jsonString;
         $json = json_decode($jsonString);
         
 
