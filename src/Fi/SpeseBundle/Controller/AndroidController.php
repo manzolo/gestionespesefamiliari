@@ -2,7 +2,11 @@
 
 namespace Fi\SpeseBundle\Controller;
 
+use DateTime;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\QueryBuilder;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use ApkParser\Parser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -12,11 +16,11 @@ class AndroidController extends Controller
     {
         $username = $request->request->get('username');
         $password = $request->request->get('password');
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
 
         $em = $this->get('doctrine')->getManager();
 
-        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        /* @var $qb QueryBuilder */
         $qb = $em->createQueryBuilder();
         $qb->select(array('a'));
         $qb->from('FiSpeseBundle:Utente', 'a');
@@ -28,7 +32,7 @@ class AndroidController extends Controller
 
         if (count($utente) <= 0) {
             $userarray = array('retcode' => -1, 'message' => 'Utente '.$username.' non autorizzato o password errata');
-            $response = json_encode($userarray);
+            $response = \json_encode($userarray);
 
             return new Response($response);
         } else {
@@ -37,7 +41,7 @@ class AndroidController extends Controller
                 'utente_id' => $loginuser->getId(),
                 'famiglia_id' => $loginuser->getFamiglia()->getId(),
                 'nominativo' => $loginuser->getNominativo(), );
-            $response = json_encode($userarray);
+            $response = \json_encode($userarray);
 
             return new Response($response);
         }
@@ -45,10 +49,10 @@ class AndroidController extends Controller
 
     public function getTipologieAction(Request $request)
     {
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
         $em = $this->get('doctrine')->getManager();
 
-        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        /* @var $qb QueryBuilder */
         $qb = $em->createQueryBuilder();
         $qb->select(array('t'));
         $qb->from('FiSpeseBundle:Tipologia', 't');
@@ -57,7 +61,7 @@ class AndroidController extends Controller
         $tipologie = $qb->getQuery()->getResult();
 
         if (count($tipologie) <= 0) {
-            return new Response(json_encode(array('retcode' => -1, 'message' => 'Nessuna tipologia trovata')));
+            return new Response(\json_encode(array('retcode' => -1, 'message' => 'Nessuna tipologia trovata')));
         } else {
             $tipologiearray = array();
             foreach ($tipologie as $tipologia) {
@@ -68,23 +72,23 @@ class AndroidController extends Controller
                 );
             }
 
-            return new Response(json_encode(array('retcode' => 0, 'tipologie' => $tipologiearray)));
+            return new Response(\json_encode(array('retcode' => 0, 'tipologie' => $tipologiearray)));
         }
     }
 
     public function getTipimovimentoAction(Request $request)
     {
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
         $em = $this->get('doctrine')->getManager();
 
-        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        /* @var $qb QueryBuilder */
         $qb = $em->createQueryBuilder();
         $qb->select(array('t'));
         $qb->from('FiSpeseBundle:Tipomovimento', 't');
         $tipimovimento = $qb->getQuery()->getResult();
 
         if (count($tipimovimento) <= 0) {
-            return new Response(json_encode(array('retcode' => -1, 'message' => 'Nessuna tipo movimento trovato')));
+            return new Response(\json_encode(array('retcode' => -1, 'message' => 'Nessuna tipo movimento trovato')));
         } else {
             $tipimovimentoarray = array();
             foreach ($tipimovimento as $tipomovimento) {
@@ -99,7 +103,7 @@ class AndroidController extends Controller
 
     public function registraSpesaAction(Request $request)
     {
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
         $em = $this->get('doctrine')->getManager();
 
         $utenteid = (int) $request->request->get('utente');
@@ -113,11 +117,11 @@ class AndroidController extends Controller
         $tipologia = $em->getReference('FiSpeseBundle:Tipologia', $tipologiaid);
         $tipomovimento = $em->getReference('FiSpeseBundle:Tipomovimento', $tipomovimentoid);
 
-        $nuovaspesa = new \Fi\SpeseBundle\Entity\movimento();
+        $nuovaspesa = new Fi\SpeseBundle\Entity\movimento();
         $nuovaspesa->setUtente($utente);
         $nuovaspesa->setTipologia($tipologia);
         $nuovaspesa->setTipomovimento($tipomovimento);
-        $nuovaspesa->setData(new \DateTime($datamovimento));
+        $nuovaspesa->setData(new DateTime($datamovimento));
         $nuovaspesa->setNota($nota);
         $nuovaspesa->setImporto($importo);
         $em->persist($nuovaspesa);
@@ -132,7 +136,7 @@ class AndroidController extends Controller
         $apkFile = $prjPath.DIRECTORY_SEPARATOR.'web'.DIRECTORY_SEPARATOR.'gestionespesefamiliari.apk';
         $version = '0.0';
         if (file_exists($apkFile)) {
-            $apk = new \ApkParser\Parser($apkFile);
+            $apk = new Parser($apkFile);
             $version = $apk->getManifest()->getVersionName();
         }
 
@@ -147,10 +151,10 @@ class AndroidController extends Controller
           header('Content-disposition: attachment; filename="' . basename($apkName) . '"');
           header('Content-Length: ' . filesize($apkName));
           return new Response(readfile($apkName)); */
-        if (file_exists($apkFile)) {
+        if (\file_exists($apkFile)) {
             $response = new Response();
             $response->headers->set('Content-Type', 'application/vnd.android.package-archive');
-            $response->headers->set('Content-disposition', 'attachment; filename="'.basename($apkFile).'"');
+            $response->headers->set('Content-disposition', 'attachment; filename="'.\basename($apkFile).'"');
             $response->headers->set('Content-Length', filesize($apkFile));
             $response->sendHeaders();
             $response->setContent(file_get_contents($apkFile));
@@ -165,10 +169,10 @@ class AndroidController extends Controller
 
     public function getCategorieAction(Request $request)
     {
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
         $em = $this->get('doctrine')->getManager();
 
-        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        /* @var $qb QueryBuilder */
         $qb = $em->createQueryBuilder();
         $qb->select(array('c'));
         $qb->from('FiSpeseBundle:categoria', 'c');
@@ -191,10 +195,10 @@ class AndroidController extends Controller
     {
         $utenteid = $request->get('utenteid');
 
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
         $em = $this->get('doctrine')->getManager();
 
-        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        /* @var $qb QueryBuilder */
         $qb = $em->createQueryBuilder();
         $qb->select(array('m'));
         $qb->from('FiSpeseBundle:Movimento', 'm');
@@ -225,11 +229,11 @@ class AndroidController extends Controller
     public function deleteMovimentiAction(Request $request)
     {
         $movimenti = $request->request->get('movimenti');
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
         $em = $this->get('doctrine')->getManager();
 
         foreach ($movimenti as $movimento) {
-            /* @var $qb \Doctrine\ORM\QueryBuilder */
+            /* @var $qb QueryBuilder */
             $qb = $em->createQueryBuilder();
             $qb->delete();
             $qb->from('FiSpeseBundle:Movimento', 'm');

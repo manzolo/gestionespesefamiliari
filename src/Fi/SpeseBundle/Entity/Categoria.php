@@ -2,6 +2,9 @@
 
 namespace Fi\SpeseBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * Categoria.
  */
@@ -18,7 +21,7 @@ class Categoria
     private $descrizione;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     private $tipologias;
 
@@ -27,7 +30,7 @@ class Categoria
      */
     public function __construct()
     {
-        $this->tipologias = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->tipologias = new ArrayCollection();
     }
 
     /**
@@ -91,7 +94,7 @@ class Categoria
     /**
      * Get tipologias.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getTipologias()
     {

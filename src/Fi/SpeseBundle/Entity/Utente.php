@@ -2,6 +2,9 @@
 
 namespace Fi\SpeseBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * Utente.
  */
@@ -38,7 +41,7 @@ class Utente
     private $password;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     private $movimentos;
 
@@ -47,7 +50,7 @@ class Utente
      */
     public function __construct()
     {
-        $this->movimentos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->movimentos = new ArrayCollection();
     }
 
     /**
@@ -199,7 +202,7 @@ class Utente
      *
      * @param \Fi\SpeseBundle\Entity\movimento $movimentos
      */
-    public function removeMovimento(\Fi\SpeseBundle\Entity\Movimento $movimentos)
+    public function removeMovimento(Movimento $movimentos)
     {
         $this->movimentos->removeElement($movimentos);
     }
@@ -207,7 +210,7 @@ class Utente
     /**
      * Get movimentos.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getMovimentos()
     {
@@ -265,7 +268,7 @@ class Utente
      *
      * @return utente
      */
-    public function setFamiglia(\Fi\SpeseBundle\Entity\Famiglia $famiglia = null)
+    public function setFamiglia(Famiglia $famiglia = null)
     {
         $this->famiglia = $famiglia;
 

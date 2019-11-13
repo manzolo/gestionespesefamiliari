@@ -2,6 +2,14 @@
 
 namespace Fi\SpeseBundle\Command;
 
+use DateTime;
+use Fi\CoreBundle\Entity\MenuApplicazione;
+use Fi\SpeseBundle\Entity\Categoria;
+use Fi\SpeseBundle\Entity\Famiglia;
+use Fi\SpeseBundle\Entity\Movimento;
+use Fi\SpeseBundle\Entity\Tipologia;
+use Fi\SpeseBundle\Entity\Tipomovimento;
+use Fi\SpeseBundle\Entity\Utente;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -22,12 +30,12 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
     private function loadDefaultValues()
     {
         $em = $this->getContainer()->get('doctrine')->getManager();
-        $today = \DateTime::createFromFormat('Y-m-d', date('Y-m-d'));
-        $famiglia = new \Fi\SpeseBundle\Entity\Famiglia();
+        $today = DateTime::createFromFormat('Y-m-d', date('Y-m-d'));
+        $famiglia = new Famiglia();
         $famiglia->setDescrizione('Prova famiglia');
         $famiglia->setDal($today);
 
-        $utente = new \Fi\SpeseBundle\Entity\Utente();
+        $utente = new Utente();
         $utente->setFamiglia($famiglia);
         $utente->setCognome('Prova Cognome');
         $utente->setNome('Prova Nome');
@@ -35,24 +43,24 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $utente->setUsername('Username');
         $utente->setPassword('Password');
 
-        $categoria = new \Fi\SpeseBundle\Entity\Categoria();
+        $categoria = new Categoria();
         $categoria->setDescrizione('Prova categoria');
 
-        $tipologia = new \Fi\SpeseBundle\Entity\Tipologia();
+        $tipologia = new Tipologia();
         $tipologia->setDescrizione('Prova tipologia');
         $tipologia->setCategoria($categoria);
 
-        $tipomovimentou = new \Fi\SpeseBundle\Entity\Tipomovimento();
+        $tipomovimentou = new Tipomovimento();
         $tipomovimentou->setTipo('Uscita');
         $tipomovimentou->setAbbreviazione('U');
         $tipomovimentou->setSegno('-');
 
-        $tipomovimentoe = new \Fi\SpeseBundle\Entity\Tipomovimento();
+        $tipomovimentoe = new Tipomovimento();
         $tipomovimentoe->setTipo('Entrata');
         $tipomovimentoe->setAbbreviazione('E');
         $tipomovimentoe->setSegno('+');
 
-        $movimento = new \Fi\SpeseBundle\Entity\Movimento();
+        $movimento = new Movimento();
         $movimento->setData($today);
         $movimento->setImporto(10);
         $movimento->setNota('Acquisto ricarica telefonica');
@@ -69,14 +77,14 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $em->persist($movimento);
         $em->flush();
 
-        $menutabellegestione = new \Fi\CoreBundle\Entity\MenuApplicazione();
+        $menutabellegestione = new MenuApplicazione();
         $menutabellegestione->setNome('Gestione');
         $menutabellegestione->setAttivo(true);
         $menutabellegestione->setOrdine(10);
         $em->persist($menutabellegestione);
         $em->flush();
 
-        $menutabellefamiglia = new \Fi\CoreBundle\Entity\MenuApplicazione();
+        $menutabellefamiglia = new MenuApplicazione();
         $menutabellefamiglia->setNome('Famiglia');
         $menutabellefamiglia->setAttivo(true);
         $menutabellefamiglia->setOrdine(50);
@@ -84,7 +92,7 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $menutabellefamiglia->setPadre($menutabellegestione->getId());
         $em->persist($menutabellefamiglia);
 
-        $menutabelleutente = new \Fi\CoreBundle\Entity\MenuApplicazione();
+        $menutabelleutente = new MenuApplicazione();
         $menutabelleutente->setNome('Utente');
         $menutabelleutente->setAttivo(true);
         $menutabelleutente->setOrdine(100);
@@ -92,7 +100,7 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $menutabelleutente->setPadre($menutabellegestione->getId());
         $em->persist($menutabelleutente);
 
-        $menutabellecategoria = new \Fi\CoreBundle\Entity\MenuApplicazione();
+        $menutabellecategoria = new MenuApplicazione();
         $menutabellecategoria->setNome('Categorie');
         $menutabellecategoria->setAttivo(true);
         $menutabellecategoria->setOrdine(200);
@@ -100,7 +108,7 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $menutabellecategoria->setPadre($menutabellegestione->getId());
         $em->persist($menutabellecategoria);
 
-        $menutabelletipologia = new \Fi\CoreBundle\Entity\MenuApplicazione();
+        $menutabelletipologia = new MenuApplicazione();
         $menutabelletipologia->setNome('Tipologie');
         $menutabelletipologia->setAttivo(true);
         $menutabelletipologia->setOrdine(300);
@@ -108,7 +116,7 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $menutabelletipologia->setPadre($menutabellegestione->getId());
         $em->persist($menutabelletipologia);
 
-        $menutabellemovimento = new \Fi\CoreBundle\Entity\MenuApplicazione();
+        $menutabellemovimento = new MenuApplicazione();
         $menutabellemovimento->setNome('Movimenti');
         $menutabellemovimento->setAttivo(true);
         $menutabellemovimento->setOrdine(500);

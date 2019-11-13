@@ -2,6 +2,9 @@
 
 namespace Fi\SpeseBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * Tipomovimento.
  */
@@ -28,7 +31,7 @@ class Tipomovimento
     private $segno;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     private $movimentos;
 
@@ -37,7 +40,7 @@ class Tipomovimento
      */
     public function __construct()
     {
-        $this->movimentos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->movimentos = new ArrayCollection();
     }
 
     /**
@@ -149,7 +152,7 @@ class Tipomovimento
     /**
      * Get movimentos.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getMovimentos()
     {

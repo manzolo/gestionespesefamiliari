@@ -2,6 +2,9 @@
 
 namespace Fi\SpeseBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * Tipologia.
  */
@@ -23,12 +26,12 @@ class Tipologia
     private $descrizione;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     private $movimentos;
 
     /**
-     * @var \Fi\SpeseBundle\Entity\Categoria
+     * @var Categoria
      */
     private $categoria;
 
@@ -37,7 +40,7 @@ class Tipologia
      */
     public function __construct()
     {
-        $this->movimentos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->movimentos = new ArrayCollection();
     }
 
     /**
@@ -125,7 +128,7 @@ class Tipologia
     /**
      * Get movimentos.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getMovimentos()
     {
@@ -139,7 +142,7 @@ class Tipologia
      *
      * @return tipologia
      */
-    public function setCategoria(\Fi\SpeseBundle\Entity\Categoria $categoria)
+    public function setCategoria(Categoria $categoria)
     {
         $this->categoria = $categoria;
 

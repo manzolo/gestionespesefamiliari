@@ -2,22 +2,26 @@
 
 namespace Fi\SpeseBundle\Twig\Extension;
 
-class DateExtension extends \Twig\Extension\AbstractExtension
+use Twig\Extension\AbstractExtension;
+use Twig_SimpleFilter;
+use Twig_SimpleFunction;
+
+class DateExtension extends AbstractExtension
 {
     public function getFilters()
     {
         return array(
-            new \Twig_SimpleFilter('dayNumber', array($this, 'dayNumberFilter')),
-            new \Twig_SimpleFilter('dayFirstLetterName', array($this, 'dayFirstLetterNameFilter')),
-            new \Twig_SimpleFilter('dayName', array($this, 'dayNameFilter')),
-            new \Twig_SimpleFilter('monthName', array($this, 'monthNameFilter')),
+            new Twig_SimpleFilter('dayNumber', array($this, 'dayNumberFilter')),
+            new Twig_SimpleFilter('dayFirstLetterName', array($this, 'dayFirstLetterNameFilter')),
+            new Twig_SimpleFilter('dayName', array($this, 'dayNameFilter')),
+            new Twig_SimpleFilter('monthName', array($this, 'monthNameFilter')),
         );
     }
 
     public function getFunctions()
     {
-        return array(new \Twig_SimpleFunction('daysInMonth', array($this, 'getDaysInMonth')),
-            new \Twig_SimpleFunction('dayWeekNumber', array($this, 'getDayWeekNumber')),
+        return array(new Twig_SimpleFunction('daysInMonth', array($this, 'getDaysInMonth')),
+            new Twig_SimpleFunction('dayWeekNumber', array($this, 'getDayWeekNumber')),
         );
     }
 

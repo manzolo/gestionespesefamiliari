@@ -2,10 +2,16 @@
 
 namespace Fi\SpeseBundle\Controller;
 
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\QueryBuilder;
+use PHPExcel;
+use PHPExcel_CachedObjectStorageFactory;
+use PHPExcel_Settings;
+use PHPExcel_Style_Fill;
+use PHPExcel_Writer_Excel5;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use DoctrineExtensions\Query\Mysql\Month;
 
 class ReportsController extends Controller
 {
@@ -15,16 +21,16 @@ class ReportsController extends Controller
 
     public function excelspeseAction(Request $request)
     {
-        set_time_limit(960);
-        ini_set('memory_limit', '2048M');
-        /* @var $em \Doctrine\ORM\EntityManager */
+        \set_time_limit(960);
+        \ini_set('memory_limit', '2048M');
+        /* @var $em EntityManager */
         $em = $this->get('doctrine')->getManager();
 
-        $cacheMethod = \PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
+        $cacheMethod = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
         $cacheSettings = array('memoryCacheSize' => '8MB');
-        \PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);
+        PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);
         //Creare un nuovo file
-        $objPHPExcel = new \PHPExcel();
+        $objPHPExcel = new PHPExcel();
         $objPHPExcel->setActiveSheetIndex(0);
         // Set properties
         $objPHPExcel->getProperties()->setCreator('Andrea Manzi');
@@ -34,7 +40,7 @@ class ReportsController extends Controller
         $month = $dbfunctions['month'];
 
         //REPORT TOTALE
-        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        /* @var $qb QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
         $selectFields = 'm.utente_id utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente,  '
                 .'tm.segno segnomovimento,'.$year.' anno, SUM(m.importo) as importototale';
@@ -59,7 +65,7 @@ class ReportsController extends Controller
         unset($sheet);
 
         //REPORT TOTALE PER CATEGORIA
-        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        /* @var $qb QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
         $selectFields = 'm.utente_id utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, '
                 .'c.descrizione descrizionecategoria,  tm.segno segnomovimento, '.$year.' anno, SUM(m.importo) as importototale';
@@ -82,7 +88,7 @@ class ReportsController extends Controller
         unset($sheet);
 
         //REPORT MENSILE PER CATEGORIA
-        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        /* @var $qb QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
         $selectFields = 'm.utente_id utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, '
                 .'c.descrizione descrizionecategoria,  '
@@ -106,7 +112,7 @@ class ReportsController extends Controller
         unset($sheet);
 
         //REPORT TOTALE PER TIPOLOGIA
-        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        /* @var $qb QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
         $selectFields = 'm.utente_id utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, '
                 .'c.descrizione descrizionecategoria, '
@@ -136,7 +142,7 @@ class ReportsController extends Controller
         unset($sheet);
 
         //REPORT MENSILE PER TIPOLOGIA
-        /* @var $qb \Doctrine\ORM\QueryBuilder */
+        /* @var $qb QueryBuilder */
         $qb = $em->createQueryBuilder('reports');
         $selectFields = 'm.utente_id utenteid, f.descrizione descrizionefamiglia, u.nome nomeutente, u.cognome cognomeutente, '
                 .'c.descrizione descrizionecategoria, '
@@ -168,15 +174,15 @@ class ReportsController extends Controller
         $objPHPExcel->setActiveSheetIndex(0);
         //Scrittura su file
         //Si crea un oggetto
-        $objWriter = new \PHPExcel_Writer_Excel5($objPHPExcel);
+        $objWriter = new PHPExcel_Writer_Excel5($objPHPExcel);
         $todaydate = date('d-m-y');
         //$todaydate = $todaydate . '-' . date("H-i-s");
         $filename = 'report';
         $filename = $filename.'-'.$todaydate;
         $filename = $filename.'.xls';
-        $filename = sys_get_temp_dir().DIRECTORY_SEPARATOR.$filename;
+        $filename = \sys_get_temp_dir().DIRECTORY_SEPARATOR.$filename;
         if (file_exists($filename)) {
-            unlink($filename);
+            \unlink($filename);
         }
         $objWriter->save($filename);
         $response = new Response();
@@ -205,7 +211,7 @@ class ReportsController extends Controller
         //Colore header
         $style_header = array(
             'fill' => array(
-                'type' => \PHPExcel_Style_Fill::FILL_SOLID,
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
                 'color' => array('rgb' => '#642EFE'),
             ),
             'font' => array(
@@ -225,7 +231,7 @@ class ReportsController extends Controller
         $sheet->setCellValueByColumnAndRow($col, 1, 'IMPORTO');
         $col = $col + 1;
         $sheet->getRowDimension(1)->setRowHeight(20);
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
         $row = 2;
         foreach ($resultset as $record) {
             $col = 0;
@@ -260,7 +266,7 @@ class ReportsController extends Controller
         //Colore header
         $style_header = array(
             'fill' => array(
-                'type' => \PHPExcel_Style_Fill::FILL_SOLID,
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
                 'color' => array('rgb' => '#642EFE'),
             ),
             'font' => array(
@@ -282,7 +288,7 @@ class ReportsController extends Controller
         $sheet->setCellValueByColumnAndRow($col, 1, 'IMPORTO');
         $col = $col + 1;
         $sheet->getRowDimension(1)->setRowHeight(20);
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
         $row = 2;
         foreach ($resultset as $record) {
             $col = 0;
@@ -322,7 +328,7 @@ class ReportsController extends Controller
         //Colore header
         $style_header = array(
             'fill' => array(
-                'type' => \PHPExcel_Style_Fill::FILL_SOLID,
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
                 'color' => array('rgb' => '#642EFE'),
             ),
             'font' => array(
@@ -346,7 +352,7 @@ class ReportsController extends Controller
         $sheet->setCellValueByColumnAndRow($col, 1, 'IMPORTO');
         $col = $col + 1;
         $sheet->getRowDimension(1)->setRowHeight(20);
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
         $row = 2;
         foreach ($resultset as $record) {
             $col = 0;
@@ -389,7 +395,7 @@ class ReportsController extends Controller
         //Colore header
         $style_header = array(
             'fill' => array(
-                'type' => \PHPExcel_Style_Fill::FILL_SOLID,
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
                 'color' => array('rgb' => '#642EFE'),
             ),
             'font' => array(
@@ -413,7 +419,7 @@ class ReportsController extends Controller
         $sheet->setCellValueByColumnAndRow($col, 1, 'IMPORTO');
         $col = $col + 1;
         $sheet->getRowDimension(1)->setRowHeight(20);
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
         $row = 2;
         foreach ($resultset as $record) {
             $col = 0;
@@ -456,7 +462,7 @@ class ReportsController extends Controller
         //Colore header
         $style_header = array(
             'fill' => array(
-                'type' => \PHPExcel_Style_Fill::FILL_SOLID,
+                'type' => PHPExcel_Style_Fill::FILL_SOLID,
                 'color' => array('rgb' => '#642EFE'),
             ),
             'font' => array(
@@ -482,7 +488,7 @@ class ReportsController extends Controller
         $sheet->setCellValueByColumnAndRow($col, 1, 'IMPORTO');
         $col = $col + 1;
         $sheet->getRowDimension(1)->setRowHeight(20);
-        /* @var $em \Doctrine\ORM\EntityManager */
+        /* @var $em EntityManager */
         $row = 2;
         foreach ($resultset as $record) {
             $col = 0;

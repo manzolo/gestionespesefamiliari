@@ -1,5 +1,8 @@
 <?php
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 namespace Fi\SpeseBundle\Entity;
 
 /**
@@ -18,17 +21,17 @@ class Famiglia
     private $descrizione;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $dal;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $al;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var Collection
      */
     private $utentes;
 
@@ -37,7 +40,7 @@ class Famiglia
      */
     public function __construct()
     {
-        $this->utentes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->utentes = new ArrayCollection();
     }
 
     /**
@@ -77,7 +80,7 @@ class Famiglia
     /**
      * Set dal.
      *
-     * @param \DateTime $dal
+     * @param DateTime $dal
      *
      * @return famiglia
      */
@@ -91,7 +94,7 @@ class Famiglia
     /**
      * Get dal.
      *
-     * @return \DateTime
+     * @return DateTime
      */
     public function getDal()
     {
@@ -101,7 +104,7 @@ class Famiglia
     /**
      * Set al.
      *
-     * @param \DateTime $al
+     * @param DateTime $al
      *
      * @return famiglia
      */
@@ -115,7 +118,7 @@ class Famiglia
     /**
      * Get al.
      *
-     * @return \DateTime
+     * @return DateTime
      */
     public function getAl()
     {
@@ -149,7 +152,7 @@ class Famiglia
     /**
      * Get utentes.
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getUtentes()
     {

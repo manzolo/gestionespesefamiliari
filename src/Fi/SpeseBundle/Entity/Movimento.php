@@ -2,6 +2,8 @@
 
 namespace Fi\SpeseBundle\Entity;
 
+use DateTime;
+
 /**
  * Movimento.
  */
@@ -28,7 +30,7 @@ class Movimento
     private $importo;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $data;
 
@@ -142,7 +144,7 @@ class Movimento
     /**
      * Set data.
      *
-     * @param \DateTime $data
+     * @param DateTime $data
      *
      * @return movimento
      */
@@ -156,7 +158,7 @@ class Movimento
     /**
      * Get data.
      *
-     * @return \DateTime
+     * @return DateTime
      */
     public function getData()
     {
