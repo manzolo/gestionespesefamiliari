@@ -21,7 +21,9 @@ class MovimentoType extends AbstractType
             ->add('tipologia')
             ->add('importo')
             ->add(
-                'data', DateType::class, array('input' => 'datetime',
+                'data',
+                DateType::class,
+                array('input' => 'datetime',
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),

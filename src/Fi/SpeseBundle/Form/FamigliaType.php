@@ -18,14 +18,18 @@ class FamigliaType extends AbstractType
         $builder
             ->add('descrizione')
             ->add(
-                'dal', DateType::class, array('input' => 'datetime',
+                'dal',
+                DateType::class,
+                array('input' => 'datetime',
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),
                 'required' => true, )
             )
             ->add(
-                'al', DateType::class, array('input' => 'datetime',
+                'al',
+                DateType::class,
+                array('input' => 'datetime',
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),
