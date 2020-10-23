@@ -77,6 +77,7 @@ class UtenteController extends FiController
         $nomebundle = $namespace . $bundle . 'Bundle';
         $escludi = array('id');
 
+        $tabellej=array();
         $tabellej['famiglia_id'] = array('tabella' => 'famiglia', 'campi' => array('descrizione'));
 
         $paricevuti = array('container' => $this->container,

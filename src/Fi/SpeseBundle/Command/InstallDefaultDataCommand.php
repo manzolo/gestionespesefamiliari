@@ -19,7 +19,7 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this->setName('gestionespese:installdefaultdata')
-                ->setDescription('Insert default data');
+            ->setDescription('Insert default data');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -127,8 +127,8 @@ class InstallDefaultDataCommand extends ContainerAwareCommand
         $em->flush();
 
         $menutabelleprova = $em
-                ->getRepository('FiCoreBundle:MenuApplicazione')
-                ->find(1);
+            ->getRepository('FiCoreBundle:MenuApplicazione')
+            ->find(1);
 
         $menutabelleprova->setAttivo(false);
         $em->persist($menutabelleprova);

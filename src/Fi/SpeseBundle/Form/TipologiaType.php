@@ -16,8 +16,7 @@ class TipologiaType extends AbstractType
     {
         $builder
             ->add('categoria')
-            ->add('descrizione')
-        ;
+            ->add('descrizione');
     }
 
     /**
@@ -25,9 +24,11 @@ class TipologiaType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults(
+            array(
             'data_class' => 'Fi\SpeseBundle\Entity\tipologia',
-        ));
+            )
+        );
     }
 
     /**

@@ -80,6 +80,7 @@ class TipologiaController extends FiController
 
         $nomebundle = $namespace . $bundle . 'Bundle';
         $escludi = array();
+        $tabellej=array();
         $tabellej['categoria_id'] = array('tabella' => 'categoria', 'campi' => array('descrizione'));
 
         $paricevuti = array('container' => $this->container,

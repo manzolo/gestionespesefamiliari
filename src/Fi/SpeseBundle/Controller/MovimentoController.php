@@ -114,7 +114,9 @@ class MovimentoController extends FiController
 
         $nomebundle = $namespace.$bundle.'Bundle';
         $escludi = array('id', 'utente', 'tipomovimento', 'categoria', 'tipologia');
-
+        
+        $tabellej=array();
+        
         $tabellej['utente_id'] = array('tabella' => 'utente', 'campi' => array('nome', 'cognome'));
         $tabellej['tipomovimento_id'] = array('tabella' => 'tipomovimento', 'campi' => array('tipo'));
         $tabellej['tipologia_id'] = array('tabella' => 'tipologia', 'campi' => array('descrizione'));

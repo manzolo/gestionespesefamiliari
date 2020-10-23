@@ -16,17 +16,18 @@ class MovimentoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-                ->add('tipomovimento')
-                ->add('utente')
-                ->add('tipologia')
-                ->add('importo')
-                ->add('data', DateType::class, array('input' => 'datetime',
+            ->add('tipomovimento')
+            ->add('utente')
+            ->add('tipologia')
+            ->add('importo')
+            ->add(
+                'data', DateType::class, array('input' => 'datetime',
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),
-                    'required' => false, ))
-                ->add('nota')
-        ;
+                'required' => false, )
+            )
+            ->add('nota');
     }
 
     /**
@@ -34,9 +35,11 @@ class MovimentoType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults(
+            array(
             'data_class' => 'Fi\SpeseBundle\Entity\movimento',
-        ));
+            )
+        );
     }
 
     /**

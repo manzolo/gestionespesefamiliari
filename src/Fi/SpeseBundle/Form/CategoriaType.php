@@ -15,8 +15,7 @@ class CategoriaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('descrizione')
-        ;
+            ->add('descrizione');
     }
 
     /**
@@ -24,9 +23,11 @@ class CategoriaType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults(
+            array(
             'data_class' => 'Fi\SpeseBundle\Entity\categoria',
-        ));
+            )
+        );
     }
 
     /**

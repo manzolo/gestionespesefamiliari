@@ -20,8 +20,7 @@ class UtenteType extends AbstractType
             ->add('cognome')
             ->add('email')
             ->add('username')
-            ->add('password')
-        ;
+            ->add('password');
     }
 
     /**
@@ -29,9 +28,11 @@ class UtenteType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults(
+            array(
             'data_class' => 'Fi\SpeseBundle\Entity\utente',
-        ));
+            )
+        );
     }
 
     /**

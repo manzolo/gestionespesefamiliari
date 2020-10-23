@@ -17,8 +17,7 @@ class TipomovimentoType extends AbstractType
         $builder
             ->add('tipo')
             ->add('abbreviazione')
-            ->add('segno')
-        ;
+            ->add('segno');
     }
 
     /**
@@ -26,9 +25,11 @@ class TipomovimentoType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults(
+            array(
             'data_class' => 'Fi\SpeseBundle\Entity\tipomovimento',
-        ));
+            )
+        );
     }
 
     /**

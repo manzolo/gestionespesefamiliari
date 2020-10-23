@@ -17,17 +17,20 @@ class FamigliaType extends AbstractType
     {
         $builder
             ->add('descrizione')
-            ->add('dal', DateType::class, array('input' => 'datetime',
+            ->add(
+                'dal', DateType::class, array('input' => 'datetime',
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),
-                    'required' => true, ))
-            ->add('al', DateType::class, array('input' => 'datetime',
+                'required' => true, )
+            )
+            ->add(
+                'al', DateType::class, array('input' => 'datetime',
                     'widget' => 'single_text',
                     'format' => 'dd/MM/yyyy',
                     'attr' => array('class' => 'ficorebundle_datepicker'),
-                    'required' => false, ))
-        ;
+                'required' => false, )
+            );
     }
 
     /**
@@ -35,9 +38,11 @@ class FamigliaType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults(
+            array(
             'data_class' => 'Fi\SpeseBundle\Entity\famiglia',
-        ));
+            )
+        );
     }
 
     /**
