@@ -3,7 +3,7 @@
 /app/logs/*
 !app/cache/.gitkeep
 !app/logs/.gitkeep
-
+/data
 # Parameters
 /app/config/parameters.yml
 /app/config/parameters.ini
