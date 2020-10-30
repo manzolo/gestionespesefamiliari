@@ -11,5 +11,7 @@ services:
             - ./app/cache:/app/app/cache
             - ./app/logs:/app/app/logs
             - ./app/config/parameters.yml:/app/app/config/parameters.yml
+        environment:
+          MYSQL_HOST: ${MYSQL_HOST}
         ports:
             - ${HTTP_PORT}:8030
