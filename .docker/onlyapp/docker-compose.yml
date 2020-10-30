@@ -1,12 +1,12 @@
 version: '3'
 services:
     app:
-        image: manzolo/gestionespesefamiliari_app
+        image: manzolo/gestionespesefamiliari_full_app
         restart: always
         build: 
           context: .
           dockerfile: .docker/full/php/Dockerfile
-        container_name: gestionespesefamiliari_app
+        container_name: gestionespesefamiliari_full_app
         volumes:
             - ./app/cache:/app/app/cache
             - ./app/logs:/app/app/logs
