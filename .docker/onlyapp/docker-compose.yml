@@ -1,15 +1,17 @@
 version: '3'
 services:
     app:
-        image: manzolo/gestionespesefamiliari_full_app
+        image: manzolo/gestionespesefamiliari_app
         restart: always
         build: 
           context: .
-          dockerfile: .docker/full/php/Dockerfile
-        container_name: gestionespesefamiliari_full_app
+          dockerfile: .docker/onlyapp/php/Dockerfile
+        container_name: gestionespesefamiliari_app
         volumes:
             - ./app/cache:/app/app/cache
             - ./app/logs:/app/app/logs
             - ./app/config/parameters.yml:/app/app/config/parameters.yml
+        environment:
+          MYSQL_HOST: ${MYSQL_HOST}
         ports:
             - ${HTTP_PORT}:8030

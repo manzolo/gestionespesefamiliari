@@ -5,7 +5,7 @@ services:
         restart: always
         build: 
           context: .
-          dockerfile: .docker/full/php/Dockerfile
+          dockerfile: .docker/onlyapp/php/Dockerfile
         container_name: gestionespesefamiliari_app
         volumes:
             - ./app/cache:/app/app/cache

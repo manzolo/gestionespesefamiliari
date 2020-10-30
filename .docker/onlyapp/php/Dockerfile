@@ -12,8 +12,8 @@ RUN apt-get update \
 
 RUN docker-php-ext-install pdo pdo_mysql zip gd
 
-COPY .docker/full/php/php.ini /usr/local/etc/php/php.ini
-COPY .docker/full/php/php-fpm-pool.conf 	/usr/local/etc/php/pool.d/www.conf
+COPY .docker/onlyapp/php/php.ini /usr/local/etc/php/php.ini
+COPY .docker/onlyapp/php/php-fpm-pool.conf 	/usr/local/etc/php/pool.d/www.conf
 
 RUN curl -sSk https://getcomposer.org/installer | php -- --disable-tls && \
 	mv composer.phar /usr/local/bin/composer
@@ -46,11 +46,11 @@ WORKDIR /home/wwwroot/gestionespesefamiliari
 COPY . .
 
 RUN rm -rf .git && \
-    rm -rf var && \
+    rm -rf app/cache && \
+    rm -rf app/logs && \
     rm -rf ./app/config/parameters.yml && \
-    cp .docker/full/php/init.sh /usr/local/bin/init.sh && \
+    cp .docker/onlyapp/php/init.sh /usr/local/bin/init.sh && \
     cp ./app/config/parameters.yml.dist ./app/config/parameters.yml && \
-    mkdir var && \ 
     composer install
 
 FROM php:7.4-cli-alpine
@@ -61,12 +61,14 @@ RUN docker-php-ext-install pdo pdo_mysql mbstring gd zip
 
 WORKDIR /app
 COPY --from=build /home/wwwroot/gestionespesefamiliari /app
-COPY --from=build /home/wwwroot/gestionespesefamiliari/.docker/full/php/init.sh /usr/local/bin/init.sh
+COPY --from=build /home/wwwroot/gestionespesefamiliari/.docker/onlyapp/php/init.sh /usr/local/bin/init.sh
 
 RUN curl -sS https://get.symfony.com/cli/installer | bash
 RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
 ENV MYSQL_HOST=172.17.0.1
 RUN chmod +x /usr/local/bin/init.sh
+RUN chmod 777 -R app/cache
+RUN chmod 777 -R app/logs
 
 EXPOSE 8030
 CMD ["/usr/local/bin/init.sh"]
