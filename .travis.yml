@@ -8,7 +8,7 @@ php:
 services:
   - xvfb
   - mysql
-  - pgsql
+  - postgresql
   
 # Configure different DB environments
 env:
