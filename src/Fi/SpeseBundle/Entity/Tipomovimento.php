@@ -173,7 +173,10 @@ class Tipomovimento
     {
         return $this->movimentos;
     }
-
+    public function __toString()
+    {
+        return $this->tipo;
+    }
     public function __sleep()
     {
         return array('id', 'tipo', 'abbreviazione', 'segno');
