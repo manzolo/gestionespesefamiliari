@@ -2,51 +2,68 @@
 
 namespace Fi\SpeseBundle\Entity;
 
-use \Doctrine\Common\Collections\ArrayCollection;
-use \Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Tipologia.
+ * Fi\SpeseBundle\Entity\Tipologia
+ *
+ * @ORM\Entity()
+ * @ORM\Table(name="Tipologia", indexes={@ORM\Index(name="fk_subcategoria_categoria_idx", columns={"categoria_id"})})
  */
 class Tipologia
 {
     /**
-     * @var int
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var int
+     * @ORM\Column(type="integer")
      */
-    private $categoria_id;
+    protected $categoria_id;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255)
      */
-    private $descrizione;
+    protected $descrizione;
 
     /**
-     * @var Collection
+     * @ORM\OneToMany(targetEntity="Movimento", mappedBy="tipologia")
+     * @ORM\JoinColumn(name="id", referencedColumnName="tipologia_id", nullable=false)
      */
-    private $movimentos;
+    protected $movimentos;
 
     /**
-     * @var Categoria
+     * @ORM\ManyToOne(targetEntity="Categoria", inversedBy="tipologias")
+     * @ORM\JoinColumn(name="categoria_id", referencedColumnName="id", nullable=false)
      */
-    private $categoria;
+    protected $categoria;
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
         $this->movimentos = new ArrayCollection();
     }
 
     /**
-     * Get id.
+     * Set the value of id.
      *
-     * @return int
+     * @param integer $id
+     * @return \Fi\SpeseBundle\Entity\Tipologia
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -54,23 +71,22 @@ class Tipologia
     }
 
     /**
-     * Set categoria_id.
+     * Set the value of categoria_id.
      *
-     * @param int $categoriaId
-     *
-     * @return tipologia
+     * @param integer $categoria_id
+     * @return \Fi\SpeseBundle\Entity\Tipologia
      */
-    public function setCategoriaId($categoriaId)
+    public function setCategoriaId($categoria_id)
     {
-        $this->categoria_id = $categoriaId;
+        $this->categoria_id = $categoria_id;
 
         return $this;
     }
 
     /**
-     * Get categoria_id.
+     * Get the value of categoria_id.
      *
-     * @return int
+     * @return integer
      */
     public function getCategoriaId()
     {
@@ -78,11 +94,10 @@ class Tipologia
     }
 
     /**
-     * Set descrizione.
+     * Set the value of descrizione.
      *
      * @param string $descrizione
-     *
-     * @return tipologia
+     * @return \Fi\SpeseBundle\Entity\Tipologia
      */
     public function setDescrizione($descrizione)
     {
@@ -92,7 +107,7 @@ class Tipologia
     }
 
     /**
-     * Get descrizione.
+     * Get the value of descrizione.
      *
      * @return string
      */
@@ -102,33 +117,35 @@ class Tipologia
     }
 
     /**
-     * Add movimentos.
+     * Add Movimento entity to collection (one to many).
      *
-     * @param \Fi\SpeseBundle\Entity\movimento $movimentos
-     *
-     * @return tipologia
+     * @param \Fi\SpeseBundle\Entity\Movimento $movimento
+     * @return \Fi\SpeseBundle\Entity\Tipologia
      */
-    public function addMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos)
+    public function addMovimento(Movimento $movimento)
     {
-        $this->movimentos[] = $movimentos;
+        $this->movimentos[] = $movimento;
 
         return $this;
     }
 
     /**
-     * Remove movimentos.
+     * Remove Movimento entity from collection (one to many).
      *
-     * @param \Fi\SpeseBundle\Entity\movimento $movimentos
+     * @param \Fi\SpeseBundle\Entity\Movimento $movimento
+     * @return \Fi\SpeseBundle\Entity\Tipologia
      */
-    public function removeMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos)
+    public function removeMovimento(Movimento $movimento)
     {
-        $this->movimentos->removeElement($movimentos);
+        $this->movimentos->removeElement($movimento);
+
+        return $this;
     }
 
     /**
-     * Get movimentos.
+     * Get Movimento entity collection (one to many).
      *
-     * @return Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMovimentos()
     {
@@ -136,13 +153,12 @@ class Tipologia
     }
 
     /**
-     * Set categoria.
+     * Set Categoria entity (many to one).
      *
-     * @param \Fi\SpeseBundle\Entity\categoria $categoria
-     *
-     * @return tipologia
+     * @param \Fi\SpeseBundle\Entity\Categoria $categoria
+     * @return \Fi\SpeseBundle\Entity\Tipologia
      */
-    public function setCategoria(Categoria $categoria)
+    public function setCategoria(Categoria $categoria = null)
     {
         $this->categoria = $categoria;
 
@@ -150,17 +166,17 @@ class Tipologia
     }
 
     /**
-     * Get categoria.
+     * Get Categoria entity (many to one).
      *
-     * @return \Fi\SpeseBundle\Entity\categoria
+     * @return \Fi\SpeseBundle\Entity\Categoria
      */
     public function getCategoria()
     {
         return $this->categoria;
     }
 
-    public function __toString()
+    public function __sleep()
     {
-        return $this->descrizione.' ('.$this->getCategoria()->getDescrizione().')';
+        return array('id', 'categoria_id', 'descrizione');
     }
 }

@@ -2,67 +2,95 @@
 
 namespace Fi\SpeseBundle\Entity;
 
-use DateTime;
+use Doctrine\ORM\Mapping as ORM;
 
+// @codingStandardsIgnoreStart
 /**
- * Movimento.
+ * Fi\SpeseBundle\Entity\Movimento
+ *
+ * @ORM\Entity()
+ * @ORM\Table(name="Movimento",
+ *  indexes={@ORM\Index(name="fk_spesa_tipologia1_idx", columns={"tipologia_id"}), @ORM\Index(name="fk_pagamento_utente1_idx", columns={"utente_id"}), @ORM\Index(name="fk_movimento_tipomovimento1_idx", columns={"tipomovimento_id"})})
  */
+// @codingStandardsIgnoreEnd
 class Movimento
 {
     /**
-     * @var int
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var int
+     * @ORM\Column(type="integer")
      */
-    private $tipologia_id;
+    protected $tipologia_id;
 
     /**
-     * @var int
+     * @ORM\Column(type="integer")
      */
-    private $utente_id;
+    protected $utente_id;
 
     /**
-     * @var float
+     * @ORM\Column(type="float", precision=10, scale=2)
      */
-    private $importo;
+    protected $importo;
 
     /**
-     * @var DateTime
+     * @ORM\Column(name="`data`", type="date")
      */
-    private $data;
+    protected $data;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=4000, nullable=true)
      */
-    private $nota;
+    protected $nota;
 
     /**
-     * @var int
+     * @ORM\Column(type="integer")
      */
-    private $tipomovimento_id;
+    protected $tipomovimento_id;
 
     /**
-     * @var \Fi\SpeseBundle\Entity\tipologia
+     * @ORM\ManyToOne(targetEntity="Tipologia", inversedBy="movimentos")
+     * @ORM\JoinColumn(name="tipologia_id", referencedColumnName="id", nullable=false)
      */
-    private $tipologia;
+    protected $tipologia;
 
     /**
-     * @var \Fi\SpeseBundle\Entity\utente
+     * @ORM\ManyToOne(targetEntity="Utente", inversedBy="movimentos")
+     * @ORM\JoinColumn(name="utente_id", referencedColumnName="id", nullable=false)
      */
-    private $utente;
+    protected $utente;
 
     /**
-     * @var \Fi\SpeseBundle\Entity\tipomovimento
+     * @ORM\ManyToOne(targetEntity="Tipomovimento", inversedBy="movimentos")
+     * @ORM\JoinColumn(name="tipomovimento_id", referencedColumnName="id", nullable=false)
      */
-    private $tipomovimento;
+    protected $tipomovimento;
+
+    public function __construct()
+    {
+    }
 
     /**
-     * Get id.
+     * Set the value of id.
      *
-     * @return int
+     * @param integer $id
+     * @return \Fi\SpeseBundle\Entity\Movimento
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -70,23 +98,22 @@ class Movimento
     }
 
     /**
-     * Set tipologia_id.
+     * Set the value of tipologia_id.
      *
-     * @param int $tipologiaId
-     *
-     * @return movimento
+     * @param integer $tipologia_id
+     * @return \Fi\SpeseBundle\Entity\Movimento
      */
-    public function setTipologiaId($tipologiaId)
+    public function setTipologiaId($tipologia_id)
     {
-        $this->tipologia_id = $tipologiaId;
+        $this->tipologia_id = $tipologia_id;
 
         return $this;
     }
 
     /**
-     * Get tipologia_id.
+     * Get the value of tipologia_id.
      *
-     * @return int
+     * @return integer
      */
     public function getTipologiaId()
     {
@@ -94,23 +121,22 @@ class Movimento
     }
 
     /**
-     * Set utente_id.
+     * Set the value of utente_id.
      *
-     * @param int $utenteId
-     *
-     * @return movimento
+     * @param integer $utente_id
+     * @return \Fi\SpeseBundle\Entity\Movimento
      */
-    public function setUtenteId($utenteId)
+    public function setUtenteId($utente_id)
     {
-        $this->utente_id = $utenteId;
+        $this->utente_id = $utente_id;
 
         return $this;
     }
 
     /**
-     * Get utente_id.
+     * Get the value of utente_id.
      *
-     * @return int
+     * @return integer
      */
     public function getUtenteId()
     {
@@ -118,11 +144,10 @@ class Movimento
     }
 
     /**
-     * Set importo.
+     * Set the value of importo.
      *
      * @param float $importo
-     *
-     * @return movimento
+     * @return \Fi\SpeseBundle\Entity\Movimento
      */
     public function setImporto($importo)
     {
@@ -132,7 +157,7 @@ class Movimento
     }
 
     /**
-     * Get importo.
+     * Get the value of importo.
      *
      * @return float
      */
@@ -142,11 +167,10 @@ class Movimento
     }
 
     /**
-     * Set data.
+     * Set the value of data.
      *
-     * @param DateTime $data
-     *
-     * @return movimento
+     * @param \DateTime $data
+     * @return \Fi\SpeseBundle\Entity\Movimento
      */
     public function setData($data)
     {
@@ -156,9 +180,9 @@ class Movimento
     }
 
     /**
-     * Get data.
+     * Get the value of data.
      *
-     * @return DateTime
+     * @return \DateTime
      */
     public function getData()
     {
@@ -166,11 +190,10 @@ class Movimento
     }
 
     /**
-     * Set nota.
+     * Set the value of nota.
      *
      * @param string $nota
-     *
-     * @return movimento
+     * @return \Fi\SpeseBundle\Entity\Movimento
      */
     public function setNota($nota)
     {
@@ -180,7 +203,7 @@ class Movimento
     }
 
     /**
-     * Get nota.
+     * Get the value of nota.
      *
      * @return string
      */
@@ -190,23 +213,22 @@ class Movimento
     }
 
     /**
-     * Set tipomovimento_id.
+     * Set the value of tipomovimento_id.
      *
-     * @param int $tipomovimentoId
-     *
-     * @return movimento
+     * @param integer $tipomovimento_id
+     * @return \Fi\SpeseBundle\Entity\Movimento
      */
-    public function setTipomovimentoId($tipomovimentoId)
+    public function setTipomovimentoId($tipomovimento_id)
     {
-        $this->tipomovimento_id = $tipomovimentoId;
+        $this->tipomovimento_id = $tipomovimento_id;
 
         return $this;
     }
 
     /**
-     * Get tipomovimento_id.
+     * Get the value of tipomovimento_id.
      *
-     * @return int
+     * @return integer
      */
     public function getTipomovimentoId()
     {
@@ -214,13 +236,12 @@ class Movimento
     }
 
     /**
-     * Set tipologia.
+     * Set Tipologia entity (many to one).
      *
-     * @param \Fi\SpeseBundle\Entity\tipologia $tipologia
-     *
-     * @return movimento
+     * @param \Fi\SpeseBundle\Entity\Tipologia $tipologia
+     * @return \Fi\SpeseBundle\Entity\Movimento
      */
-    public function setTipologia(\Fi\SpeseBundle\Entity\tipologia $tipologia)
+    public function setTipologia(Tipologia $tipologia = null)
     {
         $this->tipologia = $tipologia;
 
@@ -228,9 +249,9 @@ class Movimento
     }
 
     /**
-     * Get tipologia.
+     * Get Tipologia entity (many to one).
      *
-     * @return \Fi\SpeseBundle\Entity\tipologia
+     * @return \Fi\SpeseBundle\Entity\Tipologia
      */
     public function getTipologia()
     {
@@ -238,13 +259,12 @@ class Movimento
     }
 
     /**
-     * Set utente.
+     * Set Utente entity (many to one).
      *
-     * @param \Fi\SpeseBundle\Entity\utente $utente
-     *
-     * @return movimento
+     * @param \Fi\SpeseBundle\Entity\Utente $utente
+     * @return \Fi\SpeseBundle\Entity\Movimento
      */
-    public function setUtente(\Fi\SpeseBundle\Entity\utente $utente)
+    public function setUtente(Utente $utente = null)
     {
         $this->utente = $utente;
 
@@ -252,9 +272,9 @@ class Movimento
     }
 
     /**
-     * Get utente.
+     * Get Utente entity (many to one).
      *
-     * @return \Fi\SpeseBundle\Entity\utente
+     * @return \Fi\SpeseBundle\Entity\Utente
      */
     public function getUtente()
     {
@@ -262,13 +282,12 @@ class Movimento
     }
 
     /**
-     * Set tipomovimento.
+     * Set Tipomovimento entity (many to one).
      *
-     * @param \Fi\SpeseBundle\Entity\tipomovimento $tipomovimento
-     *
-     * @return movimento
+     * @param \Fi\SpeseBundle\Entity\Tipomovimento $tipomovimento
+     * @return \Fi\SpeseBundle\Entity\Movimento
      */
-    public function setTipomovimento(\Fi\SpeseBundle\Entity\tipomovimento $tipomovimento)
+    public function setTipomovimento(Tipomovimento $tipomovimento = null)
     {
         $this->tipomovimento = $tipomovimento;
 
@@ -276,17 +295,20 @@ class Movimento
     }
 
     /**
-     * Get tipomovimento.
+     * Get Tipomovimento entity (many to one).
      *
-     * @return \Fi\SpeseBundle\Entity\tipomovimento
+     * @return \Fi\SpeseBundle\Entity\Tipomovimento
      */
     public function getTipomovimento()
     {
         return $this->tipomovimento;
     }
-
     public function getDescrizionecategoria()
     {
         return $this->getTipologia()->getCategoria()->getDescrizione();
+    }
+    public function __sleep()
+    {
+        return array('id', 'tipologia_id', 'utente_id', 'importo', 'data', 'nota', 'tipomovimento_id');
     }
 }

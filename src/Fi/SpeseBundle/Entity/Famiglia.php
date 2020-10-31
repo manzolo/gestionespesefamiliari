@@ -2,52 +2,67 @@
 
 namespace Fi\SpeseBundle\Entity;
 
-use \DateTime;
-use \Doctrine\Common\Collections\ArrayCollection;
-use \Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Famiglia.
+ * Fi\SpeseBundle\Entity\Famiglia
+ *
+ * @ORM\Entity()
+ * @ORM\Table(name="Famiglia")
  */
 class Famiglia
 {
     /**
-     * @var int
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255)
      */
-    private $descrizione;
+    protected $descrizione;
 
     /**
-     * @var DateTime
+     * @ORM\Column(type="date")
      */
-    private $dal;
+    protected $dal;
 
     /**
-     * @var DateTime
+     * @ORM\Column(type="date", nullable=true)
      */
-    private $al;
+    protected $al;
 
     /**
-     * @var Collection
+     * @ORM\OneToMany(targetEntity="Utente", mappedBy="famiglia")
+     * @ORM\JoinColumn(name="id", referencedColumnName="famiglia_id", nullable=false)
      */
-    private $utentes;
+    protected $utentes;
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
         $this->utentes = new ArrayCollection();
     }
 
     /**
-     * Get id.
+     * Set the value of id.
      *
-     * @return int
+     * @param integer $id
+     * @return \Fi\SpeseBundle\Entity\Famiglia
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -55,11 +70,10 @@ class Famiglia
     }
 
     /**
-     * Set descrizione.
+     * Set the value of descrizione.
      *
      * @param string $descrizione
-     *
-     * @return famiglia
+     * @return \Fi\SpeseBundle\Entity\Famiglia
      */
     public function setDescrizione($descrizione)
     {
@@ -69,7 +83,7 @@ class Famiglia
     }
 
     /**
-     * Get descrizione.
+     * Get the value of descrizione.
      *
      * @return string
      */
@@ -79,11 +93,10 @@ class Famiglia
     }
 
     /**
-     * Set dal.
+     * Set the value of dal.
      *
-     * @param DateTime $dal
-     *
-     * @return famiglia
+     * @param \DateTime $dal
+     * @return \Fi\SpeseBundle\Entity\Famiglia
      */
     public function setDal($dal)
     {
@@ -93,9 +106,9 @@ class Famiglia
     }
 
     /**
-     * Get dal.
+     * Get the value of dal.
      *
-     * @return DateTime
+     * @return \DateTime
      */
     public function getDal()
     {
@@ -103,11 +116,10 @@ class Famiglia
     }
 
     /**
-     * Set al.
+     * Set the value of al.
      *
-     * @param DateTime $al
-     *
-     * @return famiglia
+     * @param \DateTime $al
+     * @return \Fi\SpeseBundle\Entity\Famiglia
      */
     public function setAl($al)
     {
@@ -117,9 +129,9 @@ class Famiglia
     }
 
     /**
-     * Get al.
+     * Get the value of al.
      *
-     * @return DateTime
+     * @return \DateTime
      */
     public function getAl()
     {
@@ -127,41 +139,43 @@ class Famiglia
     }
 
     /**
-     * Add utentes.
+     * Add Utente entity to collection (one to many).
      *
-     * @param \Fi\SpeseBundle\Entity\utente $utentes
-     *
-     * @return famiglia
+     * @param \Fi\SpeseBundle\Entity\Utente $utente
+     * @return \Fi\SpeseBundle\Entity\Famiglia
      */
-    public function addUtente(\Fi\SpeseBundle\Entity\utente $utentes)
+    public function addUtente(Utente $utente)
     {
-        $this->utentes[] = $utentes;
+        $this->utentes[] = $utente;
 
         return $this;
     }
 
     /**
-     * Remove utentes.
+     * Remove Utente entity from collection (one to many).
      *
-     * @param \Fi\SpeseBundle\Entity\utente $utentes
+     * @param \Fi\SpeseBundle\Entity\Utente $utente
+     * @return \Fi\SpeseBundle\Entity\Famiglia
      */
-    public function removeUtente(\Fi\SpeseBundle\Entity\utente $utentes)
+    public function removeUtente(Utente $utente)
     {
-        $this->utentes->removeElement($utentes);
+        $this->utentes->removeElement($utente);
+
+        return $this;
     }
 
     /**
-     * Get utentes.
+     * Get Utente entity collection (one to many).
      *
-     * @return Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getUtentes()
     {
         return $this->utentes;
     }
 
-    public function __toString()
+    public function __sleep()
     {
-        return $this->descrizione;
+        return array('id', 'descrizione', 'dal', 'al');
     }
 }

@@ -62,8 +62,14 @@ doctrine:
 
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
-        naming_strategy: doctrine.orm.naming_strategy.underscore
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
+        mappings:
+            Fi\SpeseBundle:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Fi/SpeseBundle/Entity'
+                prefix: 'Fi\SpeseBundle\Entity'
         #query_cache_driver: apcu
         #metadata_cache_driver: apcu
         #result_cache_driver: apcu

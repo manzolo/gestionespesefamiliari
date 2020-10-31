@@ -2,41 +2,57 @@
 
 namespace Fi\SpeseBundle\Entity;
 
-use \Doctrine\Common\Collections\ArrayCollection;
-use \Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Categoria.
+ * Fi\SpeseBundle\Entity\Categoria
+ *
+ * @ORM\Entity()
+ * @ORM\Table(name="Categoria")
  */
 class Categoria
 {
     /**
-     * @var int
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $descrizione;
+    protected $descrizione;
 
     /**
-     * @var Collection
+     * @ORM\OneToMany(targetEntity="Tipologia", mappedBy="categoria")
+     * @ORM\JoinColumn(name="id", referencedColumnName="categoria_id", nullable=false)
      */
-    private $tipologias;
+    protected $tipologias;
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
         $this->tipologias = new ArrayCollection();
     }
 
     /**
-     * Get id.
+     * Set the value of id.
      *
-     * @return int
+     * @param integer $id
+     * @return \Fi\SpeseBundle\Entity\Categoria
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -44,11 +60,10 @@ class Categoria
     }
 
     /**
-     * Set descrizione.
+     * Set the value of descrizione.
      *
      * @param string $descrizione
-     *
-     * @return categoria
+     * @return \Fi\SpeseBundle\Entity\Categoria
      */
     public function setDescrizione($descrizione)
     {
@@ -58,7 +73,7 @@ class Categoria
     }
 
     /**
-     * Get descrizione.
+     * Get the value of descrizione.
      *
      * @return string
      */
@@ -68,41 +83,43 @@ class Categoria
     }
 
     /**
-     * Add tipologias.
+     * Add Tipologia entity to collection (one to many).
      *
-     * @param \Fi\SpeseBundle\Entity\tipologia $tipologias
-     *
-     * @return categoria
+     * @param \Fi\SpeseBundle\Entity\Tipologia $tipologia
+     * @return \Fi\SpeseBundle\Entity\Categoria
      */
-    public function addTipologia(\Fi\SpeseBundle\Entity\tipologia $tipologias)
+    public function addTipologia(Tipologia $tipologia)
     {
-        $this->tipologias[] = $tipologias;
+        $this->tipologias[] = $tipologia;
 
         return $this;
     }
 
     /**
-     * Remove tipologias.
+     * Remove Tipologia entity from collection (one to many).
      *
-     * @param \Fi\SpeseBundle\Entity\tipologia $tipologias
+     * @param \Fi\SpeseBundle\Entity\Tipologia $tipologia
+     * @return \Fi\SpeseBundle\Entity\Categoria
      */
-    public function removeTipologia(\Fi\SpeseBundle\Entity\tipologia $tipologias)
+    public function removeTipologia(Tipologia $tipologia)
     {
-        $this->tipologias->removeElement($tipologias);
+        $this->tipologias->removeElement($tipologia);
+
+        return $this;
     }
 
     /**
-     * Get tipologias.
+     * Get Tipologia entity collection (one to many).
      *
-     * @return Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getTipologias()
     {
         return $this->tipologias;
     }
 
-    public function __toString()
+    public function __sleep()
     {
-        return $this->descrizione;
+        return array('id', 'descrizione');
     }
 }

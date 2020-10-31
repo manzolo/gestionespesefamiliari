@@ -2,61 +2,88 @@
 
 namespace Fi\SpeseBundle\Entity;
 
-use \Doctrine\Common\Collections\ArrayCollection;
-use \Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Utente.
+ * Fi\SpeseBundle\Entity\Utente
+ *
+ * @ORM\Entity()
+ * @ORM\Table(name="Utente", indexes={@ORM\Index(name="fk_utente_famiglia1_idx", columns={"famiglia_id"})})
  */
 class Utente
 {
     /**
-     * @var int
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255)
      */
-    private $nome;
+    protected $nome;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255)
      */
-    private $cognome;
+    protected $cognome;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255)
      */
-    private $email;
+    protected $email;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=255)
      */
-    private $username;
+    protected $username;
 
     /**
-     * @var string
+     * @ORM\Column(name="`password`", type="string", length=255)
      */
-    private $password;
+    protected $password;
 
     /**
-     * @var Collection
+     * @ORM\Column(type="integer", nullable=true)
      */
-    private $movimentos;
+    protected $famiglia_id;
 
     /**
-     * Constructor.
+     * @ORM\OneToMany(targetEntity="Movimento", mappedBy="utente")
+     * @ORM\JoinColumn(name="id", referencedColumnName="utente_id", nullable=false)
      */
+    protected $movimentos;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Famiglia", inversedBy="utentes")
+     * @ORM\JoinColumn(name="famiglia_id", referencedColumnName="id")
+     */
+    protected $famiglia;
+
     public function __construct()
     {
         $this->movimentos = new ArrayCollection();
     }
 
     /**
-     * Get id.
+     * Set the value of id.
      *
-     * @return int
+     * @param integer $id
+     * @return \Fi\SpeseBundle\Entity\Utente
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -64,11 +91,10 @@ class Utente
     }
 
     /**
-     * Set nome.
+     * Set the value of nome.
      *
      * @param string $nome
-     *
-     * @return utente
+     * @return \Fi\SpeseBundle\Entity\Utente
      */
     public function setNome($nome)
     {
@@ -78,7 +104,7 @@ class Utente
     }
 
     /**
-     * Get nome.
+     * Get the value of nome.
      *
      * @return string
      */
@@ -88,11 +114,10 @@ class Utente
     }
 
     /**
-     * Set cognome.
+     * Set the value of cognome.
      *
      * @param string $cognome
-     *
-     * @return utente
+     * @return \Fi\SpeseBundle\Entity\Utente
      */
     public function setCognome($cognome)
     {
@@ -102,7 +127,7 @@ class Utente
     }
 
     /**
-     * Get cognome.
+     * Get the value of cognome.
      *
      * @return string
      */
@@ -112,11 +137,10 @@ class Utente
     }
 
     /**
-     * Set email.
+     * Set the value of email.
      *
      * @param string $email
-     *
-     * @return utente
+     * @return \Fi\SpeseBundle\Entity\Utente
      */
     public function setEmail($email)
     {
@@ -126,7 +150,7 @@ class Utente
     }
 
     /**
-     * Get email.
+     * Get the value of email.
      *
      * @return string
      */
@@ -136,11 +160,10 @@ class Utente
     }
 
     /**
-     * Set username.
+     * Set the value of username.
      *
      * @param string $username
-     *
-     * @return utente
+     * @return \Fi\SpeseBundle\Entity\Utente
      */
     public function setUsername($username)
     {
@@ -150,7 +173,7 @@ class Utente
     }
 
     /**
-     * Get username.
+     * Get the value of username.
      *
      * @return string
      */
@@ -160,11 +183,10 @@ class Utente
     }
 
     /**
-     * Set password.
+     * Set the value of password.
      *
      * @param string $password
-     *
-     * @return utente
+     * @return \Fi\SpeseBundle\Entity\Utente
      */
     public function setPassword($password)
     {
@@ -174,7 +196,7 @@ class Utente
     }
 
     /**
-     * Get password.
+     * Get the value of password.
      *
      * @return string
      */
@@ -184,77 +206,22 @@ class Utente
     }
 
     /**
-     * Add movimentos.
+     * Set the value of famiglia_id.
      *
-     * @param \Fi\SpeseBundle\Entity\movimento $movimentos
-     *
-     * @return utente
+     * @param integer $famiglia_id
+     * @return \Fi\SpeseBundle\Entity\Utente
      */
-    public function addMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos)
+    public function setFamigliaId($famiglia_id)
     {
-        $this->movimentos[] = $movimentos;
+        $this->famiglia_id = $famiglia_id;
 
         return $this;
     }
 
     /**
-     * Remove movimentos.
+     * Get the value of famiglia_id.
      *
-     * @param \Fi\SpeseBundle\Entity\movimento $movimentos
-     */
-    public function removeMovimento(Movimento $movimentos)
-    {
-        $this->movimentos->removeElement($movimentos);
-    }
-
-    /**
-     * Get movimentos.
-     *
-     * @return Collection
-     */
-    public function getMovimentos()
-    {
-        return $this->movimentos;
-    }
-
-    public function __toString()
-    {
-        return $this->nome.' '.$this->cognome;
-    }
-
-    public function getNominativo()
-    {
-        return $this->nome.' '.$this->cognome;
-    }
-
-    /**
-     * @var int
-     */
-    private $famiglia_id;
-
-    /**
-     * @var \Fi\SpeseBundle\Entity\famiglia
-     */
-    private $famiglia;
-
-    /**
-     * Set famiglia_id.
-     *
-     * @param int $famigliaId
-     *
-     * @return utente
-     */
-    public function setFamigliaId($famigliaId)
-    {
-        $this->famiglia_id = $famigliaId;
-
-        return $this;
-    }
-
-    /**
-     * Get famiglia_id.
-     *
-     * @return int
+     * @return integer
      */
     public function getFamigliaId()
     {
@@ -262,11 +229,46 @@ class Utente
     }
 
     /**
-     * Set famiglia.
+     * Add Movimento entity to collection (one to many).
      *
-     * @param \Fi\SpeseBundle\Entity\famiglia $famiglia
+     * @param \Fi\SpeseBundle\Entity\Movimento $movimento
+     * @return \Fi\SpeseBundle\Entity\Utente
+     */
+    public function addMovimento(Movimento $movimento)
+    {
+        $this->movimentos[] = $movimento;
+
+        return $this;
+    }
+
+    /**
+     * Remove Movimento entity from collection (one to many).
      *
-     * @return utente
+     * @param \Fi\SpeseBundle\Entity\Movimento $movimento
+     * @return \Fi\SpeseBundle\Entity\Utente
+     */
+    public function removeMovimento(Movimento $movimento)
+    {
+        $this->movimentos->removeElement($movimento);
+
+        return $this;
+    }
+
+    /**
+     * Get Movimento entity collection (one to many).
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getMovimentos()
+    {
+        return $this->movimentos;
+    }
+
+    /**
+     * Set Famiglia entity (many to one).
+     *
+     * @param \Fi\SpeseBundle\Entity\Famiglia $famiglia
+     * @return \Fi\SpeseBundle\Entity\Utente
      */
     public function setFamiglia(Famiglia $famiglia = null)
     {
@@ -276,12 +278,17 @@ class Utente
     }
 
     /**
-     * Get famiglia.
+     * Get Famiglia entity (many to one).
      *
-     * @return \Fi\SpeseBundle\Entity\famiglia
+     * @return \Fi\SpeseBundle\Entity\Famiglia
      */
     public function getFamiglia()
     {
         return $this->famiglia;
+    }
+
+    public function __sleep()
+    {
+        return array('id', 'nome', 'cognome', 'email', 'username', 'password', 'famiglia_id');
     }
 }

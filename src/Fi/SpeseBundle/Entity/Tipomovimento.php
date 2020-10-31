@@ -2,51 +2,67 @@
 
 namespace Fi\SpeseBundle\Entity;
 
-use \Doctrine\Common\Collections\ArrayCollection;
-use \Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Tipomovimento.
+ * Fi\SpeseBundle\Entity\Tipomovimento
+ *
+ * @ORM\Entity()
+ * @ORM\Table(name="Tipomovimento")
  */
 class Tipomovimento
 {
     /**
-     * @var int
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=45)
      */
-    private $tipo;
+    protected $tipo;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=1, nullable=true)
      */
-    private $abbreviazione;
+    protected $abbreviazione;
 
     /**
-     * @var string
+     * @ORM\Column(type="string", length=45)
      */
-    private $segno;
+    protected $segno;
 
     /**
-     * @var Collection
+     * @ORM\OneToMany(targetEntity="Movimento", mappedBy="tipomovimento")
+     * @ORM\JoinColumn(name="id", referencedColumnName="tipomovimento_id", nullable=false)
      */
-    private $movimentos;
+    protected $movimentos;
 
-    /**
-     * Constructor.
-     */
     public function __construct()
     {
         $this->movimentos = new ArrayCollection();
     }
 
     /**
-     * Get id.
+     * Set the value of id.
      *
-     * @return int
+     * @param integer $id
+     * @return \Fi\SpeseBundle\Entity\Tipomovimento
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id.
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -54,11 +70,10 @@ class Tipomovimento
     }
 
     /**
-     * Set tipo.
+     * Set the value of tipo.
      *
      * @param string $tipo
-     *
-     * @return tipomovimento
+     * @return \Fi\SpeseBundle\Entity\Tipomovimento
      */
     public function setTipo($tipo)
     {
@@ -68,7 +83,7 @@ class Tipomovimento
     }
 
     /**
-     * Get tipo.
+     * Get the value of tipo.
      *
      * @return string
      */
@@ -78,11 +93,10 @@ class Tipomovimento
     }
 
     /**
-     * Set abbreviazione.
+     * Set the value of abbreviazione.
      *
      * @param string $abbreviazione
-     *
-     * @return tipomovimento
+     * @return \Fi\SpeseBundle\Entity\Tipomovimento
      */
     public function setAbbreviazione($abbreviazione)
     {
@@ -92,7 +106,7 @@ class Tipomovimento
     }
 
     /**
-     * Get abbreviazione.
+     * Get the value of abbreviazione.
      *
      * @return string
      */
@@ -102,11 +116,10 @@ class Tipomovimento
     }
 
     /**
-     * Set segno.
+     * Set the value of segno.
      *
      * @param string $segno
-     *
-     * @return tipomovimento
+     * @return \Fi\SpeseBundle\Entity\Tipomovimento
      */
     public function setSegno($segno)
     {
@@ -116,7 +129,7 @@ class Tipomovimento
     }
 
     /**
-     * Get segno.
+     * Get the value of segno.
      *
      * @return string
      */
@@ -126,41 +139,43 @@ class Tipomovimento
     }
 
     /**
-     * Add movimentos.
+     * Add Movimento entity to collection (one to many).
      *
-     * @param \Fi\SpeseBundle\Entity\movimento $movimentos
-     *
-     * @return tipomovimento
+     * @param \Fi\SpeseBundle\Entity\Movimento $movimento
+     * @return \Fi\SpeseBundle\Entity\Tipomovimento
      */
-    public function addMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos)
+    public function addMovimento(Movimento $movimento)
     {
-        $this->movimentos[] = $movimentos;
+        $this->movimentos[] = $movimento;
 
         return $this;
     }
 
     /**
-     * Remove movimentos.
+     * Remove Movimento entity from collection (one to many).
      *
-     * @param \Fi\SpeseBundle\Entity\movimento $movimentos
+     * @param \Fi\SpeseBundle\Entity\Movimento $movimento
+     * @return \Fi\SpeseBundle\Entity\Tipomovimento
      */
-    public function removeMovimento(\Fi\SpeseBundle\Entity\movimento $movimentos)
+    public function removeMovimento(Movimento $movimento)
     {
-        $this->movimentos->removeElement($movimentos);
+        $this->movimentos->removeElement($movimento);
+
+        return $this;
     }
 
     /**
-     * Get movimentos.
+     * Get Movimento entity collection (one to many).
      *
-     * @return Collection
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getMovimentos()
     {
         return $this->movimentos;
     }
 
-    public function __toString()
+    public function __sleep()
     {
-        return $this->tipo;
+        return array('id', 'tipo', 'abbreviazione', 'segno');
     }
 }
