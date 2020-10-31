@@ -174,6 +174,10 @@ class Famiglia
         return $this->utentes;
     }
 
+    public function __toString()
+    {
+        return $this->descrizione;
+    }
     public function __sleep()
     {
         return array('id', 'descrizione', 'dal', 'al');
