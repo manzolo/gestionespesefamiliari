@@ -20,11 +20,10 @@
         "beberlei/doctrineextensions": "^1.0",
         "fi/fifreecorebundle": "3.0.*",
         "monolog/monolog": "^1.25",
+        "phpoffice/phpspreadsheet": "^1.15",
         "tufanbarisyildirim/php-apk-parser": "^2.0"
     },
     "require-dev": {
-        "phpoffice/phpexcel": "^1.8",
-        "phpoffice/phpword": "^0.13.0",
         "tecnickcom/tcpdf": "^6.2",
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^4.0",
