@@ -290,7 +290,10 @@ class Utente
     {
         return $this->nome.' '.$this->cognome;
     }
-    public function __sleep()
+    public function __toString()
+    {
+        return $this->nome.' '.$this->cognome;
+    }    public function __sleep()
     {
         return array('id', 'nome', 'cognome', 'email', 'username', 'password', 'famiglia_id');
     }
