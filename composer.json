@@ -24,19 +24,19 @@
         "tufanbarisyildirim/php-apk-parser": "^2.0"
     },
     "require-dev": {
-        "tecnickcom/tcpdf": "^6.2",
-        "sensio/generator-bundle": "^3.0",
-        "symfony/phpunit-bridge": "^4.0",
-        "symfony/web-server-bundle": "3.4.*",
-        "php-coveralls/php-coveralls": "^2.0",
         "mockery/mockery": "^0.9.5",
+        "php-coveralls/php-coveralls": "^2.0",
+        "php-webdriver/webdriver": "^1.8",
         "phpmd/phpmd": "^2.4",
-        "sebastian/phpcpd": "^2.0",
+        "phpunit/phpcov": "^3.0|^4.0",
+        "se/selenium-server-standalone": "3.4.*",
+        "sebastian/phpcpd": "^3.0",
+        "sensio/generator-bundle": "^3.0",
         "sensiolabs/security-checker": "^6.0",
         "squizlabs/php_codesniffer": "^2.7",
-        "se/selenium-server-standalone": "3.4.*",
-        "facebook/webdriver": "^1.5",
-        "phpunit/phpcov": "^3.0|^4.0"
+        "symfony/phpunit-bridge": "^4.0",
+        "symfony/web-server-bundle": "3.4.*",
+        "tecnickcom/tcpdf": "^6.2"
     },
     "scripts": {
         "symfony-scripts": [
