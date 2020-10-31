@@ -1,4 +1,5 @@
 ARG MYSQL_HOST
+ARG MYSQL_PORT
 
 FROM php:7.4.10-fpm as build
 
@@ -69,6 +70,9 @@ ENV MYSQL_HOST=172.17.0.1
 RUN chmod +x /usr/local/bin/init.sh
 RUN chmod 777 -R app/cache
 RUN chmod 777 -R app/logs
+
+ENV MYSQL_HOST=mysqlhost
+ENV MYSQL_PORT=3306
 
 EXPOSE 8030
 CMD ["/usr/local/bin/init.sh"]
