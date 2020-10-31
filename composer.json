@@ -33,7 +33,7 @@
         "mockery/mockery": "^0.9.5",
         "phpmd/phpmd": "^2.4",
         "sebastian/phpcpd": "^2.0",
-        "sensiolabs/security-checker": "^4.0",
+        "sensiolabs/security-checker": "^6.0",
         "squizlabs/php_codesniffer": "^2.7",
         "se/selenium-server-standalone": "3.4.*",
         "facebook/webdriver": "^1.5",

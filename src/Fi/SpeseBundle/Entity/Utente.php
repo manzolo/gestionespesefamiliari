@@ -286,7 +286,10 @@ class Utente
     {
         return $this->famiglia;
     }
-
+    public function getNominativo()
+    {
+        return $this->nome.' '.$this->cognome;
+    }
     public function __sleep()
     {
         return array('id', 'nome', 'cognome', 'email', 'username', 'password', 'famiglia_id');
