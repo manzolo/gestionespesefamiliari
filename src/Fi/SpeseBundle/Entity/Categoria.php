@@ -117,7 +117,10 @@ class Categoria
     {
         return $this->tipologias;
     }
-
+    public function __toString()
+    {
+        return $this->descrizione;
+    }
     public function __sleep()
     {
         return array('id', 'descrizione');
