@@ -26,6 +26,7 @@
     
     <php>
         <server name="KERNEL_CLASS" value="AppKernel" />
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak" />
     </php>
     
     <filter>
