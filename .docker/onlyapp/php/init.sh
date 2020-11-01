@@ -10,4 +10,4 @@ done
 echo "mysql started"
 
 bin/console cache:clear --env=prod
-symfony server:start --no-tls --port=8030
+symfony server:stop && symfony server:start --no-tls --port=8030
