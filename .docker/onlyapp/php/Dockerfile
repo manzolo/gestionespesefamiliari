@@ -46,33 +46,48 @@ WORKDIR /home/wwwroot/gestionespesefamiliari
 
 COPY . .
 
+ENV SYMFONY_ENV=prod
+
 RUN rm -rf .git && \
     rm -rf app/cache && \
     rm -rf app/logs && \
     rm -rf ./app/config/parameters.yml && \
     cp .docker/onlyapp/php/init.sh /usr/local/bin/init.sh && \
     cp ./app/config/parameters.yml.dist ./app/config/parameters.yml && \
-    composer install
+    composer install --no-dev --optimize-autoloader
 
-FROM php:7.4-cli-alpine
+FROM ubuntu:20.04
 
-RUN apk update && apk add libmcrypt-dev netcat-openbsd oniguruma-dev zlib-dev libpng-dev libzip-dev bash
-#RUN apt-get update -y && apt-get install -y libmcrypt-dev libonig-dev zlib1g-dev libpng-dev libzip-dev netcat
-RUN docker-php-ext-install pdo pdo_mysql mbstring gd zip
+RUN apt-get update -y && DEBIAN_FRONTEND=noninteractive apt-get install -y libmcrypt-dev libonig-dev zlib1g-dev \
+apache2 php7.4 php7.4-mysql libapache2-mod-php7.4 php-mbstring php-intl php-pdo php-mysql php-pdo-mysql php-gd php-zip php-xml curl \
+libpng-dev libzip-dev acl
 
-WORKDIR /app
-COPY --from=build /home/wwwroot/gestionespesefamiliari /app
-COPY --from=build /home/wwwroot/gestionespesefamiliari/.docker/onlyapp/php/init.sh /usr/local/bin/init.sh
+WORKDIR /var/www/html
 
-RUN curl -sS https://get.symfony.com/cli/installer | bash
-RUN mv /root/.symfony/bin/symfony /usr/local/bin/symfony
-ENV MYSQL_HOST=172.17.0.1
-RUN chmod +x /usr/local/bin/init.sh
-RUN chmod 777 -R app/cache
-RUN chmod 777 -R app/logs
+COPY --from=build /home/wwwroot/gestionespesefamiliari /var/www/html
+RUN chown -R www-data:www-data /var/www/html
+
+COPY --from=build /home/wwwroot/gestionespesefamiliari/.docker/onlyapp/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY --from=build /home/wwwroot/gestionespesefamiliari/.docker/onlyapp/apache/start-apache /usr/local/bin/
 
 ENV MYSQL_HOST=mysqlhost
 ENV MYSQL_PORT=3306
 
-EXPOSE 8030
-CMD ["/usr/local/bin/init.sh"]
+RUN chmod +x /usr/local/bin/start-apache
+
+RUN rm /var/www/html/index.html
+
+RUN apachectl configtest
+RUN a2enmod php7.4
+RUN a2enmod rewrite
+RUN a2enmod env
+
+ENV APACHE_RUN_USER www-data
+ENV APACHE_RUN_GROUP www-data
+ENV APACHE_LOG_DIR /var/log/apache2
+ENV APACHE_LOCK_DIR /var/lock/apache2
+ENV APACHE_PID_FILE /var/run/apache2.pid
+
+EXPOSE 80
+
+CMD ["/usr/local/bin/start-apache"]

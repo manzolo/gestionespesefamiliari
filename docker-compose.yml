@@ -8,11 +8,11 @@ services:
           dockerfile: .docker/onlyapp/php/Dockerfile
         container_name: gestionespesefamiliari_app
         volumes:
-            - ./app/cache:/app/app/cache
-            - ./app/logs:/app/app/logs
-            - ./app/config/parameters.yml:/app/app/config/parameters.yml
+            - ./app/cache:/var/www/html/app/cache
+            - ./app/logs:/var/www/html/app/logs
+            - ./app/config/parameters.yml:/var/www/html/app/config/parameters.yml
         environment:
           MYSQL_HOST: ${MYSQL_HOST}
           MYSQL_PORT: ${MYSQL_PORT}
         ports:
-            - ${HTTP_PORT}:8030
+            - ${HTTP_PORT}:80
