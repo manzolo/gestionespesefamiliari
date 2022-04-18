@@ -24,13 +24,6 @@ RUN wget --no-check-certificate https://phar.phpunit.de/phpunit-6.5.3.phar && \
     chmod +x phpunit.phar && \
     mv phpunit.phar /usr/local/bin/phpunit
 
-RUN	echo "deb https://deb.nodesource.com/node_6.x jessie main" >> /etc/apt/sources.list.d/nodejs.list && \
-	wget -nv -O -  https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add - && \
-	echo "deb-src https://deb.nodesource.com/node_6.x jessie main" >> /etc/apt/sources.list.d/nodejs.list && \
-    apt-get update && \
-	apt-get install -y --force-yes nodejs && \
-	rm -f /etc/apt/sources.list.d/nodejs.list
-
 RUN groupadd dev -g 999
 RUN useradd dev -g dev -d /home/dev -m
 RUN passwd -d dev
@@ -64,8 +57,7 @@ libpng-dev libzip-dev acl
 
 WORKDIR /var/www/html
 
-COPY --from=build /home/wwwroot/gestionespesefamiliari /var/www/html
-RUN chown -R www-data:www-data /var/www/html
+COPY --from=build --chown=www-data:www-data /home/wwwroot/gestionespesefamiliari /var/www/html
 
 COPY --from=build /home/wwwroot/gestionespesefamiliari/.docker/onlyapp/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY --from=build /home/wwwroot/gestionespesefamiliari/.docker/onlyapp/apache/start-apache /usr/local/bin/
