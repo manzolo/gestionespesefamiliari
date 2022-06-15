@@ -58,7 +58,8 @@ before_script:
   - if [[ "$DB" == "sqlite3" ]]; then echo "PROVISIONING WITH Sqlite3"; fi
   - if [[ "$DB" == "sqlite3" ]]; then cp -f ./tests/build/parameters.sqlite.yml $TRAVIS_BUILD_DIR/app/config/parameters.yml; fi
   - composer install
-  - php app/console cache:clear --env=test
+  - cat $TRAVIS_BUILD_DIR/app/config/parameters.yml
+  #- php app/console cache:clear --env=test
   - php app/console fifree2:install admin admin admin@admin.it --env=test
   - php app/console gestionespese:installdefaultdata --env=test
   - php app/console server:start --env=test
