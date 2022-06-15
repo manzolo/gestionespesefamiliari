@@ -7,6 +7,7 @@ parameters:
     database_path: '%kernel.root_dir%/dbtest.sqlite'
     database_user: null
     database_password: null
+    server_version: null
     mailer_transport: smtp
     mailer_host: null
     mailer_user: user@mail.com

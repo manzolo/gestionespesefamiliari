@@ -8,6 +8,7 @@ parameters:
     database_path: "%kernel.root_dir%/tmp/dbtest.sqlite"
     database_user: test
     database_password: null
+    server_version: mariadb-10.6.5
     mailer_transport: smtp
     mailer_host: null
     mailer_user: null

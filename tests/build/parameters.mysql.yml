@@ -11,6 +11,7 @@ parameters:
     mailer_host: null
     mailer_user: user@mail.com
     mailer_password: null
+    server_version: mariadb-10.6.5
     locale: it
     secret: ThisTokenIsNotSoSecretChangeIt
     temascelto: sunny

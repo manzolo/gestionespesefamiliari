@@ -7,6 +7,7 @@ parameters:
     database_path: null
     database_user: postgres
     database_password: null
+    server_version: null
     mailer_transport: smtp
     mailer_host: null
     mailer_user: user@mail.com
